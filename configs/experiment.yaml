@@ -1,0 +1,35 @@
+project: AirSense-R
+seed: 42
+protocol_status: DRAFT
+
+data:
+  dataset: uci_beijing_multisite_air_quality
+  target: PM2.5
+  forecast_horizon_hours: 1
+  lookback_hours: 24
+  timestamp_frequency: 1h
+
+features:
+  pollutants: [PM2.5, PM10, SO2, NO2, CO, O3]
+  meteorology: [TEMP, PRES, DEWP, RAIN, WSPM]
+  cyclical_time: true
+
+models:
+  - persistence
+  - xgboost
+  - mlp
+  - gru
+
+corruptions:
+  random_dropout_levels: [0.10, 0.30, 0.50]
+  whole_variable_dropout: [NO2, CO, TEMP]
+  noise_levels: [0.05, 0.10, 0.20]
+
+metrics:
+  - mae
+  - rmse
+  - r2
+  - rpd
+
+notes: >
+  Values are provisional until research/PROTOCOL.md is marked FROZEN.

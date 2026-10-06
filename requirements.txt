@@ -1,0 +1,11 @@
+numpy>=1.26,<3
+pandas>=2.2,<3
+scikit-learn>=1.5,<2
+matplotlib>=3.8,<4
+xgboost>=2.1,<4
+joblib>=1.4,<2
+PyYAML>=6,<7
+requests>=2.32,<3
+scipy>=1.13,<2
+tensorflow>=2.16,<3
+pytest>=8,<9

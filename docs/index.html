@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AirSense-R | Environmental ML Reliability Explorer</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+</head>
+<body>
+  <header>
+    <p class="eyebrow">AirSense-R</p>
+    <h1>Environmental ML Reliability Explorer</h1>
+    <p>Explore how PM2.5 forecasting models behave under clean data, degraded sensor observations, and monitoring-site shift.</p>
+  </header>
+
+  <main>
+    <section class="panel controls">
+      <label>Model<select id="model"><option>Persistence</option><option>XGBoost</option><option>MLP</option><option>GRU</option></select></label>
+      <label>Condition<select id="condition"><option>Clean</option><option>Random dropout</option><option>Whole-variable dropout</option><option>Measurement noise</option><option>Unseen site</option></select></label>
+      <label>Severity<select id="severity"><option>Baseline</option></select></label>
+      <label>Station<select id="station"><option>All / protocol default</option></select></label>
+    </section>
+
+    <section class="metrics">
+      <article><span>MAE</span><strong id="mae">—</strong></article>
+      <article><span>RMSE</span><strong id="rmse">—</strong></article>
+      <article><span>R²</span><strong id="r2">—</strong></article>
+      <article><span>RPD</span><strong id="rpd">—</strong></article>
+    </section>
+
+    <section class="panel">
+      <h2>Actual vs predicted PM2.5</h2>
+      <div id="prediction-chart" class="chart"></div>
+    </section>
+
+    <section class="panel">
+      <h2>Model comparison</h2>
+      <div id="comparison-chart" class="chart"></div>
+    </section>
+
+    <section class="panel prose">
+      <h2>Study purpose</h2>
+      <p>The v1 study tests whether models selected using clean historical data remain dependable when observations are missing/noisy or the deployment site differs from training sites. Edge deployment is future work and is not claimed in this release.</p>
+    </section>
+  </main>
+
+  <footer>AirSense-R research prototype</footer>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

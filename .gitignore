@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Notebooks
+.ipynb_checkpoints/
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Data: keep raw/processed local, retain .gitkeep/readmes
+/data/raw/*
+!/data/raw/.gitkeep
+/data/processed/*
+!/data/processed/.gitkeep
+
+# Models/artifacts
+models/
+*.pkl
+*.joblib
+*.keras
+*.h5
+*.pt
+*.pth
+*.onnx
+
+# Temporary outputs
+.tmp/
+.cache/
+
+# Environment
+.env

@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+title: "AirSense-R: Reliability-Aware Air-Quality Forecasting Under Sensor Degradation and Site Shift"
+message: "If you use this software or research artifact, please cite it."
+type: software
+authors:
+  - family-names: Oyewale
+    given-names: Daniel
+date-released: 2026-10-06
+license: MIT
+repository-code: "https://github.com/Engr-Daniel/airsense-r"
+keywords:
+  - air quality
+  - PM2.5 forecasting
+  - reliable machine learning
+  - distribution shift
+  - sensor degradation
+  - environmental intelligence
