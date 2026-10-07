@@ -16,12 +16,12 @@ Complete a scientifically defensible v1 research study, technical manuscript, re
 
 ## P1 — Literature reconnaissance and novelty stress-test
 
-- [ ] Search recent air-quality forecasting literature
-- [ ] Search sensor-missingness / degraded-observation literature
-- [ ] Search cross-site / spatial-shift generalization literature
-- [ ] Identify closest prior work
-- [ ] Freeze precise contribution statement
-- [ ] Record sources in `research/LITERATURE_NOTES.md`
+- [x] Search recent air-quality forecasting literature
+- [x] Search sensor-missingness / degraded-observation literature
+- [x] Search cross-site / spatial-shift generalization literature
+- [x] Identify closest prior work
+- [x] Freeze precise contribution statement
+- [x] Record sources in `research/LITERATURE_NOTES.md`
 
 ## P2 — Dataset acquisition and audit
 

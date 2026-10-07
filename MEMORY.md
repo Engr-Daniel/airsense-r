@@ -13,11 +13,19 @@ This file stores durable project context so future contributors/agents can resum
 
 ## Core research question
 
-How reliable are machine-learning and deep-learning air-quality forecasting models when sensor observations are incomplete/noisy or originate from an unseen monitoring site?
+Does the model selected as best under clean one-hour-ahead PM2.5 forecasting remain the best deployment choice when the same frozen candidates face sensor degradation or monitoring-site shift?
 
 ## Planned dataset
 
 UCI Beijing Multi-Site Air Quality dataset: hourly pollutant and meteorological observations across 12 stations (2013–2017). Keep raw data immutable once downloaded.
+
+## P1 novelty decision
+
+P1 literature reconnaissance (completed 2026-10-07) found strong direct prior art for missing-data forecasting, cross-location generalization, distribution shift, and ML/DL PM2.5 benchmarking. AirSense-R must **not** claim those elements individually as novel.
+
+The v1 contribution is now frozen at the P1 level as a **model-selection reliability under deployment stress** study: quantify whether the clean-data winner remains the winner under random feature dropout, complete channel loss, controlled measurement noise, and unseen-site evaluation. Explicit outcomes should include clean/stress ranks, rank changes, winner retention, and relative performance degradation. Novelty is moderate/conditional; avoid "first study" claims without a later systematic review.
+
+See `research/LITERATURE_NOTES.md` and `research/P1_COMPLETION_REPORT.md`.
 
 ## Planned reliability conditions
 
@@ -51,7 +59,7 @@ Optional: bootstrap confidence intervals and paired error comparisons
 - Prevent future information leakage in feature construction/scaling.
 - For site-shift tests, keep held-out station data out of training.
 - Record all protocol deviations.
-- Do not claim novelty until literature stress-testing is complete.
+- P1 novelty stress-test is complete; keep claims limited to the frozen P1 contribution statement and avoid absolute first-of-kind language.
 - Do not claim Edge-ML deployment in v1.
 
 ## Dashboard concept

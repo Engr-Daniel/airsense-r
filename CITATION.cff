@@ -1,10 +1,10 @@
 cff-version: 1.2.0
-title: "AirSense-R: Reliability-Aware Air-Quality Forecasting Under Sensor Degradation and Site Shift"
+title: "AirSense-R: Model-Selection Reliability for Air-Quality Forecasting Under Deployment Stress"
 message: "If you use this software or research artifact, please cite it."
 type: software
 authors:
-  - family-names: Oyewale
-    given-names: Daniel
+  - family-names: Oyewola
+    given-names: Oyewale Daniel
 date-released: 2026-10-06
 license: MIT
 repository-code: "https://github.com/Engr-Daniel/airsense-r"

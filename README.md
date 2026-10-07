@@ -1,12 +1,12 @@
 # AirSense-R
 
-**Reliability-Aware Air-Quality Forecasting Under Sensor Degradation and Site Shift**
+**Model-Selection Reliability for Air-Quality Forecasting Under Deployment Stress**
 
-AirSense-R is a research-grade machine-learning project that studies whether air-quality forecasting models remain reliable when deployment conditions differ from clean historical test data. The initial study focuses on short-horizon PM2.5 forecasting using the UCI Beijing Multi-Site Air Quality dataset, with controlled tests for sensor dropout, measurement noise, and monitoring-site shift.
+AirSense-R is a research-grade machine-learning study of **model-selection reliability under deployment stress**. Rather than asking only which model is most accurate on clean historical data, the project tests whether that clean-data winner remains the preferred model when the same frozen candidates face sensor dropout, complete channel loss, controlled measurement noise, or monitoring-site shift. The initial task is short-horizon PM2.5 forecasting using the UCI Beijing Multi-Site Air Quality dataset.
 
 ## Research question
 
-> How reliable are machine-learning and deep-learning air-quality forecasting models when sensor observations are incomplete/noisy or come from an unseen monitoring site?
+> Does the model selected as best under clean one-hour-ahead PM2.5 forecasting remain the best choice under sensor degradation and monitoring-site shift?
 
 ## Initial scope
 
@@ -15,7 +15,7 @@ AirSense-R is a research-grade machine-learning project that studies whether air
 - Data: UCI Beijing Multi-Site Air Quality dataset
 - Baselines/models: persistence, tree-based ML, MLP, compact GRU
 - Reliability tests: random dropout, whole-variable dropout, measurement noise, unseen-site evaluation
-- Metrics: MAE, RMSE, R², Relative Performance Degradation (RPD), bootstrap confidence intervals where practical
+- Metrics: MAE, RMSE, R², Relative Performance Degradation (RPD), clean-to-stress rank changes/winner retention, bootstrap confidence intervals where practical
 - Interface: static GitHub Pages reliability explorer using precomputed results
 
 ## Scientific workflow
@@ -46,6 +46,7 @@ airsense-r/
 ├── pyproject.toml
 ├── requirements.txt
 ├── configs/
+├── artifacts/models/      # fitted model artifacts (generated later)
 ├── data/
 ├── docs/                # GitHub Pages reliability explorer
 ├── experiments/
@@ -55,6 +56,12 @@ airsense-r/
 ├── results/
 ├── scripts/
 ├── src/airsense_r/
+│   ├── models/            # model definitions (persistence now; ML/DL after P3)
+│   ├── data/
+│   ├── features/
+│   ├── corruption/
+│   ├── evaluation/
+│   └── visualization/
 └── tests/
 ```
 
@@ -88,4 +95,4 @@ The static dashboard lives in `docs/`. Configure GitHub Pages to deploy from the
 
 ## Status
 
-Project scaffold created. See `TASK.md` for the two-day execution plan.
+P0 repository scaffold complete. **P1 literature reconnaissance and novelty stress-test complete (2026-10-07).** The contribution is now constrained to model-selection reliability under controlled deployment stress; see `research/LITERATURE_NOTES.md` and `research/P1_COMPLETION_REPORT.md`. Next: P2 dataset acquisition and audit.
