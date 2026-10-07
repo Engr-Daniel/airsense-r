@@ -23,8 +23,9 @@ Thumbs.db
 /data/processed/*
 !/data/processed/.gitkeep
 
-# Models/artifacts
-models/
+# Generated model artifacts only; source code under src/airsense_r/models/ remains tracked
+/artifacts/models/*
+!/artifacts/models/.gitkeep
 *.pkl
 *.joblib
 *.keras

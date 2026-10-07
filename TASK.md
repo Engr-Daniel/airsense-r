@@ -23,11 +23,29 @@ Complete a scientifically defensible v1 research study, technical manuscript, re
 - [x] Freeze precise contribution statement
 - [x] Record sources in `research/LITERATURE_NOTES.md`
 
+## P1.5 — Methodology hardening
+
+- [x] Define validation-based model selection
+- [x] Add selection regret as a central outcome
+- [x] Make paired dependence-aware uncertainty mandatory
+- [x] Strengthen site shift to repeated station holdout
+- [x] Require stream-level corruption before window construction
+- [x] Add contiguous outage sensitivity
+- [x] Require training-derived noise scales
+- [x] Require shared targets/corruption realizations across models
+- [x] Clarify preprocessing as part of evaluated pipeline
+- [x] Fix model-artifact `.gitignore` scope
+- [x] Add methodology-hardening tests
+- [x] Record completion in `research/P1_5_COMPLETION_REPORT.md`
+
 ## P2 — Dataset acquisition and audit
 
 - [ ] Download UCI Beijing Multi-Site Air Quality dataset
 - [ ] Verify file inventory and station coverage
 - [ ] Audit missingness, timestamp continuity, distributions, outliers
+- [ ] Record archive/file checksums, units, station inventory, duplicate timestamps and gap/run-length statistics
+- [ ] Quantify observed-target and usable-window coverage by station
+- [ ] Separate structural data-quality checks from development-only exploratory/modeling analysis
 - [ ] Confirm target and usable features
 - [ ] Save audit summary
 
@@ -37,11 +55,14 @@ Complete a scientifically defensible v1 research study, technical manuscript, re
 - [ ] Finalize forecasting horizon
 - [ ] Finalize lookback window
 - [ ] Finalize feature set
-- [ ] Finalize train/validation/test strategy
-- [ ] Finalize held-out site strategy
+- [ ] Finalize timestamp-based train/validation/test strategy
+- [ ] Finalize clean-validation model-selection rule
+- [ ] Finalize practical near-tie threshold
+- [ ] Finalize primary imputation policy and one sensitivity policy
+- [ ] Finalize repeated held-out-site strategy
 - [ ] Finalize corruption levels
 - [ ] Finalize model families
-- [ ] Finalize metrics/statistical analysis
+- [ ] Finalize metrics/statistical analysis including selection regret and temporal-block bootstrap
 - [ ] Set protocol status to `FROZEN` in `research/PROTOCOL.md`
 
 ## P4 — Data pipeline

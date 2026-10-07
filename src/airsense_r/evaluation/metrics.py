@@ -21,3 +21,23 @@ def relative_performance_degradation(clean_value: float, degraded_value: float) 
     if clean_value <= 0:
         raise ValueError("clean_value must be positive")
     return (degraded_value - clean_value) / clean_value * 100.0
+
+
+def selection_regret(selected_value: float, oracle_best_value: float) -> float:
+    """Extra error paid by the pre-selected model relative to the test oracle.
+
+    ``selected_value`` is the stressed-test metric for the model chosen using
+    clean validation data. ``oracle_best_value`` is the best stressed-test metric
+    among all candidate models and is descriptive only.
+    """
+    if selected_value < 0 or oracle_best_value < 0:
+        raise ValueError("metric values must be non-negative")
+    regret = selected_value - oracle_best_value
+    if regret < -1e-12:
+        raise ValueError("oracle_best_value cannot exceed selected_value")
+    return max(0.0, float(regret))
+
+
+def winner_retained(clean_selected_model: str, stressed_best_model: str) -> bool:
+    """Whether the validation-selected model remains the stressed-test winner."""
+    return clean_selected_model == stressed_best_model

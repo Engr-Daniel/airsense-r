@@ -15,21 +15,40 @@ features:
   cyclical_time: true
 
 models:
-  - persistence
-  - xgboost
-  - mlp
-  - gru
+  candidates: [persistence, xgboost, mlp, gru]
+  selection_metric: validation_mae
+  test_oracle_is_descriptive_only: true
 
 corruptions:
+  apply_to_underlying_timeline_before_windowing: true
+  preserve_future_target: true
+  primary_channels_exclude_historical_target: true
   random_dropout_levels: [0.10, 0.30, 0.50]
   whole_variable_dropout: [NO2, CO, TEMP]
+  contiguous_outage_hours: [6, 12]
   noise_levels: [0.05, 0.10, 0.20]
+  noise_scale_source: training_only
+  shared_realizations_across_models: true
+
+site_shift:
+  planned_strategy: leave_one_station_out_all_feasible_stations
+  held_out_station_excluded_from_fit_and_preprocessing: true
+  recent_held_out_station_observations_allowed_at_inference: true
+
+uncertainty:
+  method: paired_temporal_block_bootstrap
+  block_length_hours: 24
+  n_bootstrap: 1000
+  confidence: 0.95
 
 metrics:
   - mae
   - rmse
   - r2
   - rpd
+  - selection_regret
+  - winner_retention
 
 notes: >
-  Values are provisional until research/PROTOCOL.md is marked FROZEN.
+  Values remain provisional until P2 data audit is complete and research/PROTOCOL.md
+  is marked FROZEN. Test-set performance never determines the selected model.

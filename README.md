@@ -14,7 +14,7 @@ AirSense-R is a research-grade machine-learning study of **model-selection relia
 - Lookback: 24 hours (default; frozen in protocol before final experiments)
 - Data: UCI Beijing Multi-Site Air Quality dataset
 - Baselines/models: persistence, tree-based ML, MLP, compact GRU
-- Reliability tests: random dropout, whole-variable dropout, measurement noise, unseen-site evaluation
+- Reliability tests: random dropout, whole-variable dropout, contiguous outages, measurement noise, repeated unseen-site evaluation
 - Metrics: MAE, RMSE, R², Relative Performance Degradation (RPD), clean-to-stress rank changes/winner retention, bootstrap confidence intervals where practical
 - Interface: static GitHub Pages reliability explorer using precomputed results
 
@@ -23,15 +23,16 @@ AirSense-R is a research-grade machine-learning study of **model-selection relia
 The project follows a pre-specified workflow. Before final model evaluation, freeze the research questions, hypotheses, split logic, model families, corruption levels, metrics, and random seeds in `research/PROTOCOL.md`.
 
 1. Literature reconnaissance
-2. Dataset acquisition and audit
-3. Protocol freeze
-4. Preprocessing and feature construction
-5. Baseline + clean benchmark
-6. Sensor-degradation tests
-7. Site-shift tests
-8. Statistical/failure analysis
-9. Paper figures and manuscript
-10. GitHub Pages explorer + reproducibility release
+2. P1.5 methodology hardening
+3. Dataset acquisition and audit
+4. Protocol freeze
+5. Preprocessing and feature construction
+6. Baseline + clean benchmark
+7. Sensor-degradation tests
+8. Repeated site-shift tests
+9. Statistical/failure analysis
+10. Paper figures and manuscript
+11. GitHub Pages explorer + reproducibility release
 
 ## Repository map
 
@@ -89,7 +90,7 @@ The static dashboard lives in `docs/`. Configure GitHub Pages to deploy from the
 
 - Do not tune on the final test set.
 - Do not redefine hypotheses after viewing final results.
-- Distinguish clean IID performance from robustness/generalization performance.
+- Distinguish clean IID performance from robustness/generalization performance and report selection regret when the validation-selected model is no longer test-optimal.
 - Treat Edge-ML as future work unless actual embedded deployment is completed.
 - Record deviations from the frozen protocol in `research/PROTOCOL_DEVIATIONS.md`.
 

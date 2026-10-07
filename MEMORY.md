@@ -69,3 +69,16 @@ Static GitHub Pages "Environmental ML Reliability Explorer" with precomputed res
 ## Two-day constraint
 
 The project is intentionally narrow. Prioritize complete, reproducible evidence over additional models/features. Anomaly detection is out of v1 scope unless the core study is fully complete.
+
+## P1.5 methodology decisions
+
+- The deployable model is selected **only from clean validation MAE**; final test outcomes cannot choose the model.
+- A test-best model is a retrospective oracle reference, not an implementable selection rule.
+- **Selection regret** is a central outcome: stressed MAE of the validation-selected model minus the best stressed MAE among candidates.
+- Ranking changes must be interpreted with paired uncertainty and a predefined practical near-tie rule.
+- Observation corruptions act on the chronological sensor stream **before** overlapping windows are built; future targets remain uncorrupted.
+- Noise severity uses **training-derived frozen scales**, never test statistics.
+- Prefer repeated leave-one-station-out evaluation across all feasible stations; the held-out station is excluded from fitting/preprocessing/selection. Recent local observations may still be used as inference inputs.
+- Avoid calling cross-site error a causal "site-shift penalty" unless a matched same-station comparator is implemented.
+- Preprocessing/imputation is part of the evaluated forecasting pipeline.
+- Uncertainty for central model comparisons is mandatory, with paired temporal-block bootstrap planned.
