@@ -1,120 +1,77 @@
-# P2 Completion Report — Dataset Acquisition and Structural Audit
+# P2 Dataset Acquisition and Audit — Implementation & Verification Report
 
-**Checkpoint:** P2
-
-**Status:** COMPLETE AS A REMOTE-ONLY REPRODUCIBLE DATA CHECKPOINT
-
-**Date:** 2026-10-08
+**Checkpoint:** P2  
+**Date:** 2026-10-08  
+**Status:** **IMPLEMENTATION COMPLETE; STRUCTURAL PREFLIGHT COMPLETE; AUTHORITATIVE UCI BYTE VERIFICATION PENDING**
 
 ## Objective
 
-Establish the dataset identity, schema, station coverage, remote acquisition policy and reproducible structural-audit procedure needed to make P3 decisions without permanently storing the raw dataset on the user's machine.
+Establish a scientifically defensible, storage-light dataset acquisition and structural-audit workflow for UCI dataset 501 before P3 freezes any modeling choices.
 
-## What was completed
+## Completed implementation
 
-### 1. Authoritative source fixed
+- Remote-only acquisition from the authoritative UCI URL using OS temporary storage.
+- Runtime SHA-256 and byte-count receipt.
+- First-successful-receipt baseline rule: later archive hashes/inventories must match.
+- Recursive archive extraction with no retained raw dataset.
+- Exact validation of the 12 expected UCI station identities.
+- Original-order timestamp diagnostics before sorting.
+- Sorted-grid duplicate/gap diagnostics.
+- Missingness counts and longest missing runs.
+- Missing-run rows are no longer blindly labelled as hours across irregular time gaps.
+- Provisional 24-hour-lookback / 1-hour-ahead usable-window counts require **every internal timestamp step** to equal one hour.
+- Full-data work remains restricted to structural audit; modeling-relevant EDA is deferred until P3 defines the development boundary.
 
-AirSense-R uses UCI dataset 501, Beijing Multi-Site Air Quality, DOI `10.24432/C5RK5G`, licensed CC BY 4.0.
+## Structural preflight executed
 
-The authoritative UCI description reports:
+Because this execution environment could not retrieve the full authoritative UCI archive directly, a structural preflight was run against a public UCI-derived mirror pinned to:
 
-- 420,768 hourly records;
-- 12 nationally controlled air-quality monitoring stations;
-- 2013-03-01 through 2017-02-28;
-- six pollutant variables and six meteorological variables;
-- missing observations encoded as `NA`.
+`Kjyesta30/Beijing-Multi-Site-Air-Quality@b11d6aa82cc5285e83cb79adb0f4971a54cba9cb`
 
-### 2. Permanent local dataset storage removed from the default workflow
+The preflight observed:
 
-The previous downloader retained and re-extracted raw files. It has been replaced with a temporary runtime acquisition layer.
+- **420,768 rows total**;
+- **12/12 expected stations**;
+- **35,064 rows per station**;
+- coverage from **2013-03-01 00:00** through **2017-02-28 23:00** for every station;
+- **0 duplicate timestamps**;
+- **0 forward gaps**;
+- **0 original-order backward steps**;
+- PM2.5 missingness ranging from about **1.09% (Wanliu)** to **2.72% (Huairou)**;
+- substantial long missing runs for some pollutant channels, including CO and NO2, supporting the decision to treat missingness structure explicitly in P3.
 
-The new workflow:
+These values reproduce the official UCI structural identity (420,768 instances, 12 nationally controlled stations, March 2013–February 2017), but the mirror is **not** used as authoritative byte evidence.
 
-- streams the UCI archive into OS temporary storage;
-- computes SHA-256 and byte count;
-- recursively extracts the archive;
-- audits station files;
-- saves only compact evidence artifacts;
-- automatically deletes raw dataset bytes after the context exits.
+## Authoritative verification mechanism
 
-This directly follows the user's storage constraint.
+`.github/workflows/p2-audit.yml` now performs the authoritative audit on GitHub Actions with **Python 3.11** whenever the updated repository is pushed to `main`:
 
-### 3. Acquisition evidence specified
+1. install the package and audit dependencies;
+2. temporarily download the authoritative UCI archive;
+3. compute SHA-256;
+4. validate the expected station inventory;
+5. run the hardened structural audit;
+6. delete raw temporary data automatically;
+7. commit only the compact `audit/` evidence files.
 
-Each network-enabled run records:
+The workflow ignores audit-only pushes, preventing a commit loop.
 
-- canonical source URL;
-- dataset page;
-- DOI;
-- exact SHA-256 of the bytes received in that run;
-- archive byte count;
-- station CSV file inventory.
+## Python 3.11 verification finding
 
-The archive checksum is intentionally **runtime-derived rather than hard-coded** because UCI does not expose a canonical checksum on the dataset page and the raw archive is not committed to this repository.
+The live repository's latest Actions run before this hardening used Python **3.11.16** but failed during test collection because `requests` was not installed by the CI command. The package itself installed successfully. This update fixes the CI install command to include `requests`.
 
-### 4. Structural audit upgraded
+A previous P1.5 Action on the same Python 3.11 workflow passed. The updated local suite passes under the available Python 3.13 environment; the corrected Python 3.11 run should be treated as the final supported-environment verification after push.
 
-The previous script only printed rows/columns/missing cells. The new audit records, by station:
+## Required authoritative artifacts
 
-- row count;
-- start/end timestamp;
-- duplicate timestamps;
-- non-hourly timestamp steps;
-- forward gaps;
-- observed/missing PM2.5 targets;
-- missing counts and percentages by variable;
-- maximum contiguous missing run per variable;
-- diagnostic 24-hour-history/1-hour-ahead usable-window counts;
-- station/file inventory.
+P2 is not closed until the Action creates and these are inspected:
 
-Aggregate missingness tables are also written.
+- `audit/acquisition_receipt.json`
+- `audit/structural_audit.json`
+- `audit/station_summary.csv`
+- `audit/missingness_by_station_variable.csv`
+- `audit/aggregate_missingness.csv`
 
-### 5. Test-set protection rule established
+## P3 rule
 
-P2 separates **structural checks** from **development-only exploratory analysis**.
-
-Full-data structural metadata may be inspected across the dataset, but distribution-driven decisions, autocorrelation studies, persistence analysis, feature relationships and other model-informing exploration must wait until P3 defines the development/test boundary.
-
-This prevents the audit itself from becoming indirect final-test tuning.
-
-### 6. Published cross-checks recorded
-
-Independent studies using the same UCI files confirm the expected 35,064 timestamps per station and show that pollutant missingness is non-trivial while meteorological missingness is generally smaller. These values are used only as consistency checks; our runtime UCI audit remains authoritative.
-
-### 7. P3-relevant dataset decisions
-
-P2 supports the following provisional decisions:
-
-- PM2.5 remains the primary one-hour-ahead target.
-- All 12 stations remain candidates for repeated held-out-station evaluation.
-- Final temporal partitions must use explicit timestamps.
-- All learned preprocessing and noise scales must be training-derived.
-- The 24-hour lookback remains provisional until runtime usable-window coverage is inspected.
-- Missing-value handling must be frozen in P3, not improvised during model evaluation.
-
-## Important execution note
-
-This repository was prepared under an environment that cannot persistently fetch the UCI archive through normal Python networking. Therefore the code does **not fabricate a SHA-256 or pretend that byte-level audit outputs were produced here**. Instead, P2 makes the audit reproducible and self-verifying at the point of execution:
-
-```bash
-python scripts/run_data_audit.py
-```
-
-On any network-enabled Python 3.11+ environment, that one command downloads the authoritative archive temporarily, performs the full audit, writes the compact reports and removes raw data automatically.
-
-The scientific protocol remains `DRAFT`. P3 must inspect those generated audit artifacts before it freezes timestamp cutoffs, near-tie thresholds, imputation policy, bootstrap block length or final station eligibility.
-
-## P2 deliverables
-
-- `research/DATASET.md` — completed dataset card and audit policy.
-- `research/P2_COMPLETION_REPORT.md` — this checkpoint record.
-- `src/airsense_r/data/remote.py` — temporary remote acquisition + runtime SHA-256.
-- `src/airsense_r/data/audit.py` — structural audit engine.
-- `scripts/download_data.py` — remote acquisition verifier (no persistent dataset).
-- `scripts/run_data_audit.py` — complete remote structural-audit entry point.
-- `audit/README.md` — generated artifact contract.
-- expanded tests for remote extraction and structural audit behavior.
-
-## Exit criteria
-
-P2 is considered complete as a **reproducible acquisition/audit checkpoint**. P3 cannot be frozen until the generated runtime audit files have been inspected. This distinction preserves scientific honesty while respecting the remote-only storage requirement.
+P3 **may be drafted now**, using only the structural facts already established, but `research/PROTOCOL.md` must remain **DRAFT** until the authoritative UCI artifacts above are committed and reviewed.

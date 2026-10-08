@@ -76,6 +76,7 @@ python -m venv .venv
 source .venv/bin/activate
 
 pip install -r requirements.txt
+pip install -e .
 python scripts/download_data.py   # verify/hash remote UCI archive; retain no raw data
 python scripts/run_data_audit.py  # full structural audit via temporary storage
 ```
@@ -96,4 +97,4 @@ The static dashboard lives in `docs/`. Configure GitHub Pages to deploy from the
 
 ## Status
 
-P0, P1 and P1.5 are complete. **P2 remote acquisition and structural-audit checkpoint completed 2026-10-08.** The raw dataset is not retained; a network-enabled `python scripts/run_data_audit.py` generates the exact runtime checksum and compact station-level audit evidence that P3 must inspect before protocol freeze. Next: P3 protocol freeze.
+P0, P1 and P1.5 are complete. **P2 implementation and structural preflight are complete, but authoritative UCI byte verification is still pending.** The next push to `main` runs `.github/workflows/p2-audit.yml` on Python 3.11, temporarily acquires the UCI archive, records its SHA-256 and compact audit evidence, and removes raw bytes. P3 may be drafted, but the protocol must remain `DRAFT` until those authoritative outputs are inspected.

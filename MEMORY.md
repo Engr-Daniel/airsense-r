@@ -86,9 +86,19 @@ The project is intentionally narrow. Prioritize complete, reproducible evidence 
 
 ## P2 dataset decisions
 
-- P2 dataset checkpoint completed 2026-10-08 using UCI dataset 501 (DOI `10.24432/C5RK5G`).
+- P2 implementation + structural preflight completed 2026-10-08 for UCI dataset 501 (DOI `10.24432/C5RK5G`); authoritative UCI archive byte verification remains pending until the GitHub Action commits its receipt.
 - Official structure: 420,768 hourly records, 12 stations, 2013-03-01 through 2017-02-28, six pollutants plus meteorological variables, with missing values present.
 - Raw data should **not** be permanently downloaded by the default workflow. `scripts/run_data_audit.py` fetches into temporary storage, writes compact `audit/` artifacts, and removes the raw archive automatically.
 - The exact archive SHA-256 is computed at runtime rather than hard-coded.
 - Full-data P2 work is restricted to structural checks. Distribution/autocorrelation/feature analyses that could influence modeling are development-only after P3 defines temporal boundaries.
 - P3 must inspect the generated runtime audit reports before protocol freeze.
+
+## P2 verification hardening
+
+- The first successful authoritative UCI acquisition receipt becomes the frozen SHA-256 baseline; later acquisitions must match it.
+- Station inventory must equal the 12 named UCI stations exactly, with no missing, unexpected, or repeated identities.
+- Original timestamp order is diagnosed before sorting; sorting must not erase backward/zero-step evidence.
+- Forecast-window coverage requires every adjacent step from history through target to be exactly one hour.
+- Missing-run rows and consecutive missing hours are reported separately/consistently.
+- A pinned public UCI-derived mirror was used only for structural preflight, never as a substitute for authoritative UCI byte identity.
+- Latest pre-P2 GitHub Actions run failed because `requests` was omitted from the CI install command; the workflow is corrected in this update.

@@ -59,7 +59,7 @@ def _download_to_path(url: str, destination: Path, timeout: int = 120) -> tuple[
 
 
 def _extract_recursive(zip_path: Path, destination: Path) -> None:
-    """Extract an archive and any nested ZIP files without using a persistent cache."""
+    """Extract an archive and any nested ZIP files without a persistent cache."""
     with zipfile.ZipFile(zip_path) as archive:
         archive.extractall(destination)
     nested = list(destination.rglob("*.zip"))
@@ -68,6 +68,29 @@ def _extract_recursive(zip_path: Path, destination: Path) -> None:
         child_dir.mkdir(parents=True, exist_ok=True)
         with zipfile.ZipFile(child) as archive:
             archive.extractall(child_dir)
+
+
+def load_receipt(path: Path) -> AcquisitionReceipt:
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    return AcquisitionReceipt(
+        source_url=str(payload["source_url"]),
+        dataset_page=str(payload["dataset_page"]),
+        doi=str(payload["doi"]),
+        sha256=str(payload["sha256"]),
+        bytes_downloaded=int(payload["bytes_downloaded"]),
+        csv_files=tuple(str(x) for x in payload["csv_files"]),
+    )
+
+
+def assert_same_acquisition(current: AcquisitionReceipt, baseline: AcquisitionReceipt) -> None:
+    """Fail if a later acquisition does not match the frozen first successful receipt."""
+    if current.sha256 != baseline.sha256:
+        raise RuntimeError(
+            "UCI archive SHA-256 changed since the baseline acquisition: "
+            f"baseline={baseline.sha256}, current={current.sha256}"
+        )
+    if current.csv_files != baseline.csv_files:
+        raise RuntimeError("UCI station-file inventory changed since baseline acquisition")
 
 
 @contextmanager

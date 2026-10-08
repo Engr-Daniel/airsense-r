@@ -1,0 +1,35 @@
+{
+  "status": "independent_structural_preflight_only",
+  "authoritative_dataset": {
+    "provider": "UCI Machine Learning Repository",
+    "dataset_id": 501,
+    "doi": "10.24432/C5RK5G",
+    "official_instances": 420768,
+    "official_station_count": 12,
+    "official_period": "2013-03-01 through 2017-02-28"
+  },
+  "transport_used_for_preflight": {
+    "repository": "Kjyesta30/Beijing-Multi-Site-Air-Quality",
+    "commit": "b11d6aa82cc5285e83cb79adb0f4971a54cba9cb",
+    "note": "Public UCI-derived mirror used only because the authoritative archive exceeded the retrieval limit of the current execution environment. This is not a substitute for the authoritative UCI archive SHA-256."
+  },
+  "observed": {
+    "rows_total": 420768,
+    "station_count": 12,
+    "rows_per_station": 35064,
+    "start": "2013-03-01T00:00:00Z",
+    "end": "2017-02-28T23:00:00Z",
+    "duplicate_timestamps_total": 0,
+    "forward_gaps_total": 0,
+    "original_backward_steps_total": 0,
+    "station_labels_unique_and_expected": true
+  },
+  "authoritative_byte_verification": "PENDING_GITHUB_ACTION",
+  "required_next_evidence": [
+    "audit/acquisition_receipt.json",
+    "audit/structural_audit.json",
+    "audit/station_summary.csv",
+    "audit/missingness_by_station_variable.csv",
+    "audit/aggregate_missingness.csv"
+  ]
+}

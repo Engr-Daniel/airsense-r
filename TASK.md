@@ -41,13 +41,16 @@ Complete a scientifically defensible v1 research study, technical manuscript, re
 ## P2 — Dataset acquisition and audit
 
 - [x] Establish remote-only temporary acquisition from authoritative UCI URL
-- [x] Verify authoritative file/station metadata and implement runtime inventory verification
-- [x] Implement reproducible structural audit for missingness, timestamp continuity, gaps and suspicious values (distribution-driven EDA deferred to development data)
-- [x] Record source/units/station inventory and implement runtime SHA-256, duplicate, gap and missing-run evidence outputs
-- [x] Implement station-level observed-target and provisional usable-window coverage reporting
+- [x] Implement strict validation of all 12 unique expected station identities
+- [x] Harden timestamp diagnostics to preserve original-order errors before sorting
+- [x] Require every internal step in a usable forecast window to be exactly one hour
+- [x] Distinguish missing-run rows from verified consecutive missing hours
+- [x] Implement reproducible structural audit for missingness, continuity, gaps and provisional usable-window coverage
 - [x] Separate full-data structural checks from development-only exploratory/modeling analysis
-- [x] Confirm PM2.5 target and raw pollutant/meteorological feature inventory
-- [x] Complete dataset card + P2 report and define compact `audit/` output contract
+- [x] Complete independent 12-station structural preflight against a pinned UCI-derived mirror
+- [x] Configure Python 3.11 GitHub Actions authoritative audit and checksum-baseline workflow
+- [ ] Authoritative UCI Action has produced `acquisition_receipt.json` and structural audit outputs
+- [ ] Inspect authoritative outputs and mark P2 dataset verification closed
 
 ## P3 — Freeze protocol BEFORE final experiments
 

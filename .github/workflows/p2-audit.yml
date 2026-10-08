@@ -1,0 +1,38 @@
+name: p2-authoritative-audit
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - "audit/**"
+      - "docs/**"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  authoritative-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install audit dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e . pandas numpy requests
+      - name: Run authoritative UCI structural audit
+        run: python scripts/run_data_audit.py
+      - name: Commit compact audit evidence
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add audit/acquisition_receipt.json audit/structural_audit.json audit/station_summary.csv audit/missingness_by_station_variable.csv audit/aggregate_missingness.csv
+          if git diff --cached --quiet; then
+            echo "No audit changes to commit."
+          else
+            git commit -m "Record authoritative P2 UCI audit evidence"
+            git push
+          fi

@@ -130,3 +130,7 @@ P2 supports the following decisions for protocol freezing:
 - estimate all imputation/scaling/noise parameters from training data only;
 - define the primary imputation policy only after development boundaries are fixed;
 - keep a 24-hour lookback and 1-hour horizon as provisional defaults until the runtime audit confirms sufficient station-level usable-window coverage.
+
+## P2 verification state
+
+The structural audit implementation is complete. A pinned public UCI-derived mirror reproduced the official 420,768-row / 12-station structure with continuous hourly timestamps and no duplicates, but it is not authoritative byte evidence. The repository therefore runs the authoritative UCI archive audit on GitHub Actions/Python 3.11 after push. `PROTOCOL.md` must remain `DRAFT` until the resulting acquisition receipt and audit tables are inspected.
