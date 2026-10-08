@@ -1,0 +1,1660 @@
+{
+  "dataset": "UCI Beijing Multi-Site Air Quality",
+  "station_count": 12,
+  "rows_total": 420768,
+  "observed_stations": [
+    "Aotizhongxin",
+    "Changping",
+    "Dingling",
+    "Dongsi",
+    "Guanyuan",
+    "Gucheng",
+    "Huairou",
+    "Nongzhanguan",
+    "Shunyi",
+    "Tiantan",
+    "Wanliu",
+    "Wanshouxigong"
+  ],
+  "expected_stations": [
+    "Aotizhongxin",
+    "Changping",
+    "Dingling",
+    "Dongsi",
+    "Guanyuan",
+    "Gucheng",
+    "Huairou",
+    "Nongzhanguan",
+    "Shunyi",
+    "Tiantan",
+    "Wanliu",
+    "Wanshouxigong"
+  ],
+  "station_inventory_valid": true,
+  "stations": [
+    {
+      "file": "PRSA_Data_Aotizhongxin_20130301-20170228.csv",
+      "station": "Aotizhongxin",
+      "rows": 35064,
+      "columns": 18,
+      "start": "2013-03-01T00:00:00",
+      "end": "2017-02-28T23:00:00",
+      "target_observed": 34139,
+      "target_missing": 925,
+      "target_missing_pct": 2.63803331051791,
+      "pm25_complete_history_windows": 30062,
+      "all_numeric_complete_history_windows": 17930,
+      "extra_columns": [],
+      "original_non_hourly_steps": 0,
+      "original_backward_steps": 0,
+      "original_zero_steps": 0,
+      "duplicate_timestamps": 0,
+      "sorted_non_hourly_steps": 0,
+      "forward_gaps_gt_1h": 0
+    },
+    {
+      "file": "PRSA_Data_Changping_20130301-20170228.csv",
+      "station": "Changping",
+      "rows": 35064,
+      "columns": 18,
+      "start": "2013-03-01T00:00:00",
+      "end": "2017-02-28T23:00:00",
+      "target_observed": 34290,
+      "target_missing": 774,
+      "target_missing_pct": 2.2073921971252566,
+      "pm25_complete_history_windows": 30242,
+      "all_numeric_complete_history_windows": 23987,
+      "extra_columns": [],
+      "original_non_hourly_steps": 0,
+      "original_backward_steps": 0,
+      "original_zero_steps": 0,
+      "duplicate_timestamps": 0,
+      "sorted_non_hourly_steps": 0,
+      "forward_gaps_gt_1h": 0
+    },
+    {
+      "file": "PRSA_Data_Dingling_20130301-20170228.csv",
+      "station": "Dingling",
+      "rows": 35064,
+      "columns": 18,
+      "start": "2013-03-01T00:00:00",
+      "end": "2017-02-28T23:00:00",
+      "target_observed": 34285,
+      "target_missing": 779,
+      "target_missing_pct": 2.22165183664157,
+      "pm25_complete_history_windows": 30370,
+      "all_numeric_complete_history_windows": 19806,
+      "extra_columns": [],
+      "original_non_hourly_steps": 0,
+      "original_backward_steps": 0,
+      "original_zero_steps": 0,
+      "duplicate_timestamps": 0,
+      "sorted_non_hourly_steps": 0,
+      "forward_gaps_gt_1h": 0
+    },
+    {
+      "file": "PRSA_Data_Dongsi_20130301-20170228.csv",
+      "station": "Dongsi",
+      "rows": 35064,
+      "columns": 18,
+      "start": "2013-03-01T00:00:00",
+      "end": "2017-02-28T23:00:00",
+      "target_observed": 34314,
+      "target_missing": 750,
+      "target_missing_pct": 2.138945927446954,
+      "pm25_complete_history_windows": 30114,
+      "all_numeric_complete_history_windows": 22790,
+      "extra_columns": [],
+      "original_non_hourly_steps": 0,
+      "original_backward_steps": 0,
+      "original_zero_steps": 0,
+      "duplicate_timestamps": 0,
+      "sorted_non_hourly_steps": 0,
+      "forward_gaps_gt_1h": 0
+    },
+    {
+      "file": "PRSA_Data_Guanyuan_20130301-20170228.csv",
+      "station": "Guanyuan",
+      "rows": 35064,
+      "columns": 18,
+      "start": "2013-03-01T00:00:00",
+      "end": "2017-02-28T23:00:00",
+      "target_observed": 34448,
+      "target_missing": 616,
+      "target_missing_pct": 1.756787588409765,
+      "pm25_complete_history_windows": 30527,
+      "all_numeric_complete_history_windows": 23890,
+      "extra_columns": [],
+      "original_non_hourly_steps": 0,
+      "original_backward_steps": 0,
+      "original_zero_steps": 0,
+      "duplicate_timestamps": 0,
+      "sorted_non_hourly_steps": 0,
+      "forward_gaps_gt_1h": 0
+    },
+    {
+      "file": "PRSA_Data_Gucheng_20130301-20170228.csv",
+      "station": "Gucheng",
+      "rows": 35064,
+      "columns": 18,
+      "start": "2013-03-01T00:00:00",
+      "end": "2017-02-28T23:00:00",
+      "target_observed": 34418,
+      "target_missing": 646,
+      "target_missing_pct": 1.842345425507643,
+      "pm25_complete_history_windows": 30151,
+      "all_numeric_complete_history_windows": 23813,
+      "extra_columns": [],
+      "original_non_hourly_steps": 0,
+      "original_backward_steps": 0,
+      "original_zero_steps": 0,
+      "duplicate_timestamps": 0,
+      "sorted_non_hourly_steps": 0,
+      "forward_gaps_gt_1h": 0
+    },
+    {
+      "file": "PRSA_Data_Huairou_20130301-20170228.csv",
+      "station": "Huairou",
+      "rows": 35064,
+      "columns": 18,
+      "start": "2013-03-01T00:00:00",
+      "end": "2017-02-28T23:00:00",
+      "target_observed": 34111,
+      "target_missing": 953,
+      "target_missing_pct": 2.717887291809263,
+      "pm25_complete_history_windows": 29215,
+      "all_numeric_complete_history_windows": 16761,
+      "extra_columns": [],
+      "original_non_hourly_steps": 0,
+      "original_backward_steps": 0,
+      "original_zero_steps": 0,
+      "duplicate_timestamps": 0,
+      "sorted_non_hourly_steps": 0,
+      "forward_gaps_gt_1h": 0
+    },
+    {
+      "file": "PRSA_Data_Nongzhanguan_20130301-20170228.csv",
+      "station": "Nongzhanguan",
+      "rows": 35064,
+      "columns": 18,
+      "start": "2013-03-01T00:00:00",
+      "end": "2017-02-28T23:00:00",
+      "target_observed": 34436,
+      "target_missing": 628,
+      "target_missing_pct": 1.791010723248916,
+      "pm25_complete_history_windows": 30026,
+      "all_numeric_complete_history_windows": 24498,
+      "extra_columns": [],
+      "original_non_hourly_steps": 0,
+      "original_backward_steps": 0,
+      "original_zero_steps": 0,
+      "duplicate_timestamps": 0,
+      "sorted_non_hourly_steps": 0,
+      "forward_gaps_gt_1h": 0
+    },
+    {
+      "file": "PRSA_Data_Shunyi_20130301-20170228.csv",
+      "station": "Shunyi",
+      "rows": 35064,
+      "columns": 18,
+      "start": "2013-03-01T00:00:00",
+      "end": "2017-02-28T23:00:00",
+      "target_observed": 34151,
+      "target_missing": 913,
+      "target_missing_pct": 2.603810175678759,
+      "pm25_complete_history_windows": 28900,
+      "all_numeric_complete_history_windows": 14337,
+      "extra_columns": [],
+      "original_non_hourly_steps": 0,
+      "original_backward_steps": 0,
+      "original_zero_steps": 0,
+      "duplicate_timestamps": 0,
+      "sorted_non_hourly_steps": 0,
+      "forward_gaps_gt_1h": 0
+    },
+    {
+      "file": "PRSA_Data_Tiantan_20130301-20170228.csv",
+      "station": "Tiantan",
+      "rows": 35064,
+      "columns": 18,
+      "start": "2013-03-01T00:00:00",
+      "end": "2017-02-28T23:00:00",
+      "target_observed": 34387,
+      "target_missing": 677,
+      "target_missing_pct": 1.930755190508784,
+      "pm25_complete_history_windows": 30024,
+      "all_numeric_complete_history_windows": 23910,
+      "extra_columns": [],
+      "original_non_hourly_steps": 0,
+      "original_backward_steps": 0,
+      "original_zero_steps": 0,
+      "duplicate_timestamps": 0,
+      "sorted_non_hourly_steps": 0,
+      "forward_gaps_gt_1h": 0
+    },
+    {
+      "file": "PRSA_Data_Wanliu_20130301-20170228.csv",
+      "station": "Wanliu",
+      "rows": 35064,
+      "columns": 18,
+      "start": "2013-03-01T00:00:00",
+      "end": "2017-02-28T23:00:00",
+      "target_observed": 34682,
+      "target_missing": 382,
+      "target_missing_pct": 1.0894364590463153,
+      "pm25_complete_history_windows": 31172,
+      "all_numeric_complete_history_windows": 14358,
+      "extra_columns": [],
+      "original_non_hourly_steps": 0,
+      "original_backward_steps": 0,
+      "original_zero_steps": 0,
+      "duplicate_timestamps": 0,
+      "sorted_non_hourly_steps": 0,
+      "forward_gaps_gt_1h": 0
+    },
+    {
+      "file": "PRSA_Data_Wanshouxigong_20130301-20170228.csv",
+      "station": "Wanshouxigong",
+      "rows": 35064,
+      "columns": 18,
+      "start": "2013-03-01T00:00:00",
+      "end": "2017-02-28T23:00:00",
+      "target_observed": 34368,
+      "target_missing": 696,
+      "target_missing_pct": 1.9849418206707734,
+      "pm25_complete_history_windows": 30180,
+      "all_numeric_complete_history_windows": 24133,
+      "extra_columns": [],
+      "original_non_hourly_steps": 0,
+      "original_backward_steps": 0,
+      "original_zero_steps": 0,
+      "duplicate_timestamps": 0,
+      "sorted_non_hourly_steps": 0,
+      "forward_gaps_gt_1h": 0
+    }
+  ],
+  "missingness_by_station_variable": [
+    {
+      "station": "Aotizhongxin",
+      "variable": "CO",
+      "missing_count": 1776,
+      "missing_pct": 5.065023956194388,
+      "max_missing_run_rows": 343,
+      "max_missing_run_hours": 343,
+      "negative_count": 0
+    },
+    {
+      "station": "Aotizhongxin",
+      "variable": "DEWP",
+      "missing_count": 20,
+      "missing_pct": 0.05703855806525211,
+      "max_missing_run_rows": 6,
+      "max_missing_run_hours": 6,
+      "negative_count": 14885
+    },
+    {
+      "station": "Aotizhongxin",
+      "variable": "NO2",
+      "missing_count": 1023,
+      "missing_pct": 2.9175222450376457,
+      "max_missing_run_rows": 343,
+      "max_missing_run_hours": 343,
+      "negative_count": 0
+    },
+    {
+      "station": "Aotizhongxin",
+      "variable": "O3",
+      "missing_count": 1719,
+      "missing_pct": 4.902464065708418,
+      "max_missing_run_rows": 343,
+      "max_missing_run_hours": 343,
+      "negative_count": 0
+    },
+    {
+      "station": "Aotizhongxin",
+      "variable": "PM10",
+      "missing_count": 718,
+      "missing_pct": 2.0476842345425506,
+      "max_missing_run_rows": 343,
+      "max_missing_run_hours": 343,
+      "negative_count": 0
+    },
+    {
+      "station": "Aotizhongxin",
+      "variable": "PM2.5",
+      "missing_count": 925,
+      "missing_pct": 2.63803331051791,
+      "max_missing_run_rows": 343,
+      "max_missing_run_hours": 343,
+      "negative_count": 0
+    },
+    {
+      "station": "Aotizhongxin",
+      "variable": "PRES",
+      "missing_count": 20,
+      "missing_pct": 0.05703855806525211,
+      "max_missing_run_rows": 6,
+      "max_missing_run_hours": 6,
+      "negative_count": 0
+    },
+    {
+      "station": "Aotizhongxin",
+      "variable": "RAIN",
+      "missing_count": 20,
+      "missing_pct": 0.05703855806525211,
+      "max_missing_run_rows": 6,
+      "max_missing_run_hours": 6,
+      "negative_count": 0
+    },
+    {
+      "station": "Aotizhongxin",
+      "variable": "SO2",
+      "missing_count": 935,
+      "missing_pct": 2.666552589550536,
+      "max_missing_run_rows": 343,
+      "max_missing_run_hours": 343,
+      "negative_count": 0
+    },
+    {
+      "station": "Aotizhongxin",
+      "variable": "TEMP",
+      "missing_count": 20,
+      "missing_pct": 0.05703855806525211,
+      "max_missing_run_rows": 6,
+      "max_missing_run_hours": 6,
+      "negative_count": 5308
+    },
+    {
+      "station": "Aotizhongxin",
+      "variable": "WSPM",
+      "missing_count": 14,
+      "missing_pct": 0.03992699064567648,
+      "max_missing_run_rows": 5,
+      "max_missing_run_hours": 5,
+      "negative_count": 0
+    },
+    {
+      "station": "Aotizhongxin",
+      "variable": "wd",
+      "missing_count": 81,
+      "missing_pct": 0.23100616016427106,
+      "max_missing_run_rows": 5,
+      "max_missing_run_hours": 5,
+      "negative_count": 0
+    },
+    {
+      "station": "Changping",
+      "variable": "CO",
+      "missing_count": 1521,
+      "missing_pct": 4.3377823408624225,
+      "max_missing_run_rows": 175,
+      "max_missing_run_hours": 175,
+      "negative_count": 0
+    },
+    {
+      "station": "Changping",
+      "variable": "DEWP",
+      "missing_count": 53,
+      "missing_pct": 0.1511521788729181,
+      "max_missing_run_rows": 6,
+      "max_missing_run_hours": 6,
+      "negative_count": 16287
+    },
+    {
+      "station": "Changping",
+      "variable": "NO2",
+      "missing_count": 667,
+      "missing_pct": 1.9022359114761578,
+      "max_missing_run_rows": 64,
+      "max_missing_run_hours": 64,
+      "negative_count": 0
+    },
+    {
+      "station": "Changping",
+      "variable": "O3",
+      "missing_count": 604,
+      "missing_pct": 1.7225644535706137,
+      "max_missing_run_rows": 64,
+      "max_missing_run_hours": 64,
+      "negative_count": 0
+    },
+    {
+      "station": "Changping",
+      "variable": "PM10",
+      "missing_count": 582,
+      "missing_pct": 1.6598220396988363,
+      "max_missing_run_rows": 144,
+      "max_missing_run_hours": 144,
+      "negative_count": 0
+    },
+    {
+      "station": "Changping",
+      "variable": "PM2.5",
+      "missing_count": 774,
+      "missing_pct": 2.2073921971252566,
+      "max_missing_run_rows": 167,
+      "max_missing_run_hours": 167,
+      "negative_count": 0
+    },
+    {
+      "station": "Changping",
+      "variable": "PRES",
+      "missing_count": 50,
+      "missing_pct": 0.14259639516313027,
+      "max_missing_run_rows": 6,
+      "max_missing_run_hours": 6,
+      "negative_count": 0
+    },
+    {
+      "station": "Changping",
+      "variable": "RAIN",
+      "missing_count": 51,
+      "missing_pct": 0.14544832306639288,
+      "max_missing_run_rows": 6,
+      "max_missing_run_hours": 6,
+      "negative_count": 0
+    },
+    {
+      "station": "Changping",
+      "variable": "SO2",
+      "missing_count": 628,
+      "missing_pct": 1.791010723248916,
+      "max_missing_run_rows": 64,
+      "max_missing_run_hours": 64,
+      "negative_count": 0
+    },
+    {
+      "station": "Changping",
+      "variable": "TEMP",
+      "missing_count": 53,
+      "missing_pct": 0.1511521788729181,
+      "max_missing_run_rows": 6,
+      "max_missing_run_hours": 6,
+      "negative_count": 5115
+    },
+    {
+      "station": "Changping",
+      "variable": "WSPM",
+      "missing_count": 43,
+      "missing_pct": 0.12263289984029203,
+      "max_missing_run_rows": 5,
+      "max_missing_run_hours": 5,
+      "negative_count": 0
+    },
+    {
+      "station": "Changping",
+      "variable": "wd",
+      "missing_count": 140,
+      "missing_pct": 0.3992699064567648,
+      "max_missing_run_rows": 5,
+      "max_missing_run_hours": 5,
+      "negative_count": 0
+    },
+    {
+      "station": "Dingling",
+      "variable": "CO",
+      "missing_count": 2012,
+      "missing_pct": 5.738078941364362,
+      "max_missing_run_rows": 1051,
+      "max_missing_run_hours": 1051,
+      "negative_count": 0
+    },
+    {
+      "station": "Dingling",
+      "variable": "DEWP",
+      "missing_count": 53,
+      "missing_pct": 0.1511521788729181,
+      "max_missing_run_rows": 6,
+      "max_missing_run_hours": 6,
+      "negative_count": 16287
+    },
+    {
+      "station": "Dingling",
+      "variable": "NO2",
+      "missing_count": 1234,
+      "missing_pct": 3.5192790326260557,
+      "max_missing_run_rows": 44,
+      "max_missing_run_hours": 44,
+      "negative_count": 0
+    },
+    {
+      "station": "Dingling",
+      "variable": "O3",
+      "missing_count": 1214,
+      "missing_pct": 3.462240474560803,
+      "max_missing_run_rows": 262,
+      "max_missing_run_hours": 262,
+      "negative_count": 0
+    },
+    {
+      "station": "Dingling",
+      "variable": "PM10",
+      "missing_count": 656,
+      "missing_pct": 1.8708647045402693,
+      "max_missing_run_rows": 43,
+      "max_missing_run_hours": 43,
+      "negative_count": 0
+    },
+    {
+      "station": "Dingling",
+      "variable": "PM2.5",
+      "missing_count": 779,
+      "missing_pct": 2.22165183664157,
+      "max_missing_run_rows": 72,
+      "max_missing_run_hours": 72,
+      "negative_count": 0
+    },
+    {
+      "station": "Dingling",
+      "variable": "PRES",
+      "missing_count": 50,
+      "missing_pct": 0.14259639516313027,
+      "max_missing_run_rows": 6,
+      "max_missing_run_hours": 6,
+      "negative_count": 0
+    },
+    {
+      "station": "Dingling",
+      "variable": "RAIN",
+      "missing_count": 51,
+      "missing_pct": 0.14544832306639288,
+      "max_missing_run_rows": 6,
+      "max_missing_run_hours": 6,
+      "negative_count": 0
+    },
+    {
+      "station": "Dingling",
+      "variable": "SO2",
+      "missing_count": 730,
+      "missing_pct": 2.0819073693817023,
+      "max_missing_run_rows": 48,
+      "max_missing_run_hours": 48,
+      "negative_count": 0
+    },
+    {
+      "station": "Dingling",
+      "variable": "TEMP",
+      "missing_count": 53,
+      "missing_pct": 0.1511521788729181,
+      "max_missing_run_rows": 6,
+      "max_missing_run_hours": 6,
+      "negative_count": 5115
+    },
+    {
+      "station": "Dingling",
+      "variable": "WSPM",
+      "missing_count": 43,
+      "missing_pct": 0.12263289984029203,
+      "max_missing_run_rows": 5,
+      "max_missing_run_hours": 5,
+      "negative_count": 0
+    },
+    {
+      "station": "Dingling",
+      "variable": "wd",
+      "missing_count": 140,
+      "missing_pct": 0.3992699064567648,
+      "max_missing_run_rows": 5,
+      "max_missing_run_hours": 5,
+      "negative_count": 0
+    },
+    {
+      "station": "Dongsi",
+      "variable": "CO",
+      "missing_count": 3197,
+      "missing_pct": 9.11761350673055,
+      "max_missing_run_rows": 1517,
+      "max_missing_run_hours": 1517,
+      "negative_count": 0
+    },
+    {
+      "station": "Dongsi",
+      "variable": "DEWP",
+      "missing_count": 20,
+      "missing_pct": 0.05703855806525211,
+      "max_missing_run_rows": 6,
+      "max_missing_run_hours": 6,
+      "negative_count": 15475
+    },
+    {
+      "station": "Dongsi",
+      "variable": "NO2",
+      "missing_count": 1601,
+      "missing_pct": 4.565936573123432,
+      "max_missing_run_rows": 900,
+      "max_missing_run_hours": 900,
+      "negative_count": 0
+    },
+    {
+      "station": "Dongsi",
+      "variable": "O3",
+      "missing_count": 664,
+      "missing_pct": 1.8936801277663702,
+      "max_missing_run_rows": 57,
+      "max_missing_run_hours": 57,
+      "negative_count": 0
+    },
+    {
+      "station": "Dongsi",
+      "variable": "PM10",
+      "missing_count": 553,
+      "missing_pct": 1.577116130504221,
+      "max_missing_run_rows": 57,
+      "max_missing_run_hours": 57,
+      "negative_count": 0
+    },
+    {
+      "station": "Dongsi",
+      "variable": "PM2.5",
+      "missing_count": 750,
+      "missing_pct": 2.138945927446954,
+      "max_missing_run_rows": 58,
+      "max_missing_run_hours": 58,
+      "negative_count": 0
+    },
+    {
+      "station": "Dongsi",
+      "variable": "PRES",
+      "missing_count": 20,
+      "missing_pct": 0.05703855806525211,
+      "max_missing_run_rows": 6,
+      "max_missing_run_hours": 6,
+      "negative_count": 0
+    },
+    {
+      "station": "Dongsi",
+      "variable": "RAIN",
+      "missing_count": 20,
+      "missing_pct": 0.05703855806525211,
+      "max_missing_run_rows": 6,
+      "max_missing_run_hours": 6,
+      "negative_count": 0
+    },
+    {
+      "station": "Dongsi",
+      "variable": "SO2",
+      "missing_count": 663,
+      "missing_pct": 1.8908281998631076,
+      "max_missing_run_rows": 57,
+      "max_missing_run_hours": 57,
+      "negative_count": 0
+    },
+    {
+      "station": "Dongsi",
+      "variable": "TEMP",
+      "missing_count": 20,
+      "missing_pct": 0.05703855806525211,
+      "max_missing_run_rows": 6,
+      "max_missing_run_hours": 6,
+      "negative_count": 5222
+    },
+    {
+      "station": "Dongsi",
+      "variable": "WSPM",
+      "missing_count": 14,
+      "missing_pct": 0.03992699064567648,
+      "max_missing_run_rows": 5,
+      "max_missing_run_hours": 5,
+      "negative_count": 0
+    },
+    {
+      "station": "Dongsi",
+      "variable": "wd",
+      "missing_count": 78,
+      "missing_pct": 0.22245037645448323,
+      "max_missing_run_rows": 5,
+      "max_missing_run_hours": 5,
+      "negative_count": 0
+    },
+    {
+      "station": "Guanyuan",
+      "variable": "CO",
+      "missing_count": 1753,
+      "missing_pct": 4.9994296144193475,
+      "max_missing_run_rows": 441,
+      "max_missing_run_hours": 441,
+      "negative_count": 0
+    },
+    {
+      "station": "Guanyuan",
+      "variable": "DEWP",
+      "missing_count": 20,
+      "missing_pct": 0.05703855806525211,
+      "max_missing_run_rows": 6,
+      "max_missing_run_hours": 6,
+      "negative_count": 14885
+    },
+    {
+      "station": "Guanyuan",
+      "variable": "NO2",
+      "missing_count": 659,
+      "missing_pct": 1.8794204882500571,
+      "max_missing_run_rows": 103,
+      "max_missing_run_hours": 103,
+      "negative_count": 0
+    },
+    {
+      "station": "Guanyuan",
+      "variable": "O3",
+      "missing_count": 1173,
+      "missing_pct": 3.3453114305270364,
+      "max_missing_run_rows": 103,
+      "max_missing_run_hours": 103,
+      "negative_count": 0
+    },
+    {
+      "station": "Guanyuan",
+      "variable": "PM10",
+      "missing_count": 429,
+      "missing_pct": 1.2234770704996578,
+      "max_missing_run_rows": 44,
+      "max_missing_run_hours": 44,
+      "negative_count": 0
+    },
+    {
+      "station": "Guanyuan",
+      "variable": "PM2.5",
+      "missing_count": 616,
+      "missing_pct": 1.756787588409765,
+      "max_missing_run_rows": 71,
+      "max_missing_run_hours": 71,
+      "negative_count": 0
+    },
+    {
+      "station": "Guanyuan",
+      "variable": "PRES",
+      "missing_count": 20,
+      "missing_pct": 0.05703855806525211,
+      "max_missing_run_rows": 6,
+      "max_missing_run_hours": 6,
+      "negative_count": 0
+    },
+    {
+      "station": "Guanyuan",
+      "variable": "RAIN",
+      "missing_count": 20,
+      "missing_pct": 0.05703855806525211,
+      "max_missing_run_rows": 6,
+      "max_missing_run_hours": 6,
+      "negative_count": 0
+    },
+    {
+      "station": "Guanyuan",
+      "variable": "SO2",
+      "missing_count": 474,
+      "missing_pct": 1.351813826146475,
+      "max_missing_run_rows": 103,
+      "max_missing_run_hours": 103,
+      "negative_count": 0
+    },
+    {
+      "station": "Guanyuan",
+      "variable": "TEMP",
+      "missing_count": 20,
+      "missing_pct": 0.05703855806525211,
+      "max_missing_run_rows": 6,
+      "max_missing_run_hours": 6,
+      "negative_count": 5308
+    },
+    {
+      "station": "Guanyuan",
+      "variable": "WSPM",
+      "missing_count": 14,
+      "missing_pct": 0.03992699064567648,
+      "max_missing_run_rows": 5,
+      "max_missing_run_hours": 5,
+      "negative_count": 0
+    },
+    {
+      "station": "Guanyuan",
+      "variable": "wd",
+      "missing_count": 81,
+      "missing_pct": 0.23100616016427106,
+      "max_missing_run_rows": 5,
+      "max_missing_run_hours": 5,
+      "negative_count": 0
+    },
+    {
+      "station": "Gucheng",
+      "variable": "CO",
+      "missing_count": 1401,
+      "missing_pct": 3.99555099247091,
+      "max_missing_run_rows": 349,
+      "max_missing_run_hours": 349,
+      "negative_count": 0
+    },
+    {
+      "station": "Gucheng",
+      "variable": "DEWP",
+      "missing_count": 51,
+      "missing_pct": 0.14544832306639288,
+      "max_missing_run_rows": 7,
+      "max_missing_run_hours": 7,
+      "negative_count": 15362
+    },
+    {
+      "station": "Gucheng",
+      "variable": "NO2",
+      "missing_count": 668,
+      "missing_pct": 1.9050878393794206,
+      "max_missing_run_rows": 66,
+      "max_missing_run_hours": 66,
+      "negative_count": 0
+    },
+    {
+      "station": "Gucheng",
+      "variable": "O3",
+      "missing_count": 729,
+      "missing_pct": 2.0790554414784395,
+      "max_missing_run_rows": 260,
+      "max_missing_run_hours": 260,
+      "negative_count": 0
+    },
+    {
+      "station": "Gucheng",
+      "variable": "PM10",
+      "missing_count": 381,
+      "missing_pct": 1.0865845311430526,
+      "max_missing_run_rows": 25,
+      "max_missing_run_hours": 25,
+      "negative_count": 0
+    },
+    {
+      "station": "Gucheng",
+      "variable": "PM2.5",
+      "missing_count": 646,
+      "missing_pct": 1.842345425507643,
+      "max_missing_run_rows": 54,
+      "max_missing_run_hours": 54,
+      "negative_count": 0
+    },
+    {
+      "station": "Gucheng",
+      "variable": "PRES",
+      "missing_count": 50,
+      "missing_pct": 0.14259639516313027,
+      "max_missing_run_rows": 7,
+      "max_missing_run_hours": 7,
+      "negative_count": 0
+    },
+    {
+      "station": "Gucheng",
+      "variable": "RAIN",
+      "missing_count": 43,
+      "missing_pct": 0.12263289984029203,
+      "max_missing_run_rows": 6,
+      "max_missing_run_hours": 6,
+      "negative_count": 0
+    },
+    {
+      "station": "Gucheng",
+      "variable": "SO2",
+      "missing_count": 507,
+      "missing_pct": 1.445927446954141,
+      "max_missing_run_rows": 61,
+      "max_missing_run_hours": 61,
+      "negative_count": 0
+    },
+    {
+      "station": "Gucheng",
+      "variable": "TEMP",
+      "missing_count": 51,
+      "missing_pct": 0.14544832306639288,
+      "max_missing_run_rows": 7,
+      "max_missing_run_hours": 7,
+      "negative_count": 4887
+    },
+    {
+      "station": "Gucheng",
+      "variable": "WSPM",
+      "missing_count": 42,
+      "missing_pct": 0.11978097193702943,
+      "max_missing_run_rows": 5,
+      "max_missing_run_hours": 5,
+      "negative_count": 0
+    },
+    {
+      "station": "Gucheng",
+      "variable": "wd",
+      "missing_count": 159,
+      "missing_pct": 0.4534565366187543,
+      "max_missing_run_rows": 7,
+      "max_missing_run_hours": 7,
+      "negative_count": 0
+    },
+    {
+      "station": "Huairou",
+      "variable": "CO",
+      "missing_count": 1422,
+      "missing_pct": 4.055441478439425,
+      "max_missing_run_rows": 211,
+      "max_missing_run_hours": 211,
+      "negative_count": 0
+    },
+    {
+      "station": "Huairou",
+      "variable": "DEWP",
+      "missing_count": 53,
+      "missing_pct": 0.1511521788729181,
+      "max_missing_run_rows": 6,
+      "max_missing_run_hours": 6,
+      "negative_count": 15770
+    },
+    {
+      "station": "Huairou",
+      "variable": "NO2",
+      "missing_count": 1639,
+      "missing_pct": 4.674309833447411,
+      "max_missing_run_rows": 207,
+      "max_missing_run_hours": 207,
+      "negative_count": 0
+    },
+    {
+      "station": "Huairou",
+      "variable": "O3",
+      "missing_count": 1151,
+      "missing_pct": 3.282569016655259,
+      "max_missing_run_rows": 207,
+      "max_missing_run_hours": 207,
+      "negative_count": 0
+    },
+    {
+      "station": "Huairou",
+      "variable": "PM10",
+      "missing_count": 777,
+      "missing_pct": 2.2159479808350446,
+      "max_missing_run_rows": 208,
+      "max_missing_run_hours": 208,
+      "negative_count": 0
+    },
+    {
+      "station": "Huairou",
+      "variable": "PM2.5",
+      "missing_count": 953,
+      "missing_pct": 2.717887291809263,
+      "max_missing_run_rows": 208,
+      "max_missing_run_hours": 208,
+      "negative_count": 0
+    },
+    {
+      "station": "Huairou",
+      "variable": "PRES",
+      "missing_count": 53,
+      "missing_pct": 0.1511521788729181,
+      "max_missing_run_rows": 6,
+      "max_missing_run_hours": 6,
+      "negative_count": 0
+    },
+    {
+      "station": "Huairou",
+      "variable": "RAIN",
+      "missing_count": 55,
+      "missing_pct": 0.1568560346794433,
+      "max_missing_run_rows": 6,
+      "max_missing_run_hours": 6,
+      "negative_count": 0
+    },
+    {
+      "station": "Huairou",
+      "variable": "SO2",
+      "missing_count": 980,
+      "missing_pct": 2.7948893451973533,
+      "max_missing_run_rows": 207,
+      "max_missing_run_hours": 207,
+      "negative_count": 0
+    },
+    {
+      "station": "Huairou",
+      "variable": "TEMP",
+      "missing_count": 51,
+      "missing_pct": 0.14544832306639288,
+      "max_missing_run_rows": 6,
+      "max_missing_run_hours": 6,
+      "negative_count": 6684
+    },
+    {
+      "station": "Huairou",
+      "variable": "WSPM",
+      "missing_count": 49,
+      "missing_pct": 0.13974446725986767,
+      "max_missing_run_rows": 5,
+      "max_missing_run_hours": 5,
+      "negative_count": 0
+    },
+    {
+      "station": "Huairou",
+      "variable": "wd",
+      "missing_count": 302,
+      "missing_pct": 0.8612822267853069,
+      "max_missing_run_rows": 13,
+      "max_missing_run_hours": 13,
+      "negative_count": 0
+    },
+    {
+      "station": "Nongzhanguan",
+      "variable": "CO",
+      "missing_count": 1206,
+      "missing_pct": 3.4394250513347027,
+      "max_missing_run_rows": 147,
+      "max_missing_run_hours": 147,
+      "negative_count": 0
+    },
+    {
+      "station": "Nongzhanguan",
+      "variable": "DEWP",
+      "missing_count": 20,
+      "missing_pct": 0.05703855806525211,
+      "max_missing_run_rows": 6,
+      "max_missing_run_hours": 6,
+      "negative_count": 15475
+    },
+    {
+      "station": "Nongzhanguan",
+      "variable": "NO2",
+      "missing_count": 692,
+      "missing_pct": 1.973534109057723,
+      "max_missing_run_rows": 55,
+      "max_missing_run_hours": 55,
+      "negative_count": 0
+    },
+    {
+      "station": "Nongzhanguan",
+      "variable": "O3",
+      "missing_count": 506,
+      "missing_pct": 1.4430755190508784,
+      "max_missing_run_rows": 55,
+      "max_missing_run_hours": 55,
+      "negative_count": 0
+    },
+    {
+      "station": "Nongzhanguan",
+      "variable": "PM10",
+      "missing_count": 440,
+      "missing_pct": 1.2548482774355465,
+      "max_missing_run_rows": 55,
+      "max_missing_run_hours": 55,
+      "negative_count": 0
+    },
+    {
+      "station": "Nongzhanguan",
+      "variable": "PM2.5",
+      "missing_count": 628,
+      "missing_pct": 1.791010723248916,
+      "max_missing_run_rows": 56,
+      "max_missing_run_hours": 56,
+      "negative_count": 0
+    },
+    {
+      "station": "Nongzhanguan",
+      "variable": "PRES",
+      "missing_count": 20,
+      "missing_pct": 0.05703855806525211,
+      "max_missing_run_rows": 6,
+      "max_missing_run_hours": 6,
+      "negative_count": 0
+    },
+    {
+      "station": "Nongzhanguan",
+      "variable": "RAIN",
+      "missing_count": 20,
+      "missing_pct": 0.05703855806525211,
+      "max_missing_run_rows": 6,
+      "max_missing_run_hours": 6,
+      "negative_count": 0
+    },
+    {
+      "station": "Nongzhanguan",
+      "variable": "SO2",
+      "missing_count": 446,
+      "missing_pct": 1.2719598448551221,
+      "max_missing_run_rows": 55,
+      "max_missing_run_hours": 55,
+      "negative_count": 0
+    },
+    {
+      "station": "Nongzhanguan",
+      "variable": "TEMP",
+      "missing_count": 20,
+      "missing_pct": 0.05703855806525211,
+      "max_missing_run_rows": 6,
+      "max_missing_run_hours": 6,
+      "negative_count": 5222
+    },
+    {
+      "station": "Nongzhanguan",
+      "variable": "WSPM",
+      "missing_count": 14,
+      "missing_pct": 0.03992699064567648,
+      "max_missing_run_rows": 5,
+      "max_missing_run_hours": 5,
+      "negative_count": 0
+    },
+    {
+      "station": "Nongzhanguan",
+      "variable": "wd",
+      "missing_count": 78,
+      "missing_pct": 0.22245037645448323,
+      "max_missing_run_rows": 5,
+      "max_missing_run_hours": 5,
+      "negative_count": 0
+    },
+    {
+      "station": "Shunyi",
+      "variable": "CO",
+      "missing_count": 2178,
+      "missing_pct": 6.211498973305955,
+      "max_missing_run_rows": 749,
+      "max_missing_run_hours": 749,
+      "negative_count": 0
+    },
+    {
+      "station": "Shunyi",
+      "variable": "DEWP",
+      "missing_count": 54,
+      "missing_pct": 0.1540041067761807,
+      "max_missing_run_rows": 6,
+      "max_missing_run_hours": 6,
+      "negative_count": 15486
+    },
+    {
+      "station": "Shunyi",
+      "variable": "NO2",
+      "missing_count": 1365,
+      "missing_pct": 3.892881587953457,
+      "max_missing_run_rows": 423,
+      "max_missing_run_hours": 423,
+      "negative_count": 0
+    },
+    {
+      "station": "Shunyi",
+      "variable": "O3",
+      "missing_count": 1489,
+      "missing_pct": 4.246520647958019,
+      "max_missing_run_rows": 497,
+      "max_missing_run_hours": 497,
+      "negative_count": 0
+    },
+    {
+      "station": "Shunyi",
+      "variable": "PM10",
+      "missing_count": 548,
+      "missing_pct": 1.562856490987908,
+      "max_missing_run_rows": 38,
+      "max_missing_run_hours": 38,
+      "negative_count": 0
+    },
+    {
+      "station": "Shunyi",
+      "variable": "PM2.5",
+      "missing_count": 913,
+      "missing_pct": 2.603810175678759,
+      "max_missing_run_rows": 197,
+      "max_missing_run_hours": 197,
+      "negative_count": 0
+    },
+    {
+      "station": "Shunyi",
+      "variable": "PRES",
+      "missing_count": 51,
+      "missing_pct": 0.14544832306639288,
+      "max_missing_run_rows": 6,
+      "max_missing_run_hours": 6,
+      "negative_count": 0
+    },
+    {
+      "station": "Shunyi",
+      "variable": "RAIN",
+      "missing_count": 51,
+      "missing_pct": 0.14544832306639288,
+      "max_missing_run_rows": 6,
+      "max_missing_run_hours": 6,
+      "negative_count": 0
+    },
+    {
+      "station": "Shunyi",
+      "variable": "SO2",
+      "missing_count": 1296,
+      "missing_pct": 3.696098562628337,
+      "max_missing_run_rows": 95,
+      "max_missing_run_hours": 95,
+      "negative_count": 0
+    },
+    {
+      "station": "Shunyi",
+      "variable": "TEMP",
+      "missing_count": 51,
+      "missing_pct": 0.14544832306639288,
+      "max_missing_run_rows": 6,
+      "max_missing_run_hours": 6,
+      "negative_count": 5679
+    },
+    {
+      "station": "Shunyi",
+      "variable": "WSPM",
+      "missing_count": 44,
+      "missing_pct": 0.12548482774355463,
+      "max_missing_run_rows": 5,
+      "max_missing_run_hours": 5,
+      "negative_count": 0
+    },
+    {
+      "station": "Shunyi",
+      "variable": "wd",
+      "missing_count": 483,
+      "missing_pct": 1.3774811772758384,
+      "max_missing_run_rows": 6,
+      "max_missing_run_hours": 6,
+      "negative_count": 0
+    },
+    {
+      "station": "Tiantan",
+      "variable": "CO",
+      "missing_count": 1126,
+      "missing_pct": 3.2112708190736936,
+      "max_missing_run_rows": 93,
+      "max_missing_run_hours": 93,
+      "negative_count": 0
+    },
+    {
+      "station": "Tiantan",
+      "variable": "DEWP",
+      "missing_count": 20,
+      "missing_pct": 0.05703855806525211,
+      "max_missing_run_rows": 6,
+      "max_missing_run_hours": 6,
+      "negative_count": 15475
+    },
+    {
+      "station": "Tiantan",
+      "variable": "NO2",
+      "missing_count": 744,
+      "missing_pct": 2.121834360027379,
+      "max_missing_run_rows": 93,
+      "max_missing_run_hours": 93,
+      "negative_count": 0
+    },
+    {
+      "station": "Tiantan",
+      "variable": "O3",
+      "missing_count": 843,
+      "missing_pct": 2.4041752224503767,
+      "max_missing_run_rows": 93,
+      "max_missing_run_hours": 93,
+      "negative_count": 0
+    },
+    {
+      "station": "Tiantan",
+      "variable": "PM10",
+      "missing_count": 597,
+      "missing_pct": 1.7026009582477755,
+      "max_missing_run_rows": 24,
+      "max_missing_run_hours": 24,
+      "negative_count": 0
+    },
+    {
+      "station": "Tiantan",
+      "variable": "PM2.5",
+      "missing_count": 677,
+      "missing_pct": 1.930755190508784,
+      "max_missing_run_rows": 24,
+      "max_missing_run_hours": 24,
+      "negative_count": 0
+    },
+    {
+      "station": "Tiantan",
+      "variable": "PRES",
+      "missing_count": 20,
+      "missing_pct": 0.05703855806525211,
+      "max_missing_run_rows": 6,
+      "max_missing_run_hours": 6,
+      "negative_count": 0
+    },
+    {
+      "station": "Tiantan",
+      "variable": "RAIN",
+      "missing_count": 20,
+      "missing_pct": 0.05703855806525211,
+      "max_missing_run_rows": 6,
+      "max_missing_run_hours": 6,
+      "negative_count": 0
+    },
+    {
+      "station": "Tiantan",
+      "variable": "SO2",
+      "missing_count": 1118,
+      "missing_pct": 3.1884553958475927,
+      "max_missing_run_rows": 457,
+      "max_missing_run_hours": 457,
+      "negative_count": 0
+    },
+    {
+      "station": "Tiantan",
+      "variable": "TEMP",
+      "missing_count": 20,
+      "missing_pct": 0.05703855806525211,
+      "max_missing_run_rows": 6,
+      "max_missing_run_hours": 6,
+      "negative_count": 5222
+    },
+    {
+      "station": "Tiantan",
+      "variable": "WSPM",
+      "missing_count": 14,
+      "missing_pct": 0.03992699064567648,
+      "max_missing_run_rows": 5,
+      "max_missing_run_hours": 5,
+      "negative_count": 0
+    },
+    {
+      "station": "Tiantan",
+      "variable": "wd",
+      "missing_count": 78,
+      "missing_pct": 0.22245037645448323,
+      "max_missing_run_rows": 5,
+      "max_missing_run_hours": 5,
+      "negative_count": 0
+    },
+    {
+      "station": "Wanliu",
+      "variable": "CO",
+      "missing_count": 1812,
+      "missing_pct": 5.167693360711842,
+      "max_missing_run_rows": 642,
+      "max_missing_run_hours": 642,
+      "negative_count": 0
+    },
+    {
+      "station": "Wanliu",
+      "variable": "DEWP",
+      "missing_count": 20,
+      "missing_pct": 0.05703855806525211,
+      "max_missing_run_rows": 6,
+      "max_missing_run_hours": 6,
+      "negative_count": 14742
+    },
+    {
+      "station": "Wanliu",
+      "variable": "NO2",
+      "missing_count": 1070,
+      "missing_pct": 3.051562856490988,
+      "max_missing_run_rows": 548,
+      "max_missing_run_hours": 548,
+      "negative_count": 0
+    },
+    {
+      "station": "Wanliu",
+      "variable": "O3",
+      "missing_count": 2107,
+      "missing_pct": 6.009012092174309,
+      "max_missing_run_rows": 429,
+      "max_missing_run_hours": 429,
+      "negative_count": 0
+    },
+    {
+      "station": "Wanliu",
+      "variable": "PM10",
+      "missing_count": 284,
+      "missing_pct": 0.8099475245265799,
+      "max_missing_run_rows": 23,
+      "max_missing_run_hours": 23,
+      "negative_count": 0
+    },
+    {
+      "station": "Wanliu",
+      "variable": "PM2.5",
+      "missing_count": 382,
+      "missing_pct": 1.0894364590463153,
+      "max_missing_run_rows": 23,
+      "max_missing_run_hours": 23,
+      "negative_count": 0
+    },
+    {
+      "station": "Wanliu",
+      "variable": "PRES",
+      "missing_count": 20,
+      "missing_pct": 0.05703855806525211,
+      "max_missing_run_rows": 6,
+      "max_missing_run_hours": 6,
+      "negative_count": 0
+    },
+    {
+      "station": "Wanliu",
+      "variable": "RAIN",
+      "missing_count": 20,
+      "missing_pct": 0.05703855806525211,
+      "max_missing_run_rows": 6,
+      "max_missing_run_hours": 6,
+      "negative_count": 0
+    },
+    {
+      "station": "Wanliu",
+      "variable": "SO2",
+      "missing_count": 575,
+      "missing_pct": 1.639858544375998,
+      "max_missing_run_rows": 25,
+      "max_missing_run_hours": 25,
+      "negative_count": 0
+    },
+    {
+      "station": "Wanliu",
+      "variable": "TEMP",
+      "missing_count": 20,
+      "missing_pct": 0.05703855806525211,
+      "max_missing_run_rows": 6,
+      "max_missing_run_hours": 6,
+      "negative_count": 5415
+    },
+    {
+      "station": "Wanliu",
+      "variable": "WSPM",
+      "missing_count": 14,
+      "missing_pct": 0.03992699064567648,
+      "max_missing_run_rows": 5,
+      "max_missing_run_hours": 5,
+      "negative_count": 0
+    },
+    {
+      "station": "Wanliu",
+      "variable": "wd",
+      "missing_count": 123,
+      "missing_pct": 0.35078713210130047,
+      "max_missing_run_rows": 5,
+      "max_missing_run_hours": 5,
+      "negative_count": 0
+    },
+    {
+      "station": "Wanshouxigong",
+      "variable": "CO",
+      "missing_count": 1297,
+      "missing_pct": 3.6989504905315993,
+      "max_missing_run_rows": 93,
+      "max_missing_run_hours": 93,
+      "negative_count": 0
+    },
+    {
+      "station": "Wanshouxigong",
+      "variable": "DEWP",
+      "missing_count": 19,
+      "missing_pct": 0.054186630161989505,
+      "max_missing_run_rows": 6,
+      "max_missing_run_hours": 6,
+      "negative_count": 15264
+    },
+    {
+      "station": "Wanshouxigong",
+      "variable": "NO2",
+      "missing_count": 754,
+      "missing_pct": 2.1503536390600044,
+      "max_missing_run_rows": 93,
+      "max_missing_run_hours": 93,
+      "negative_count": 0
+    },
+    {
+      "station": "Wanshouxigong",
+      "variable": "O3",
+      "missing_count": 1078,
+      "missing_pct": 3.074378279717089,
+      "max_missing_run_rows": 93,
+      "max_missing_run_hours": 93,
+      "negative_count": 0
+    },
+    {
+      "station": "Wanshouxigong",
+      "variable": "PM10",
+      "missing_count": 484,
+      "missing_pct": 1.380333105179101,
+      "max_missing_run_rows": 43,
+      "max_missing_run_hours": 43,
+      "negative_count": 0
+    },
+    {
+      "station": "Wanshouxigong",
+      "variable": "PM2.5",
+      "missing_count": 696,
+      "missing_pct": 1.9849418206707734,
+      "max_missing_run_rows": 43,
+      "max_missing_run_hours": 43,
+      "negative_count": 0
+    },
+    {
+      "station": "Wanshouxigong",
+      "variable": "PRES",
+      "missing_count": 19,
+      "missing_pct": 0.054186630161989505,
+      "max_missing_run_rows": 6,
+      "max_missing_run_hours": 6,
+      "negative_count": 0
+    },
+    {
+      "station": "Wanshouxigong",
+      "variable": "RAIN",
+      "missing_count": 19,
+      "missing_pct": 0.054186630161989505,
+      "max_missing_run_rows": 6,
+      "max_missing_run_hours": 6,
+      "negative_count": 0
+    },
+    {
+      "station": "Wanshouxigong",
+      "variable": "SO2",
+      "missing_count": 669,
+      "missing_pct": 1.907939767282683,
+      "max_missing_run_rows": 93,
+      "max_missing_run_hours": 93,
+      "negative_count": 0
+    },
+    {
+      "station": "Wanshouxigong",
+      "variable": "TEMP",
+      "missing_count": 19,
+      "missing_pct": 0.054186630161989505,
+      "max_missing_run_rows": 6,
+      "max_missing_run_hours": 6,
+      "negative_count": 5072
+    },
+    {
+      "station": "Wanshouxigong",
+      "variable": "WSPM",
+      "missing_count": 13,
+      "missing_pct": 0.03707506274241387,
+      "max_missing_run_rows": 5,
+      "max_missing_run_hours": 5,
+      "negative_count": 0
+    },
+    {
+      "station": "Wanshouxigong",
+      "variable": "wd",
+      "missing_count": 79,
+      "missing_pct": 0.22530230435774584,
+      "max_missing_run_rows": 5,
+      "max_missing_run_hours": 5,
+      "negative_count": 0
+    }
+  ],
+  "aggregate_missingness": [
+    {
+      "variable": "CO",
+      "missing_count": 20701,
+      "missing_pct_of_rows": 4.9198132937866
+    },
+    {
+      "variable": "DEWP",
+      "missing_count": 403,
+      "missing_pct_of_rows": 0.0957772454179025
+    },
+    {
+      "variable": "NO2",
+      "missing_count": 12116,
+      "missing_pct_of_rows": 2.8794965396608108
+    },
+    {
+      "variable": "O3",
+      "missing_count": 13277,
+      "missing_pct_of_rows": 3.1554205643014677
+    },
+    {
+      "variable": "PM10",
+      "missing_count": 6449,
+      "missing_pct_of_rows": 1.5326735873450452
+    },
+    {
+      "variable": "PM2.5",
+      "missing_count": 8739,
+      "missing_pct_of_rows": 2.0769164955509924
+    },
+    {
+      "variable": "PRES",
+      "missing_count": 393,
+      "missing_pct_of_rows": 0.09340063883185033
+    },
+    {
+      "variable": "RAIN",
+      "missing_count": 390,
+      "missing_pct_of_rows": 0.09268765685603468
+    },
+    {
+      "variable": "SO2",
+      "missing_count": 9021,
+      "missing_pct_of_rows": 2.143936801277664
+    },
+    {
+      "variable": "TEMP",
+      "missing_count": 398,
+      "missing_pct_of_rows": 0.09458894212487641
+    },
+    {
+      "variable": "WSPM",
+      "missing_count": 318,
+      "missing_pct_of_rows": 0.07557608943645905
+    },
+    {
+      "variable": "wd",
+      "missing_count": 1822,
+      "missing_pct_of_rows": 0.4330177199787056
+    }
+  ],
+  "lookback_hours_for_coverage_check": 24,
+  "forecast_horizon_hours_for_coverage_check": 1,
+  "acquisition": {
+    "source_url": "https://archive.ics.uci.edu/static/public/501/beijing+multi+site+air+quality+data.zip",
+    "dataset_page": "https://archive.ics.uci.edu/dataset/501/beijing+multi+site+air+quality+data",
+    "doi": "10.24432/C5RK5G",
+    "sha256": "b04da438b2f331ac0ffd45aebdfec0d20d2367feb5f6948c4b1f7ce1191e33c4",
+    "bytes_downloaded": 8192212,
+    "csv_files": [
+      "PRSA_Data_Aotizhongxin_20130301-20170228.csv",
+      "PRSA_Data_Changping_20130301-20170228.csv",
+      "PRSA_Data_Dingling_20130301-20170228.csv",
+      "PRSA_Data_Dongsi_20130301-20170228.csv",
+      "PRSA_Data_Guanyuan_20130301-20170228.csv",
+      "PRSA_Data_Gucheng_20130301-20170228.csv",
+      "PRSA_Data_Huairou_20130301-20170228.csv",
+      "PRSA_Data_Nongzhanguan_20130301-20170228.csv",
+      "PRSA_Data_Shunyi_20130301-20170228.csv",
+      "PRSA_Data_Tiantan_20130301-20170228.csv",
+      "PRSA_Data_Wanliu_20130301-20170228.csv",
+      "PRSA_Data_Wanshouxigong_20130301-20170228.csv"
+    ]
+  },
+  "checksum_baseline_status": "created_first_baseline"
+}
