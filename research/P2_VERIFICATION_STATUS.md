@@ -1,33 +1,40 @@
 # P2 Verification Status
 
-**Status: IMPLEMENTATION COMPLETE; STRUCTURAL PREFLIGHT COMPLETE; AUTHORITATIVE UCI BYTE VERIFICATION PENDING**
+**Status: CLOSED — AUTHORITATIVE UCI BYTE AND STRUCTURAL VERIFICATION COMPLETE**
 
-## What is verified now
+## Authoritative verification
 
-A full 12-station structural preflight was executed against a public UCI-derived mirror pinned to commit `b11d6aa82cc5285e83cb79adb0f4971a54cba9cb`.
+The authoritative UCI acquisition/audit completed successfully on 2026-10-08 under Python 3.11.
 
-The preflight reproduces the official UCI structural identity:
+Frozen archive identity:
+
+- SHA-256: `b04da438b2f331ac0ffd45aebdfec0d20d2367feb5f6948c4b1f7ce1191e33c4`
+- bytes: 8,192,212
+- source: authoritative UCI archive
+
+Verified structure:
 
 - 420,768 total rows;
-- 12 expected station identities;
+- 12/12 expected stations;
 - 35,064 hourly rows per station;
 - 2013-03-01 00:00 through 2017-02-28 23:00;
 - zero duplicate timestamps;
-- zero forward timestamp gaps;
-- zero original-order backwards steps.
+- zero forward hourly gaps;
+- zero original-order backward or zero-time steps.
 
-It also generated station-level PM2.5 missingness and provisional 24-hour-history coverage results in `audit/preflight_station_summary.csv` and aggregate missingness in `audit/preflight_aggregate_missingness.csv`.
+Target/missingness evidence:
 
-## What is not yet claimed
+- aggregate PM2.5 missingness: 8,739 rows (2.077%);
+- PM2.5-complete provisional 24-hour-history/1-hour-ahead windows: 28,900–31,172 per station.
 
-The mirror is **not** treated as authoritative byte evidence. The current execution environment could not retrieve the 7.8 MB UCI archive directly, so no UCI archive SHA-256 is fabricated or inferred from the mirror.
+The authoritative compact evidence is stored in `audit/acquisition_receipt.json`, `audit/structural_audit.json`, `audit/station_summary.csv`, `audit/missingness_by_station_variable.csv`, and `audit/aggregate_missingness.csv`.
 
-## How the authoritative verification closes automatically
+## Baseline enforcement
 
-The repository now includes `.github/workflows/p2-audit.yml`. On the next push to `main`, GitHub Actions uses Python 3.11, downloads the authoritative UCI archive into temporary storage, computes its SHA-256, runs the hardened structural audit, discards raw bytes, and commits only the compact evidence files under `audit/`.
+The first authoritative SHA-256 is the frozen checksum baseline. Both acquisition entry points must compare subsequent downloads against that baseline and the canonical station inventory and fail on mismatch.
 
-The first successful `audit/acquisition_receipt.json` becomes the baseline checksum. Later runs fail if the UCI archive SHA-256 or canonical station-file inventory changes.
+Raw data remain temporary/remote-only and are not retained by the repository workflow.
 
-## Freeze rule
+## Gate outcome
 
-P3 may be drafted now, but `research/PROTOCOL.md` must remain `DRAFT` until the authoritative Action has successfully produced and committed the required audit evidence and those outputs have been inspected.
+The former P2 gate is closed. P3 was therefore permitted to freeze the temporal split, features, imputation, site-holdout design, corruptions, seeds, near-tie rule, and uncertainty procedure without consulting final-test performance.

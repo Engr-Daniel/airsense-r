@@ -53,19 +53,20 @@ Complete a scientifically defensible v1 research study, technical manuscript, re
 
 ## P3 — Freeze protocol BEFORE final experiments
 
-- [ ] Finalize hypotheses
-- [ ] Finalize forecasting horizon
-- [ ] Finalize lookback window
-- [ ] Finalize feature set
-- [ ] Finalize timestamp-based train/validation/test strategy
-- [ ] Finalize clean-validation model-selection rule
-- [ ] Finalize practical near-tie threshold
-- [ ] Finalize primary imputation policy and one sensitivity policy
-- [ ] Finalize repeated held-out-site strategy
-- [ ] Finalize corruption levels
-- [ ] Finalize model families
-- [ ] Finalize metrics/statistical analysis including selection regret and temporal-block bootstrap
-- [ ] Set protocol status to `FROZEN` in `research/PROTOCOL.md`
+- [x] Finalize hypotheses
+- [x] Finalize forecasting horizon
+- [x] Finalize lookback window
+- [x] Finalize feature set
+- [x] Finalize timestamp-based train/validation/test strategy
+- [x] Finalize clean-validation model-selection rule
+- [x] Finalize practical near-tie threshold
+- [x] Finalize primary imputation policy and one sensitivity policy
+- [x] Finalize repeated held-out-site strategy
+- [x] Finalize corruption levels
+- [x] Finalize model families
+- [x] Finalize metrics/statistical analysis including selection regret and temporal-block bootstrap
+- [x] Set protocol status to `FROZEN` in `research/PROTOCOL.md`
+- [x] Record completion in `research/P3_COMPLETION_REPORT.md`
 
 ## P4 — Data pipeline
 

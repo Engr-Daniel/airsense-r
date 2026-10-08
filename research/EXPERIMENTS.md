@@ -1,44 +1,52 @@
 # Experiment Plan
 
-This file summarizes the experiment families. `research/PROTOCOL.md` is authoritative once frozen.
+This file summarizes the frozen experiment families. `research/PROTOCOL.md` is authoritative.
 
-## E0 — Model selection on clean validation data
+## E0 — Training-only tuning and clean validation selection
 
-Train/tune candidate pipelines on development data and select exactly one model using clean validation MAE. The final test set must not influence selection.
+Tune XGBoost, MLP, and GRU only within the frozen training period using the three expanding-window folds in `research/PROTOCOL.md`. Refit each tuned family on the full training period, then select exactly one deployable family using unweighted mean station-level clean validation MAE. Persistence is untuned.
 
-## E1 — Clean test benchmark
+Candidates within 1.0 µg/m³ validation MAE are practical near-ties and are resolved by fixed simplicity order: persistence → XGBoost → MLP → GRU.
 
-Evaluate persistence, tree-based ML, MLP, and GRU on identical clean test station-timestamp targets. Report absolute metrics and descriptive test ranking.
+## E1 — Clean final-test benchmark
+
+Evaluate persistence, XGBoost, MLP, and GRU on identical clean final-test station-target rows from 2016-03-01 through 2017-02-28. Report station-specific metrics, equal-weight station aggregates, model rank, and the retrospective test oracle. The test oracle is descriptive only.
 
 ## E2 — Random observation dropout
 
-Corrupt the chronological input stream before window construction at frozen severities. Preserve future targets. Use the same corruption realization for every model.
+Apply 10%, 30%, and 50% Bernoulli masking to non-target input channels on the chronological evaluation stream before window construction. Historical PM2.5 and future targets remain uncorrupted. Use the same corruption realization for every model.
 
 ## E3 — Whole-channel loss
 
-Remove predefined sensor channels consistently from the evaluation stream. Evaluate complete pipelines, including imputation.
+Evaluate complete loss of NO2, CO, and TEMP separately. The frozen clean-trained pipelines and missing-data policy must absorb the unavailable channel; no stress retraining is allowed.
 
 ## E4 — Contiguous outage sensitivity
 
-Apply predefined 6/12-hour continuous outages to selected input channels before windowing. This tests realistic continuity failures without expanding the core model set.
+Evaluate 6-hour and 12-hour outages separately on NO2, CO, and TEMP. For every station/channel/duration/corruption seed, create one seeded outage event per calendar month of the final test year. Report both full-period results and metrics restricted to forecast windows whose input history intersects an outage.
 
 ## E5 — Measurement-noise stress
 
-Inject noise using scales estimated from training data only. Test statistics must not set noise severity.
+Inject independent zero-mean Gaussian noise at 5%, 10%, and 20% of a training-only robust feature scale (`IQR / 1.349`, falling back to training standard deviation when required). Historical PM2.5 is excluded from the primary noise intervention. Naturally non-negative variables are clipped at zero after injection.
 
 ## E6 — Repeated unseen-site evaluation
 
-Prefer leave-one-station-out evaluation across all feasible stations. The held-out station is excluded from fitting and preprocessing, but recent local observations may be used at inference.
+Run 12 leave-one-station-out folds. The held-out station is excluded from fitting, preprocessing, tuning, and selection. Model-family selection is repeated using only the remaining 11 stations' clean validation data. Evaluate the held-out station on final-test targets while allowing its recent local observations as inputs.
 
-## Core decision outcomes
+## E7 — Imputation sensitivity
 
-For each stress condition, record:
+Repeat the central clean/stress comparisons with the predefined sensitivity imputer: training-only median/category fallback, no forward fill, same missingness indicators. This analysis tests whether model-ranking conclusions are dominated by the primary six-hour causal carry-forward policy.
 
-- absolute MAE/RMSE/R²;
+## Core outcomes
+
+For each applicable condition, record:
+
+- MAE, RMSE, and R²;
 - RPD relative to the same model's clean performance;
 - candidate ranking and rank change;
-- whether the clean-validation-selected winner is retained;
-- **selection regret** relative to the retrospective stressed-test oracle;
-- paired uncertainty estimates.
+- winner retention;
+- selection regret relative to the retrospective stressed-test oracle;
+- 95% paired moving-block bootstrap intervals using 24-hour blocks and 2,000 replicates;
+- training/corruption seed metadata;
+- station-specific results before equal-weight station aggregation.
 
-The scientific emphasis is not merely whether rankings change, but whether clean validation selection incurs meaningful additional forecasting error under stress.
+The scientific emphasis is whether clean-validation selection incurs **meaningful additional forecasting error under deployment stress**, not merely whether numeric ranks change.

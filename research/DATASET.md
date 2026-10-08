@@ -69,8 +69,8 @@ The official total implies 35,064 hourly rows per station when the complete four
 ## Primary AirSense-R target
 
 - **Outcome:** `PM2.5`
-- **Forecast horizon:** one hour ahead (provisional until P3 freeze)
-- **History window:** 24 hours (provisional until P3 freeze)
+- **Forecast horizon:** one hour ahead (frozen in P3)
+- **History window:** 24 hours (frozen in P3)
 
 ## P2 structural audit scope
 
@@ -122,17 +122,17 @@ These small artifacts may be committed; raw station CSVs should not be.
 
 ## P3 implications
 
-P2 supports the following decisions for protocol freezing:
+P3 froze the following decisions on 2026-10-08; see `PROTOCOL.md` for the authoritative rules:
 
 - retain PM2.5 as the primary target;
-- retain all 12 stations as the default cross-site candidate set, subject to runtime usable-window checks;
+- use all 12 verified stations for leave-one-station-out evaluation;
 - use timestamp-based splits rather than row-fraction-only splitting;
 - estimate all imputation/scaling/noise parameters from training data only;
-- define the primary imputation policy only after development boundaries are fixed;
-- keep a 24-hour lookback and 1-hour horizon as provisional defaults until the runtime audit confirms sufficient station-level usable-window coverage.
+- use causal forward fill capped at six hours followed by training-only median/category fallback, with missingness indicators;
+- use a 24-hour lookback and 1-hour horizon, with frozen training, validation, and test periods, corruption settings, and uncertainty rules.
 
 ## P2 authoritative verification
 
 The authoritative UCI audit completed successfully on 2026-10-08 under Python 3.11. The frozen acquisition SHA-256 is `b04da438b2f331ac0ffd45aebdfec0d20d2367feb5f6948c4b1f7ce1191e33c4` for an 8,192,212-byte archive. The audit verified 420,768 rows, all 12 expected stations, 35,064 rows per station, continuous hourly coverage from 2013-03-01 00:00 through 2017-02-28 23:00, and no duplicate/backward/zero/gap timestamp defects.
 
-Aggregate PM2.5 missingness is 2.077% and PM2.5-complete 24-hour-history/1-hour-ahead windows range from 28,900 to 31,172 per station. P2 is therefore closed. P3 may retain the 24-hour lookback as a candidate and must now freeze the imputation, temporal split, station-holdout, corruption, and uncertainty rules before modeling.
+Aggregate PM2.5 missingness is 2.077% and PM2.5-complete 24-hour-history/1-hour-ahead windows range from 28,900 to 31,172 per station. P2 is closed. P3 froze the 1-hour horizon, 24-hour lookback, temporal split boundaries, causal imputation, 12-station LOSO design, corruption settings, and uncertainty rules on 2026-10-08, as recorded in `PROTOCOL.md` and `P3_COMPLETION_REPORT.md`.

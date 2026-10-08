@@ -93,5 +93,20 @@ The project is intentionally narrow. Prioritize complete, reproducible evidence 
 - PM2.5-complete 24-hour-history/1-hour-ahead windows range from 28,900 to 31,172 per station, supporting retention of the 24-hour lookback as a viable P3 candidate.
 - Raw data remain remote-only/temporary; only compact audit evidence is retained.
 - The first successful authoritative receipt is immutable. Both acquisition entry points must compare later downloads to the frozen SHA-256 and station inventory and fail on mismatch.
-- Full-data P2 analysis was restricted to structural checks. Distribution/autocorrelation/relationship analyses that could influence modeling remain development-only after P3 defines the temporal boundary.
+- Full-data P2 analysis was restricted to structural checks. Modeling-relevant exploratory analysis remains development-only under the frozen P3 temporal boundaries.
+
+## P3 protocol decisions
+
+- P3 is marked FROZEN on 2026-10-08; the completion report records that final-test performance was not inspected. `research/PROTOCOL.md` is authoritative and `configs/experiment.yaml` records the settings.
+- Training targets: 2013-03-02 through 2015-02-28; validation: 2015-03-01 through 2016-02-29; final test: 2016-03-01 through 2017-02-28. Horizon: 1 hour; lookback: 24 hours.
+- Features: six pollutants, TEMP/PRES/DEWP/RAIN/WSPM, categorical wind direction, and hour/day-of-year cyclical features. Station identity is excluded as a predictor.
+- Primary imputation: missingness indicators, causal station-wise forward fill capped at 6 hours, then training-only median/category fallback. Sensitivity: fallback without forward fill. Future targets are never imputed.
+- Models: persistence, XGBoost, MLP, compact GRU. Training-only expanding-window tuning precedes clean-validation family selection with equal station weighting.
+- Practical near-tie: 1.0 microgram per cubic metre in aggregate MAE; simplicity tiebreak: persistence, XGBoost, MLP, GRU.
+- LOSO covers all 12 stations; held-out station data are excluded from fitting, preprocessing fitting, tuning, and selection.
+- Corruptions: random dropout at 10/30/50%; whole-variable loss of NO2/CO/TEMP; contiguous outages of 6/12 hours; noise at 5/10/20% of training-derived IQR/1.349, with training-standard-deviation fallback. See the protocol for eligible channels and clipping rules.
+- Training seeds: 42, 31415, 27182. Corruption seeds: 101, 202, 303, 404, 505. Bootstrap seed: 424242.
+- Uncertainty: paired moving-block bootstrap with 24-hour blocks, 2,000 replicates, and 95% confidence intervals.
+- P4 data-pipeline implementation is next. Starter utilities must be brought into agreement with the frozen protocol before experiments.
+- Material post-freeze methodological changes must be recorded in `research/PROTOCOL_DEVIATIONS.md`.
 

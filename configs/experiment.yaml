@@ -1,49 +1,113 @@
 project: AirSense-R
-seed: 42
-protocol_status: DRAFT
+protocol_status: FROZEN
+protocol_frozen_date: 2026-10-08
+base_seed: 42
 
 data:
   dataset: uci_beijing_multisite_air_quality
   uci_id: 501
   doi: 10.24432/C5RK5G
+  archive_sha256: b04da438b2f331ac0ffd45aebdfec0d20d2367feb5f6948c4b1f7ce1191e33c4
   access_mode: remote_temporary
   retain_raw_data: false
   target: PM2.5
   forecast_horizon_hours: 1
   lookback_hours: 24
   timestamp_frequency: 1h
+  split_by: target_timestamp
+  train_target_start: "2013-03-02 00:00"
+  train_target_end: "2015-02-28 23:00"
+  validation_target_start: "2015-03-01 00:00"
+  validation_target_end: "2016-02-29 23:00"
+  test_target_start: "2016-03-01 00:00"
+  test_target_end: "2017-02-28 23:00"
+  allow_pre_split_history_for_boundary_targets: true
+  impute_future_target: false
 
 features:
   pollutants: [PM2.5, PM10, SO2, NO2, CO, O3]
-  meteorology: [TEMP, PRES, DEWP, RAIN, WSPM]
-  cyclical_time: true
+  meteorology_numeric: [TEMP, PRES, DEWP, RAIN, WSPM]
+  wind_direction_categorical: wd
+  temporal_cyclical: [hour_of_day, day_of_year]
+  station_id_as_predictor: false
+  missing_indicators: true
+
+imputation:
+  primary:
+    numeric_forward_fill_max_hours: 6
+    remaining_numeric: training_only_median
+    wind_direction_forward_fill_max_hours: 6
+    wind_direction_missing_category: MISSING
+    wind_direction_unknown_category: OTHER
+  sensitivity:
+    numeric: training_only_median
+    wind_direction_missing_category: MISSING
+    wind_direction_unknown_category: OTHER
+    forward_fill: false
 
 models:
   candidates: [persistence, xgboost, mlp, gru]
+  tuning_scope: training_only_expanding_window
+  internal_folds:
+    - fit_end: "2014-02-28 23:00"
+      validation_start: "2014-03-01 00:00"
+      validation_end: "2014-06-30 23:00"
+    - fit_end: "2014-06-30 23:00"
+      validation_start: "2014-07-01 00:00"
+      validation_end: "2014-10-31 23:00"
+    - fit_end: "2014-10-31 23:00"
+      validation_start: "2014-11-01 00:00"
+      validation_end: "2015-02-28 23:00"
   selection_metric: validation_mae
+  selection_aggregation: unweighted_mean_station_mae
+  near_tie_tiebreak_order: [persistence, xgboost, mlp, gru]
   test_oracle_is_descriptive_only: true
+
+near_tie:
+  metric: mae
+  absolute_threshold_ug_m3: 1.0
+  central_claim_requires_paired_ci_exclude_zero: true
 
 corruptions:
   apply_to_underlying_timeline_before_windowing: true
   preserve_future_target: true
+  no_stress_retraining: true
   primary_channels_exclude_historical_target: true
+  random_dropout_channels: [PM10, SO2, NO2, CO, O3, TEMP, PRES, DEWP, RAIN, WSPM, wd]
   random_dropout_levels: [0.10, 0.30, 0.50]
   whole_variable_dropout: [NO2, CO, TEMP]
+  contiguous_outage_channels: [NO2, CO, TEMP]
   contiguous_outage_hours: [6, 12]
+  contiguous_outage_schedule: one_seeded_event_per_calendar_month
+  contiguous_outage_report_affected_windows_separately: true
+  noise_channels: [PM10, SO2, NO2, CO, O3, TEMP, PRES, DEWP, RAIN, WSPM]
   noise_levels: [0.05, 0.10, 0.20]
+  noise_distribution: gaussian_zero_mean
   noise_scale_source: training_only
+  noise_scale_statistic: iqr_over_1.349
+  noise_scale_fallback: training_standard_deviation
+  clip_nonnegative_after_noise: [PM10, SO2, NO2, CO, O3, RAIN, WSPM]
   shared_realizations_across_models: true
 
 site_shift:
-  planned_strategy: leave_one_station_out_all_feasible_stations
-  held_out_station_excluded_from_fit_and_preprocessing: true
+  strategy: leave_one_station_out_all_12_stations
+  held_out_station_excluded_from_fit_tuning_preprocessing_selection: true
   recent_held_out_station_observations_allowed_at_inference: true
+  held_out_station_validation_not_used_for_selection: true
+  primary_aggregation: unweighted_mean_station_metric
+
+seeds:
+  training: [42, 31415, 27182]
+  corruption: [101, 202, 303, 404, 505]
+  bootstrap: 424242
 
 uncertainty:
-  method: paired_temporal_block_bootstrap
+  method: paired_moving_block_bootstrap
   block_length_hours: 24
-  n_bootstrap: 1000
+  n_bootstrap: 2000
   confidence: 0.95
+  paired_on_identical_target_rows: true
+  aggregation_order: seed_within_station_then_equal_weight_stations
 
 metrics:
   - mae
@@ -52,8 +116,9 @@ metrics:
   - rpd
   - selection_regret
   - winner_retention
+  - rank_change
 
 notes: >
-  P2 source identity and remote structural-audit workflow are complete. Values remain
-  provisional until generated runtime audit artifacts are inspected during P3 and
-  research/PROTOCOL.md is marked FROZEN. Test-set performance never determines the selected model.
+  P3 protocol frozen on 2026-10-08 before final-test evaluation. Final test targets are
+  2016-03-01 through 2017-02-28 and must not influence features, preprocessing,
+  hyperparameters, corruption magnitudes, uncertainty settings, or model selection.
