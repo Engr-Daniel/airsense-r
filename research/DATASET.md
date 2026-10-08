@@ -131,6 +131,8 @@ P2 supports the following decisions for protocol freezing:
 - define the primary imputation policy only after development boundaries are fixed;
 - keep a 24-hour lookback and 1-hour horizon as provisional defaults until the runtime audit confirms sufficient station-level usable-window coverage.
 
-## P2 verification state
+## P2 authoritative verification
 
-The structural audit implementation is complete. A pinned public UCI-derived mirror reproduced the official 420,768-row / 12-station structure with continuous hourly timestamps and no duplicates, but it is not authoritative byte evidence. The repository therefore runs the authoritative UCI archive audit on GitHub Actions/Python 3.11 after push. `PROTOCOL.md` must remain `DRAFT` until the resulting acquisition receipt and audit tables are inspected.
+The authoritative UCI audit completed successfully on 2026-10-08 under Python 3.11. The frozen acquisition SHA-256 is `b04da438b2f331ac0ffd45aebdfec0d20d2367feb5f6948c4b1f7ce1191e33c4` for an 8,192,212-byte archive. The audit verified 420,768 rows, all 12 expected stations, 35,064 rows per station, continuous hourly coverage from 2013-03-01 00:00 through 2017-02-28 23:00, and no duplicate/backward/zero/gap timestamp defects.
+
+Aggregate PM2.5 missingness is 2.077% and PM2.5-complete 24-hour-history/1-hour-ahead windows range from 28,900 to 31,172 per station. P2 is therefore closed. P3 may retain the 24-hour lookback as a candidate and must now freeze the imputation, temporal split, station-holdout, corruption, and uncertainty rules before modeling.

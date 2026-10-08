@@ -86,19 +86,12 @@ The project is intentionally narrow. Prioritize complete, reproducible evidence 
 
 ## P2 dataset decisions
 
-- P2 implementation + structural preflight completed 2026-10-08 for UCI dataset 501 (DOI `10.24432/C5RK5G`); authoritative UCI archive byte verification remains pending until the GitHub Action commits its receipt.
-- Official structure: 420,768 hourly records, 12 stations, 2013-03-01 through 2017-02-28, six pollutants plus meteorological variables, with missing values present.
-- Raw data should **not** be permanently downloaded by the default workflow. `scripts/run_data_audit.py` fetches into temporary storage, writes compact `audit/` artifacts, and removes the raw archive automatically.
-- The exact archive SHA-256 is computed at runtime rather than hard-coded.
-- Full-data P2 work is restricted to structural checks. Distribution/autocorrelation/feature analyses that could influence modeling are development-only after P3 defines temporal boundaries.
-- P3 must inspect the generated runtime audit reports before protocol freeze.
+- P2 **closed 2026-10-08** after authoritative UCI acquisition and structural verification under Python 3.11.
+- Frozen authoritative archive SHA-256: `b04da438b2f331ac0ffd45aebdfec0d20d2367feb5f6948c4b1f7ce1191e33c4`; archive size 8,192,212 bytes.
+- Verified 420,768 rows, 12/12 expected stations, 35,064 rows per station, 2013-03-01 00:00 through 2017-02-28 23:00, with no duplicates, backward/zero steps, or hourly gaps.
+- Aggregate PM2.5 missingness is 8,739 rows (2.077%); CO has the highest aggregate missingness among numeric channels at 4.920%.
+- PM2.5-complete 24-hour-history/1-hour-ahead windows range from 28,900 to 31,172 per station, supporting retention of the 24-hour lookback as a viable P3 candidate.
+- Raw data remain remote-only/temporary; only compact audit evidence is retained.
+- The first successful authoritative receipt is immutable. Both acquisition entry points must compare later downloads to the frozen SHA-256 and station inventory and fail on mismatch.
+- Full-data P2 analysis was restricted to structural checks. Distribution/autocorrelation/relationship analyses that could influence modeling remain development-only after P3 defines the temporal boundary.
 
-## P2 verification hardening
-
-- The first successful authoritative UCI acquisition receipt becomes the frozen SHA-256 baseline; later acquisitions must match it.
-- Station inventory must equal the 12 named UCI stations exactly, with no missing, unexpected, or repeated identities.
-- Original timestamp order is diagnosed before sorting; sorting must not erase backward/zero-step evidence.
-- Forecast-window coverage requires every adjacent step from history through target to be exactly one hour.
-- Missing-run rows and consecutive missing hours are reported separately/consistently.
-- A pinned public UCI-derived mirror was used only for structural preflight, never as a substitute for authoritative UCI byte identity.
-- Latest pre-P2 GitHub Actions run failed because `requests` was omitted from the CI install command; the workflow is corrected in this update.

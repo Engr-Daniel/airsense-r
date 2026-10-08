@@ -1,77 +1,99 @@
-# P2 Dataset Acquisition and Audit — Implementation & Verification Report
+# P2 Dataset Acquisition and Audit — Completion Report
 
 **Checkpoint:** P2  
 **Date:** 2026-10-08  
-**Status:** **IMPLEMENTATION COMPLETE; STRUCTURAL PREFLIGHT COMPLETE; AUTHORITATIVE UCI BYTE VERIFICATION PENDING**
+**Status:** **COMPLETE — AUTHORITATIVE UCI ACQUISITION AND STRUCTURAL VERIFICATION PASSED**
 
 ## Objective
 
-Establish a scientifically defensible, storage-light dataset acquisition and structural-audit workflow for UCI dataset 501 before P3 freezes any modeling choices.
+Establish a scientifically defensible, storage-light acquisition and structural-audit workflow for UCI dataset 501, verify the authoritative archive itself, and retain compact evidence sufficient to support P3 protocol decisions without permanently storing the raw dataset.
 
-## Completed implementation
+## Authoritative acquisition verified
 
-- Remote-only acquisition from the authoritative UCI URL using OS temporary storage.
-- Runtime SHA-256 and byte-count receipt.
-- First-successful-receipt baseline rule: later archive hashes/inventories must match.
-- Recursive archive extraction with no retained raw dataset.
-- Exact validation of the 12 expected UCI station identities.
-- Original-order timestamp diagnostics before sorting.
-- Sorted-grid duplicate/gap diagnostics.
-- Missingness counts and longest missing runs.
-- Missing-run rows are no longer blindly labelled as hours across irregular time gaps.
-- Provisional 24-hour-lookback / 1-hour-ahead usable-window counts require **every internal timestamp step** to equal one hour.
-- Full-data work remains restricted to structural audit; modeling-relevant EDA is deferred until P3 defines the development boundary.
+The GitHub Actions workflow `p2-authoritative-audit` completed successfully under Python 3.11 and fetched the authoritative UCI archive directly.
 
-## Structural preflight executed
+Verified acquisition evidence:
 
-Because this execution environment could not retrieve the full authoritative UCI archive directly, a structural preflight was run against a public UCI-derived mirror pinned to:
+- source: UCI Beijing Multi-Site Air Quality dataset (ID 501)
+- DOI: `10.24432/C5RK5G`
+- archive bytes: **8,192,212**
+- SHA-256: `b04da438b2f331ac0ffd45aebdfec0d20d2367feb5f6948c4b1f7ce1191e33c4`
+- station CSV inventory: **12 files**
+- checksum baseline state: **first authoritative baseline created and frozen**
 
-`Kjyesta30/Beijing-Multi-Site-Air-Quality@b11d6aa82cc5285e83cb79adb0f4971a54cba9cb`
+The raw ZIP and extracted CSVs were held only in temporary storage. They were not committed or retained after the audit.
 
-The preflight observed:
+## Structural verification results
+
+The authoritative audit found:
 
 - **420,768 rows total**;
-- **12/12 expected stations**;
+- **12/12 expected station identities** with no missing, unexpected, or repeated station labels;
 - **35,064 rows per station**;
-- coverage from **2013-03-01 00:00** through **2017-02-28 23:00** for every station;
+- coverage from **2013-03-01 00:00** through **2017-02-28 23:00** at every station;
 - **0 duplicate timestamps**;
-- **0 forward gaps**;
 - **0 original-order backward steps**;
-- PM2.5 missingness ranging from about **1.09% (Wanliu)** to **2.72% (Huairou)**;
-- substantial long missing runs for some pollutant channels, including CO and NO2, supporting the decision to treat missingness structure explicitly in P3.
+- **0 original-order zero steps**;
+- **0 sorted non-hourly steps**;
+- **0 forward gaps greater than one hour**.
 
-These values reproduce the official UCI structural identity (420,768 instances, 12 nationally controlled stations, March 2013–February 2017), but the mirror is **not** used as authoritative byte evidence.
+Therefore the source files form a complete hourly timestamp grid. Longest missing runs reported in hours are consequently interpretable as consecutive hourly observation gaps.
 
-## Authoritative verification mechanism
+## Missingness evidence
 
-`.github/workflows/p2-audit.yml` now performs the authoritative audit on GitHub Actions with **Python 3.11** whenever the updated repository is pushed to `main`:
+Aggregate missingness across all 420,768 rows:
 
-1. install the package and audit dependencies;
-2. temporarily download the authoritative UCI archive;
-3. compute SHA-256;
-4. validate the expected station inventory;
-5. run the hardened structural audit;
-6. delete raw temporary data automatically;
-7. commit only the compact `audit/` evidence files.
+| Variable | Missing count | Missing % |
+|---|---:|---:|
+| CO | 20,701 | 4.920% |
+| O3 | 13,277 | 3.155% |
+| NO2 | 12,116 | 2.879% |
+| SO2 | 9,021 | 2.144% |
+| PM2.5 | 8,739 | 2.077% |
+| PM10 | 6,449 | 1.533% |
+| wd | 1,822 | 0.433% |
+| DEWP | 403 | 0.096% |
+| TEMP | 398 | 0.095% |
+| PRES | 393 | 0.093% |
+| RAIN | 390 | 0.093% |
+| WSPM | 318 | 0.076% |
 
-The workflow ignores audit-only pushes, preventing a commit loop.
+PM2.5 missingness varies materially by station, from approximately **1.09% at Wanliu** to **2.72% at Huairou**. Some pollutant channels also contain long contiguous outages, including CO gaps exceeding 1,000 hours at some stations. This supports treating missingness/degradation as a substantive reliability condition rather than a cosmetic perturbation.
 
-## Python 3.11 verification finding
+## Provisional 24 h -> 1 h window coverage
 
-The live repository's latest Actions run before this hardening used Python **3.11.16** but failed during test collection because `requests` was not installed by the CI command. The package itself installed successfully. This update fixes the CI install command to include `requests`.
+The structural audit confirms sufficient PM2.5-history coverage for the proposed 24-hour lookback and 1-hour forecast horizon. PM2.5-complete history-window counts range from **28,900 at Shunyi** to **31,172 at Wanliu**, with all stations retaining tens of thousands of candidate windows.
 
-A previous P1.5 Action on the same Python 3.11 workflow passed. The updated local suite passes under the available Python 3.13 environment; the corrected Python 3.11 run should be treated as the final supported-environment verification after push.
+All-numeric-complete windows are lower because other pollutant channels contain longer gaps. This directly supports the P3 requirement to freeze an explicit imputation policy rather than restrict the study to only fully complete multivariate windows.
 
-## Required authoritative artifacts
+## Baseline immutability rule
 
-P2 is not closed until the Action creates and these are inspected:
+The first successful authoritative receipt is the frozen acquisition baseline. Both:
+
+- `scripts/run_data_audit.py`, and
+- `scripts/download_data.py`
+
+must compare later acquisitions with the existing receipt and fail if either the archive SHA-256 or station-file inventory changes. The standalone downloader must never overwrite an existing baseline silently.
+
+## Test and environment verification
+
+- the latest repository test workflow completed successfully under **Python 3.11**;
+- the authoritative UCI audit workflow completed successfully;
+- the audit evidence files were committed to `audit/`.
+
+## P2 deliverables
 
 - `audit/acquisition_receipt.json`
 - `audit/structural_audit.json`
 - `audit/station_summary.csv`
 - `audit/missingness_by_station_variable.csv`
 - `audit/aggregate_missingness.csv`
+- `research/DATASET.md`
+- `research/P2_COMPLETION_REPORT.md`
+- hardened remote acquisition/audit utilities and tests
 
-## P3 rule
+## Exit decision
 
-P3 **may be drafted now**, using only the structural facts already established, but `research/PROTOCOL.md` must remain **DRAFT** until the authoritative UCI artifacts above are committed and reviewed.
+**P2 is CLOSED.**
+
+P3 may now use the verified structural evidence to freeze timestamp boundaries, station eligibility, imputation, feature policy, lookback, corruption settings, and uncertainty procedures. Distributional or relationship-based analyses that could inform model choices must still be restricted to the development portion after P3 defines the temporal boundary.
