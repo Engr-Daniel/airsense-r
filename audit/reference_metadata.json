@@ -1,0 +1,29 @@
+{
+  "dataset": "Beijing Multi-Site Air Quality",
+  "uci_id": 501,
+  "doi": "10.24432/C5RK5G",
+  "license": "CC BY 4.0",
+  "dataset_page": "https://archive.ics.uci.edu/dataset/501/beijing+multi+site+air+quality+data",
+  "runtime_archive_url": "https://archive.ics.uci.edu/static/public/501/beijing+multi+site+air+quality+data.zip",
+  "official_instances": 420768,
+  "official_station_count": 12,
+  "official_start": "2013-03-01T00:00:00",
+  "official_end": "2017-02-28T23:00:00",
+  "expected_rows_per_station_if_full_hourly_grid": 35064,
+  "archive_sha256": "COMPUTED_AT_RUNTIME",
+  "raw_data_retained": false,
+  "station_inventory": [
+    "Aotizhongxin",
+    "Changping",
+    "Dingling",
+    "Dongsi",
+    "Guanyuan",
+    "Gucheng",
+    "Huairou",
+    "Nongzhanguan",
+    "Shunyi",
+    "Tiantan",
+    "Wanliu",
+    "Wanshouxigong"
+  ]
+}

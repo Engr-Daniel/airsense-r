@@ -17,7 +17,7 @@ Does the model selected as best under clean one-hour-ahead PM2.5 forecasting rem
 
 ## Planned dataset
 
-UCI Beijing Multi-Site Air Quality dataset: hourly pollutant and meteorological observations across 12 stations (2013–2017). Keep raw data immutable once downloaded.
+UCI Beijing Multi-Site Air Quality dataset: hourly pollutant and meteorological observations across 12 stations (2013–2017). Default access is **remote-only**: stream the authoritative UCI archive into temporary storage, compute a runtime SHA-256, audit it, retain only compact reports, and delete raw bytes automatically.
 
 ## P1 novelty decision
 
@@ -49,7 +49,7 @@ Avoid expanding model count unless a scientific reason is documented.
 Primary: MAE
 Secondary: RMSE, R²
 Robustness: Relative Performance Degradation (RPD)
-Optional: bootstrap confidence intervals and paired error comparisons
+Required for central comparisons: paired dependence-aware uncertainty / temporal-block bootstrap
 
 ## Scientific guardrails
 
@@ -82,3 +82,13 @@ The project is intentionally narrow. Prioritize complete, reproducible evidence 
 - Avoid calling cross-site error a causal "site-shift penalty" unless a matched same-station comparator is implemented.
 - Preprocessing/imputation is part of the evaluated forecasting pipeline.
 - Uncertainty for central model comparisons is mandatory, with paired temporal-block bootstrap planned.
+
+
+## P2 dataset decisions
+
+- P2 dataset checkpoint completed 2026-10-08 using UCI dataset 501 (DOI `10.24432/C5RK5G`).
+- Official structure: 420,768 hourly records, 12 stations, 2013-03-01 through 2017-02-28, six pollutants plus meteorological variables, with missing values present.
+- Raw data should **not** be permanently downloaded by the default workflow. `scripts/run_data_audit.py` fetches into temporary storage, writes compact `audit/` artifacts, and removes the raw archive automatically.
+- The exact archive SHA-256 is computed at runtime rather than hard-coded.
+- Full-data P2 work is restricted to structural checks. Distribution/autocorrelation/feature analyses that could influence modeling are development-only after P3 defines temporal boundaries.
+- P3 must inspect the generated runtime audit reports before protocol freeze.

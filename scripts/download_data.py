@@ -1,33 +1,32 @@
-"""Download and extract the planned UCI dataset.
+"""Verify remote UCI acquisition without retaining raw data.
 
-Run from the repository root:
+This project intentionally does not keep the dataset on disk. The command streams the
+UCI archive into a temporary directory, verifies that station CSVs are present, records
+SHA-256 + file inventory, and deletes raw bytes automatically on exit.
+
+Run from repository root:
     python scripts/download_data.py
 """
 from __future__ import annotations
 
 from pathlib import Path
-from urllib.request import urlretrieve
-import zipfile
 
-URL = "https://archive.ics.uci.edu/static/public/501/beijing+multi+site+air+quality+data.zip"
+from airsense_r.data.remote import save_receipt, temporary_uci_dataset
+
 ROOT = Path(__file__).resolve().parents[1]
-RAW = ROOT / "data" / "raw"
-ZIP_PATH = RAW / "beijing_multisite_air_quality.zip"
+RECEIPT = ROOT / "audit" / "acquisition_receipt.json"
 
 
 def main() -> None:
-    RAW.mkdir(parents=True, exist_ok=True)
-    if not ZIP_PATH.exists():
-        print(f"Downloading dataset to {ZIP_PATH} ...")
-        urlretrieve(URL, ZIP_PATH)
-    else:
-        print("Archive already present; skipping download.")
-
-    extract_dir = RAW / "beijing_multisite_air_quality"
-    extract_dir.mkdir(exist_ok=True)
-    with zipfile.ZipFile(ZIP_PATH) as zf:
-        zf.extractall(extract_dir)
-    print(f"Extracted to {extract_dir}")
+    with temporary_uci_dataset() as (_, receipt):
+        save_receipt(receipt, RECEIPT)
+        print(f"Verified remote archive: {receipt.bytes_downloaded:,} bytes")
+        print(f"SHA-256: {receipt.sha256}")
+        print(f"Station CSVs discovered: {len(receipt.csv_files)}")
+        for name in receipt.csv_files:
+            print(f"  - {name}")
+    print(f"Saved compact receipt to {RECEIPT}")
+    print("Raw archive and extracted CSV files were deleted from temporary storage.")
 
 
 if __name__ == "__main__":

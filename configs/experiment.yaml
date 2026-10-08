@@ -4,6 +4,10 @@ protocol_status: DRAFT
 
 data:
   dataset: uci_beijing_multisite_air_quality
+  uci_id: 501
+  doi: 10.24432/C5RK5G
+  access_mode: remote_temporary
+  retain_raw_data: false
   target: PM2.5
   forecast_horizon_hours: 1
   lookback_hours: 24
@@ -50,5 +54,6 @@ metrics:
   - winner_retention
 
 notes: >
-  Values remain provisional until P2 data audit is complete and research/PROTOCOL.md
-  is marked FROZEN. Test-set performance never determines the selected model.
+  P2 source identity and remote structural-audit workflow are complete. Values remain
+  provisional until generated runtime audit artifacts are inspected during P3 and
+  research/PROTOCOL.md is marked FROZEN. Test-set performance never determines the selected model.

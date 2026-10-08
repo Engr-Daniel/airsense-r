@@ -76,11 +76,11 @@ python -m venv .venv
 source .venv/bin/activate
 
 pip install -r requirements.txt
-python scripts/download_data.py
-python scripts/run_data_audit.py
+python scripts/download_data.py   # verify/hash remote UCI archive; retain no raw data
+python scripts/run_data_audit.py  # full structural audit via temporary storage
 ```
 
-Do not run final experiments until `research/PROTOCOL.md` is frozen.
+The raw dataset is remote-only by default: acquisition uses temporary storage and retains only compact audit evidence. Do not run final experiments until `research/PROTOCOL.md` is frozen.
 
 ## GitHub Pages
 
@@ -96,4 +96,4 @@ The static dashboard lives in `docs/`. Configure GitHub Pages to deploy from the
 
 ## Status
 
-P0 repository scaffold complete. **P1 literature reconnaissance and novelty stress-test complete (2026-10-07).** The contribution is now constrained to model-selection reliability under controlled deployment stress; see `research/LITERATURE_NOTES.md` and `research/P1_COMPLETION_REPORT.md`. Next: P2 dataset acquisition and audit.
+P0, P1 and P1.5 are complete. **P2 remote acquisition and structural-audit checkpoint completed 2026-10-08.** The raw dataset is not retained; a network-enabled `python scripts/run_data_audit.py` generates the exact runtime checksum and compact station-level audit evidence that P3 must inspect before protocol freeze. Next: P3 protocol freeze.

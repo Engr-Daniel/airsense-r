@@ -40,14 +40,14 @@ Complete a scientifically defensible v1 research study, technical manuscript, re
 
 ## P2 — Dataset acquisition and audit
 
-- [ ] Download UCI Beijing Multi-Site Air Quality dataset
-- [ ] Verify file inventory and station coverage
-- [ ] Audit missingness, timestamp continuity, distributions, outliers
-- [ ] Record archive/file checksums, units, station inventory, duplicate timestamps and gap/run-length statistics
-- [ ] Quantify observed-target and usable-window coverage by station
-- [ ] Separate structural data-quality checks from development-only exploratory/modeling analysis
-- [ ] Confirm target and usable features
-- [ ] Save audit summary
+- [x] Establish remote-only temporary acquisition from authoritative UCI URL
+- [x] Verify authoritative file/station metadata and implement runtime inventory verification
+- [x] Implement reproducible structural audit for missingness, timestamp continuity, gaps and suspicious values (distribution-driven EDA deferred to development data)
+- [x] Record source/units/station inventory and implement runtime SHA-256, duplicate, gap and missing-run evidence outputs
+- [x] Implement station-level observed-target and provisional usable-window coverage reporting
+- [x] Separate full-data structural checks from development-only exploratory/modeling analysis
+- [x] Confirm PM2.5 target and raw pollutant/meteorological feature inventory
+- [x] Complete dataset card + P2 report and define compact `audit/` output contract
 
 ## P3 — Freeze protocol BEFORE final experiments
 
@@ -96,12 +96,12 @@ Complete a scientifically defensible v1 research study, technical manuscript, re
 
 - [ ] Train without held-out site(s)
 - [ ] Evaluate on unseen site(s)
-- [ ] Quantify generalization penalty
+- [ ] Quantify cross-site generalization performance (do not call it a penalty without matched comparator)
 - [ ] Compare model ranking stability
 
 ## P8 — Statistical and failure analysis
 
-- [ ] Bootstrap confidence intervals where feasible
+- [ ] Compute required paired dependence-aware uncertainty / temporal-block bootstrap intervals
 - [ ] Analyze worst-error cases
 - [ ] Check error by pollution regime
 - [ ] Check whether clean ranking persists under degradation

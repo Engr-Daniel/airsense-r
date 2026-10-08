@@ -27,11 +27,11 @@ Does clean-validation model selection remain practically reliable when sensor ob
 - **H4:** Some apparent rank changes will be practically negligible; selection regret and uncertainty will distinguish meaningful reversals from near-ties.
 - **H5:** Cross-site results will vary by station, so station-specific and aggregate results are both required.
 
-These hypotheses will be frozen only after P2 establishes dataset structure and usable sample sizes.
+P2 established the dataset identity and structural audit procedure. These hypotheses remain provisional until P3 inspects the generated runtime audit artifacts and freezes usable samples/splits.
 
 ## 5. Dataset
 
-Planned: UCI Beijing Multi-Site Air Quality dataset.
+UCI Beijing Multi-Site Air Quality dataset (UCI ID 501; DOI `10.24432/C5RK5G`). Default acquisition is remote-only and temporary; raw bytes are not retained by the repository workflow.
 
 The v1 study uses regulatory/reference monitoring data. It does **not** establish performance on low-cost embedded sensors, microcontrollers, field power constraints, or device-level calibration.
 
@@ -69,7 +69,7 @@ Selection regret is reported in the original PM2.5 units alongside ranking chang
 
 ## 9. Data splitting
 
-**TO FREEZE AFTER P2 DATA AUDIT.**
+**TO FREEZE IN P3 AFTER INSPECTING THE P2 RUNTIME AUDIT ARTIFACTS.**
 
 Required principles:
 
@@ -83,7 +83,7 @@ Required principles:
 
 ## 10. Unseen-site evaluation
 
-Primary plan: repeated leave-one-station-out evaluation over all feasible stations, subject to P2 confirming coverage and computational feasibility.
+Primary plan: repeated leave-one-station-out evaluation over all feasible stations, subject to P3 confirming eligibility from the P2 runtime coverage report and computational feasibility.
 
 For each held-out station:
 
@@ -132,7 +132,7 @@ For a given station, condition, severity, and seed, all candidate models must be
 
 Preprocessing is part of the evaluated forecasting pipeline.
 
-A primary imputation policy will be frozen after P2. A small predefined sensitivity analysis may compare the primary policy with one alternative to determine whether ranking changes are driven mainly by the imputation strategy rather than the forecasting model.
+A primary imputation policy will be frozen in P3 after inspecting development-side missingness structure from the P2 audit outputs. A small predefined sensitivity analysis may compare the primary policy with one alternative to determine whether ranking changes are driven mainly by the imputation strategy rather than the forecasting model.
 
 Imputation parameters must be estimated on training data only.
 
@@ -169,13 +169,13 @@ Primary plan:
 - multiple corruption seeds and, where stochastic training applies, multiple training seeds as computationally feasible;
 - report confidence intervals for paired MAE differences and/or selection regret summaries.
 
-P2/P3 will freeze the temporal block length after inspecting temporal structure. Cross-station results will be retained separately before aggregation; thousands of correlated hourly forecasts will not be treated as independent experimental replications.
+P3 will freeze the temporal block length after development-only temporal analysis; final-test autocorrelation must not be used to choose it. Cross-station results will be retained separately before aggregation; thousands of correlated hourly forecasts will not be treated as independent experimental replications.
 
 ## 15. Practical significance / near-ties
 
 P3 must define a practical near-tie rule before final evaluation. This prevents tiny numerical differences from being overinterpreted as meaningful model-selection failures.
 
-The threshold will be chosen after P2 characterizes PM2.5 scale and variability, but before final test evaluation.
+The threshold will be chosen in P3 using training/development-scale information only, before final test evaluation.
 
 ## 16. Reproducibility
 
@@ -197,7 +197,7 @@ Edge deployment remains future work.
 
 - [x] P1 literature stress-test complete
 - [x] P1.5 methodology hardening complete
-- [ ] P2 dataset audit complete
+- [x] P2 remote acquisition + structural-audit checkpoint complete (runtime audit artifacts must be inspected before freeze)
 - [ ] timestamp/split logic finalized
 - [ ] feature list finalized
 - [ ] imputation policy finalized
