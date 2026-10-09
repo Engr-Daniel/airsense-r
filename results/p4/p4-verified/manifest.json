@@ -1,0 +1,305 @@
+{
+  "artifacts": {
+    "complete.json": {
+      "bytes": 109,
+      "sha256": "32b865d072e4954617cbc3af13776c344f8bc12a25f2c342150e6e6219378a31"
+    },
+    "coverage-Aotizhongxin.json": {
+      "bytes": 902,
+      "sha256": "dea355131ab1056b33a08986e413e5799413b556680d520727d40850c1c3c731"
+    },
+    "coverage-Changping.json": {
+      "bytes": 899,
+      "sha256": "23b65260cf2dd1a504cb85c0f581f9c097d3571ffd5722afdd1bf8594c9c350c"
+    },
+    "coverage-Dingling.json": {
+      "bytes": 898,
+      "sha256": "73067b7f1595dd91270f8ba13fa27704b86f768ec4b2d89a14a3aac1e9872294"
+    },
+    "coverage-Dongsi.json": {
+      "bytes": 896,
+      "sha256": "2a6800ec6dc607c8a91c040dbb741490402474a38ccae7b3ed3c9987bc98be23"
+    },
+    "coverage-Guanyuan.json": {
+      "bytes": 898,
+      "sha256": "0f388155297d0ed32d06646bc77438aad0fdcb758afc75ae643e0bd78e07a8ef"
+    },
+    "coverage-Gucheng.json": {
+      "bytes": 897,
+      "sha256": "61c33ba88c997b16a4e3a9da49206850dfe2d731be1d96ea76d6203ef0876132"
+    },
+    "coverage-Huairou.json": {
+      "bytes": 897,
+      "sha256": "c2569bb74b61c81d2af54d29b7a0ec971598ee6cb588ad11fc89db41398ae46e"
+    },
+    "coverage-Nongzhanguan.json": {
+      "bytes": 902,
+      "sha256": "ed052eddfc093c91f473cff3153497e1e0b69c6c7b2b6240978f043a02f11aea"
+    },
+    "coverage-Shunyi.json": {
+      "bytes": 896,
+      "sha256": "f42c94ac0bd1e363cbb599922f91c7322c73c3a3993aaf5a6120d8a4a0f3436c"
+    },
+    "coverage-Tiantan.json": {
+      "bytes": 897,
+      "sha256": "f28c40867090ddbcfa5c88c197b84440439248c795e714013eb32d9b70b419d4"
+    },
+    "coverage-Wanliu.json": {
+      "bytes": 896,
+      "sha256": "a5b8a6ed1a3487c06767b094799d0fcd3f58117e7b04821f147c4e283583cb68"
+    },
+    "coverage-Wanshouxigong.json": {
+      "bytes": 903,
+      "sha256": "b279c0a6da8de2ca9ca378bcdf5b355d452dd016b56098b4a6a760cb6c750376"
+    },
+    "preprocessing.json": {
+      "bytes": 2705,
+      "sha256": "8884b71aeb5d82612a383ff168d2cd0fbba0522e5a8126de29ae5e672dc67951"
+    }
+  },
+  "provenance": {
+    "code_commit": "f433dd1579593b84775006944fd3f8ebb5c4f09e",
+    "config": {
+      "base_seed": 42,
+      "corruptions": {
+        "apply_to_underlying_timeline_before_windowing": true,
+        "clip_nonnegative_after_noise": [
+          "PM10",
+          "SO2",
+          "NO2",
+          "CO",
+          "O3",
+          "RAIN",
+          "WSPM"
+        ],
+        "contiguous_outage_channels": [
+          "NO2",
+          "CO",
+          "TEMP"
+        ],
+        "contiguous_outage_hours": [
+          6,
+          12
+        ],
+        "contiguous_outage_report_affected_windows_separately": true,
+        "contiguous_outage_schedule": "one_seeded_event_per_calendar_month",
+        "no_stress_retraining": true,
+        "noise_channels": [
+          "PM10",
+          "SO2",
+          "NO2",
+          "CO",
+          "O3",
+          "TEMP",
+          "PRES",
+          "DEWP",
+          "RAIN",
+          "WSPM"
+        ],
+        "noise_distribution": "gaussian_zero_mean",
+        "noise_levels": [
+          0.05,
+          0.1,
+          0.2
+        ],
+        "noise_scale_fallback": "training_standard_deviation",
+        "noise_scale_source": "training_only",
+        "noise_scale_statistic": "iqr_over_1.349",
+        "preserve_future_target": true,
+        "primary_channels_exclude_historical_target": true,
+        "random_dropout_channels": [
+          "PM10",
+          "SO2",
+          "NO2",
+          "CO",
+          "O3",
+          "TEMP",
+          "PRES",
+          "DEWP",
+          "RAIN",
+          "WSPM",
+          "wd"
+        ],
+        "random_dropout_levels": [
+          0.1,
+          0.3,
+          0.5
+        ],
+        "shared_realizations_across_models": true,
+        "whole_variable_dropout": [
+          "NO2",
+          "CO",
+          "TEMP"
+        ]
+      },
+      "data": {
+        "access_mode": "remote_temporary",
+        "allow_pre_split_history_for_boundary_targets": true,
+        "archive_sha256": "b04da438b2f331ac0ffd45aebdfec0d20d2367feb5f6948c4b1f7ce1191e33c4",
+        "dataset": "uci_beijing_multisite_air_quality",
+        "doi": "10.24432/C5RK5G",
+        "forecast_horizon_hours": 1,
+        "impute_future_target": false,
+        "lookback_hours": 24,
+        "retain_raw_data": false,
+        "split_by": "target_timestamp",
+        "target": "PM2.5",
+        "test_target_end": "2017-02-28 23:00",
+        "test_target_start": "2016-03-01 00:00",
+        "timestamp_frequency": "1h",
+        "train_target_end": "2015-02-28 23:00",
+        "train_target_start": "2013-03-02 00:00",
+        "uci_id": 501,
+        "validation_target_end": "2016-02-29 23:00",
+        "validation_target_start": "2015-03-01 00:00"
+      },
+      "features": {
+        "meteorology_numeric": [
+          "TEMP",
+          "PRES",
+          "DEWP",
+          "RAIN",
+          "WSPM"
+        ],
+        "missing_indicators": true,
+        "pollutants": [
+          "PM2.5",
+          "PM10",
+          "SO2",
+          "NO2",
+          "CO",
+          "O3"
+        ],
+        "station_id_as_predictor": false,
+        "temporal_cyclical": [
+          "hour_of_day",
+          "day_of_year"
+        ],
+        "wind_direction_categorical": "wd"
+      },
+      "imputation": {
+        "primary": {
+          "numeric_forward_fill_max_hours": 6,
+          "remaining_numeric": "training_only_median",
+          "wind_direction_forward_fill_max_hours": 6,
+          "wind_direction_missing_category": "MISSING",
+          "wind_direction_unknown_category": "OTHER"
+        },
+        "sensitivity": {
+          "forward_fill": false,
+          "numeric": "training_only_median",
+          "wind_direction_missing_category": "MISSING",
+          "wind_direction_unknown_category": "OTHER"
+        }
+      },
+      "metrics": [
+        "mae",
+        "rmse",
+        "r2",
+        "rpd",
+        "selection_regret",
+        "winner_retention",
+        "rank_change"
+      ],
+      "models": {
+        "candidates": [
+          "persistence",
+          "xgboost",
+          "mlp",
+          "gru"
+        ],
+        "internal_folds": [
+          {
+            "fit_end": "2014-02-28 23:00",
+            "validation_end": "2014-06-30 23:00",
+            "validation_start": "2014-03-01 00:00"
+          },
+          {
+            "fit_end": "2014-06-30 23:00",
+            "validation_end": "2014-10-31 23:00",
+            "validation_start": "2014-07-01 00:00"
+          },
+          {
+            "fit_end": "2014-10-31 23:00",
+            "validation_end": "2015-02-28 23:00",
+            "validation_start": "2014-11-01 00:00"
+          }
+        ],
+        "near_tie_tiebreak_order": [
+          "persistence",
+          "xgboost",
+          "mlp",
+          "gru"
+        ],
+        "selection_aggregation": "unweighted_mean_station_mae",
+        "selection_metric": "validation_mae",
+        "test_oracle_is_descriptive_only": true,
+        "tuning_scope": "training_only_expanding_window"
+      },
+      "near_tie": {
+        "absolute_threshold_ug_m3": 1.0,
+        "central_claim_requires_paired_ci_exclude_zero": true,
+        "metric": "mae"
+      },
+      "notes": "P3 protocol frozen on 2026-10-08 before final-test evaluation. Final test targets are 2016-03-01 through 2017-02-28 and must not influence features, preprocessing, hyperparameters, corruption magnitudes, uncertainty settings, or model selection.\n",
+      "project": "AirSense-R",
+      "protocol_frozen_date": "2026-10-08",
+      "protocol_status": "FROZEN",
+      "seeds": {
+        "bootstrap": 424242,
+        "corruption": [
+          101,
+          202,
+          303,
+          404,
+          505
+        ],
+        "training": [
+          42,
+          31415,
+          27182
+        ]
+      },
+      "site_shift": {
+        "held_out_station_excluded_from_fit_tuning_preprocessing_selection": true,
+        "held_out_station_validation_not_used_for_selection": true,
+        "primary_aggregation": "unweighted_mean_station_metric",
+        "recent_held_out_station_observations_allowed_at_inference": true,
+        "strategy": "leave_one_station_out_all_12_stations"
+      },
+      "uncertainty": {
+        "aggregation_order": "seed_within_station_then_equal_weight_stations",
+        "block_length_hours": 24,
+        "confidence": 0.95,
+        "method": "paired_moving_block_bootstrap",
+        "n_bootstrap": 2000,
+        "paired_on_identical_target_rows": true
+      }
+    },
+    "config_hash": "5ef16f9a62c940738005e11b178143d61ebdd18c6e7bb10c63c4c650fefa4fc1",
+    "dataset_sha256": "b04da438b2f331ac0ffd45aebdfec0d20d2367feb5f6948c4b1f7ce1191e33c4",
+    "environment": {
+      "packages": {
+        "PyYAML": "6.0.3",
+        "numpy": "2.4.6",
+        "pandas": "2.3.3",
+        "requests": "2.34.2",
+        "scikit-learn": "1.9.1"
+      },
+      "python": "3.11.17"
+    },
+    "parameters": {
+      "held_out": null,
+      "internal_fold": null,
+      "phase": "P4",
+      "policy": "primary",
+      "structural_test_coverage": true,
+      "training_diagnostics": false
+    },
+    "protocol_hash": "a6a23245bb0e5e26d2643748c574cd45f5be9854f6bf24c9c5d53ad4022ac68b",
+    "protocol_status": "FROZEN",
+    "schema": 1,
+    "source_hash": "44b1c12cb7bcb4389bcd24c6442545b833965e0b7e0de51012b5b47f2efd9bcb"
+  },
+  "schema": 1
+}

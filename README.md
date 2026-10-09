@@ -96,4 +96,4 @@ The static dashboard lives in `docs/`. Configure GitHub Pages to deploy from the
 
 ## Status
 
-P0, P1, P1.5 and **P2 are complete**. The authoritative UCI archive was verified under Python 3.11, with frozen SHA-256 `b04da438b2f331ac0ffd45aebdfec0d20d2367feb5f6948c4b1f7ce1191e33c4`; all 12 expected stations and the complete hourly grid were confirmed, and compact audit evidence is retained in `audit/`. Next: P3 protocol freeze.
+P0–P3 are complete and the protocol is frozen. P4's causal data pipeline, provenance checks, incremental Git checkpoints, resume support, and first three Colab notebooks are implemented and locally verified. Authoritative UCI coverage checkpoints are saved under `results/p4/p4-final/`. Live Colab/GitHub authentication acceptance remains pending before long runs. See [the P4 workflow](docs/P4_WORKFLOW.md) and [completion report](research/P4_COMPLETION_REPORT.md). P5 forecasting models have not been trained.

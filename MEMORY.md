@@ -110,3 +110,11 @@ The project is intentionally narrow. Prioritize complete, reproducible evidence 
 - P4 data-pipeline implementation is next. Starter utilities must be brought into agreement with the frozen protocol before experiments.
 - Material post-freeze methodological changes must be recorded in `research/PROTOCOL_DEVIATIONS.md`.
 
+## P4 implementation checkpoint
+
+- Implemented causal preprocessing, station-isolated target-indexed windows, train-only fitting, robust noise scales, categorical dropout, and stream-level stress utilities.
+- Added frozen configuration/protocol identity checks, source provenance, atomic immutable run checkpoints, and isolated Git artifact branches with verified resume.
+- Added Colab notebooks 01–03. They require the matching published P4 commit and runtime GitHub credentials; live Colab acceptance is still pending. Local tests use explicit fixture setup and bare Git remotes.
+- Real UCI P4 verification completed with compact coverage/preprocessing evidence in `results/p4/p4-final/`; no forecasting models or final-test performance were evaluated.
+- P4 representation/scaling/persistence/calendar/boundary clarifications are recorded in `research/P4_IMPLEMENTATION_DECISIONS.md` and the protocol deviation log.
+

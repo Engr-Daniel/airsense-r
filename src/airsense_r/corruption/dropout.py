@@ -17,9 +17,8 @@ def random_feature_dropout(
     out = frame.copy()
     rng = np.random.default_rng(seed)
     mask = rng.random((len(out), len(columns))) < probability
-    values = out[columns].to_numpy(copy=True, dtype=float)
-    values[mask] = np.nan
-    out.loc[:, columns] = values
+    for index, column in enumerate(columns):
+        out[column] = out[column].mask(mask[:, index])
     return out
 
 

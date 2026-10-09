@@ -1,0 +1,10 @@
+# CPU pipeline and notebook environment; model-training dependencies remain in requirements.txt.
+numpy>=1.26,<3
+pandas>=2.2,<3
+scikit-learn>=1.5,<2
+requests>=2.32,<3
+PyYAML>=6,<7
+pytest>=8,<9
+nbformat>=5.10,<6
+nbclient>=0.10,<1
+ipykernel>=6,<8

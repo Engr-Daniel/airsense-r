@@ -2,6 +2,7 @@ name: tests
 
 on:
   push:
+    branches-ignore: ['results/**']
   pull_request:
 
 jobs:
@@ -12,5 +13,5 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - run: pip install -e . pytest pandas numpy scikit-learn requests
+      - run: pip install -e . -r requirements-p4.txt
       - run: pytest -q

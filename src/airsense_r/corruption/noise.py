@@ -11,7 +11,7 @@ def fit_noise_scales(
     train_frame: pd.DataFrame,
     columns: list[str],
 ) -> dict[str, float]:
-    """Estimate per-feature standard deviations using training data only.
+    """Estimate robust IQR/1.349 scales with a training standard-deviation fallback.
 
     These scales are frozen and reused when corrupting validation/test streams so
     corruption severity never depends on held-out statistics.
@@ -21,7 +21,10 @@ def fit_noise_scales(
         raise KeyError(f"Columns missing from training frame: {missing}")
     scales: dict[str, float] = {}
     for col in columns:
-        value = float(train_frame[col].std(skipna=True))
+        quantiles = train_frame[col].quantile([0.25, 0.75])
+        value = float((quantiles.loc[0.75] - quantiles.loc[0.25]) / 1.349)
+        if value == 0:
+            value = float(train_frame[col].std(skipna=True))
         scales[col] = 0.0 if np.isnan(value) else value
     return scales
 
@@ -46,4 +49,6 @@ def gaussian_relative_noise(
         if sigma <= 0 or np.isnan(sigma):
             continue
         out[col] = out[col] + rng.normal(0.0, sigma, size=len(out))
+        if col in {"PM10", "SO2", "NO2", "CO", "O3", "RAIN", "WSPM"}:
+            out[col] = out[col].clip(lower=0)
     return out

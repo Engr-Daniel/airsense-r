@@ -19,6 +19,10 @@ Build AirSense-R as a reproducible scientific software project, not as a noteboo
 
 ## Coding style
 
+Google Colab is the intended notebook runtime. Each notebook must bootstrap its own repository checkout and environment, verify the code revision, and initialize or restore run checkpoints before analysis. Setup must be safe to rerun without discarding existing work.
+
+Follow `docs/NOTEBOOK_GUIDE.md` for notebooks under `notebooks/`, explicit permitted partitions, provenance checks, and frozen-configuration handling. Implement shared incremental artifact saving, automatic GitHub synchronization, and tested resume support before long experiments; never defer all saves to the final notebook cell.
+
 - Python 3.11+
 - Use type hints for reusable functions.
 - Keep functions small and purpose-specific.

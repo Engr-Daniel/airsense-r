@@ -1,0 +1,23 @@
+[
+  {
+    "notebook": "01_p2_dataset_audit_review.ipynb",
+    "fresh_kernel": true,
+    "errors": 0,
+    "mode": "offline fixtures and local bare Git remote",
+    "source_hash": "5acfc055105c9fa70a98bd938fa76b4df18e4d618fd7e5fcfa9e0c28fb865ee4"
+  },
+  {
+    "notebook": "02_p3_development_diagnostics.ipynb",
+    "fresh_kernel": true,
+    "errors": 0,
+    "mode": "offline fixtures and local bare Git remote",
+    "source_hash": "5acfc055105c9fa70a98bd938fa76b4df18e4d618fd7e5fcfa9e0c28fb865ee4"
+  },
+  {
+    "notebook": "03_p4_pipeline_validation.ipynb",
+    "fresh_kernel": true,
+    "errors": 0,
+    "mode": "offline fixtures and local bare Git remote",
+    "source_hash": "5acfc055105c9fa70a98bd938fa76b4df18e4d618fd7e5fcfa9e0c28fb865ee4"
+  }
+]

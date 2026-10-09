@@ -70,13 +70,21 @@ Complete a scientifically defensible v1 research study, technical manuscript, re
 
 ## P4 — Data pipeline
 
-- [ ] Parse and combine station files
-- [ ] Construct timestamp
-- [ ] Sort and validate time order
-- [ ] Implement missing-value policy
-- [ ] Build lag/window features without leakage
-- [ ] Fit train-only preprocessing
-- [ ] Persist processed data metadata
+- [x] Parse and combine station files
+- [x] Construct timestamp
+- [x] Sort and validate time order
+- [x] Implement missing-value policy
+- [x] Build lag/window features without leakage
+- [x] Fit train-only preprocessing
+- [x] Persist processed data metadata
+- [x] Implement provenance-validated artifact loaders and frozen-configuration checks
+- [x] Implement atomic incremental checkpoints, automatic Git artifact synchronization, and verified resume support (local bare-remote integration tests)
+- [x] Test interrupted writes, failed pushes, provenance mismatch, and artifact-only staging
+- [x] Build notebooks 01–03 under `notebooks/` following `docs/NOTEBOOK_GUIDE.md`
+- [x] Add pinned-revision Colab bootstrap; execute notebook analysis and checkpoint/resume paths in fresh local processes/kernels using explicit fixture setup
+- [ ] Complete live Colab acceptance after publishing P4: clone pinned commit, authenticate using Colab Secrets, and confirm GitHub checkpoint restoration
+
+P4 implementation and local verification are complete; live Colab/GitHub credential acceptance remains external. See `research/P4_COMPLETION_REPORT.md`.
 
 ## P5 — Clean benchmark
 
@@ -86,6 +94,7 @@ Complete a scientifically defensible v1 research study, technical manuscript, re
 - [ ] GRU
 - [ ] Save predictions and metrics
 - [ ] Compare against persistence
+- [ ] Build `notebooks/04_p5_clean_benchmark_analysis.ipynb`
 
 ## P6 — Sensor degradation
 
@@ -94,6 +103,7 @@ Complete a scientifically defensible v1 research study, technical manuscript, re
 - [ ] Measurement-noise injection at frozen severities
 - [ ] Re-evaluate frozen models without retraining unless protocol specifies otherwise
 - [ ] Compute RPD
+- [ ] Build `notebooks/05_p6_sensor_degradation_analysis.ipynb`
 
 ## P7 — Site shift
 
@@ -101,6 +111,7 @@ Complete a scientifically defensible v1 research study, technical manuscript, re
 - [ ] Evaluate on unseen site(s)
 - [ ] Quantify cross-site generalization performance (do not call it a penalty without matched comparator)
 - [ ] Compare model ranking stability
+- [ ] Build `notebooks/06_p7_site_shift_analysis.ipynb`
 
 ## P8 — Statistical and failure analysis
 
@@ -109,6 +120,7 @@ Complete a scientifically defensible v1 research study, technical manuscript, re
 - [ ] Check error by pollution regime
 - [ ] Check whether clean ranking persists under degradation
 - [ ] Create publication figures/tables
+- [ ] Build `notebooks/07_p8_statistical_failure_analysis.ipynb`
 
 ## P9 — Paper
 
