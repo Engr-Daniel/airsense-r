@@ -88,6 +88,16 @@ P4 implementation, local verification, and user-run live Colab acceptance are co
 
 ## P5 — Clean benchmark
 
+Readiness review: [research/P5_READINESS_REVIEW.md](research/P5_READINESS_REVIEW.md).
+P4 is complete; P5 implementation can begin. Full training requires these gates:
+
+- [ ] Declare search spaces, architecture/training budgets, early stopping and tuning aggregation before scores
+- [ ] Test equal-station/seed aggregation, near-tie selection and final-test access gate
+- [ ] Configure persistent model-state storage and verify interrupted-training recovery
+- [ ] Extend provenance to P5 settings, training libraries and runtime hardware; validate training environment
+- [ ] Define timestamp-aware uncertainty integration and save aligned predictions for P8
+- [ ] Pass a bounded training-only Colab smoke run before long fits
+
 - [ ] Persistence baseline
 - [ ] Tree-based ML model
 - [ ] MLP

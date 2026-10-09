@@ -38,7 +38,7 @@ See `research/LITERATURE_NOTES.md` and `research/P1_COMPLETION_REPORT.md`.
 ## Planned model families
 
 - Persistence baseline
-- Tree-based ML baseline (default candidate: XGBoost; fallback: HistGradientBoostingRegressor)
+- Tree-based ML baseline: XGBoost (frozen P3 candidate; substitutions require a protocol amendment)
 - MLP
 - Compact GRU
 
@@ -122,3 +122,7 @@ The project is intentionally narrow. Prioritize complete, reproducible evidence 
 ## Pre-P5 title and rationale
 
 Canonical study title is the title field in CITATION.cff, adopted 2026-10-09 before P5 results. See research/RESEARCH_RATIONALE.md for independently checked motivation, novelty limits, and falsifiable contribution criteria. The user's research document and subsequent reviewer feedback have been incorporated, with verified additional references and explicit limits on novelty and null-result interpretation. No model family or frozen protocol was changed.
+
+## P5 readiness audit
+
+See research/P5_READINESS_REVIEW.md. Ready for implementation, not immediate full training. Training search/selection settings, model-state recovery, P5 provenance and environment integration remain required. The starter bootstrap uses row blocks rather than timestamp-aware hourly blocks and must not produce headline intervals unchanged. Ridge and a second dataset remain proposals, not adopted protocol changes.
