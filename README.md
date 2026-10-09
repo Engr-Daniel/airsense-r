@@ -1,6 +1,4 @@
-# AirSense-R
-
-**Model-Selection Reliability for Air-Quality Forecasting Under Deployment Stress**
+# AirSense-R: Do Air-Quality Forecasters Keep Their Rank Under Sensor Degradation and Site Shift?
 
 AirSense-R is a research-grade machine-learning study of **model-selection reliability under deployment stress**. Rather than asking only which model is most accurate on clean historical data, the project tests whether that clean-data winner remains the preferred model when the same frozen candidates face sensor dropout, complete channel loss, controlled measurement noise, or monitoring-site shift. The initial task is short-horizon PM2.5 forecasting using the UCI Beijing Multi-Site Air Quality dataset.
 
@@ -130,3 +128,5 @@ P0–P3 are complete and the protocol is frozen. P4's causal data pipeline, prov
 Completed P4 Colab outputs are preserved in
 [the checkpoint archive](results/p4/colab-archive/README.md). Their temporary
 result branches were consolidated after checksum verification.
+
+The canonical study title is recorded in `CITATION.cff`. See the [pre-results research rationale](research/RESEARCH_RATIONALE.md) for evidence of the problem, limits of novelty, and criteria for a useful study.

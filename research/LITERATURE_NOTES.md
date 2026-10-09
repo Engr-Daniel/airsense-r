@@ -231,3 +231,7 @@ A new composite robustness score should **not** be invented after seeing results
 ## 10. P1 decision
 
 **P1 COMPLETE.** Proceed to P2 dataset acquisition and audit. Do not freeze the final experimental protocol until the actual UCI dataset has been downloaded and audited.
+
+## Pre-P5 motivation refresh ? 2026-10-09
+
+See [RESEARCH_RATIONALE.md](RESEARCH_RATIONALE.md) for independent primary-source checks, additional AirQualityBench and decision-oriented forecasting prior art, and evidence limits. This supplements the historical P1 checkpoint; the frozen P3 protocol governs current evaluation.

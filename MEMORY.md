@@ -5,7 +5,7 @@ This file stores durable project context so future contributors/agents can resum
 ## Project identity
 
 - Name: **AirSense-R**
-- Working paper title: **Beyond Clean Accuracy: Evaluating Air-Quality Forecasting Models Under Sensor Degradation and Monitoring-Site Shift**
+- Working paper title: **AirSense-R: Do Air-Quality Forecasters Keep Their Rank Under Sensor Degradation and Site Shift?**
 - Domain: environmental intelligence / air-quality forecasting / reliable ML
 - Primary target: PM2.5 one-hour-ahead forecasting
 - Intended public artifact: research repository + technical paper + GitHub Pages reliability explorer
@@ -118,3 +118,7 @@ The project is intentionally narrow. Prioritize complete, reproducible evidence 
 - Real UCI P4 verification completed with compact coverage/preprocessing evidence in `results/p4/p4-final/`; no forecasting models or final-test performance were evaluated.
 - P4 representation/scaling/persistence/calendar/boundary clarifications are recorded in `research/P4_IMPLEMENTATION_DECISIONS.md` and the protocol deviation log.
 
+
+## Pre-P5 title and rationale
+
+Canonical study title is the title field in CITATION.cff, adopted 2026-10-09 before P5 results. See research/RESEARCH_RATIONALE.md for independently checked motivation, novelty limits, and falsifiable contribution criteria. The user's forthcoming research document has not yet been incorporated. No model family or frozen protocol was changed.

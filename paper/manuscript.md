@@ -1,4 +1,4 @@
-# Beyond Clean Accuracy: Evaluating Air-Quality Forecasting Models Under Sensor Degradation and Monitoring-Site Shift
+# AirSense-R: Do Air-Quality Forecasters Keep Their Rank Under Sensor Degradation and Site Shift?
 
 ## Abstract
 
@@ -6,7 +6,9 @@ _TBD after results._
 
 ## 1. Introduction
 
-_TBD._
+The study asks whether a forecaster chosen using clean validation data remains a good choice when input observations are degraded or the monitoring station was excluded from fitting. The intended contribution is a controlled evaluation of selection regret and ranking stability, not a new forecasting architecture. Evidence, prior-art limits, and conditions for a useful contribution are documented in [the pre-results research rationale](../research/RESEARCH_RATIONALE.md). No empirical conclusion is asserted before P5?P8.
+
+The canonical title is maintained in CITATION.cff; manuscript findings remain pending.
 
 ## 2. Related Work
 

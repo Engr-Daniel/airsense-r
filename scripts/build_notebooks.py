@@ -1,6 +1,7 @@
 """Generate the three P4 notebooks with consistent standalone Colab bootstrap."""
 from pathlib import Path
 import json
+import yaml
 from airsense_r.artifacts import source_hash
 
 
@@ -87,6 +88,7 @@ def code(text: str) -> dict:
 
 
 def main() -> None:
+    study_title = yaml.safe_load((ROOT / "CITATION.cff").read_text(encoding="utf-8"))["title"]
     descriptions = [
         ("01_p2_dataset_audit_review", "STRUCTURAL AUDIT ARTIFACTS ONLY",
          "Inspect authoritative station coverage without downloading raw data or repeating the P2 audit.",
@@ -120,7 +122,7 @@ store.save("pipeline-validation.json", json_bytes(report))
 display(report)
 ''')]
     for name, partition, purpose, analysis in descriptions:
-        cells = [md(f"# {name.replace('_', ' ')}\n\n**Permitted partitions: {partition}**\n\n{purpose}\n\n"
+        cells = [md(f"# {study_title}\n\n## {name.replace('_', ' ')}\n\n**Permitted partitions: {partition}**\n\n{purpose}\n\n"
                     "Protocol: frozen 2026-10-08; provenance uses exact content hashes. "
                     "Training targets end 2015-02-28; validation ends 2016-02-29. "
                     "Final test outcomes are not analyzed here.\n\n"
