@@ -15,24 +15,53 @@ AirSense-R is a research-grade machine-learning study of **model-selection relia
 - Data: UCI Beijing Multi-Site Air Quality dataset
 - Baselines/models: persistence, tree-based ML, MLP, compact GRU
 - Reliability tests: random dropout, whole-variable dropout, contiguous outages, measurement noise, repeated unseen-site evaluation
-- Metrics: MAE, RMSE, R², Relative Performance Degradation (RPD), clean-to-stress rank changes/winner retention, bootstrap confidence intervals where practical
+- Metrics: MAE, RMSE, R², Relative Performance Degradation (RPD), clean-to-stress rank changes/winner retention, mandatory paired temporal-block bootstrap confidence intervals for headline comparisons
 - Interface: static GitHub Pages reliability explorer using precomputed results
 
 ## Scientific workflow
 
 The project follows a pre-specified workflow. Before final model evaluation, freeze the research questions, hypotheses, split logic, model families, corruption levels, metrics, and random seeds in `research/PROTOCOL.md`.
 
-1. Literature reconnaissance
-2. P1.5 methodology hardening
-3. Dataset acquisition and audit
-4. Protocol freeze
-5. Preprocessing and feature construction
-6. Baseline + clean benchmark
-7. Sensor-degradation tests
-8. Repeated site-shift tests
-9. Statistical/failure analysis
-10. Paper figures and manuscript
-11. GitHub Pages explorer + reproducibility release
+| Phase | Work | Status |
+|---|---|---|
+| P0?P1.5 | Setup, literature review, methodology hardening | Complete |
+| P2 | Dataset acquisition and structural audit | Complete |
+| P3 | Freeze research protocol | Complete |
+| P4 | Causal pipeline, Colab notebooks, checkpoint recovery | Complete |
+| P5 | Clean forecasting benchmark | Next |
+| P6 | Sensor degradation | Planned |
+| P7 | Leave-one-station-out evaluation | Planned |
+| P8 | Statistical and failure analysis | Planned |
+| P9 | Manuscript | Planned |
+| P10 | Reliability explorer | Planned |
+| P11 | Reproducibility release | Planned |
+
+## Temporal splits and unseen sites
+
+Partitions use the forecast **target timestamp**:
+
+- Training: 2013-03-02 00:00 through 2015-02-28 23:00.
+- Validation: 2015-03-01 00:00 through 2016-02-29 23:00.
+- Final test: 2016-03-01 00:00 through 2017-02-28 23:00.
+
+Each target uses the preceding 24 hours. Hyperparameter tuning uses expanding
+windows within training only. Preprocessing is fitted only on the permitted
+training period. In each of 12 site-holdout runs, the held-out station is excluded
+from fitting, tuning, preprocessing fitting, and model selection. Other stations'
+future data are not used for training. Recent observations from the held-out
+station are allowed as causal inference inputs.
+
+All candidates use the frozen common missing-input policy: causal forward fill
+capped at six hours, then training-only fallback, with missingness indicators.
+See [the protocol](research/PROTOCOL.md) for sensitivity and statistical rules.
+
+## Limits of the study
+
+The 12 stations are all in Beijing. This tests within-city unseen-station
+generalization, not transfer to another city, climate, or instrument type.
+Synthetic degradation of regulatory monitoring data is not evidence of real
+device failure or embedded deployment. No forecasting findings are available yet;
+pipeline validation is not a predictive benchmark.
 
 ## Repository map
 
@@ -96,4 +125,8 @@ The static dashboard lives in `docs/`. Configure GitHub Pages to deploy from the
 
 ## Status
 
-P0–P3 are complete and the protocol is frozen. P4's causal data pipeline, provenance checks, incremental Git checkpoints, resume support, and first three Colab notebooks are implemented and locally verified. Authoritative UCI coverage checkpoints are saved under `results/p4/p4-final/`. Live Colab/GitHub authentication acceptance remains pending before long runs. See [the P4 workflow](docs/P4_WORKFLOW.md) and [completion report](research/P4_COMPLETION_REPORT.md). P5 forecasting models have not been trained.
+P0–P3 are complete and the protocol is frozen. P4's causal data pipeline, provenance checks, incremental Git checkpoints, resume support, and first three Colab notebooks are implemented and locally verified. Authoritative UCI coverage checkpoints are saved under `results/p4/p4-final/`. User-run Colab execution and fresh-runtime checkpoint recovery have been reviewed successfully. See [the P4 workflow](docs/P4_WORKFLOW.md) and [completion report](research/P4_COMPLETION_REPORT.md). P5 forecasting models have not been trained.
+
+Completed P4 Colab outputs are preserved in
+[the checkpoint archive](results/p4/colab-archive/README.md). Their temporary
+result branches were consolidated after checksum verification.

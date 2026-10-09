@@ -1,0 +1,121 @@
+{
+  "archived_on": "2026-10-09",
+  "runs": [
+    {
+      "branch": "results/f843fb7d3416052cf65ebe36c030b1002afa9eee",
+      "tip_commit": "25d99fbfa4c2de505bfa6ff9dfe6252816ee9273",
+      "archive_directory": "results/p4/colab-archive/f843fb7d3416052cf65ebe36c030b1002afa9eee",
+      "files": {
+        "checkpoint-branch.json": "8962e04ab8c48c93ad7a1a303ac063701974e949c6f4c39119e51e19cb3e096a",
+        "results/f843fb7d3416052cf65ebe36c030b1002afa9eee/audit-review.csv": "f68e99e2cd468989d42efe48b33a09e43ee1b0110beb8f37f7ceb6417ce4544b",
+        "results/f843fb7d3416052cf65ebe36c030b1002afa9eee/manifest.json": "09026f114056df5bbb56bc54b9b2f68706ccc93e71d2a5dd5c42ac9b94c9bb06"
+      },
+      "artifacts_verified": 1
+    },
+    {
+      "branch": "results/nb01-audit-02",
+      "tip_commit": "1d4115c911ba45a7e9ba7e5c7f37b6f500b6ea72",
+      "archive_directory": "results/p4/colab-archive/nb01-audit-02",
+      "files": {
+        "checkpoint-branch.json": "5b296084d88d9271e4c1edd3528e73aac7e004ad3e46b4e5acaf6946a04a9549",
+        "results/nb01-audit-02/audit-review.csv": "f68e99e2cd468989d42efe48b33a09e43ee1b0110beb8f37f7ceb6417ce4544b",
+        "results/nb01-audit-02/manifest.json": "13838c125cf2147e31f6d31fa4e1d3a9478a2cba1bc2d5c07d26fdeaa2344ece"
+      },
+      "artifacts_verified": 1
+    },
+    {
+      "branch": "results/nb02-diagnostics-02",
+      "tip_commit": "5e581c15d870af5ba7473d3cbbbac34594f91419",
+      "archive_directory": "results/p4/colab-archive/nb02-diagnostics-02",
+      "files": {
+        "checkpoint-branch.json": "a647fd268c556212deae3614aa415a4960d81eecf893c4eeac23d19d815a0d95",
+        "results/nb02-diagnostics-02/complete.json": "32b865d072e4954617cbc3af13776c344f8bc12a25f2c342150e6e6219378a31",
+        "results/nb02-diagnostics-02/coverage-Aotizhongxin.json": "21730c52e8474200dbd365edf734e7800e7c696b2db00f5a5ebe406ebeda3cf4",
+        "results/nb02-diagnostics-02/coverage-Changping.json": "adca13b738f32fe588eaf109525866836398af4dfcdff2005ee307cc42f210b0",
+        "results/nb02-diagnostics-02/coverage-Dingling.json": "7281d78bf6286856a08d64f0d00e553bcab7ec42f1c76e1c73af3865c663876a",
+        "results/nb02-diagnostics-02/coverage-Dongsi.json": "b89b657f12d7403a5f20083d0acf089b1eacbc8bb8345ade61f88b84ba83f0ae",
+        "results/nb02-diagnostics-02/coverage-Guanyuan.json": "96b32efe7d5d614f465c3d49c4b597359fbe9e7aab957265ff7edb8fe14d7b9b",
+        "results/nb02-diagnostics-02/coverage-Gucheng.json": "618410693df7d225700e710cfbffd46f530860703912b544ac68d5e99568c95e",
+        "results/nb02-diagnostics-02/coverage-Huairou.json": "a9b4858911fcdce896521df92adeba834ff9a1654458aad2b099c892d55788e0",
+        "results/nb02-diagnostics-02/coverage-Nongzhanguan.json": "30523e21faf1517437d7d9b40bacbc65d1d2d049454b1fbd0f622e9e986e48c2",
+        "results/nb02-diagnostics-02/coverage-Shunyi.json": "db21965d5e4218dc0cd57f00f5d62075f2702fe47874e95e46cfd899876aa6cd",
+        "results/nb02-diagnostics-02/coverage-Tiantan.json": "c480dccc2c3dce08b0f20e29e3f9a04e028b5de49ef5fec679e0fbc7ba863a91",
+        "results/nb02-diagnostics-02/coverage-Wanliu.json": "0a3582753cdf035661450bf4a4a25ebc75794c977192273f2a2023132ac4fe9e",
+        "results/nb02-diagnostics-02/coverage-Wanshouxigong.json": "11aea670939656b41af08464b52257500c621e4b3e0fffbfe2f589e8acb539f8",
+        "results/nb02-diagnostics-02/manifest.json": "9406c1f6034245732eb7f8c4dfc2107b9a457fc13bb5b23d6b9ad075fc0c13d4",
+        "results/nb02-diagnostics-02/preprocessing.json": "ae09e684fe70d652dd4187b664a5e10654458e2e6ea42a2424eaaa7ffe084651",
+        "results/nb02-diagnostics-02/training-diagnostics-Aotizhongxin.json": "fcd3ce8966d68bccca018de1ee77678d0ac7bc72415e5971b0a70c0ca847733b",
+        "results/nb02-diagnostics-02/training-diagnostics-Changping.json": "ff600386292e1ca8832b07b322316ebd2b5afd98be66656d8b069aea4628be59",
+        "results/nb02-diagnostics-02/training-diagnostics-Dingling.json": "4abf38fea1b689fa2837de9b72cc31b3b7c5ae9c2118f1bd839a12c59ae0ab5a",
+        "results/nb02-diagnostics-02/training-diagnostics-Dongsi.json": "4949a1a3fe7a178c54bcae9e0ad2cb2d8144047291d611f4d6921683c6ab437c",
+        "results/nb02-diagnostics-02/training-diagnostics-Guanyuan.json": "8b7f6da2ac4832389be1ad16c6a9b20bfeeead9f961f35942ea310a3b92afbd3",
+        "results/nb02-diagnostics-02/training-diagnostics-Gucheng.json": "18666f30ed182d975e087466535805db7d099da655bfc99de67f3df5eeb7a1f2",
+        "results/nb02-diagnostics-02/training-diagnostics-Huairou.json": "2d3a58557b1b16684a7993062f1792c7c6d43dcf28b5b11783a56a5fb13867d4",
+        "results/nb02-diagnostics-02/training-diagnostics-Nongzhanguan.json": "d3ebecb3d05b24b737ef31c6b983147ec0ca5c6b2c2aa95c0ac73f0177be4e2c",
+        "results/nb02-diagnostics-02/training-diagnostics-Shunyi.json": "1e82176160eee7196f52101c4fecb6f95d31d601516d2d04d55f5239b59ac43b",
+        "results/nb02-diagnostics-02/training-diagnostics-Tiantan.json": "4cddb15b24a7e2692ba5c8224257de4f11ab1675d644b2910dad72562d7284f7",
+        "results/nb02-diagnostics-02/training-diagnostics-Wanliu.json": "b6ae5d1de269f8329581f8638a901c38a753459c2ff53d9eaca40898e2fc47b6",
+        "results/nb02-diagnostics-02/training-diagnostics-Wanshouxigong.json": "192670322c0e34ea9f371a918d11b27f07c7a0007d6da2e62e91107d0d3c0100"
+      },
+      "artifacts_verified": 26
+    },
+    {
+      "branch": "results/nb03-validation-02",
+      "tip_commit": "3298182df195082a3955f92080b0afbbb9eb0d8b",
+      "archive_directory": "results/p4/colab-archive/nb03-validation-02",
+      "files": {
+        "checkpoint-branch.json": "274183da7200905053982944ccd3515f65da8d5013a79fd97ce6630e4dc794b4",
+        "results/nb03-validation-02/manifest.json": "a35437a7323a35e19ec6b0553b927ba9edb3408c9c39560551e8b7b0c1f76d4d",
+        "results/nb03-validation-02/pipeline-validation.json": "a2d0c5b955ea8a6043bf9f7ef6e6572c624ff315c62e548dcb9a11809264336d"
+      },
+      "artifacts_verified": 1
+    },
+    {
+      "branch": "results/run-diagnostics-01",
+      "tip_commit": "36fb8017299d2071c972ab76a307b96202ceec84",
+      "archive_directory": "results/p4/colab-archive/run-diagnostics-01",
+      "files": {
+        "checkpoint-branch.json": "196e8c7303314fb2d3242c988fe24a510d08801182c77985d87bff4979087b57",
+        "results/run-diagnostics-01/complete.json": "32b865d072e4954617cbc3af13776c344f8bc12a25f2c342150e6e6219378a31",
+        "results/run-diagnostics-01/coverage-Aotizhongxin.json": "21730c52e8474200dbd365edf734e7800e7c696b2db00f5a5ebe406ebeda3cf4",
+        "results/run-diagnostics-01/coverage-Changping.json": "adca13b738f32fe588eaf109525866836398af4dfcdff2005ee307cc42f210b0",
+        "results/run-diagnostics-01/coverage-Dingling.json": "7281d78bf6286856a08d64f0d00e553bcab7ec42f1c76e1c73af3865c663876a",
+        "results/run-diagnostics-01/coverage-Dongsi.json": "b89b657f12d7403a5f20083d0acf089b1eacbc8bb8345ade61f88b84ba83f0ae",
+        "results/run-diagnostics-01/coverage-Guanyuan.json": "96b32efe7d5d614f465c3d49c4b597359fbe9e7aab957265ff7edb8fe14d7b9b",
+        "results/run-diagnostics-01/coverage-Gucheng.json": "618410693df7d225700e710cfbffd46f530860703912b544ac68d5e99568c95e",
+        "results/run-diagnostics-01/coverage-Huairou.json": "a9b4858911fcdce896521df92adeba834ff9a1654458aad2b099c892d55788e0",
+        "results/run-diagnostics-01/coverage-Nongzhanguan.json": "30523e21faf1517437d7d9b40bacbc65d1d2d049454b1fbd0f622e9e986e48c2",
+        "results/run-diagnostics-01/coverage-Shunyi.json": "db21965d5e4218dc0cd57f00f5d62075f2702fe47874e95e46cfd899876aa6cd",
+        "results/run-diagnostics-01/coverage-Tiantan.json": "c480dccc2c3dce08b0f20e29e3f9a04e028b5de49ef5fec679e0fbc7ba863a91",
+        "results/run-diagnostics-01/coverage-Wanliu.json": "0a3582753cdf035661450bf4a4a25ebc75794c977192273f2a2023132ac4fe9e",
+        "results/run-diagnostics-01/coverage-Wanshouxigong.json": "11aea670939656b41af08464b52257500c621e4b3e0fffbfe2f589e8acb539f8",
+        "results/run-diagnostics-01/manifest.json": "563281229e194468c9ab85acba6c086a6926535f450cca9ef288c34960dceb40",
+        "results/run-diagnostics-01/preprocessing.json": "ae09e684fe70d652dd4187b664a5e10654458e2e6ea42a2424eaaa7ffe084651",
+        "results/run-diagnostics-01/training-diagnostics-Aotizhongxin.json": "fcd3ce8966d68bccca018de1ee77678d0ac7bc72415e5971b0a70c0ca847733b",
+        "results/run-diagnostics-01/training-diagnostics-Changping.json": "ff600386292e1ca8832b07b322316ebd2b5afd98be66656d8b069aea4628be59",
+        "results/run-diagnostics-01/training-diagnostics-Dingling.json": "4abf38fea1b689fa2837de9b72cc31b3b7c5ae9c2118f1bd839a12c59ae0ab5a",
+        "results/run-diagnostics-01/training-diagnostics-Dongsi.json": "4949a1a3fe7a178c54bcae9e0ad2cb2d8144047291d611f4d6921683c6ab437c",
+        "results/run-diagnostics-01/training-diagnostics-Guanyuan.json": "8b7f6da2ac4832389be1ad16c6a9b20bfeeead9f961f35942ea310a3b92afbd3",
+        "results/run-diagnostics-01/training-diagnostics-Gucheng.json": "18666f30ed182d975e087466535805db7d099da655bfc99de67f3df5eeb7a1f2",
+        "results/run-diagnostics-01/training-diagnostics-Huairou.json": "2d3a58557b1b16684a7993062f1792c7c6d43dcf28b5b11783a56a5fb13867d4",
+        "results/run-diagnostics-01/training-diagnostics-Nongzhanguan.json": "d3ebecb3d05b24b737ef31c6b983147ec0ca5c6b2c2aa95c0ac73f0177be4e2c",
+        "results/run-diagnostics-01/training-diagnostics-Shunyi.json": "1e82176160eee7196f52101c4fecb6f95d31d601516d2d04d55f5239b59ac43b",
+        "results/run-diagnostics-01/training-diagnostics-Tiantan.json": "4cddb15b24a7e2692ba5c8224257de4f11ab1675d644b2910dad72562d7284f7",
+        "results/run-diagnostics-01/training-diagnostics-Wanliu.json": "b6ae5d1de269f8329581f8638a901c38a753459c2ff53d9eaca40898e2fc47b6",
+        "results/run-diagnostics-01/training-diagnostics-Wanshouxigong.json": "192670322c0e34ea9f371a918d11b27f07c7a0007d6da2e62e91107d0d3c0100"
+      },
+      "artifacts_verified": 26
+    },
+    {
+      "branch": "results/valid_check_p4",
+      "tip_commit": "2a6c6015769bff6b05d88bcee03da51af9a66caf",
+      "archive_directory": "results/p4/colab-archive/valid_check_p4",
+      "files": {
+        "checkpoint-branch.json": "1314737c50ea7702a5b1335e078d673ad631317fa3c1e85a321488065c07d4d8",
+        "results/valid_check_p4/manifest.json": "daae97ba0acdb5e8d54c38c1bce0e5aafd5aec185f451bbcbcf45d9c5fad1055",
+        "results/valid_check_p4/pipeline-validation.json": "a2d0c5b955ea8a6043bf9f7ef6e6572c624ff315c62e548dcb9a11809264336d"
+      },
+      "artifacts_verified": 1
+    }
+  ]
+}
