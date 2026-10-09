@@ -46,7 +46,7 @@ State exact time boundaries and station exclusions and enforce them through shar
 
 Continue with setup, provenance checks, input validation, focused analysis, findings, limitations, and artifact references. Alternate explanatory Markdown with focused code cells. Distinguish observations, interpretation, and exploratory findings.
 
-- Use descriptive names, explicit imports, `pathlib`, and the installed package. Avoid user-specific paths and `sys.path` edits.
+- Use descriptive names, explicit imports, `pathlib`, and the installed package. Avoid user-specific paths and analysis-cell `sys.path` edits. The dedicated bootstrap may activate only the verified checkout's `src` path after installation, checking package origin and refusing cached modules from another checkout. Do not recursively search for package copies.
 - Keep each cell focused on one coherent operation; separate expensive execution from presentation.
 - Put reusable functions in tested package modules with type hints and docstrings.
 - Require fresh-kernel, top-to-bottom execution without hidden state or manual execution-order dependencies.
@@ -96,4 +96,4 @@ Before committing a reviewed notebook, restart and run all cells, inspect its di
 
 ## Implementation status
 
-Shared provenance loaders, checkpoint persistence, Git synchronization, resume support, and notebooks 01–03 are implemented in P4. Local integration tests cover these behaviors using bare Git remotes and explicit notebook fixture setup. Actual GitHub pushing requires runtime credentials; fresh Colab clone/install/authentication acceptance remains a separate check before long experiments. See `P4_WORKFLOW.md` and `../research/P4_COMPLETION_REPORT.md`.
+Shared provenance loaders, checkpoint persistence, Git synchronization, resume support, and notebooks 01–03 are implemented in P4. Local integration tests cover these behaviors using bare Git remotes and explicit notebook fixture setup. Actual GitHub pushing requires runtime credentials. User-run Colab publication and notebook 03 fresh-runtime recovery were reviewed on 2026-10-09 using an import workaround, now standardized in bootstrap with local regression coverage. See `P4_WORKFLOW.md` and `../research/P4_COMPLETION_REPORT.md`.

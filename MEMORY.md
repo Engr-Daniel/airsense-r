@@ -107,14 +107,14 @@ The project is intentionally narrow. Prioritize complete, reproducible evidence 
 - Corruptions: random dropout at 10/30/50%; whole-variable loss of NO2/CO/TEMP; contiguous outages of 6/12 hours; noise at 5/10/20% of training-derived IQR/1.349, with training-standard-deviation fallback. See the protocol for eligible channels and clipping rules.
 - Training seeds: 42, 31415, 27182. Corruption seeds: 101, 202, 303, 404, 505. Bootstrap seed: 424242.
 - Uncertainty: paired moving-block bootstrap with 24-hour blocks, 2,000 replicates, and 95% confidence intervals.
-- P4 data-pipeline implementation is next. Starter utilities must be brought into agreement with the frozen protocol before experiments.
+- P4 data-pipeline implementation and acceptance are complete; P5 clean benchmark is next.
 - Material post-freeze methodological changes must be recorded in `research/PROTOCOL_DEVIATIONS.md`.
 
 ## P4 implementation checkpoint
 
 - Implemented causal preprocessing, station-isolated target-indexed windows, train-only fitting, robust noise scales, categorical dropout, and stream-level stress utilities.
 - Added frozen configuration/protocol identity checks, source provenance, atomic immutable run checkpoints, and isolated Git artifact branches with verified resume.
-- Added Colab notebooks 01–03. They require the matching published P4 commit and runtime GitHub credentials; live Colab acceptance is still pending. Local tests use explicit fixture setup and bare Git remotes.
+- Added Colab notebooks 01–03. They require the matching published code commit and runtime GitHub credentials; user-run live Colab publication and notebook 03 fresh-runtime recovery were reviewed on 2026-10-09. See results/p4/colab_acceptance.json. Standardized checkout import activation replaces the user's workaround; new revisions require new run IDs. Local tests use explicit fixture setup and bare Git remotes.
 - Real UCI P4 verification completed with compact coverage/preprocessing evidence in `results/p4/p4-final/`; no forecasting models or final-test performance were evaluated.
 - P4 representation/scaling/persistence/calendar/boundary clarifications are recorded in `research/P4_IMPLEMENTATION_DECISIONS.md` and the protocol deviation log.
 

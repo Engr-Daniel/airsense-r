@@ -82,9 +82,9 @@ Complete a scientifically defensible v1 research study, technical manuscript, re
 - [x] Test interrupted writes, failed pushes, provenance mismatch, and artifact-only staging
 - [x] Build notebooks 01–03 under `notebooks/` following `docs/NOTEBOOK_GUIDE.md`
 - [x] Add pinned-revision Colab bootstrap; execute notebook analysis and checkpoint/resume paths in fresh local processes/kernels using explicit fixture setup
-- [ ] Complete live Colab acceptance after publishing P4: clone pinned commit, authenticate using Colab Secrets, and confirm GitHub checkpoint restoration
+- [x] Complete live Colab acceptance: user-executed notebooks with import workaround, GitHub checkpoint publication, and notebook 03 fresh-runtime recovery reviewed on 2026-10-09
 
-P4 implementation and local verification are complete; live Colab/GitHub credential acceptance remains external. See `research/P4_COMPLETION_REPORT.md`.
+P4 implementation, local verification, and user-run live Colab acceptance are complete. The standardized bootstrap fix is covered by local regression tests; live evidence used the user's equivalent import workaround. See `research/P4_COMPLETION_REPORT.md`.
 
 ## P5 — Clean benchmark
 

@@ -10,13 +10,13 @@ BOOTSTRAP = '''from pathlib import Path
 import os, subprocess, sys
 
 REPOSITORY = "https://github.com/Engr-Daniel/airsense-r.git"
-# For Colab: paste the full P4 commit SHA from GitHub when prompted.
+# Use the full commit SHA of the GitHub revision containing this notebook.
 # Resume using the SAME revision and run ID as the original execution.
 TEST_MODE = os.environ.get("AIRSENSE_NOTEBOOK_TEST_MODE") == "1"
 if TEST_MODE:
     ROOT = Path(os.environ["AIRSENSE_NOTEBOOK_TEST_ROOT"]).resolve()
 else:
-    CODE_REVISION = os.environ.get("AIRSENSE_CODE_REVISION") or input("Full P4 code commit SHA: ").strip()
+    CODE_REVISION = (os.environ.get("AIRSENSE_CODE_REVISION") or input("Code version: full 40-character Git commit SHA (not a run ID): ")).strip().lower()
     if len(CODE_REVISION) != 40 or any(c not in "0123456789abcdef" for c in CODE_REVISION.lower()):
         raise ValueError("Use a full Git commit SHA, not a moving branch name")
     ROOT = Path.cwd() / "airsense-r"
@@ -33,7 +33,28 @@ else:
         raise RuntimeError("Python 3.11+ required")
     subprocess.run([sys.executable, "-m", "pip", "install", "-q", "-r", str(ROOT / "requirements-p4.txt"), "-e", str(ROOT)], check=True)
     print("Code revision:", CODE_REVISION)
+# Editable installs may not activate their .pth file in an already-running kernel.
+# Activate only this checkout, and reject cached modules from another checkout.
+import importlib
+SOURCE_DIR = (ROOT / "src").resolve()
+PACKAGE_DIR = SOURCE_DIR / "airsense_r"
+if not (PACKAGE_DIR / "__init__.py").is_file():
+    raise RuntimeError("Selected checkout has no airsense_r package")
+for module_name, module in tuple(sys.modules.items()):
+    if module_name == "airsense_r" or module_name.startswith("airsense_r."):
+        location = getattr(module, "__file__", None)
+        if location is None or not Path(location).resolve().is_relative_to(PACKAGE_DIR):
+            raise RuntimeError("Another airsense_r checkout is already imported; restart the runtime")
+source_path = str(SOURCE_DIR)
+if source_path in sys.path:
+    sys.path.remove(source_path)
+sys.path.insert(0, source_path)
+importlib.invalidate_caches()
+import airsense_r
+if Path(airsense_r.__file__).resolve() != PACKAGE_DIR / "__init__.py":
+    raise RuntimeError("Imported package does not match the selected checkout")
 print("Workspace:", ROOT)
+print("Verified package:", airsense_r.__file__)
 '''
 
 SETUP = '''import logging
@@ -51,7 +72,7 @@ if TEST_MODE:
 else:
     from google.colab import userdata
     configure_github_secret(ROOT, userdata.get("AIRSENSE_GITHUB_TOKEN"))
-    RUN_ID = input("Run ID (reuse only to resume compatible checkpoints): ").strip()
+    RUN_ID = input("Run name, e.g. nb03-validation-01 (same name only for resume; not the code SHA): ").strip()
     REMOTE = REPOSITORY
 '''
 
@@ -109,7 +130,7 @@ display(report)
                     "Expect setup/download to take minutes; no forecasting model training occurs. "
                     "If dependency installation requires a runtime restart, restart and rerun setup.\n"),
                  md("## Runtime bootstrap\nClone a pinned revision in a fresh runtime; preserve existing work on rerun."), code(BOOTSTRAP),
-                 md("## Artifact authentication and run identity\nThe secret is never printed or written into Git configuration. Use the same run ID only for compatible resumes."), code(SETUP.replace("NOTEBOOK_SOURCE_HASH", source_hash(ROOT))),
+                 md("## Artifact authentication and run identity\nThe secret is never printed or written into Git configuration. The code SHA selects the software version; the run ID names this notebook's outputs. Use a different run ID for each notebook. Each run pushes compact artifacts to its own `results/<run-id>` branch, keeping source on `main` separate. Reuse the same run ID and original code/environment only for compatible resumes. Updated code requires a new run ID; historical results remain valid under their original revision."), code(SETUP.replace("NOTEBOOK_SOURCE_HASH", source_hash(ROOT))),
                  md("## Evidence and validation\nProvenance is checked before restoring outputs. Each completed artifact is saved and pushed before continuing."), code(analysis),
                  md("## Interpretation and limitations\nReview the displayed evidence before drawing conclusions. Synthetic checks establish implementation behavior, not predictive performance. "
                     "Training diagnostics cannot justify silently changing frozen settings. Audit missingness is structural evidence. "

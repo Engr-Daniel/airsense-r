@@ -45,8 +45,27 @@ The per-file Git checkpoint limit is 10 MiB. Do not bypass it with raw data or m
 
 ## Colab notebooks
 
-Open notebooks 01–03 from the P4 source commit on GitHub. Each prompts for the full **same P4 commit SHA** and a run ID, clones that revision, installs the CPU environment, and checks provenance. P4 must be pushed before those notebooks can clone its implementation. The notebooks do not silently follow moving `main` during an experiment.
+Open notebooks 01–03 from the P4 source commit on GitHub. Each prompts for the full **same P4 commit SHA** and a run ID, clones that revision, installs the CPU environment, and checks provenance. Use the commit containing the notebook you opened; the SHA identifies the software, not a push command or run name. The notebooks do not silently follow moving `main` during an experiment.
 
 01 reviews saved P2 evidence. 02 runs training-only diagnostics and checkpoints each station. 03 validates the pipeline on an explicitly labelled synthetic fixture. Outputs are separate JSON/CSV checkpoints rather than relying on a final save of the notebook document.
 
-Local/CI notebook tests execute their actual code cells in fresh Python processes using an explicit test-mode bootstrap and temporary bare Git remotes. These tests exercise analysis, per-checkpoint pushes and resume, but do not establish that a user's Colab secret or runtime is configured. A live Colab check is still required before long user runs.
+Local/CI notebook tests execute their actual code cells in fresh Python processes using an explicit test-mode bootstrap and temporary bare Git remotes. These tests exercise analysis, per-checkpoint pushes and resume, but do not establish that a user's Colab secret or runtime is configured. User-run live Colab publication and notebook 03 fresh-runtime recovery were reviewed on 2026-10-09; see `results/p4/colab_acceptance.json`. That evidence used the original revision plus the user's notebook import workaround, not the subsequently standardized bootstrap.
+
+## Code revision versus run name
+
+Use the same code commit for notebooks 01?03, but distinct run names such as
+`nb01-audit-01`, `nb02-diagnostics-01`, and `nb03-validation-01`.
+Each run gets a `results/<run-id>` branch containing compact artifacts and a manifest,
+not an automatically saved executed notebook. These branches need not be merged into
+`main` for recovery. Existing run names remain valid, including the SHA-shaped name
+used for the first audit review.
+
+The bootstrap activates exactly the selected checkout's `src` directory in the
+current kernel after installation, verifies the package origin, and refuses cached
+imports from another checkout. No recursive path search is needed.
+
+To restore an old run, use its original notebook/code revision and compatible
+environment. The bootstrap update changes source identity, so use a new run name
+with the updated notebooks. Do not rewrite historical manifests to match new code.
+Notebook 03 recomputes its small synthetic check and validates the compatible saved
+artifact on resume; it does not skip the calculation.

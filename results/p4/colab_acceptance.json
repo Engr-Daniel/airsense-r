@@ -1,0 +1,74 @@
+{
+  "review_date": "2026-10-09",
+  "code_commit": "f843fb7d3416052cf65ebe36c030b1002afa9eee",
+  "scope": "User-run Colab acceptance using notebook-only import workarounds; standardized bootstrap tested separately locally.",
+  "fresh_runtime": "User-reported; notebook 03 saved cells execute in order with same revision/run ID and no errors. Reset event not independently logged.",
+  "runs": {
+    "01": "f843fb7d3416052cf65ebe36c030b1002afa9eee",
+    "02": "run-diagnostics-01",
+    "03": "valid_check_p4"
+  },
+  "remote_manifests_verified": true,
+  "synthetic_report": {
+    "synthetic_only": true,
+    "samples": 142,
+    "sequence_shape": [
+      4,
+      24,
+      26
+    ],
+    "tabular_shape": [
+      4,
+      628
+    ],
+    "calendar_shape": [
+      4,
+      4
+    ],
+    "fit_stations": [
+      "A"
+    ]
+  },
+  "reviewed_notebooks": [
+    {
+      "filename": "01_p2_dataset_audit_review_withoutputfromrun.ipynb",
+      "sha256": "2ad4a55c10cdb7f6cde6592fc4a934ff01e3b37ea355e5daab60b3c4043a80e9",
+      "execution_counts": [
+        1,
+        2,
+        3
+      ],
+      "saved_error_count": 0
+    },
+    {
+      "filename": "02_p3_development_diagnostics_withoutputfromrun.ipynb",
+      "sha256": "77a901317d2e26113f6b08c27e8860f5592a0d5e4c417a70a76c3ae4f35a49cb",
+      "execution_counts": [
+        1,
+        4,
+        5
+      ],
+      "saved_error_count": 0
+    },
+    {
+      "filename": "03_p4_pipeline_validation_withoutputfromrun.ipynb",
+      "sha256": "9ebabfefe3af0a8080cae28892e5743632de703ba4e257646fa14b57e5acab6f",
+      "execution_counts": [
+        1,
+        5,
+        6
+      ],
+      "saved_error_count": 0
+    },
+    {
+      "filename": "03_p4_pipeline_validation_withoutputfromrun_FRESHRUNTIME.ipynb",
+      "sha256": "df6dbb4f5b38fca7ec21dab1dd9a1fe42deec469dcae4553d2159223301d38f0",
+      "execution_counts": [
+        1,
+        2,
+        3
+      ],
+      "saved_error_count": 0
+    }
+  ]
+}
