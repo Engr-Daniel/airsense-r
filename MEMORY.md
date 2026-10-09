@@ -121,4 +121,4 @@ The project is intentionally narrow. Prioritize complete, reproducible evidence 
 
 ## Pre-P5 title and rationale
 
-Canonical study title is the title field in CITATION.cff, adopted 2026-10-09 before P5 results. See research/RESEARCH_RATIONALE.md for independently checked motivation, novelty limits, and falsifiable contribution criteria. The user's forthcoming research document has not yet been incorporated. No model family or frozen protocol was changed.
+Canonical study title is the title field in CITATION.cff, adopted 2026-10-09 before P5 results. See research/RESEARCH_RATIONALE.md for independently checked motivation, novelty limits, and falsifiable contribution criteria. The user's research document and subsequent reviewer feedback have been incorporated, with verified additional references and explicit limits on novelty and null-result interpretation. No model family or frozen protocol was changed.

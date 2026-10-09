@@ -6,7 +6,9 @@ _TBD after results._
 
 ## 1. Introduction
 
-The study asks whether a forecaster chosen using clean validation data remains a good choice when input observations are degraded or the monitoring station was excluded from fitting. The intended contribution is a controlled evaluation of selection regret and ranking stability, not a new forecasting architecture. Evidence, prior-art limits, and conditions for a useful contribution are documented in [the pre-results research rationale](../research/RESEARCH_RATIONALE.md). No empirical conclusion is asserted before P5?P8.
+The study asks whether a forecaster chosen using clean validation data remains a good choice when input observations are degraded or the monitoring station was excluded from fitting. The intended contribution is a controlled evaluation of selection regret and ranking stability, not a new forecasting architecture. Evidence, prior-art limits, and conditions for a useful contribution are documented in [the pre-results research rationale](../research/RESEARCH_RATIONALE.md). No empirical conclusion is asserted before P5-P8.
+
+The planned contribution is to evaluate whether a model family selected under clean validation remains a practically defensible choice under predefined observation degradation and unseen-station conditions, using paired comparisons, selection regret, practical near-ties, and dependence-aware uncertainty. Clean means no added synthetic degradation, not complete observations. Selection is repeated within each station-holdout fold.
 
 The canonical title is maintained in CITATION.cff; manuscript findings remain pending.
 
