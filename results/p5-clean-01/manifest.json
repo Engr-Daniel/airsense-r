@@ -1680,18 +1680,6 @@
       "bytes": 352,
       "sha256": "9b705972f9a482651717cd11e83c2fb0288f97836461764c397899c0904584c0"
     },
-    "model-tune-mlp-medium-fold1-seed27182-00001.json": {
-      "bytes": 354,
-      "sha256": "9a3b7b4dce0f537e871471f36498db01920df029bd0bdd7458c3592429d8d7fd"
-    },
-    "model-tune-mlp-medium-fold1-seed27182-00002.json": {
-      "bytes": 354,
-      "sha256": "fe6ade2f35f5c2b7155d2508fb18cca479373b379010e5f7e280e8f8a89db6cc"
-    },
-    "model-tune-mlp-medium-fold1-seed27182-00003.json": {
-      "bytes": 354,
-      "sha256": "613191518f79e0ab032de99e2486bf5514a10d1258418c81b9a265bd5d0ccd76"
-    },
     "model-tune-mlp-medium-fold1-seed27182-00004.json": {
       "bytes": 354,
       "sha256": "ec3a8b66347a887fcd5ac143a3adc9c249a1e3e8e14f805c431329ec79bf68f2"
