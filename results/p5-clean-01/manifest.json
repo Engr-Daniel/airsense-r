@@ -1,5 +1,9 @@
 {
   "artifacts": {
+    "done-refit-gru-seed31415.json": {
+      "bytes": 3384,
+      "sha256": "ef4279fcfe1926f6ab35944c78da9a26793bfd1798e5e79c8c23c60e450f8004"
+    },
     "done-refit-gru-seed42.json": {
       "bytes": 3378,
       "sha256": "922d64d9811d19aa96b83d8416e6b2faf725802025d015c3fc6bcfb54296cbc1"
