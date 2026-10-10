@@ -1,5 +1,9 @@
 {
   "artifacts": {
+    "model-tune-gru-medium-fold0-seed27182-00001.json": {
+      "bytes": 353,
+      "sha256": "71e9464f60d4e6b859e8217b8df9858893ff0fe738a436d83744a7c1f43916e3"
+    },
     "model-tune-gru-medium-fold0-seed31415-00001.json": {
       "bytes": 353,
       "sha256": "f8929886b7bfcd12ee9dd1104bffb2f9ec2502824479154cc05180aa479fe292"
