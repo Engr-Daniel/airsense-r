@@ -128,6 +128,10 @@
       "bytes": 349,
       "sha256": "c99b5d772821c3b2c73aa13fdb7b0efb9735061b79e9c40bb1813deb093e1cb3"
     },
+    "score-tune-xgb-medium-fold0-seed42.json": {
+      "bytes": 2348,
+      "sha256": "a02b7a2a15521627519c2c0115beb7f19e09e47a080c5d8134149b93e951ffae"
+    },
     "score-tune-xgb-small-fold0-seed27182.json": {
       "bytes": 2384,
       "sha256": "546fee5444fc8e62bc393163759645dfd1bce7fe6ff68346c061941caaab6bae"
