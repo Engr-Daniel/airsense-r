@@ -2888,6 +2888,10 @@
       "bytes": 2286,
       "sha256": "3fc5e1a04c1a3aafeab739ae2312c214d0db7b2148a911e8f83eae558f6851a8"
     },
+    "score-tune-mlp-small-fold2-seed27182.json": {
+      "bytes": 2342,
+      "sha256": "07113ee977a098419309d9664bcdb058b1eb62035c0c8aaab8dabc862dcaabee"
+    },
     "score-tune-mlp-small-fold2-seed31415.json": {
       "bytes": 2335,
       "sha256": "958b504ffeb20d6a53aa2ff000f3039b465e069ad0ef8f62b85559f97093fa20"
