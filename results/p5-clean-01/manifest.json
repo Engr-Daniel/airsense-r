@@ -3171,6 +3171,10 @@
     "tuning-gru.json": {
       "bytes": 297,
       "sha256": "870056d43ab74d86044521a0af0c27a9013981c9128f6189926ecfc7c75e5b52"
+    },
+    "tuning-mlp.json": {
+      "bytes": 299,
+      "sha256": "bc0904846e032bb2a85d9c78cebcc1af607cb36138de2f1e31dc6d5a58eecf82"
     }
   },
   "provenance": {
