@@ -1,5 +1,9 @@
 {
   "artifacts": {
+    "smoke-complete.json": {
+      "bytes": 118,
+      "sha256": "04e7c654299bcc4e3c7645c411e6bb79ab7b3b3bac99647c583f1dbbb476069c"
+    },
     "smoke-gru.json": {
       "bytes": 198,
       "sha256": "ab45d554ecf4918e121f570a2d73bd1cd5c3b852dea21bbe1eda4112ef3c7449"
