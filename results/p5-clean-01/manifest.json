@@ -1472,6 +1472,10 @@
       "bytes": 349,
       "sha256": "6e0a1e0650fb88681ec562f02e9780735735bd49d585f69c598de6489e43259c"
     },
+    "model-tune-mlp-small-fold0-seed42-00009.json": {
+      "bytes": 349,
+      "sha256": "ace927ac3bf4dd6cdedf88e529a734654145ef1c923702dcb71975f5eca385c2"
+    },
     "model-tune-xgb-medium-fold0-seed42-00025.json": {
       "bytes": 349,
       "sha256": "972068207736958ba9f5e1f7fa8dbd9c08324319e5cadbe61909c99bad3d1b7a"
