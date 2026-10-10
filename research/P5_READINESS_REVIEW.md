@@ -2,6 +2,11 @@
 
 Date: 2026-10-09. Reviewed baseline: c6cdc1258f98f188cc2f83be6bd7d72e9e83d1d1.
 
+Follow-up (2026-10-10): implementation and local verification are recorded in
+[P5_IMPLEMENTATION_REPORT.md](P5_IMPLEMENTATION_REPORT.md). The historical findings
+below describe the reviewed baseline. Live Colab persistent-storage acceptance and
+the full benchmark remain pending.
+
 ## Verdict
 
 Ready to begin P5 implementation; not ready to launch the full benchmark today.

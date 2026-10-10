@@ -1,0 +1,449 @@
+{
+  "artifacts": {
+    "smoke-complete.json": {
+      "bytes": 118,
+      "sha256": "934e6482850395977d53fd74623340310275bf8da735b3e7af5d300202aae1dc"
+    },
+    "smoke-gru.json": {
+      "bytes": 198,
+      "sha256": "ab45d554ecf4918e121f570a2d73bd1cd5c3b852dea21bbe1eda4112ef3c7449"
+    },
+    "smoke-mlp.json": {
+      "bytes": 198,
+      "sha256": "d03fb5d3a5f15b89ea07e1dd04d9534e610fd4608c91d18c70e8ba0ea8ff58dc"
+    },
+    "smoke-xgboost.json": {
+      "bytes": 202,
+      "sha256": "2f9a735a54dac2f45bbe7a32f1dd3911a08218f306ac5cdd935a3c9760c61775"
+    }
+  },
+  "provenance": {
+    "code_commit": "fe1d759eb0fbe5e7703617971ef48fbcbaea4ad8",
+    "config": {
+      "base_seed": 42,
+      "corruptions": {
+        "apply_to_underlying_timeline_before_windowing": true,
+        "clip_nonnegative_after_noise": [
+          "PM10",
+          "SO2",
+          "NO2",
+          "CO",
+          "O3",
+          "RAIN",
+          "WSPM"
+        ],
+        "contiguous_outage_channels": [
+          "NO2",
+          "CO",
+          "TEMP"
+        ],
+        "contiguous_outage_hours": [
+          6,
+          12
+        ],
+        "contiguous_outage_report_affected_windows_separately": true,
+        "contiguous_outage_schedule": "one_seeded_event_per_calendar_month",
+        "no_stress_retraining": true,
+        "noise_channels": [
+          "PM10",
+          "SO2",
+          "NO2",
+          "CO",
+          "O3",
+          "TEMP",
+          "PRES",
+          "DEWP",
+          "RAIN",
+          "WSPM"
+        ],
+        "noise_distribution": "gaussian_zero_mean",
+        "noise_levels": [
+          0.05,
+          0.1,
+          0.2
+        ],
+        "noise_scale_fallback": "training_standard_deviation",
+        "noise_scale_source": "training_only",
+        "noise_scale_statistic": "iqr_over_1.349",
+        "preserve_future_target": true,
+        "primary_channels_exclude_historical_target": true,
+        "random_dropout_channels": [
+          "PM10",
+          "SO2",
+          "NO2",
+          "CO",
+          "O3",
+          "TEMP",
+          "PRES",
+          "DEWP",
+          "RAIN",
+          "WSPM",
+          "wd"
+        ],
+        "random_dropout_levels": [
+          0.1,
+          0.3,
+          0.5
+        ],
+        "shared_realizations_across_models": true,
+        "whole_variable_dropout": [
+          "NO2",
+          "CO",
+          "TEMP"
+        ]
+      },
+      "data": {
+        "access_mode": "remote_temporary",
+        "allow_pre_split_history_for_boundary_targets": true,
+        "archive_sha256": "b04da438b2f331ac0ffd45aebdfec0d20d2367feb5f6948c4b1f7ce1191e33c4",
+        "dataset": "uci_beijing_multisite_air_quality",
+        "doi": "10.24432/C5RK5G",
+        "forecast_horizon_hours": 1,
+        "impute_future_target": false,
+        "lookback_hours": 24,
+        "retain_raw_data": false,
+        "split_by": "target_timestamp",
+        "target": "PM2.5",
+        "test_target_end": "2017-02-28 23:00",
+        "test_target_start": "2016-03-01 00:00",
+        "timestamp_frequency": "1h",
+        "train_target_end": "2015-02-28 23:00",
+        "train_target_start": "2013-03-02 00:00",
+        "uci_id": 501,
+        "validation_target_end": "2016-02-29 23:00",
+        "validation_target_start": "2015-03-01 00:00"
+      },
+      "features": {
+        "meteorology_numeric": [
+          "TEMP",
+          "PRES",
+          "DEWP",
+          "RAIN",
+          "WSPM"
+        ],
+        "missing_indicators": true,
+        "pollutants": [
+          "PM2.5",
+          "PM10",
+          "SO2",
+          "NO2",
+          "CO",
+          "O3"
+        ],
+        "station_id_as_predictor": false,
+        "temporal_cyclical": [
+          "hour_of_day",
+          "day_of_year"
+        ],
+        "wind_direction_categorical": "wd"
+      },
+      "imputation": {
+        "primary": {
+          "numeric_forward_fill_max_hours": 6,
+          "remaining_numeric": "training_only_median",
+          "wind_direction_forward_fill_max_hours": 6,
+          "wind_direction_missing_category": "MISSING",
+          "wind_direction_unknown_category": "OTHER"
+        },
+        "sensitivity": {
+          "forward_fill": false,
+          "numeric": "training_only_median",
+          "wind_direction_missing_category": "MISSING",
+          "wind_direction_unknown_category": "OTHER"
+        }
+      },
+      "metrics": [
+        "mae",
+        "rmse",
+        "r2",
+        "rpd",
+        "selection_regret",
+        "winner_retention",
+        "rank_change"
+      ],
+      "models": {
+        "candidates": [
+          "persistence",
+          "xgboost",
+          "mlp",
+          "gru"
+        ],
+        "internal_folds": [
+          {
+            "fit_end": "2014-02-28 23:00",
+            "validation_end": "2014-06-30 23:00",
+            "validation_start": "2014-03-01 00:00"
+          },
+          {
+            "fit_end": "2014-06-30 23:00",
+            "validation_end": "2014-10-31 23:00",
+            "validation_start": "2014-07-01 00:00"
+          },
+          {
+            "fit_end": "2014-10-31 23:00",
+            "validation_end": "2015-02-28 23:00",
+            "validation_start": "2014-11-01 00:00"
+          }
+        ],
+        "near_tie_tiebreak_order": [
+          "persistence",
+          "xgboost",
+          "mlp",
+          "gru"
+        ],
+        "selection_aggregation": "unweighted_mean_station_mae",
+        "selection_metric": "validation_mae",
+        "test_oracle_is_descriptive_only": true,
+        "tuning_scope": "training_only_expanding_window"
+      },
+      "near_tie": {
+        "absolute_threshold_ug_m3": 1.0,
+        "central_claim_requires_paired_ci_exclude_zero": true,
+        "metric": "mae"
+      },
+      "notes": "P3 protocol frozen on 2026-10-08 before final-test evaluation. Final test targets are 2016-03-01 through 2017-02-28 and must not influence features, preprocessing, hyperparameters, corruption magnitudes, uncertainty settings, or model selection.\n",
+      "project": "AirSense-R",
+      "protocol_frozen_date": "2026-10-08",
+      "protocol_status": "FROZEN",
+      "seeds": {
+        "bootstrap": 424242,
+        "corruption": [
+          101,
+          202,
+          303,
+          404,
+          505
+        ],
+        "training": [
+          42,
+          31415,
+          27182
+        ]
+      },
+      "site_shift": {
+        "held_out_station_excluded_from_fit_tuning_preprocessing_selection": true,
+        "held_out_station_validation_not_used_for_selection": true,
+        "primary_aggregation": "unweighted_mean_station_metric",
+        "recent_held_out_station_observations_allowed_at_inference": true,
+        "strategy": "leave_one_station_out_all_12_stations"
+      },
+      "uncertainty": {
+        "aggregation_order": "seed_within_station_then_equal_weight_stations",
+        "block_length_hours": 24,
+        "confidence": 0.95,
+        "method": "paired_moving_block_bootstrap",
+        "n_bootstrap": 2000,
+        "paired_on_identical_target_rows": true
+      }
+    },
+    "config_hash": "5ef16f9a62c940738005e11b178143d61ebdd18c6e7bb10c63c4c650fefa4fc1",
+    "dataset_sha256": "b04da438b2f331ac0ffd45aebdfec0d20d2367feb5f6948c4b1f7ce1191e33c4",
+    "environment": {
+      "installed_packages": {
+        "absl-py": "2.5.1",
+        "airsense-r": "0.1.0",
+        "asttokens": "3.0.2",
+        "astunparse": "1.6.3",
+        "attrs": "26.1.0",
+        "certifi": "2026.7.22",
+        "charset-normalizer": "3.5.2",
+        "cloudpickle": "3.1.2",
+        "colorama": "0.4.6",
+        "comm": "0.2.3",
+        "contourpy": "1.3.3",
+        "cycler": "0.12.1",
+        "debugpy": "1.8.22",
+        "executing": "2.2.1",
+        "fastjsonschema": "2.22.2",
+        "flatbuffers": "25.12.19",
+        "fonttools": "4.66.1",
+        "gast": "0.7.0",
+        "google-pasta": "0.2.0",
+        "grpcio": "1.84.0",
+        "h5py": "3.16.0",
+        "idna": "3.20",
+        "iniconfig": "2.3.1",
+        "ipykernel": "7.4.0",
+        "ipython": "9.17.1",
+        "ipython_pygments_lexers": "1.1.1",
+        "jedi": "0.20.0",
+        "joblib": "1.6.0",
+        "jsonschema": "4.26.0",
+        "jsonschema-specifications": "2025.9.1",
+        "jupyter_client": "8.10.0",
+        "jupyter_core": "5.9.1",
+        "keras": "3.11.3",
+        "kiwisolver": "1.5.1",
+        "libclang": "18.1.1",
+        "markdown": "3.11",
+        "markdown-it-py": "4.2.0",
+        "markupsafe": "3.0.4",
+        "matplotlib": "3.10.7",
+        "matplotlib-inline": "0.2.2",
+        "mdurl": "0.1.2",
+        "ml_dtypes": "0.6.0",
+        "namex": "0.1.0",
+        "nbclient": "0.11.0",
+        "nbformat": "5.11.1",
+        "nest-asyncio2": "1.7.4",
+        "numpy": "2.1.3",
+        "opt_einsum": "3.4.0",
+        "optree": "0.20.0",
+        "packaging": "26.3",
+        "pandas": "2.2.3",
+        "parso": "0.8.7",
+        "pillow": "12.3.0",
+        "platformdirs": "4.12.4",
+        "pluggy": "1.6.0",
+        "prompt_toolkit": "3.0.53",
+        "protobuf": "7.36.2",
+        "psutil": "7.2.2",
+        "pure_eval": "0.2.4",
+        "pygments": "2.21.0",
+        "pyparsing": "3.3.3",
+        "pytest": "8.4.2",
+        "python-dateutil": "2.9.0.post0",
+        "pytz": "2026.5",
+        "pyyaml": "6.0.3",
+        "pyzmq": "27.2.0",
+        "referencing": "0.37.0",
+        "requests": "2.34.2",
+        "rich": "15.0.0",
+        "rpds-py": "2026.9.1",
+        "scikit-learn": "1.6.1",
+        "scipy": "1.17.1",
+        "setuptools": "84.0.0",
+        "six": "1.17.0",
+        "stack-data": "0.6.3",
+        "tensorboard": "2.20.0",
+        "tensorboard-data-server": "0.7.2",
+        "tensorflow": "2.20.0",
+        "termcolor": "3.3.0",
+        "threadpoolctl": "3.7.0",
+        "tornado": "6.5.10",
+        "traitlets": "5.16.1",
+        "typing_extensions": "4.16.0",
+        "tzdata": "2026.5",
+        "urllib3": "2.8.0",
+        "wcwidth": "0.9.2",
+        "werkzeug": "3.1.9",
+        "wheel": "0.48.0",
+        "wrapt": "2.5.0",
+        "xgboost": "3.0.5"
+      },
+      "packages": {
+        "PyYAML": "6.0.3",
+        "h5py": "3.16.0",
+        "keras": "3.11.3",
+        "matplotlib": "3.10.7",
+        "numpy": "2.1.3",
+        "pandas": "2.2.3",
+        "requests": "2.34.2",
+        "scikit-learn": "1.6.1",
+        "tensorflow": "2.20.0",
+        "xgboost": "3.0.5"
+      },
+      "python": "3.11.17",
+      "runtime": {
+        "device": "cpu",
+        "machine": "AMD64",
+        "oneDNN": false,
+        "processor": "Intel64 Family 6 Model 78 Stepping 3, GenuineIntel",
+        "system": "Windows",
+        "tensorflow_deterministic_ops": true,
+        "threads": 2
+      }
+    },
+    "parameters": {
+      "mode": "smoke",
+      "model_storage_id": "dcb2b5e33e6d4b1c8b4baaed7dc27f65",
+      "phase": "P5"
+    },
+    "protocol_hash": "a6a23245bb0e5e26d2643748c574cd45f5be9854f6bf24c9c5d53ad4022ac68b",
+    "protocol_status": "FROZEN",
+    "schema": 1,
+    "source_hash": "fec10ed8f2a06c91ed372d54799aa04aecd7143dadcc9c28c997ff59b1f486f3",
+    "training_plan": {
+      "batch_size": 512,
+      "checkpoint_epochs": 1,
+      "declared": "2026-10-10",
+      "device": "cpu",
+      "early_stopping": false,
+      "families": {
+        "gru": [
+          {
+            "epochs": 20,
+            "head_units": 16,
+            "id": "gru-small",
+            "learning_rate": 0.001,
+            "units": 32
+          },
+          {
+            "epochs": 20,
+            "head_units": 16,
+            "id": "gru-medium",
+            "learning_rate": 0.001,
+            "units": 64
+          }
+        ],
+        "mlp": [
+          {
+            "epochs": 20,
+            "hidden": [
+              64,
+              32
+            ],
+            "id": "mlp-small",
+            "learning_rate": 0.001
+          },
+          {
+            "epochs": 20,
+            "hidden": [
+              128,
+              64
+            ],
+            "id": "mlp-medium",
+            "learning_rate": 0.001
+          }
+        ],
+        "xgboost": [
+          {
+            "eta": 0.05,
+            "id": "xgb-small",
+            "max_depth": 3,
+            "rounds": 200
+          },
+          {
+            "eta": 0.05,
+            "id": "xgb-medium",
+            "max_depth": 6,
+            "rounds": 200
+          }
+        ]
+      },
+      "hyperparameter_tiebreak": "listed_candidate_order",
+      "loss": "mean_squared_error",
+      "prediction_batch_size": 4096,
+      "prediction_clipping": "none",
+      "prediction_shard_rows": 20000,
+      "schema": 1,
+      "seed_aggregation": "mean_metrics_not_prediction_ensemble",
+      "smoke": {
+        "epochs": 2,
+        "fit_end": "2013-03-08 23:00",
+        "rounds": 4,
+        "score_end": "2013-03-10 23:00",
+        "score_start": "2013-03-09 00:00",
+        "seed": 42,
+        "station": "Aotizhongxin"
+      },
+      "status": "DECLARED_BEFORE_TUNING",
+      "target_scaling": "none",
+      "threads": 2,
+      "tuning_aggregation": "mean_fold_then_equal_station_seed_mean_mae",
+      "xgboost_checkpoint_rounds": 25
+    },
+    "training_plan_hash": "55258661109af828c09e16a5ae0e797f8c936cd0f4e5cdd425e7ebc6e705e379"
+  },
+  "schema": 1
+}

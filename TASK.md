@@ -97,6 +97,7 @@ P4 is complete; P5 runner/model/notebook implementation is present. Full benchma
 - [ ] Confirm the actual Colab persistent storage mount and recovery using notebook 04 smoke
 - [x] Extend provenance to P5 settings, training libraries and runtime hardware; validate local CPU training environment
 - [x] Implement timestamp-aware uncertainty integration and aligned prediction exports; validate on synthetic fixtures
+- [x] Pass bounded real-data training-only local smoke and fresh-process model reload
 - [ ] Pass a bounded training-only Colab smoke run before long fits
 
 - [ ] Persistence baseline

@@ -1,0 +1,2 @@
+# Preserve byte-exact P5 artifacts: manifest checksums cover serialized bytes.
+results/p5/** -text
