@@ -31,6 +31,10 @@
     "model-tune-xgb-small-fold0-seed42-00200.json": {
       "bytes": 349,
       "sha256": "c99b5d772821c3b2c73aa13fdb7b0efb9735061b79e9c40bb1813deb093e1cb3"
+    },
+    "score-tune-xgb-small-fold0-seed42.json": {
+      "bytes": 2345,
+      "sha256": "bd1e1372c14b3c662b6b42aed90e3f481fd1033c84cdfceb86890d001d59dc73"
     }
   },
   "provenance": {
