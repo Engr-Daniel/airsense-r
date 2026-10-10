@@ -972,6 +972,10 @@
       "bytes": 349,
       "sha256": "3d58fdaefa12ccf99db3b8fac9852d891acba35f05e5cf02b75b77c323860ab3"
     },
+    "model-tune-gru-small-fold2-seed42-00004.json": {
+      "bytes": 349,
+      "sha256": "788a818912b2fd119c813ad6013313113b5411f8b0f80087b70e72e9a3124b7e"
+    },
     "model-tune-xgb-medium-fold0-seed42-00025.json": {
       "bytes": 349,
       "sha256": "972068207736958ba9f5e1f7fa8dbd9c08324319e5cadbe61909c99bad3d1b7a"
