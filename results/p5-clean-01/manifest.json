@@ -20,6 +20,10 @@
       "bytes": 342,
       "sha256": "8a73341af1ef841504b5b43c571ab6fd83f23852b33366143d0cbac18303f88e"
     },
+    "model-refit-xgboost-seed42-00125.json": {
+      "bytes": 342,
+      "sha256": "cc13e4ab44ebc24672300cff99c58dd4d19b1ff39e4518c3433276c819c2a34d"
+    },
     "model-tune-gru-medium-fold0-seed27182-00001.json": {
       "bytes": 353,
       "sha256": "71e9464f60d4e6b859e8217b8df9858893ff0fe738a436d83744a7c1f43916e3"
