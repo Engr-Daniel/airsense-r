@@ -3679,6 +3679,10 @@
     "tuning-mlp.json": {
       "bytes": 299,
       "sha256": "bc0904846e032bb2a85d9c78cebcc1af607cb36138de2f1e31dc6d5a58eecf82"
+    },
+    "tuning-xgboost.json": {
+      "bytes": 266,
+      "sha256": "28b81f6f7ec760c145655766409bc58b884bc34dde7d9c0ed14eea50ba463039"
     }
   },
   "provenance": {
