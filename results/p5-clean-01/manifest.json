@@ -32,6 +32,10 @@
       "bytes": 338,
       "sha256": "b0ad598116ffb1a5bc5f19a07c3415bd035f9762b30705023cce8fcfd6beaa52"
     },
+    "model-refit-mlp-seed42-00005.json": {
+      "bytes": 338,
+      "sha256": "6d7cb085e0c4d8503a12b6f866368a7918fb69895daabbf13d0f31cd82fa91ab"
+    },
     "model-refit-xgboost-seed27182-00025.json": {
       "bytes": 344,
       "sha256": "8a80d58f1d1a6a9d477b684f5f9897f0238ef72c887ece304e093d5657bdfc97"
