@@ -1376,6 +1376,10 @@
       "bytes": 2288,
       "sha256": "fa96d9e076737ffd89db10679f2ddbc0395201f1db2463a7088fe556911bc222"
     },
+    "score-tune-gru-small-fold2-seed27182.json": {
+      "bytes": 2339,
+      "sha256": "6f9427eeeab3cf6d84362c3ec6bc6e332142c343ab9259a58353bb473df498b4"
+    },
     "score-tune-gru-small-fold2-seed31415.json": {
       "bytes": 2336,
       "sha256": "aab1aaa9107ef5780e9511d71992483e10b94431b82ad9da9a7074bee8531596"
