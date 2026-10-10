@@ -1,5 +1,9 @@
 {
   "artifacts": {
+    "done-refit-persistence-seed-1.json": {
+      "bytes": 44,
+      "sha256": "d04e93a063558170315b5c4af249d529a495280cc166730cc388119fb97718ce"
+    },
     "model-tune-gru-medium-fold0-seed27182-00001.json": {
       "bytes": 353,
       "sha256": "71e9464f60d4e6b859e8217b8df9858893ff0fe738a436d83744a7c1f43916e3"
