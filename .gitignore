@@ -37,6 +37,8 @@ Thumbs.db
 # Temporary outputs
 .tmp/
 .cache/
+/figures/p5-runs/
+/docs/data/p5-runs/
 
 # Environment
 .env

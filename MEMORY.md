@@ -126,3 +126,7 @@ Canonical study title is the title field in CITATION.cff, adopted 2026-10-09 bef
 ## P5 readiness audit
 
 See research/P5_READINESS_REVIEW.md. Ready for implementation, not immediate full training. Training search/selection settings, model-state recovery, P5 provenance and environment integration remain required. The starter bootstrap uses row blocks rather than timestamp-aware hourly blocks and must not produce headline intervals unchanged. Ridge and a second dataset remain proposals, not adopted protocol changes.
+
+## P5 implementation checkpoint (2026-10-10)
+
+The declared search in configs/p5_training.yaml is locked by configs/p5_identity.json. CPU XGBoost/MLP/GRU adapters support persistent native model snapshots and epoch/round-boundary recovery. Selection is validation-only with equal-station/seed aggregation and the frozen near-tie rule; final-test loading requires its saved record. P5 provenance records the full environment and training settings. Timestamp-aware paired bootstrap and aligned prediction exports are implemented. Notebook 04 uses explicit smoke/select/test stages. P5 full benchmark is NOT complete: live Colab storage smoke and full fitting/evaluation remain pending. See docs/P5_WORKFLOW.md. No ridge/second dataset was added and no final-test performance was inspected.

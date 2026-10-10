@@ -26,7 +26,7 @@ The project follows a pre-specified workflow. Before final model evaluation, fre
 | P2 | Dataset acquisition and structural audit | Complete |
 | P3 | Freeze research protocol | Complete |
 | P4 | Causal pipeline, Colab notebooks, checkpoint recovery | Complete |
-| P5 | Clean forecasting benchmark | Next |
+| P5 | Clean forecasting benchmark | Implemented; full results pending |
 | P6 | Sensor degradation | Planned |
 | P7 | Leave-one-station-out evaluation | Planned |
 | P8 | Statistical and failure analysis | Planned |
@@ -123,7 +123,7 @@ The static dashboard lives in `docs/`. Configure GitHub Pages to deploy from the
 
 ## Status
 
-P0–P3 are complete and the protocol is frozen. P4's causal data pipeline, provenance checks, incremental Git checkpoints, resume support, and first three Colab notebooks are implemented and locally verified. Authoritative UCI coverage checkpoints are saved under `results/p4/p4-final/`. User-run Colab execution and fresh-runtime checkpoint recovery have been reviewed successfully. See [the P4 workflow](docs/P4_WORKFLOW.md) and [completion report](research/P4_COMPLETION_REPORT.md). P5 forecasting models have not been trained.
+P0–P3 are complete and the protocol is frozen. P4's causal data pipeline, provenance checks, incremental Git checkpoints, resume support, and first three Colab notebooks are implemented and locally verified. Authoritative UCI coverage checkpoints are saved under `results/p4/p4-final/`. User-run Colab execution and fresh-runtime checkpoint recovery have been reviewed successfully. See [the P4 workflow](docs/P4_WORKFLOW.md) and [completion report](research/P4_COMPLETION_REPORT.md). P5 model adapters, training-only tuning, validation selection, persistent model checkpoints and notebook 04 are implemented. Full benchmark training/results remain pending; local synthetic training checks are not research findings. See [the P5 workflow](docs/P5_WORKFLOW.md).
 
 Completed P4 Colab outputs are preserved in
 [the checkpoint archive](results/p4/colab-archive/README.md). Their temporary

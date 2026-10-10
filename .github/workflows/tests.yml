@@ -15,3 +15,13 @@ jobs:
           python-version: "3.11"
       - run: pip install -e . -r requirements-p4.txt
       - run: pytest -q
+
+  training:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -e . -r requirements-p5.txt
+      - run: pytest -q tests/test_p5_training.py tests/test_p5_selection.py tests/test_model_storage.py tests/test_p5_notebook.py

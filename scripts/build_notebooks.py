@@ -28,8 +28,15 @@ else:
         remote = subprocess.check_output(["git", "-C", str(ROOT), "remote", "get-url", "origin"], text=True).strip()
         head = subprocess.check_output(["git", "-C", str(ROOT), "rev-parse", "HEAD"], text=True).strip()
         dirty = subprocess.check_output(["git", "-C", str(ROOT), "status", "--porcelain"], text=True).strip()
-        if remote != REPOSITORY or head != CODE_REVISION or dirty:
-            raise RuntimeError("Existing checkout differs or has edits; preserve it and use a fresh runtime")
+        problems = []
+        if remote != REPOSITORY:
+            problems.append("origin is not the expected repository")
+        if head != CODE_REVISION:
+            problems.append(f"checkout is {head}, requested {CODE_REVISION}")
+        if dirty:
+            problems.append("checkout has modified/untracked files")
+        if problems:
+            raise RuntimeError("; ".join(problems) + ". Preserve existing work and use a fresh runtime filesystem; restarting only the kernel does not remove the checkout.")
     if sys.version_info < (3, 11):
         raise RuntimeError("Python 3.11+ required")
     subprocess.run([sys.executable, "-m", "pip", "install", "-q", "-r", str(ROOT / "requirements-p4.txt"), "-e", str(ROOT)], check=True)

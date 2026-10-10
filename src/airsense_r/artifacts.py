@@ -44,7 +44,9 @@ def source_hash(root: Path) -> str:
     digest = sha256()
     paths = [*root.glob("src/**/*.py"), *root.glob("scripts/*.py"), root / "configs/experiment.yaml",
              root / "research/PROTOCOL.md", root / "research/P4_IMPLEMENTATION_DECISIONS.md",
-             root / "requirements-p4.txt", root / "configs/frozen_identity.json"]
+             root / "requirements-p4.txt", root / "configs/frozen_identity.json",
+             root / "requirements-p5.txt", root / "configs/p5_training.yaml",
+             root / "configs/p5_identity.json", root / "research/P5_IMPLEMENTATION_DECISIONS.md"]
     for path in sorted(paths):
         if path.is_file():
             digest.update(path.relative_to(root).as_posix().encode())

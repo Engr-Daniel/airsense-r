@@ -89,13 +89,14 @@ P4 implementation, local verification, and user-run live Colab acceptance are co
 ## P5 — Clean benchmark
 
 Readiness review: [research/P5_READINESS_REVIEW.md](research/P5_READINESS_REVIEW.md).
-P4 is complete; P5 implementation can begin. Full training requires these gates:
+P4 is complete; P5 runner/model/notebook implementation is present. Full benchmark results remain pending. See [docs/P5_WORKFLOW.md](docs/P5_WORKFLOW.md). Full training requires these gates:
 
-- [ ] Declare search spaces, architecture/training budgets, early stopping and tuning aggregation before scores
-- [ ] Test equal-station/seed aggregation, near-tie selection and final-test access gate
-- [ ] Configure persistent model-state storage and verify interrupted-training recovery
-- [ ] Extend provenance to P5 settings, training libraries and runtime hardware; validate training environment
-- [ ] Define timestamp-aware uncertainty integration and save aligned predictions for P8
+- [x] Declare search spaces, architecture/training budgets, early stopping and tuning aggregation before scores
+- [x] Test equal-station/seed aggregation, near-tie selection and final-test access gate
+- [x] Implement configurable persistent model-state storage and verify interrupted-training recovery locally
+- [ ] Confirm the actual Colab persistent storage mount and recovery using notebook 04 smoke
+- [x] Extend provenance to P5 settings, training libraries and runtime hardware; validate local CPU training environment
+- [x] Implement timestamp-aware uncertainty integration and aligned prediction exports; validate on synthetic fixtures
 - [ ] Pass a bounded training-only Colab smoke run before long fits
 
 - [ ] Persistence baseline
@@ -104,7 +105,7 @@ P4 is complete; P5 implementation can begin. Full training requires these gates:
 - [ ] GRU
 - [ ] Save predictions and metrics
 - [ ] Compare against persistence
-- [ ] Build `notebooks/04_p5_clean_benchmark_analysis.ipynb`
+- [x] Build `notebooks/04_p5_clean_benchmark_analysis.ipynb`
 
 ## P6 — Sensor degradation
 

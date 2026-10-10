@@ -19,3 +19,7 @@ Successful executed notebooks remain preserved at
 and checkpoint artifacts remain in results/p4/colab-archive/.
 Current source notebooks are regenerated without historical outputs to avoid
 attributing old executions to updated source. No additional user rerun is needed.
+
+## P5 notebook
+
+04_p5_clean_benchmark_analysis.ipynb runs one explicit stage: training-only smoke, train/validation selection, or gated final-test scoring. It requires the P5 environment and persistent model storage. Full benchmark results are not yet claimed. Follow [P5_WORKFLOW.md](../docs/P5_WORKFLOW.md).

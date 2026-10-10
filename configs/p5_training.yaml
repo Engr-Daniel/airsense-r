@@ -1,0 +1,35 @@
+schema: 1
+declared: '2026-10-10'
+status: DECLARED_BEFORE_TUNING
+device: cpu
+threads: 2
+batch_size: 512
+prediction_batch_size: 4096
+prediction_shard_rows: 20000
+early_stopping: false
+loss: mean_squared_error
+prediction_clipping: none
+target_scaling: none
+tuning_aggregation: mean_fold_then_equal_station_seed_mean_mae
+hyperparameter_tiebreak: listed_candidate_order
+seed_aggregation: mean_metrics_not_prediction_ensemble
+checkpoint_epochs: 1
+xgboost_checkpoint_rounds: 25
+families:
+  xgboost:
+    - {id: xgb-small, max_depth: 3, eta: 0.05, rounds: 200}
+    - {id: xgb-medium, max_depth: 6, eta: 0.05, rounds: 200}
+  mlp:
+    - {id: mlp-small, hidden: [64, 32], learning_rate: 0.001, epochs: 20}
+    - {id: mlp-medium, hidden: [128, 64], learning_rate: 0.001, epochs: 20}
+  gru:
+    - {id: gru-small, units: 32, head_units: 16, learning_rate: 0.001, epochs: 20}
+    - {id: gru-medium, units: 64, head_units: 16, learning_rate: 0.001, epochs: 20}
+smoke:
+  station: Aotizhongxin
+  fit_end: '2013-03-08 23:00'
+  score_start: '2013-03-09 00:00'
+  score_end: '2013-03-10 23:00'
+  seed: 42
+  epochs: 2
+  rounds: 4
