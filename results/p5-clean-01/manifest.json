@@ -1655,6 +1655,10 @@
     "score-tune-xgb-small-fold0-seed42.json": {
       "bytes": 2345,
       "sha256": "bd1e1372c14b3c662b6b42aed90e3f481fd1033c84cdfceb86890d001d59dc73"
+    },
+    "tuning-gru.json": {
+      "bytes": 297,
+      "sha256": "870056d43ab74d86044521a0af0c27a9013981c9128f6189926ecfc7c75e5b52"
     }
   },
   "provenance": {
