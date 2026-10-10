@@ -104,6 +104,10 @@
       "bytes": 339,
       "sha256": "5dd9e49915666d0bd960b5b69e60d14e9cf9175d75f7ef4b90790c6e0982e05e"
     },
+    "model-refit-gru-seed42-00020.json": {
+      "bytes": 339,
+      "sha256": "0c41fb2f0a8677e50f2d71db3a48d02be490f4b5bd71b1ad9ce1c30f15586750"
+    },
     "model-refit-mlp-seed27182-00001.json": {
       "bytes": 341,
       "sha256": "5cb2bc924d02ceac81e941385ed2bfe6ed9d0b223b06318f0c917ff7d694ad93"
