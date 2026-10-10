@@ -1,5 +1,9 @@
 {
   "artifacts": {
+    "dashboard-validation.json": {
+      "bytes": 30929,
+      "sha256": "e50f710811b6935e98321b7705e294234f83b0353a28251b6e1021ab09e016d3"
+    },
     "done-refit-gru-seed27182.json": {
       "bytes": 3384,
       "sha256": "e7fa865ed35ac45d8aa454b7507cf1a9240280b063aba1eff059c4561804ceb3"
