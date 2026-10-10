@@ -1,5 +1,9 @@
 {
   "artifacts": {
+    "smoke-mlp.json": {
+      "bytes": 198,
+      "sha256": "d03fb5d3a5f15b89ea07e1dd04d9534e610fd4608c91d18c70e8ba0ea8ff58dc"
+    },
     "smoke-xgboost.json": {
       "bytes": 202,
       "sha256": "2f9a735a54dac2f45bbe7a32f1dd3911a08218f306ac5cdd935a3c9760c61775"
