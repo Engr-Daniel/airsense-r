@@ -72,6 +72,10 @@
       "bytes": 1242931,
       "sha256": "a48e58da947d2f6fa7337b6edaaf6ff6fddd218e99b2cf9ab2046d336ef76064"
     },
+    "pred-test-mlp-42-003.csv": {
+      "bytes": 1273300,
+      "sha256": "8a8f95a0829c9e8aeb668ec5a51bc2060962940240acf2d1da440422a4e1cbac"
+    },
     "pred-test-persistence--1-000.csv": {
       "bytes": 1148130,
       "sha256": "784df6a0b2fa38f3f1328809cd23d4b5c6b1a9de9f8b50e1415b4051e62a29a3"
