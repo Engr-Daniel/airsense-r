@@ -1,0 +1,13 @@
+{
+  "arrays": {
+    "prediction": {
+      "dtype": "float64",
+      "shape": [
+        102753
+      ]
+    }
+  },
+  "bytes": 381760,
+  "file": "pred-primary-clean-gru-42.npz",
+  "sha256": "c6984f733ce0df0eaef51c6694fc79ee32a1468efcaed4acc104a1dd5ea5773e"
+}
