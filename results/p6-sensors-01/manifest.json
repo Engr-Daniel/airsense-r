@@ -1,5 +1,9 @@
 {
   "artifacts": {
+    "development-replay-mlp-27182.json": {
+      "bytes": 112,
+      "sha256": "394bf0c2ae08fe1044cb9ccb183b1dc1bb063fd5d982df1c686e6ba255839d04"
+    },
     "development-replay-mlp-31415.json": {
       "bytes": 112,
       "sha256": "0606ddad37e1953378d224e47bf32bfc7e2a4e544aa1486073a15fb7828cfc9a"
