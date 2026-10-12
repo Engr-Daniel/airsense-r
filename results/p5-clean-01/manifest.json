@@ -1,5 +1,9 @@
 {
   "artifacts": {
+    "dashboard-test.json": {
+      "bytes": 30922,
+      "sha256": "c02915874d6b402078d7f7111c283361779c4b0245b383ad4fbdd50ba1a36cb4"
+    },
     "dashboard-validation.json": {
       "bytes": 30929,
       "sha256": "e50f710811b6935e98321b7705e294234f83b0353a28251b6e1021ab09e016d3"
