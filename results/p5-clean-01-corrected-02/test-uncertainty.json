@@ -1,0 +1,36 @@
+{
+  "block_hours": 24,
+  "confidence": 0.95,
+  "differences": {
+    "gru": {
+      "ci_high": -4.0040974572015,
+      "ci_low": -7.521211812620892,
+      "estimate": -5.677770977700037
+    },
+    "mlp": {
+      "ci_high": -0.3282496225454676,
+      "ci_low": -0.7362678531620552,
+      "estimate": -0.5305625565000902
+    },
+    "persistence": {
+      "ci_high": 0.0,
+      "ci_low": 0.0,
+      "estimate": 0.0
+    },
+    "xgboost": {
+      "ci_high": 0.7631716808292689,
+      "ci_low": 0.33998450059135155,
+      "estimate": 0.5687822039329653
+    }
+  },
+  "method": "paired_calendar_moving_block_bootstrap",
+  "replicates": 2000,
+  "seed": 424242,
+  "seed_uncertainty": "conditional_on_fitted_seed_set",
+  "selected_family": "persistence",
+  "selection_regret": {
+    "ci_high": 0.7631716808292689,
+    "ci_low": 0.33998450059135155,
+    "estimate": 0.5687822039329653
+  }
+}

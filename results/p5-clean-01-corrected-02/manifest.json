@@ -628,6 +628,10 @@
       "bytes": 7511,
       "sha256": "0000a2c7925716152a911e123c2b15d4da7f42c455db5c93b6949dc63589618c"
     },
+    "test-uncertainty.json": {
+      "bytes": 878,
+      "sha256": "153ed5f53466c192a3589ea41674abbfda7c08be5389235332881298493045c5"
+    },
     "validation-replay-complete.json": {
       "bytes": 49,
       "sha256": "bf26063dea8e170ffc42a6b7e37cbbd9051a8417fe2d43b4cce7fce3fd7cdee0"
