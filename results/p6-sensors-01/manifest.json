@@ -95,6 +95,10 @@
     "noise-scales.json": {
       "bytes": 364,
       "sha256": "2e8e24762575aa1ec270cda2454a1ce32c45dc5257be2f6171d1f3e129c7ac6a"
+    },
+    "preflight-complete.json": {
+      "bytes": 159,
+      "sha256": "145a44db369229746332c547c2a92de77cc97ed99c8ae6ccd1f58fbdeb11c60f"
     }
   },
   "provenance": {
