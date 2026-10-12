@@ -1,5 +1,9 @@
 {
   "artifacts": {
+    "development-replay-gru-27182.json": {
+      "bytes": 112,
+      "sha256": "2d0b1c9dabcda8c33a14bc7daa763c826d5b3a2c02e30d474f2c9dea4f1e69b3"
+    },
     "development-replay-gru-31415.json": {
       "bytes": 112,
       "sha256": "77494a092bd490346f9731559f80191404845f79fad0670f673f5cedabe70919"
