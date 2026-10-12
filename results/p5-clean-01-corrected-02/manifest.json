@@ -23,6 +23,10 @@
     "done-refit-mlp-seed31415.json": {
       "bytes": 3390,
       "sha256": "81d12b5e3d4d3f39c89d6fbbf7f426fb6cafccf5e5bc3c42c4b818f4e24d19b7"
+    },
+    "done-refit-mlp-seed42.json": {
+      "bytes": 3384,
+      "sha256": "8b284db8d3c69f17a9b198717e7dcd646ee6bce9f15751d8505a2b55374ed880"
     }
   },
   "provenance": {
