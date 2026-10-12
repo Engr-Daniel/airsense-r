@@ -1,5 +1,10 @@
 {
-  "artifacts": {},
+  "artifacts": {
+    "lineage.json": {
+      "bytes": 38392,
+      "sha256": "5f60eeb64e304cd6245aa803aebd6b8d8e1c50f701ae00f6edd1c8f4f49f9960"
+    }
+  },
   "provenance": {
     "code_commit": "3c9b5d49fb90b30cc967f8d31f9f3c3007b81a0d",
     "config": {
