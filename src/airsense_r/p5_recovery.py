@@ -133,7 +133,9 @@ def verify_validation(frame, store: RunStore, models: Path) -> None:
     original = CausalPreprocessor().fit(frame, config["data"]["train_target_end"])
     if json_bytes(original.state) != json_bytes(state):
         raise ValueError("Original training-only preprocessing statistics do not reproduce")
-    reference = read_predictions(store, "validation")
+    # %.17g shards preserve the original doubles, but pandas' default parser
+    # can round them differently. Replay needs exact deserialization of labels.
+    reference = read_predictions(store, "validation", round_trip=True)
     for family in config["models"]["candidates"]:
         windows = build_windows(frame, restored, scaled=family != "xgboost" and family != "persistence")
         fitted = build_windows(frame, original, scaled=family != "xgboost" and family != "persistence")

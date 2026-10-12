@@ -22,9 +22,9 @@ def main() -> None:
         "the original evidence and replaying all models; this does not repeat 54 tuning fits. "
         "Only one Colab session may run this recovery. See `docs/P5_RECOVERY.md`.")
     replace(3, "## 2. Provenance and GitHub authentication\n"
-        "New correction run: `p5-clean-01-corrected-01`. Reuse this ID only to resume this correction "
+        "New correction run: `p5-clean-01-corrected-02`. Reuse this ID only to resume this correction "
         "at the same code revision/environment. Never enter `p5-clean-01` here.")
-    replace(4, ''.join(cells[4]["source"]).replace("p5-smoke-01", "p5-clean-01-corrected-01"))
+    replace(4, ''.join(cells[4]["source"]).replace("p5-smoke-01", "p5-clean-01-corrected-02"))
     replace(5, "## 3. Original persistent model storage\n"
         "Use `/content/drive/MyDrive/AirSense-R/model-checkpoints`, the original parent directory. "
         "The script reads the existing `p5-clean-01` model subdirectory without modifying it.")

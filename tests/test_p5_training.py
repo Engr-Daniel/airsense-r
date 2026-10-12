@@ -63,6 +63,9 @@ def test_full_selection_then_test_workflow_on_synthetic_fixture(tmp_path, monkey
         part["timestamp"] = pd.date_range("2014-01-01", periods=144, freq="h")
         parts.append(part)
     frame = pd.concat(parts, ignore_index=True)
+    # Noninteger original labels exercise exact replay after %.17g CSV storage.
+    frame.loc[frame.timestamp == "2014-01-04 12:00", "PM2.5"] = 74.3
+    frame.loc[frame.timestamp == "2014-01-04 13:00", "PM2.5"] = 81.8
     fixture_provenance = {"config": config, "training_plan": plan, "synthetic_only": True,
         **{key: "synthetic-fixture" for key in ("config_hash", "protocol_hash", "dataset_sha256", "training_plan_hash")}}
     store = RunStore(tmp_path / "results", fixture_provenance)

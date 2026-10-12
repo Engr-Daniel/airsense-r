@@ -88,3 +88,23 @@ notebook checks. Notebook 04b validates and its five code cells compile; its act
 Drive/GitHub execution is still a user-run acceptance step. Existing notebook
 execution/resume checks also pass. No real corrected test results were generated
 locally and no cloud-model access is claimed by these tests.
+
+## Recovery CSV precision follow-up (2026-10-12)
+
+The first live correction attempt stopped during persistence validation replay,
+before neural replay or corrected test scoring. Two of 103,287 labels differed by
+at most 1.42108547e-14. This was reproduced from original validation CSV shards:
+the default pandas parser reads the serialized 74.3 and 81.8 values as
+74.29999999999998 and 81.79999999999998. `float_precision="round_trip"` restores
+the saved double values exactly. Recovery now explicitly opts into that reader;
+ordinary metric/selection readers retain their original behavior. Exact target
+comparison, model hashes, fitting settings and replay tolerances are unchanged.
+Regression fixtures now include both affected noninteger labels, including the
+real-model synthetic recovery test. The updated source needs a new correction ID
+(`p5-clean-01-corrected-02`); preserve the first attempt as incident evidence.
+
+Follow-up validation: 16 recovery/training/selection tests passed, including the
+full synthetic correction with those decimal labels. The round-trip reader also
+matched Python's correctly rounded float conversion for all 103,287 original
+persistence validation labels. No corrected test performance was used to choose
+this parser or change any tolerance.

@@ -1,12 +1,19 @@
 # Corrected P5 test evaluation
 
+Update 2026-10-12: the first correction attempt (`p5-clean-01-corrected-01`)
+stopped before test scoring because the default CSV reader altered two decimal
+labels by one floating-point rounding step. Replay now uses round-trip float
+parsing and retains exact target equality and the original prediction tolerances.
+Use the updated notebook/code revision and new correction ID ending in `-02`.
+Preserve the failed correction branch as diagnostic evidence; no retraining is needed.
+
 Use `notebooks/04b_p5_corrected_test.ipynb` for the documented 2026-10-12
 preprocessing incident. Do not rerun the old test notebook or retrain the models.
 
 1. Open notebook 04b at its published code revision in a fresh CPU Colab runtime.
    Use the same full revision SHA at bootstrap. Allow access to the
    `AIRSENSE_GITHUB_TOKEN` Colab Secret.
-2. Enter a **new** run ID: `p5-clean-01-corrected-01`.
+2. Enter a **new** run ID: `p5-clean-01-corrected-02`.
 3. Mount the original directory:
    `/content/drive/MyDrive/AirSense-R/model-checkpoints`.
 4. Run the fourth cell once. It verifies and copies frozen development evidence
@@ -36,7 +43,7 @@ the same correction run ID, code SHA, environment and Drive directory. Validatio
 predictions are rechecked on an incomplete resume; completed test shards are reused.
 An environment/provenance or model mismatch requires investigation, not an override.
 
-Compact correction artifacts publish to `results/p5-clean-01-corrected-01`.
+Compact correction artifacts publish to `results/p5-clean-01-corrected-02`.
 Native models stay in the original `p5-clean-01` Drive subdirectory. No corrected
 model copies or new training runs are needed. Preserve both result branches and
 all original executed notebooks. Scientific acceptance remains pending review of

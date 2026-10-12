@@ -44,13 +44,14 @@ def storage_identity(directory: Path) -> str:
     return identity
 
 
-def read_predictions(store: RunStore, phase: str) -> pd.DataFrame:
-    """Load registered prediction shards only, validating every checksum first."""
+def read_predictions(store: RunStore, phase: str, *, round_trip: bool = False) -> pd.DataFrame:
+    """Load verified shards; optionally restore serialized floats exactly for replay."""
     store.verify()
     names = sorted(n for n in store.manifest["artifacts"] if n.startswith(f"pred-{phase}-") and n.endswith(".csv"))
     if not names:
         raise ValueError(f"No {phase} predictions")
-    return pd.concat([pd.read_csv(store.directory / n) for n in names], ignore_index=True)
+    precision = "round_trip" if round_trip else None
+    return pd.concat([pd.read_csv(store.directory / n, float_precision=precision) for n in names], ignore_index=True)
 
 
 def prediction_frame(windows, indices, family: str, seed: int, phase: str, predicted) -> pd.DataFrame:

@@ -4,6 +4,20 @@ import pytest
 from airsense_r.p5_recovery import local_writer_lock, recover_test
 
 
+def test_validation_replay_restores_decimal_targets_exactly(tmp_path):
+    """Actual failing values must survive %.17g CSV serialization bit-for-bit."""
+    import numpy as np
+    import pandas as pd
+    from airsense_r.artifacts import RunStore
+    from airsense_r.p5 import read_predictions
+    frame = pd.DataFrame({"y_true": [74.3, 81.8], "y_pred": [74.3, 81.8]})
+    store = RunStore(tmp_path, {"fixture": True})
+    store.save("pred-validation-fixture.csv", frame.to_csv(index=False, float_format="%.17g").encode())
+    loaded = read_predictions(store, "validation", round_trip=True)
+    np.testing.assert_array_equal(frame.y_true, loaded.y_true)
+    np.testing.assert_array_equal(frame.y_pred, loaded.y_pred)
+
+
 def test_recovery_lock_rejects_second_writer_and_releases(tmp_path):
     path = tmp_path / "recovery.lock"
     with local_writer_lock(path):
