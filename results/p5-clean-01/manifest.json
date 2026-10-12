@@ -4088,6 +4088,10 @@
       "bytes": 349,
       "sha256": "12082ddef34c5a6c9024abc08a07f23b9403063445ff4c87f00837693f9ea57a"
     },
+    "pred-test-persistence--1-000.csv": {
+      "bytes": 1148130,
+      "sha256": "784df6a0b2fa38f3f1328809cd23d4b5c6b1a9de9f8b50e1415b4051e62a29a3"
+    },
     "pred-validation-gru-27182-000.csv": {
       "bytes": 1481535,
       "sha256": "c6cbf87dd78a4a3fecc6aed2353d28279b30fb8de088fa7b0e50877360aec6d7"
