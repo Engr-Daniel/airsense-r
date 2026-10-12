@@ -1,5 +1,9 @@
 {
   "artifacts": {
+    "complete.json": {
+      "bytes": 92,
+      "sha256": "58e0692020c4fbe33d17a88b9141183f49276346d23011d79681b8b5e44cd106"
+    },
     "correction-lineage.json": {
       "bytes": 30836,
       "sha256": "39635480afc13ebb74fab621cef04629af3d30a7c17870156e0d047da1706d3d"
