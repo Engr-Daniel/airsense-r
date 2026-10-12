@@ -39,6 +39,10 @@
     "done-refit-xgboost-seed31415.json": {
       "bytes": 3360,
       "sha256": "4d74b1d071479b8eb4fee1d12dc5ad2983e7d0d49ba320c7516be315a286d416"
+    },
+    "done-refit-xgboost-seed42.json": {
+      "bytes": 3354,
+      "sha256": "e1566d5c5e28428511104f7bb50b912d372aa2ea91fa0698a842a45eca64782f"
     }
   },
   "provenance": {
