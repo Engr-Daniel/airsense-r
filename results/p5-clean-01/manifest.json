@@ -88,6 +88,10 @@
       "bytes": 31729,
       "sha256": "3a3e4c184d53e3218895467e00c1b89f2807c45c3798d7be5d98a4d4fec145c0"
     },
+    "metrics-test-station-seed.csv": {
+      "bytes": 9724,
+      "sha256": "0a5d8790c14e05306980488e00be1196add60b00970c0ecb3f57cb1dd3ada544"
+    },
     "metrics-validation-aggregate.csv": {
       "bytes": 268,
       "sha256": "e0b9a4f6c2fea03bf54143a135c0833242ff58036b9dbb3bffd00eac99c23bb4"
