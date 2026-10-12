@@ -89,7 +89,7 @@ P4 implementation, local verification, and user-run live Colab acceptance are co
 ## P5 — Clean benchmark
 
 Readiness review: [research/P5_READINESS_REVIEW.md](research/P5_READINESS_REVIEW.md).
-P4 is complete. P5 selection and test execution finished, but test acceptance is withheld pending correction of restored scaled-feature ordering. Keep models and selection frozen. See [research/P5_TEST_REVIEW.md](research/P5_TEST_REVIEW.md). P6 must wait. Full training requires these gates:
+P5 is complete after corrected evaluation and independent review on 2026-10-12. See [research/P5_COMPLETION_REPORT.md](research/P5_COMPLETION_REPORT.md). P6 implementation may begin; models and validation selection remain frozen. Completed gates:
 
 - [x] Declare search spaces, architecture/training budgets, early stopping and tuning aggregation before scores
 - [x] Test equal-station/seed aggregation, near-tie selection and final-test access gate
@@ -100,14 +100,14 @@ P4 is complete. P5 selection and test execution finished, but test acceptance is
 - [x] Pass bounded real-data training-only local smoke and fresh-process model reload
 - [x] Pass a bounded training-only Colab smoke run before long fits; remote artifact checksums reviewed (see results/p5/colab_acceptance.json)
 
-- [ ] Persistence baseline
-- [ ] Tree-based ML model
-- [ ] MLP
-- [ ] GRU
-- [ ] Save predictions and metrics
-- [ ] Compare against persistence
+- [x] Persistence baseline
+- [x] Tree-based ML model
+- [x] MLP
+- [x] GRU
+- [x] Save predictions and metrics
+- [x] Compare against persistence
 - [x] Prepare provenance-preserving correction notebook 04b and validation-replay gate
-- [ ] Validate restored-model development predictions and perform separately versioned corrected test scoring (2026-10-12 preprocessing incident)
+- [x] Validate restored-model development predictions and perform separately versioned corrected test scoring (2026-10-12 preprocessing incident)
 - [x] Build `notebooks/04_p5_clean_benchmark_analysis.ipynb`
 
 ## P6 — Sensor degradation

@@ -1,5 +1,10 @@
 # P5 final-test review and preprocessing correction
 
+Final disposition (2026-10-12): corrected run `p5-clean-01-corrected-02` has
+passed independent review and P5 is complete. See [P5_COMPLETION_REPORT.md](P5_COMPLETION_REPORT.md).
+The incident history below records the original rejected outputs and subsequent
+recovery steps; it does not revoke their invalidation.
+
 Reviewed 2026-10-12. Run: `p5-clean-01`. Source:
 `2201c0ff6d30cd40898cda1716b1b15b47e92bf8`. Reviewed result commit:
 `b4fbfa73d55c83bc4de1a2f3c7db9eb16a306683` on `results/p5-clean-01`.

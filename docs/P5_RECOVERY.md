@@ -46,5 +46,7 @@ An environment/provenance or model mismatch requires investigation, not an overr
 Compact correction artifacts publish to `results/p5-clean-01-corrected-02`.
 Native models stay in the original `p5-clean-01` Drive subdirectory. No corrected
 model copies or new training runs are needed. Preserve both result branches and
-all original executed notebooks. Scientific acceptance remains pending review of
-the corrected outputs. See [the incident review](../research/P5_TEST_REVIEW.md).
+all original executed notebooks. Corrected run `p5-clean-01-corrected-02` was
+accepted on 2026-10-12; no further rerun is needed. See the
+[completion report](../research/P5_COMPLETION_REPORT.md) and
+[incident review](../research/P5_TEST_REVIEW.md).

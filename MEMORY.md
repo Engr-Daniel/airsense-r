@@ -1,6 +1,6 @@
 # MEMORY.md — AirSense-R Project Memory
 
-Current status (2026-10-12): P5 select/test execution finished, but scientific test acceptance is withheld. Sorted JSON preprocessing mappings reorder scaled numeric inputs on reload, invalidating original MLP/GRU test predictions. A synthetic regression reproduces the defect; the local fix aligns statistics to input columns. Preserve original artifacts, frozen models and validation selection. Corrected scoring needs explicit provenance migration and development-prediction replay before any test rerun. P6 must wait. Final-test outcomes have now been inspected. See research/P5_TEST_REVIEW.md and research/PROTOCOL_DEVIATIONS.md.
+Current status (2026-10-12): P5 accepted after corrected run p5-clean-01-corrected-02. All 160 artifact checksums, ten frozen-model validation replays, test metrics and bootstrap were independently reviewed. Persistence remains validation-selected; clean-test regret is 0.568782 (95% CI 0.339985?0.763172), within the 1.0 practical near-tie threshold. See research/P5_COMPLETION_REPORT.md. P6 may begin with frozen models and corrected preprocessing. Prior invalid test artifacts and correction attempts must be retained. Final-test outcomes have been inspected. Historical entries below describe earlier states.
 
 This file stores durable project context so future contributors/agents can resume work without reconstructing prior decisions.
 

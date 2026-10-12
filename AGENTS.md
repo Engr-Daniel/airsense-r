@@ -31,6 +31,26 @@ Follow `docs/NOTEBOOK_GUIDE.md` for notebooks under `notebooks/`, explicit permi
 - Never hard-code user-specific absolute paths.
 - Log key experiment steps and seeds.
 
+## Verification before handing a notebook to the user
+
+- Treat preprocessing serialization, CSV parsing and native model reload as part
+  of the scientific pipeline. Test the actual on-disk formats, not just in-memory
+  objects. Assert feature names/order, labels and predictions survive round trips.
+- Include noninteger targets, missing values, categorical inputs and all supported
+  model families in relevant integration fixtures. Include the known 74.3/81.8 CSV
+  precision cases. Keep replay tolerances explicit; never loosen them to pass a run.
+- For recovery or inference-path changes, replay frozen development predictions
+  with reloaded models before exposing test rows. Confirm no fitting or selection
+  occurs during recovery. Record any post-results correction and preserve originals.
+- Verify fresh-process execution, interruption/resume and duplicate-writer behavior
+  for affected workflows. Distinguish locally tested behavior from live Colab checks.
+- Review the final diff, run relevant regression/integration checks, regenerate
+  source fingerprints, and give a notebook link pinned to its matching full commit.
+  Preserve executed notebooks separately before regenerating templates.
+- Before declaring a phase complete, inspect its actual completion records, verify
+  artifact checksums and lineage, and independently recompute headline metrics and
+  uncertainty. A successful cell or passing unit tests alone is insufficient.
+
 ## Experiment outputs
 
 Every experiment should save structured outputs that can be reused by the manuscript and dashboard:
