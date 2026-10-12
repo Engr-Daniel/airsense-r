@@ -4,7 +4,11 @@ Current status (2026-10-12): P5 accepted after corrected run p5-clean-01-correct
 
 This file stores durable project context so future contributors/agents can resume work without reconstructing prior decisions.
 
+P6 implementation checkpoint (2026-10-12): notebook 05 has explicit preflight/evaluate stages. It preserves accepted P5 selection/models, replays development and clean-test predictions, and saves lossless derived arrays in Drive with incremental Git references. All 15 frozen conditions and 63 realizations are implemented for primary and inference-only no-forward-fill policies. Paired hourly uncertainty preserves station/seed aggregation and matched outage subsets. No real P6 stress results have been generated. See docs/P6_WORKFLOW.md and research/P6_IMPLEMENTATION_DECISIONS.md; live Colab preflight remains required.
+
 ## Project identity
+
+P6 local verification (2026-10-12): 75 regression tests and the separate fresh-process P6 notebook lifecycle test passed. The latter verified preflight, interruption/resume, completed-unit reuse, original-model/evidence preservation and bare-Git synchronization. All six current templates have matching source fingerprints. See research/P6_IMPLEMENTATION_REPORT.md. Next user action is notebook 05, new run `p6-sensors-01`, stage `preflight`; review its live evidence before `evaluate`. P5 needs no rerun.
 
 - Name: **AirSense-R**
 - Working paper title: **AirSense-R: Do Air-Quality Forecasters Keep Their Rank Under Sensor Degradation and Site Shift?**

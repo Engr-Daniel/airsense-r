@@ -32,3 +32,5 @@ This is explicitly local-only. Add `--sync-remote` with a credential-free Git UR
 ## P5 staged benchmark
 
 Install requirements-p5.txt. scripts/run_benchmark.py provides explicit smoke, select and test stages with a required persistent model directory. Test access requires a completed selection record. See [P5_WORKFLOW.md](../docs/P5_WORKFLOW.md). scripts/build_p5_notebook.py generates notebook 04; regenerate all notebooks after a scientific source change.
+
+P6: `run_sensor_degradation.py` requires an explicit preflight/evaluate stage, persistent original model directory, unique P6 run ID and Git synchronization remote. See docs/P6_WORKFLOW.md. It never trains or selects models.

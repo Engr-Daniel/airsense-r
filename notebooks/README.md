@@ -32,3 +32,7 @@ outputs are not evidence that the corrected source has already run. Do not rerun
 the old test notebook, retune models or delete the original Drive snapshots.
 
 Successful corrected execution is preserved byte-for-byte in `04b_p5_corrected_test_executed.ipynb`; the unsuffixed notebook remains the source template. Its recorded SHA identifies the generating code. No additional rerun is needed.
+
+## P6 notebook
+
+`05_p6_sensor_degradation_analysis.ipynb` has explicit `preflight` and `evaluate` stages. It reuses frozen P5 models, verifies development and clean-test replay, and stores lossless predictions in Drive with Git references. Follow [P6_WORKFLOW.md](../docs/P6_WORKFLOW.md). Local tests and preflight are engineering acceptance, not completed stress findings.

@@ -112,12 +112,20 @@ P5 is complete after corrected evaluation and independent review on 2026-10-12. 
 
 ## P6 — Sensor degradation
 
+Implementation is present; real stress results remain pending. See
+[docs/P6_WORKFLOW.md](docs/P6_WORKFLOW.md) and
+[research/P6_IMPLEMENTATION_DECISIONS.md](research/P6_IMPLEMENTATION_DECISIONS.md).
+
+- [x] Implement frozen-model replay gates, persistent predictions and paired stress summaries
+- [x] Complete local lifecycle verification and review before notebook handoff (75 regression tests plus the fresh-process P6 lifecycle test passed)
+- [ ] Review user-run Colab P6 preflight before full evaluation
+
 - [ ] Random feature dropout at frozen severities
 - [ ] Whole-variable dropout at frozen channels
 - [ ] Measurement-noise injection at frozen severities
 - [ ] Re-evaluate frozen models without retraining unless protocol specifies otherwise
 - [ ] Compute RPD
-- [ ] Build `notebooks/05_p6_sensor_degradation_analysis.ipynb`
+- [x] Build `notebooks/05_p6_sensor_degradation_analysis.ipynb`
 
 ## P7 — Site shift
 

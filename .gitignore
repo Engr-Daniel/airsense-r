@@ -39,6 +39,8 @@ Thumbs.db
 .cache/
 /figures/p5-runs/
 /docs/data/p5-runs/
+/figures/p6-runs/
+/docs/data/p6-runs/
 
 # Environment
 .env
