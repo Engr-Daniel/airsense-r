@@ -48,6 +48,10 @@
       "bytes": 23,
       "sha256": "ad1ed6243ea081e7d97d9e7bf7443870a40e1ea693c6c7fb4a35354451f1de93"
     },
+    "done-test-xgboost-42.json": {
+      "bytes": 23,
+      "sha256": "ad1ed6243ea081e7d97d9e7bf7443870a40e1ea693c6c7fb4a35354451f1de93"
+    },
     "pred-test-persistence--1-000.csv": {
       "bytes": 1148130,
       "sha256": "784df6a0b2fa38f3f1328809cd23d4b5c6b1a9de9f8b50e1415b4051e62a29a3"
