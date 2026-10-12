@@ -26,7 +26,7 @@ The project follows a pre-specified workflow. Before final model evaluation, fre
 | P2 | Dataset acquisition and structural audit | Complete |
 | P3 | Freeze research protocol | Complete |
 | P4 | Causal pipeline, Colab notebooks, checkpoint recovery | Complete |
-| P5 | Clean forecasting benchmark | Implemented; full results pending |
+| P5 | Clean forecasting benchmark | Original run executed; corrected test acceptance pending |
 | P6 | Sensor degradation | Planned |
 | P7 | Leave-one-station-out evaluation | Planned |
 | P8 | Statistical and failure analysis | Planned |

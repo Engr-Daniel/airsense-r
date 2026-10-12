@@ -1,5 +1,7 @@
 # MEMORY.md — AirSense-R Project Memory
 
+Current status (2026-10-12): P5 select/test execution finished, but scientific test acceptance is withheld. Sorted JSON preprocessing mappings reorder scaled numeric inputs on reload, invalidating original MLP/GRU test predictions. A synthetic regression reproduces the defect; the local fix aligns statistics to input columns. Preserve original artifacts, frozen models and validation selection. Corrected scoring needs explicit provenance migration and development-prediction replay before any test rerun. P6 must wait. Final-test outcomes have now been inspected. See research/P5_TEST_REVIEW.md and research/PROTOCOL_DEVIATIONS.md.
+
 This file stores durable project context so future contributors/agents can resume work without reconstructing prior decisions.
 
 ## Project identity
@@ -132,3 +134,9 @@ See research/P5_READINESS_REVIEW.md. Ready for implementation, not immediate ful
 The declared search in configs/p5_training.yaml is locked by configs/p5_identity.json. CPU XGBoost/MLP/GRU adapters support persistent native model snapshots and epoch/round-boundary recovery. Selection is validation-only with equal-station/seed aggregation and the frozen near-tie rule; final-test loading requires its saved record. P5 provenance records the full environment and training settings. Timestamp-aware paired bootstrap and aligned prediction exports are implemented. Notebook 04 uses explicit smoke/select/test stages. P5 full benchmark is NOT complete: live Colab storage smoke and full fitting/evaluation remain pending. See docs/P5_WORKFLOW.md. No ridge/second dataset was added and no final-test performance was inspected.
 
 Local P5 verification: 59 tests passed. The real UCI smoke run p5-local-smoke-20261010 used only Aotizhongxin through 2013-03-10; all three learned models passed interruption/reload comparisons with zero prediction difference. Evidence and limitations are in research/P5_IMPLEMENTATION_REPORT.md. The actual Colab persistent-storage smoke remains pending before long training.
+
+## P5 Colab smoke acceptance (2026-10-10)
+
+User-run notebook 04 used unchanged code at 2201c0ff6d30cd40898cda1716b1b15b47e92bf8, stage smoke, run p5-smoke-01, and mounted Google Drive. All three learned models passed interruption/resume and native reload checks with zero prediction difference. Remote branch results/p5-smoke-01 at 9be8907ac418f9bdb5fb9fd8780334cfcaac84f6 has verified manifest checksums and a completion marker. See results/p5/colab_acceptance.json. Fresh-runtime cloud recovery was not demonstrated by this saved notebook. Ready for select using new run ID p5-clean-01, the same pinned code and model directory; full P5 benchmark remains pending.
+
+Recovery workflow (2026-10-12): use notebook 04b_p5_corrected_test.ipynb and docs/P5_RECOVERY.md, with new correction run p5-clean-01-corrected-01 and original Drive model directory. It verifies frozen native hashes and development predictions before any corrected test scoring; it does not retrain. Corrected live outputs are still pending.

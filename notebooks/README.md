@@ -23,3 +23,10 @@ attributing old executions to updated source. No additional user rerun is needed
 ## P5 notebook
 
 04_p5_clean_benchmark_analysis.ipynb runs one explicit stage: training-only smoke, train/validation selection, or gated final-test scoring. It requires the P5 environment and persistent model storage. Full benchmark results are not yet claimed. Follow [P5_WORKFLOW.md](../docs/P5_WORKFLOW.md).
+
+For the existing `p5-clean-01` run, use **04b_p5_corrected_test.ipynb** and
+[P5_RECOVERY.md](../docs/P5_RECOVERY.md). Its original test predictions require
+correction of restored scaled-feature order. The `_smoke`, `_select` and `_test`
+notebooks preserve the user's historical executions at their original SHA; their
+outputs are not evidence that the corrected source has already run. Do not rerun
+the old test notebook, retune models or delete the original Drive snapshots.

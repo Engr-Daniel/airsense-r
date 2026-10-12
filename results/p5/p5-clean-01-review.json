@@ -1,0 +1,15 @@
+{
+  "reviewed": "2026-10-12",
+  "run_id": "p5-clean-01",
+  "result_commit": "b4fbfa73d55c83bc4de1a2f3c7db9eb16a306683",
+  "generating_code_commit": "2201c0ff6d30cd40898cda1716b1b15b47e92bf8",
+  "execution_complete": true,
+  "scientific_acceptance": false,
+  "verified_artifacts": 1217,
+  "pretest_artifacts_unchanged": true,
+  "metrics_and_bootstrap_reproduced": true,
+  "reason": "Sorted JSON mapping order changes scaled numeric feature order after preprocessing reload; original neural test predictions invalid. Comparative test acceptance withheld.",
+  "preserve_models_and_selection": true,
+  "corrected_evaluation_pending": true,
+  "review_document": "research/P5_TEST_REVIEW.md"
+}

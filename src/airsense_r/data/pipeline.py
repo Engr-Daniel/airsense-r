@@ -123,7 +123,11 @@ class CausalPreprocessor:
         numeric = imputed[list(NUMERIC)].copy()
         persistence = numeric["PM2.5"].to_numpy(dtype="float32")
         if scaled:
-            numeric = (numeric - pd.Series(self.state["means"])) / pd.Series(self.state["stds"])
+            # JSON serialization sorts mapping keys. Align statistics explicitly
+            # so pandas cannot reorder the model's numeric input columns.
+            means = pd.Series(self.state["means"]).reindex(numeric.columns)
+            stds = pd.Series(self.state["stds"]).reindex(numeric.columns)
+            numeric = (numeric - means) / stds
         categories = self.state["categories"]
         wd = imputed.wd.where(imputed.wd.isin(categories), "OTHER")
         onehot = np.column_stack([wd.eq(c).to_numpy() for c in categories])

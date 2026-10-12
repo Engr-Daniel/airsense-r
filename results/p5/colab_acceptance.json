@@ -1,0 +1,22 @@
+{
+  "reviewed": "2026-10-10",
+  "run_id": "p5-smoke-01",
+  "stage": "smoke",
+  "code_commit": "2201c0ff6d30cd40898cda1716b1b15b47e92bf8",
+  "remote_branch": "results/p5-smoke-01",
+  "remote_commit": "9be8907ac418f9bdb5fb9fd8780334cfcaac84f6",
+  "notebook_sha256": "3308c2caaddbb0e38d092a5a38142639ede61f4ab324d465f76202d6f02c5e3b",
+  "notebook_code_matches_published": true,
+  "remote_artifact_checksums_verified": true,
+  "models": [
+    "xgboost",
+    "mlp",
+    "gru"
+  ],
+  "resume_max_abs_difference": 0.0,
+  "save_load_max_abs_difference": 0.0,
+  "training_targets": 168,
+  "score_targets": 48,
+  "storage": "Google Drive mount confirmed in saved notebook",
+  "scope": "Training-only engineering smoke. In-process interruption and native reload verified; fresh-runtime cloud recovery was not demonstrated by this notebook. Full selection and final-test benchmark pending."
+}

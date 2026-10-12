@@ -20,8 +20,9 @@ def test_p5_notebook_smoke_cells(tmp_path):
     remote = tmp_path / "remote.git"
     subprocess.run(["git", "init", "--bare", str(remote)], check=True, capture_output=True)
     env = os.environ.copy()
-    run_id = "p5-notebook-" + tmp_path.name[-15:]
-    # Temp names can contain underscores/hyphens, both accepted by the run store.
+    from hashlib import sha256
+    # The checkout lives under ROOT, so distinguish separate pytest temp roots.
+    run_id = "p5-notebook-" + sha256(str(tmp_path).encode()).hexdigest()[:16]
     env.update(AIRSENSE_NOTEBOOK_TEST_MODE="1", AIRSENSE_NOTEBOOK_TEST_ROOT=str(ROOT),
                AIRSENSE_NOTEBOOK_TEST_RUN=run_id, AIRSENSE_NOTEBOOK_TEST_REMOTE=str(remote))
     fixture = '''

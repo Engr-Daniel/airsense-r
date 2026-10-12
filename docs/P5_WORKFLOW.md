@@ -1,5 +1,9 @@
 # P5 clean benchmark workflow
 
+For the existing `p5-clean-01` run, use [P5_RECOVERY.md](P5_RECOVERY.md) and
+notebook 04b. The original neural test predictions are invalidated by the
+2026-10-12 preprocessing incident. Do not rerun its old test command or refit models.
+
 P5 code implements the four frozen families, bounded training-only tuning, clean
 validation selection, separate test scoring, prediction exports and model recovery.
 Implementation and smoke checks are not a completed scientific benchmark.

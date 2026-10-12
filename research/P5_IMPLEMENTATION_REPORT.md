@@ -4,6 +4,11 @@ Date: 2026-10-10. Source implementation: fe1d759eb0fbe5e7703617971ef48fbcbaea4ad
 
 ## Status
 
+Update 2026-10-12: select/test execution finished, but a restored scaled-feature
+ordering defect invalidates neural test predictions. P5 acceptance is withheld;
+see [P5_TEST_REVIEW.md](P5_TEST_REVIEW.md). The record below describes the original
+implementation checkpoint, before final-test inspection.
+
 P5 implementation is present and locally tested. The full clean benchmark is
 **not complete**: live Colab persistent-storage acceptance and the full select/test
 runs remain pending. No final-test predictive performance has been inspected.

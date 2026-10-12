@@ -68,6 +68,28 @@ def test_reject_duplicate_or_gapped_grid():
         validate_stream(frame.drop(index=5))
 
 
+@pytest.mark.parametrize("scaled", [False, True])
+def test_serialized_preprocessor_preserves_feature_and_window_order(scaled):
+    """Sorted JSON keys must not reorder numeric inputs to a saved model."""
+    import json
+    from airsense_r.artifacts import json_bytes
+
+    frame = synthetic_stream()
+    processor = CausalPreprocessor().fit(frame, "2014-01-02 23:00")
+    restored = CausalPreprocessor.from_state(json.loads(json_bytes(processor.state)))
+    original = build_windows(frame, processor, scaled=scaled)
+    reloaded = build_windows(frame, restored, scaled=scaled)
+    np.testing.assert_array_equal(original.features, reloaded.features)
+    np.testing.assert_array_equal(original.y, reloaded.y)
+    np.testing.assert_array_equal(original.persistence, reloaded.persistence)
+    pd.testing.assert_frame_equal(original.keys, reloaded.keys)
+    for tabular in (False, True):
+        left = original.batch(np.arange(5), tabular=tabular)
+        right = reloaded.batch(np.arange(5), tabular=tabular)
+        for a, b in zip(left, right):
+            np.testing.assert_array_equal(a, b)
+
+
 def test_calendar_leap_year_and_target_cutoffs():
     ts = pd.Series(pd.to_datetime(["2016-01-01", "2016-12-31", "2017-01-01"]))
     cal = calendar_features(ts)

@@ -89,16 +89,16 @@ P4 implementation, local verification, and user-run live Colab acceptance are co
 ## P5 — Clean benchmark
 
 Readiness review: [research/P5_READINESS_REVIEW.md](research/P5_READINESS_REVIEW.md).
-P4 is complete; P5 runner/model/notebook implementation is present. Full benchmark results remain pending. See [docs/P5_WORKFLOW.md](docs/P5_WORKFLOW.md). Full training requires these gates:
+P4 is complete. P5 selection and test execution finished, but test acceptance is withheld pending correction of restored scaled-feature ordering. Keep models and selection frozen. See [research/P5_TEST_REVIEW.md](research/P5_TEST_REVIEW.md). P6 must wait. Full training requires these gates:
 
 - [x] Declare search spaces, architecture/training budgets, early stopping and tuning aggregation before scores
 - [x] Test equal-station/seed aggregation, near-tie selection and final-test access gate
 - [x] Implement configurable persistent model-state storage and verify interrupted-training recovery locally
-- [ ] Confirm the actual Colab persistent storage mount and recovery using notebook 04 smoke
+- [x] Confirm Colab Drive mount and in-process interruption/reload using notebook 04 smoke (fresh-runtime cloud recovery not demonstrated)
 - [x] Extend provenance to P5 settings, training libraries and runtime hardware; validate local CPU training environment
 - [x] Implement timestamp-aware uncertainty integration and aligned prediction exports; validate on synthetic fixtures
 - [x] Pass bounded real-data training-only local smoke and fresh-process model reload
-- [ ] Pass a bounded training-only Colab smoke run before long fits
+- [x] Pass a bounded training-only Colab smoke run before long fits; remote artifact checksums reviewed (see results/p5/colab_acceptance.json)
 
 - [ ] Persistence baseline
 - [ ] Tree-based ML model
@@ -106,6 +106,8 @@ P4 is complete; P5 runner/model/notebook implementation is present. Full benchma
 - [ ] GRU
 - [ ] Save predictions and metrics
 - [ ] Compare against persistence
+- [x] Prepare provenance-preserving correction notebook 04b and validation-replay gate
+- [ ] Validate restored-model development predictions and perform separately versioned corrected test scoring (2026-10-12 preprocessing incident)
 - [x] Build `notebooks/04_p5_clean_benchmark_analysis.ipynb`
 
 ## P6 — Sensor degradation

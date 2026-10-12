@@ -38,7 +38,7 @@ def test_interrupted_fit_matches_uninterrupted(family, tmp_path):
     np.testing.assert_allclose(predicted, predict_model(family, load_model(family, a), windows, score), rtol=1e-6, atol=1e-6)
 
 
-def test_full_selection_then_test_workflow_on_synthetic_fixture(tmp_path):
+def test_full_selection_then_test_workflow_on_synthetic_fixture(tmp_path, monkeypatch):
     """Exercise real adapters, shards, saved selection, test-only loading and exports."""
     import pandas as pd
     import yaml
@@ -63,7 +63,9 @@ def test_full_selection_then_test_workflow_on_synthetic_fixture(tmp_path):
         part["timestamp"] = pd.date_range("2014-01-01", periods=144, freq="h")
         parts.append(part)
     frame = pd.concat(parts, ignore_index=True)
-    store = RunStore(tmp_path / "results", {"config": config, "training_plan": plan, "synthetic_only": True})
+    fixture_provenance = {"config": config, "training_plan": plan, "synthetic_only": True,
+        **{key: "synthetic-fixture" for key in ("config_hash", "protocol_hash", "dataset_sha256", "training_plan_hash")}}
+    store = RunStore(tmp_path / "results", fixture_provenance)
     models = tmp_path / "models"
     development = frame.loc[frame.timestamp <= "2014-01-04 23:00"].copy()
     decision = tune_and_select(development, store, models)
@@ -76,6 +78,27 @@ def test_full_selection_then_test_workflow_on_synthetic_fixture(tmp_path):
     assert store.has("test-uncertainty.json")
     assert store.has("dashboard-test.json")
     assert read_predictions(store, "test").target_timestamp.str.startswith("2014-01-0").all()
+    # Post-results correction preserves selection/models and excludes old test artifacts.
+    from airsense_r.p5_recovery import migrate_evidence, verify_validation
+    import airsense_r.p5_recovery as recovery
+    corrected = RunStore(tmp_path / "corrected", {**fixture_provenance, "correction": True})
+    migrated = migrate_evidence(store, corrected)
+    assert migrated["selected_family"] == decision["selected_family"]
+    assert not any(name.startswith("pred-test-") for name in corrected.manifest["artifacts"])
+    assert not corrected.has("complete.json")
+    pointers = {p: p.read_bytes() for p in models.glob("*/progress.json")}
+    def no_fit(*args, **kwargs):
+        raise AssertionError("Correction must not fit models")
+    monkeypatch.setattr("airsense_r.p5.fit_model", no_fit)
+    verify_validation(development, corrected, models)
+    assert corrected.has("validation-replay-complete.json")
+    assert all(p.read_bytes() == data for p, data in pointers.items())
+    evaluate_test(frame, corrected, models, migrated)
+    pd.testing.assert_frame_equal(read_predictions(store, "test"), read_predictions(corrected, "test"))
+    original_predict = recovery.predict_model
+    monkeypatch.setattr(recovery, "predict_model", lambda *a, **kw: original_predict(*a, **kw) + 1)
+    with pytest.raises(ValueError, match="test remains locked"):
+        verify_validation(development, corrected, models)
     # Tampering with a saved score is detected before allowing further test work.
     (store.directory / "selection.json").write_text("{}")
     with pytest.raises(ValueError, match="corrupt"):
