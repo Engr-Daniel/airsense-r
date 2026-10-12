@@ -76,6 +76,10 @@
       "bytes": 1302738,
       "sha256": "fada147c3eb4d82c91535f14cbb5cfd81b6395a8659f7d42c1e942dff28eecb0"
     },
+    "pred-test-gru-42-001.csv": {
+      "bytes": 1243419,
+      "sha256": "215ba974d435e6aeb63aa85699f90e744b97c71d309c4a6e6a4643b92f27a2bb"
+    },
     "pred-test-mlp-27182-000.csv": {
       "bytes": 1362675,
       "sha256": "c9678c9a0be8b1f6a877a6477ba83886edf2d7ffef641fdfd615a87a8d7997b0"
