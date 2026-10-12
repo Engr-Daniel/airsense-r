@@ -31,6 +31,10 @@
     "done-refit-persistence-seed-1.json": {
       "bytes": 44,
       "sha256": "d04e93a063558170315b5c4af249d529a495280cc166730cc388119fb97718ce"
+    },
+    "done-refit-xgboost-seed27182.json": {
+      "bytes": 3360,
+      "sha256": "d629c077648a50667393ead2e042713ef5dd50d988f9fbcf1eeba47749fc849a"
     }
   },
   "provenance": {
