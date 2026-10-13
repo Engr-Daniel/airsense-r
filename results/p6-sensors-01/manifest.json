@@ -640,6 +640,10 @@
       "bytes": 268,
       "sha256": "8c9360e92950e011a758f5715d46576fb4388a928b92c1458a6429a38440cf38"
     },
+    "bundle-pred-primary-outage-CO-6-c101-persistence--1.json": {
+      "bytes": 275,
+      "sha256": "1084a2606dc95ef6b8a639a991d45da6e4f70e6b234dcf922c52e3e172f3291f"
+    },
     "bundle-pred-primary-outage-NO2-12-c101-gru-27182.json": {
       "bytes": 272,
       "sha256": "dd73942393b10b0a40020677a9667538bfe9aaaaaf559b709b744c9cf118e64c"
