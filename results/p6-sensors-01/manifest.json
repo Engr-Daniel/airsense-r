@@ -1244,6 +1244,10 @@
       "bytes": 272,
       "sha256": "cfcd7137ab1ef695e45ecb96bbc16d14022c3a5cf9b0a6703493e10fcfd20f48"
     },
+    "bundle-pred-no_ffill-whole-CO-c-1-xgboost-42.json": {
+      "bytes": 268,
+      "sha256": "260ae891840673bbda8a5b2e059fbbbe1bf88453ff556bc349324c1ea50062f5"
+    },
     "bundle-pred-no_ffill-whole-NO2-c-1-gru-27182.json": {
       "bytes": 268,
       "sha256": "ec0fa43f1afaa3760e501b76bc710375eaa78367d8fc5a8229a6c6dc194e5cab"
