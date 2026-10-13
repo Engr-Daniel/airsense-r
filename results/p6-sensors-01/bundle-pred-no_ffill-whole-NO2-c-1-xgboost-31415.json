@@ -1,0 +1,13 @@
+{
+  "arrays": {
+    "prediction": {
+      "dtype": "float64",
+      "shape": [
+        102753
+      ]
+    }
+  },
+  "bytes": 428651,
+  "file": "pred-no_ffill-whole-NO2-c-1-xgboost-31415.npz",
+  "sha256": "6e3887dc2ef31c000d73f22062c0e47d541eb5346e4e130672fc06b10a1e3c27"
+}
