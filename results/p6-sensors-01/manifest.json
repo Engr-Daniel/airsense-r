@@ -4052,6 +4052,10 @@
       "bytes": 490,
       "sha256": "268904cff4274371bbde267a1e6d17d3e66ce1dac160a24f607163d01e79ed18"
     },
+    "summary-no_ffill-noise-05.json": {
+      "bytes": 11588,
+      "sha256": "555b8c63964d979ce5dfa4ba2d2b552cb748a3d75815442a3c02f3651e75e56d"
+    },
     "summary-no_ffill-random_dropout-10.json": {
       "bytes": 11383,
       "sha256": "11ea33d6851a124544871a07f8ce8573605e9ddc080251313f20075bb2b4d597"
