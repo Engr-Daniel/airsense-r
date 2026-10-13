@@ -1004,6 +1004,10 @@
       "bytes": 570,
       "sha256": "6af0a2f4b8d9a17505dc5c4c00db2fb1c85367a44a181f7eec4050f59c148740"
     },
+    "realization-noise-10-c101.json": {
+      "bytes": 569,
+      "sha256": "edfc5d7e5411bc0d873841e0e80f442a580d2436fb9acd44cde87efb2c595c8f"
+    },
     "realization-random_dropout-10-c101.json": {
       "bytes": 582,
       "sha256": "45ba794990470baf6176b647d13d7c7b2f70955c45e18f42eadfa2775191969d"
