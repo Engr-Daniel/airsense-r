@@ -1,0 +1,13 @@
+{
+  "arrays": {
+    "prediction": {
+      "dtype": "float64",
+      "shape": [
+        102753
+      ]
+    }
+  },
+  "bytes": 398633,
+  "file": "pred-primary-whole-TEMP-c-1-gru-42.npz",
+  "sha256": "38b04f0d3c72a3772d45906a49ec3427376f8a8998e366b98051ad682d758660"
+}
