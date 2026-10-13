@@ -1,0 +1,13 @@
+{
+  "arrays": {
+    "prediction": {
+      "dtype": "float64",
+      "shape": [
+        102753
+      ]
+    }
+  },
+  "bytes": 428933,
+  "file": "pred-no_ffill-whole-TEMP-c-1-xgboost-31415.npz",
+  "sha256": "24c475fa0fa95d1ef4cffb0cfc5459986a064667ce8542e2770ce50a51771ba0"
+}
