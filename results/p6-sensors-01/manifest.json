@@ -440,6 +440,10 @@
       "bytes": 269,
       "sha256": "742d28c0b21dc7d866c57f2fa3e7492759ab918bfce95dbc8e2db56528c2128c"
     },
+    "bundle-pred-no_ffill-noise-20-c101-persistence--1.json": {
+      "bytes": 273,
+      "sha256": "09e77c34d4eaa71a8e7f110d4a6c5ef29e23f657cc82a0b54d9e8c78007ff133"
+    },
     "bundle-pred-no_ffill-random_dropout-10-c101-gru-27182.json": {
       "bytes": 277,
       "sha256": "4639a4869ac448338f0b749d610529dace97d70ab1256d1b45c0b900dc46eb8e"
