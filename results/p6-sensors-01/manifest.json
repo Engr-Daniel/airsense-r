@@ -720,6 +720,10 @@
       "bytes": 272,
       "sha256": "ba3ffc7ebc7de537a84828c9e06d216f426ca16403147e4261cf0a6e2bedcc03"
     },
+    "bundle-pred-no_ffill-outage-CO-6-c303-gru-42.json": {
+      "bytes": 268,
+      "sha256": "cd05b314edb1cc616c619bd4173834856fb49d84356006a55aafae74b379831e"
+    },
     "bundle-pred-no_ffill-outage-CO-6-c303-mlp-27182.json": {
       "bytes": 271,
       "sha256": "a497b08cdba56087414223046f825a68625f07ec15bc7fb98e70269928a06fde"
