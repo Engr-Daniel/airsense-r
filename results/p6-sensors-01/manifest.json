@@ -1440,6 +1440,10 @@
       "bytes": 273,
       "sha256": "fbad922c150d9b12f604f59a23a044486fed5eb94d9fe266d368d116f96bc773"
     },
+    "bundle-pred-no_ffill-outage-TEMP-6-c101-gru-42.json": {
+      "bytes": 270,
+      "sha256": "7ed500568553fbeea5f95bfc06e7fd3a358068298dd37b4219382978c003f871"
+    },
     "bundle-pred-no_ffill-outage-TEMP-6-c101-mlp-27182.json": {
       "bytes": 273,
       "sha256": "bc9c4ed0c2c7121b32af594b4c46378c704ebbaec636091b3e9c33e506d4b605"
