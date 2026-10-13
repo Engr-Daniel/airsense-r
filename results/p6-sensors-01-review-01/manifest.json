@@ -32,6 +32,10 @@
       "bytes": 18522,
       "sha256": "fcaeec616809743d8f804b07e6c8a8e0e78c687d1dc44af9014a889115deacc0"
     },
+    "review-primary-outage-TEMP-6.json": {
+      "bytes": 18227,
+      "sha256": "397104f508c5b70fe62730da32440b52d8c923004138c0bed5157c7bfd74afe0"
+    },
     "review-primary-random_dropout-10.json": {
       "bytes": 8970,
       "sha256": "17cd30dd492c8900102a08a239a2a44ab3b54b7523788f33aed084c87293d539"
