@@ -1604,6 +1604,10 @@
       "bytes": 278,
       "sha256": "ee45db5f6d47dcae65b7ad4c3afe37cf0048f16b75e185739600bdcc0dc62a97"
     },
+    "bundle-pred-primary-outage-TEMP-12-c505-xgboost-42.json": {
+      "bytes": 274,
+      "sha256": "86bea875bd0a36a2d69d1f28ff0da4b8f2b9b62df397e664c4cab51f8e711b2e"
+    },
     "bundle-pred-primary-outage-TEMP-6-c101-gru-27182.json": {
       "bytes": 272,
       "sha256": "a976a07ac48abfc0e37e8e083a512df3e69e8e03d50176134aca85b721ef2cf2"
