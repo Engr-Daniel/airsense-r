@@ -1808,6 +1808,10 @@
       "bytes": 23340,
       "sha256": "378ec04054a01269bb37fa6b90081e150a0bffe86ab69391d87af93fcd6c8f0b"
     },
+    "realization-outage-NO2-6-c505.json": {
+      "bytes": 23340,
+      "sha256": "ad9f35e7d7f206ddb2447f9b03cd6df1e2d7f071a0efe78561548de2bbb7622b"
+    },
     "realization-random_dropout-10-c101.json": {
       "bytes": 582,
       "sha256": "45ba794990470baf6176b647d13d7c7b2f70955c45e18f42eadfa2775191969d"
