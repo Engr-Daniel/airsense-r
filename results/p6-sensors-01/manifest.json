@@ -724,6 +724,10 @@
       "bytes": 277,
       "sha256": "f74c132325a5a03b4a4a5d5ccce160549229b18fe5405d213aa33721697c95de"
     },
+    "bundle-pred-primary-outage-NO2-12-c303-xgboost-27182.json": {
+      "bytes": 276,
+      "sha256": "fbbd74271b5af641b09d010df6feee3ea5c165a66a17daa064b2e96b756958d8"
+    },
     "bundle-pred-primary-outage-NO2-12-c303-xgboost-31415.json": {
       "bytes": 276,
       "sha256": "d97460b6b835d42ba799028c8b17fd309585589925402d50e697eabf68b113a4"

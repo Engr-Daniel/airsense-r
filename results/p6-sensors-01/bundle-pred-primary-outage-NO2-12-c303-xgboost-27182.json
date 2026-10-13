@@ -1,0 +1,13 @@
+{
+  "arrays": {
+    "prediction": {
+      "dtype": "float64",
+      "shape": [
+        102753
+      ]
+    }
+  },
+  "bytes": 429357,
+  "file": "pred-primary-outage-NO2-12-c303-xgboost-27182.npz",
+  "sha256": "488e533a9a1e069339e102a4c1239e8b141da8e69fc2b1fd75e581e0009cfbb2"
+}
