@@ -1,0 +1,13 @@
+{
+  "arrays": {
+    "prediction": {
+      "dtype": "float64",
+      "shape": [
+        102753
+      ]
+    }
+  },
+  "bytes": 430314,
+  "file": "pred-primary-noise-20-c303-xgboost-42.npz",
+  "sha256": "75a5cda2a6d57cabb5869991b223009f754f77b1e8d0b9a882d1e4d9efb58ea0"
+}
