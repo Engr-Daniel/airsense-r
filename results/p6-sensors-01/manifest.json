@@ -1648,6 +1648,10 @@
       "bytes": 35477,
       "sha256": "138fb32097464c80e61e0bfecd1dd06d0117f1774ddee2f0eaece8a0e8a258b8"
     },
+    "metrics-primary-outage-NO2-6-c404.csv": {
+      "bytes": 35503,
+      "sha256": "9123bb1ed11dd65f287ddfa4599b6b61112a034bd5b2325089c43e89ecdeae24"
+    },
     "metrics-primary-random_dropout-10-c101.csv": {
       "bytes": 17641,
       "sha256": "e62c51bdb39833efbaebcad524e56e62056967eb7045308a689e50da02544def"
