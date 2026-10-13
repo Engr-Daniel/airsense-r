@@ -720,6 +720,10 @@
       "bytes": 272,
       "sha256": "53459c86df76529238077e7f5774eab4f2eec13bd73806c0962f869ba11c57d3"
     },
+    "bundle-pred-primary-outage-CO-12-c303-gru-42.json": {
+      "bytes": 268,
+      "sha256": "b61f36664dabae7079875b03b40bda26565acad13f513c7c3cd2f93acdecc3db"
+    },
     "bundle-pred-primary-outage-CO-12-c303-mlp-27182.json": {
       "bytes": 271,
       "sha256": "81af64d14a8c62de51bddd21cdeb6f1b9eba5d1a2f7ecfee5f180992cb382fa6"
