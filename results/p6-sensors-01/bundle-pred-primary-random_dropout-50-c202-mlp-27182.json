@@ -1,0 +1,13 @@
+{
+  "arrays": {
+    "prediction": {
+      "dtype": "float64",
+      "shape": [
+        102753
+      ]
+    }
+  },
+  "bytes": 431565,
+  "file": "pred-primary-random_dropout-50-c202-mlp-27182.npz",
+  "sha256": "356f2f774d8b53be896683c221b742a837e2f19611bbb2ac891c1036611667ca"
+}
