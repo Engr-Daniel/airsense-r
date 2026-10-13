@@ -1064,6 +1064,10 @@
       "bytes": 582,
       "sha256": "c88a52c9ca6e8526147a39d01d2f5fe399fbfd351b980096cc4346cbbf52c624"
     },
+    "summary-primary-noise-05.json": {
+      "bytes": 11598,
+      "sha256": "1f29ab42078d8aeb6d9a54898db1c45a787d4d9c15814b7b86c428c90029c2fd"
+    },
     "summary-primary-random_dropout-10.json": {
       "bytes": 11444,
       "sha256": "c5613a3356834426a6b11f4ee3f92621d03677ed2b9b2da1b0a2685bdd534428"
