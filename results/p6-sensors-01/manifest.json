@@ -804,6 +804,10 @@
       "bytes": 275,
       "sha256": "49c0057f016d27857a8daf7784cc23b847669f999e1ba81c5d779cd22e1aa5f8"
     },
+    "bundle-pred-primary-outage-CO-6-c505-xgboost-31415.json": {
+      "bytes": 274,
+      "sha256": "8a8fd9a6a11a47c1ff9e5db97c001edf21b0ed1a03de1cbb86acd2761befe39f"
+    },
     "bundle-pred-primary-outage-CO-6-c505-xgboost-42.json": {
       "bytes": 271,
       "sha256": "f2b057e9e53b7f4c139383e82d1065c30362b7b92717da68e3edf6f4e6266770"
