@@ -284,6 +284,10 @@
       "bytes": 272,
       "sha256": "74f0aa3cc117ea7f3bc0bfc9e8934ec1d58384d5a605c8fb9741e50be1f0a481"
     },
+    "bundle-pred-primary-noise-10-c202-xgboost-42.json": {
+      "bytes": 268,
+      "sha256": "d209c911765a3de38a50be3f4fb4fe0f7e3a0ef170d227e19a497297d4d4850a"
+    },
     "bundle-pred-primary-random_dropout-10-c101-gru-27182.json": {
       "bytes": 276,
       "sha256": "a24a1269cfecbca231ceb1ea7a25317ea2874bd6c3155fde85b792c405132781"
