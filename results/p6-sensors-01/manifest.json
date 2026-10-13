@@ -760,6 +760,10 @@
       "bytes": 274,
       "sha256": "20c7e1cb59a825a5c9180a271ef06503068f877f63a3a9c9bfe3994f655175bb"
     },
+    "bundle-pred-no_ffill-outage-NO2-12-c404-persistence--1.json": {
+      "bytes": 278,
+      "sha256": "d6d73445c4d7637359ee64ee523c7bd9eee7169a06b0728ee78d7206702ac245"
+    },
     "bundle-pred-no_ffill-outage-NO2-6-c101-gru-27182.json": {
       "bytes": 272,
       "sha256": "fc79b10eff8fc4e88dcdbd55fb993e3059c6143ded5267b69bb3c60e1cd0b8f4"
