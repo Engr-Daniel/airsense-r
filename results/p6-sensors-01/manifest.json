@@ -1520,6 +1520,10 @@
       "bytes": 274,
       "sha256": "2ba4b999e2e7158a0aeddbb52a17f985df5043dd1d7c2fcc9ea296b7f38e8c4f"
     },
+    "bundle-pred-primary-outage-TEMP-12-c303-gru-42.json": {
+      "bytes": 270,
+      "sha256": "c1a6eebc9ec549d87ffff686e3d68bd8b52d7f0d467158a4a0eaab7cfe00d08b"
+    },
     "bundle-pred-primary-outage-TEMP-12-c303-mlp-27182.json": {
       "bytes": 273,
       "sha256": "fcee936ea63a975aabf68a67757ad5e1397fe439b90c4947ac18086890e882e1"
