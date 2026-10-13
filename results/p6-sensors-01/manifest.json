@@ -1480,6 +1480,10 @@
       "bytes": 274,
       "sha256": "4eb3341901b9eaea901c4c92a092c8a3ea6de7862fd265ea4facb4310d01a886"
     },
+    "bundle-pred-no_ffill-outage-TEMP-6-c202-mlp-42.json": {
+      "bytes": 270,
+      "sha256": "2b073c348edf5cfff0ecbde9f9436fc2250662b245bcdc85b4282b6d795bfcf1"
+    },
     "bundle-pred-no_ffill-outage-TEMP-6-c202-persistence--1.json": {
       "bytes": 278,
       "sha256": "f53af645935d49f5a71202759ec1e2136808aa493eef00381834c3b43cddab59"
