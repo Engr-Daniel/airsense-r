@@ -800,6 +800,10 @@
       "bytes": 273,
       "sha256": "f715328581c15d6b0f614571fa45aa3fd0f1139e57ec5445f44d2a3c31521ae1"
     },
+    "bundle-pred-no_ffill-outage-CO-12-c505-gru-31415.json": {
+      "bytes": 272,
+      "sha256": "0a4a17ac849071138c6eb1ed95152972f474ccfc8e4eb8d301c0aa5bfbd881e8"
+    },
     "bundle-pred-no_ffill-outage-CO-12-c505-gru-42.json": {
       "bytes": 269,
       "sha256": "b19d2dab88f980c7c174a6c2cc3d7efe041ec002e20321c319cb3941c9d17d02"
