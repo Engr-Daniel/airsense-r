@@ -1,0 +1,13 @@
+{
+  "arrays": {
+    "prediction": {
+      "dtype": "float64",
+      "shape": [
+        102753
+      ]
+    }
+  },
+  "bytes": 432403,
+  "file": "pred-primary-whole-CO-c-1-mlp-42.npz",
+  "sha256": "f1cdceb73a237db474a0a8d1a6b1e1ae222806d1099c97b34b9bdc77ffe0915b"
+}
