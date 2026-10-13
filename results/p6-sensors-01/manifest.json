@@ -1088,6 +1088,10 @@
       "bytes": 17614,
       "sha256": "529d275813c5b41dcc273029929d9ddf702b38048418dc5e55649399a35e1e7d"
     },
+    "metrics-primary-noise-10-c404.csv": {
+      "bytes": 17617,
+      "sha256": "8d32e523d8091bbc0618dad01f86f7ae4335732e93c4679f091f6e9dcdd1df5c"
+    },
     "metrics-primary-random_dropout-10-c101.csv": {
       "bytes": 17641,
       "sha256": "e62c51bdb39833efbaebcad524e56e62056967eb7045308a689e50da02544def"
