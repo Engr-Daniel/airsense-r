@@ -1,0 +1,13 @@
+{
+  "arrays": {
+    "prediction": {
+      "dtype": "float64",
+      "shape": [
+        102753
+      ]
+    }
+  },
+  "bytes": 398731,
+  "file": "pred-no_ffill-whole-TEMP-c-1-gru-42.npz",
+  "sha256": "e224c5b4463023fe1c6ea298f0c94445e4802aa0da64e68f87da3707f5049678"
+}
