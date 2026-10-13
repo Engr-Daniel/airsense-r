@@ -1,0 +1,28 @@
+{
+  "changed_cells": {
+    "CO": 0,
+    "DEWP": 0,
+    "NO2": 0,
+    "O3": 0,
+    "PM10": 0,
+    "PRES": 0,
+    "RAIN": 0,
+    "SO2": 0,
+    "TEMP": 105177,
+    "WSPM": 0,
+    "wd": 0
+  },
+  "condition": {
+    "channel": "TEMP",
+    "id": "whole-TEMP",
+    "kind": "whole_variable",
+    "seeds": [
+      -1
+    ],
+    "severity": 1
+  },
+  "outage_events": [],
+  "seed": -1,
+  "stream_sha256": "401b3d5908b7ba35a06d7a99ac14b4eaa5b8e6ccf589ae9ac6c745c6fc4a0b63",
+  "target_unchanged": true
+}
