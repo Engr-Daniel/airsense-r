@@ -4768,6 +4768,10 @@
       "bytes": 35511,
       "sha256": "052c18994f37733ba0fd7b7a826909ce10db854ff1f4e5f6a6d977088371b44e"
     },
+    "metrics-no_ffill-outage-CO-12-c303.csv": {
+      "bytes": 35499,
+      "sha256": "c935e568bb75ff9aa99a598a0d249239bbbb20ed91a6285c91cca830812d413e"
+    },
     "metrics-no_ffill-outage-CO-6-c101.csv": {
       "bytes": 35593,
       "sha256": "93008241bdc5f21d49b341fc549bc0db15800ea7f96f3381725d7be7d24b8a68"
