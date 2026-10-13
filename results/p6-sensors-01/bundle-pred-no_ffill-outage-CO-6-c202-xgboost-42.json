@@ -1,0 +1,13 @@
+{
+  "arrays": {
+    "prediction": {
+      "dtype": "float64",
+      "shape": [
+        102753
+      ]
+    }
+  },
+  "bytes": 429276,
+  "file": "pred-no_ffill-outage-CO-6-c202-xgboost-42.npz",
+  "sha256": "7c028ef7a1ca70df2f45c2ebec8407615e44b535f65127b7f2b1d1cd6cac07f6"
+}
