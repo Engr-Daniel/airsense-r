@@ -1,0 +1,13 @@
+{
+  "arrays": {
+    "prediction": {
+      "dtype": "float64",
+      "shape": [
+        102753
+      ]
+    }
+  },
+  "bytes": 429860,
+  "file": "pred-no_ffill-whole-CO-c-1-gru-27182.npz",
+  "sha256": "ec68db3b14410489cd09cbb73d09417cbc243485591b99f1dc17ff5271cb8419"
+}
