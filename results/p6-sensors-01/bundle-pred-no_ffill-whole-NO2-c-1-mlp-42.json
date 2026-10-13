@@ -1,0 +1,13 @@
+{
+  "arrays": {
+    "prediction": {
+      "dtype": "float64",
+      "shape": [
+        102753
+      ]
+    }
+  },
+  "bytes": 432173,
+  "file": "pred-no_ffill-whole-NO2-c-1-mlp-42.npz",
+  "sha256": "2d1e8627b0754d138063d1a0df41f2f785c4bd5e33fd67c52c9ce70ebb91a11c"
+}
