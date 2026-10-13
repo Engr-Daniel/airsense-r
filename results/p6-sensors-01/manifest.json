@@ -2204,6 +2204,10 @@
       "bytes": 35518,
       "sha256": "f4efdfa9e99770bffffb7e2d29d82381e3ea2dbf40733d8c2de1dd53418f4e21"
     },
+    "metrics-primary-outage-CO-12-c303.csv": {
+      "bytes": 35439,
+      "sha256": "35cabbccd3a9eaa6bb18b0805feca60c96b4be7a3ffcb791ddd73f14bb95186d"
+    },
     "metrics-primary-outage-CO-6-c101.csv": {
       "bytes": 35531,
       "sha256": "e06f021d8c5c06ee97250380c1d82f68231d6d05425bbab49add029799612465"
