@@ -199,6 +199,10 @@
     "realization-random_dropout-10-c202.json": {
       "bytes": 582,
       "sha256": "428a001375067b940a5ec4105c518acad50bec56dee3684d13b33c470f1f5d79"
+    },
+    "realization-random_dropout-10-c303.json": {
+      "bytes": 582,
+      "sha256": "c77e90e474f37572156ff6c9ccd14ca6ac51e3b84ac46e30297a5e375734393f"
     }
   },
   "provenance": {
