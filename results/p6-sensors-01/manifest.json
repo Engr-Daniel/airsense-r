@@ -1244,6 +1244,10 @@
       "bytes": 271,
       "sha256": "4c7fb167e2950449e610595b7c3b69c58255e9dde03fb82769bb01e020448400"
     },
+    "bundle-pred-primary-whole-CO-c-1-xgboost-42.json": {
+      "bytes": 267,
+      "sha256": "cfbcd6599e758bb38f7751bb65b45cd3276f1f5f77611d89f3252c3197f0db7b"
+    },
     "bundle-pred-primary-whole-NO2-c-1-gru-27182.json": {
       "bytes": 267,
       "sha256": "643f2d473229b0fda570711184d0ec1574b5d625190adb48dd8bd0bf2309cf98"
