@@ -724,6 +724,10 @@
       "bytes": 276,
       "sha256": "56778f69e2e04063896bc83dccc3b2a4a0a26e7955f9036079be222c5a5a7486"
     },
+    "bundle-pred-no_ffill-outage-CO-6-c303-xgboost-31415.json": {
+      "bytes": 275,
+      "sha256": "40438f93bb95b93c1e0774bafc7a188ac34418ee6bf258ecd0122b54e8c97e15"
+    },
     "bundle-pred-no_ffill-outage-CO-6-c303-xgboost-42.json": {
       "bytes": 272,
       "sha256": "dc73ff0a96a85a35560dfb900f63a4cf71a823feeda9eb6ee8cd8b77985229d3"
