@@ -724,6 +724,10 @@
       "bytes": 277,
       "sha256": "261fc9d69c6076eba95b3e49e31076799ed0945017b8ccd7ee9067e66d5958d1"
     },
+    "bundle-pred-no_ffill-outage-NO2-6-c303-xgboost-42.json": {
+      "bytes": 273,
+      "sha256": "9a28ad6a4f654ec58fc5ca720d8c96920bcc7e15eaf44a644e266cc40e345eac"
+    },
     "bundle-pred-no_ffill-random_dropout-10-c101-gru-27182.json": {
       "bytes": 277,
       "sha256": "4639a4869ac448338f0b749d610529dace97d70ab1256d1b45c0b900dc46eb8e"
