@@ -1,0 +1,23 @@
+{
+  "review_date": "2026-10-13",
+  "status": "P6_accepted",
+  "run_id": "p6-sensors-01",
+  "result_commit": "464574140e7abb79094935313d6f3eb44fce3a93",
+  "verification_run": "p6-sensors-01-review-01",
+  "verification_result_commit": "19382df3d505502cc4dda05a70777b17f7735b93",
+  "verifier_commit": "c60b5fd63e59d1c6f0d6555edae9f84062034421",
+  "result_manifest_sha256": "09eb055295233e824c666735f35cd62e1a066a4b161e779eb61fabc29a1cb2bb",
+  "verification_manifest_sha256": "f1d9459c8174108fa9d51eccb16965536349b43077efdfaf3bfd294895f7e1d7",
+  "original_artifacts_verified": 1520,
+  "review_artifacts_verified": 32,
+  "drive_files_verified_in_colab": 1281,
+  "condition_reports": 30,
+  "scope_reports": 42,
+  "independent_metrics_verified": true,
+  "independent_bootstrap_verified": true,
+  "maximum_interval_point_difference": 2.1715962361668062e-13,
+  "verification_method": "Independent timestamp-frequency-weight bootstrap executed in Colab against Drive arrays; its immutable per-condition reports and lineage reviewed locally.",
+  "experiment_rerun": false,
+  "incident_evidence_retained": true,
+  "executed_notebook_sha256": "a2b0ece60d36684732f0225fdbb7d1b5ed08e0657a0222031e400e7419406a28"
+}

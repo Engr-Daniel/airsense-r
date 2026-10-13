@@ -2,6 +2,11 @@
 
 **Execution complete; final scientific acceptance pending.**
 
+**Update 2026-10-13:** the subsequent independent review passed and P6 is now
+accepted. See [P6_COMPLETION_REPORT.md](P6_COMPLETION_REPORT.md) and
+`results/p6/final_acceptance.json`. The pending status below records the earlier
+review boundary and is retained as incident history.
+
 Run `p6-sensors-01` published its completion record at result commit
 `464574140e7abb79094935313d6f3eb44fce3a93`. The generating code remains
 `3c9b5d49fb90b30cc967f8d31f9f3c3007b81a0d`. The final notebook inspection

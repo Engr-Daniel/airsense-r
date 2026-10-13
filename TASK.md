@@ -112,9 +112,9 @@ P5 is complete after corrected evaluation and independent review on 2026-10-12. 
 
 ## P6 — Sensor degradation
 
-The real evaluation has published completion for both policies and all 15
-conditions. Final scientific acceptance remains pending prediction-file and
-independent uncertainty verification. See
+P6 was accepted on 2026-10-13 after independent verification of all saved
+prediction files, metrics and uncertainty. See
+[research/P6_COMPLETION_REPORT.md](research/P6_COMPLETION_REPORT.md),
 [docs/P6_WORKFLOW.md](docs/P6_WORKFLOW.md) and
 [research/P6_IMPLEMENTATION_DECISIONS.md](research/P6_IMPLEMENTATION_DECISIONS.md).
 
@@ -122,15 +122,16 @@ independent uncertainty verification. See
 - [x] Complete local lifecycle verification and review before notebook handoff (75 regression tests plus the fresh-process P6 lifecycle test passed)
 - [x] Review user-run Colab P6 preflight before full evaluation (2026-10-13; 25 Git artifacts verified; see results/p6/preflight_acceptance.json)
 - [x] Preserve completed evaluation notebook, including the failed duplicate invocation and successful final inspection
-- [ ] Independently verify final Drive prediction files and recompute uncertainty before scientific acceptance
+- [x] Independently verify final Drive prediction files and recompute uncertainty before scientific acceptance
 - [x] Provide automatic settings, run/resume and visible status for the next P6 step in notebook 05b; historical experiment notebook 05 remains unchanged apart from its source fingerprint
-- [ ] Review live notebook 05b output before final P6 acceptance
+- [x] Review live notebook 05b output before final P6 acceptance
 
-- [ ] Random feature dropout at frozen severities
-- [ ] Whole-variable dropout at frozen channels
-- [ ] Measurement-noise injection at frozen severities
-- [ ] Re-evaluate frozen models without retraining unless protocol specifies otherwise
-- [ ] Compute RPD
+- [x] Random feature dropout at frozen severities
+- [x] Whole-variable dropout at frozen channels
+- [x] Measurement-noise injection at frozen severities
+- [x] Contiguous outages with full-period and affected-window reports
+- [x] Re-evaluate frozen models without retraining unless protocol specifies otherwise
+- [x] Compute RPD
 - [x] Build `notebooks/05_p6_sensor_degradation_analysis.ipynb`
 
 ## P7 — Site shift

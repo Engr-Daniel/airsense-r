@@ -27,7 +27,7 @@ The project follows a pre-specified workflow. Before final model evaluation, fre
 | P3 | Freeze research protocol | Complete |
 | P4 | Causal pipeline, Colab notebooks, checkpoint recovery | Complete |
 | P5 | Clean forecasting benchmark | Complete after corrected evaluation; see [report](research/P5_COMPLETION_REPORT.md) |
-| P6 | Sensor degradation | Implemented; live preflight and stress results pending |
+| P6 | Sensor degradation | Complete; predictions, metrics and uncertainty independently verified; see [report](research/P6_COMPLETION_REPORT.md) |
 | P7 | Leave-one-station-out evaluation | Planned |
 | P8 | Statistical and failure analysis | Planned |
 | P9 | Manuscript | Planned |

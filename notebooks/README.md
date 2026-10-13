@@ -53,3 +53,8 @@ For that remaining review, use `05b_p6_saved_result_verification.ipynb`: four
 cells, embedded settings, reconnectable progress and checkpointed verification.
 See [P6_VERIFICATION.md](../docs/P6_VERIFICATION.md). It reads saved predictions;
 it does not rerun the P6 experiment.
+
+The successful verification is archived byte-for-byte in
+`05b_p6_saved_result_verification_executed.ipynb`. P6 was accepted on 2026-10-13;
+see [P6_COMPLETION_REPORT.md](../research/P6_COMPLETION_REPORT.md). Earlier pending
+review statements describe the historical execution sequence. No P6 rerun is needed.

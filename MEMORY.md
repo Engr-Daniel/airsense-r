@@ -1,6 +1,6 @@
 # MEMORY.md — AirSense-R Project Memory
 
-Current status (2026-10-12): P5 accepted after corrected run p5-clean-01-corrected-02. All 160 artifact checksums, ten frozen-model validation replays, test metrics and bootstrap were independently reviewed. Persistence remains validation-selected; clean-test regret is 0.568782 (95% CI 0.339985?0.763172), within the 1.0 practical near-tie threshold. See research/P5_COMPLETION_REPORT.md. P6 may begin with frozen models and corrected preprocessing. Prior invalid test artifacts and correction attempts must be retained. Final-test outcomes have been inspected. Historical entries below describe earlier states.
+Current status (2026-10-13): P6 accepted. Independent Colab verification checked all 1,281 Drive prediction/target bundles and recomputed metrics and bootstrap for all 30 condition/policy reports (42 scopes). All 32 review artifacts and 1,520 original artifacts were checksum-verified locally with matching lineage. See research/P6_COMPLETION_REPORT.md and results/p6/final_acceptance.json. P7 may begin under the frozen protocol using the simpler reconnectable notebook interface. No P6 rerun is needed. Preserve original models, Drive predictions, result branches and interruption evidence. Earlier entries below are historical.
 
 This file stores durable project context so future contributors/agents can resume work without reconstructing prior decisions.
 

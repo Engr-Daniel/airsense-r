@@ -1,5 +1,9 @@
 # Review saved P6 results
 
+The user-run verification passed and P6 was accepted on 2026-10-13. See
+[P6_COMPLETION_REPORT.md](../research/P6_COMPLETION_REPORT.md). No further P6
+execution is required; the instructions below are retained for reproducibility.
+
 Use `05b_p6_saved_result_verification.ipynb` in a CPU Colab runtime and choose
 **Runtime → Run all**. It contains four code cells. The published notebook embeds
 its matching verifier revision, result snapshot, run name and storage directory.
