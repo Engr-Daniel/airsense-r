@@ -1,0 +1,730 @@
+{
+  "condition": {
+    "channel": "TEMP",
+    "id": "outage-TEMP-12",
+    "kind": "outage",
+    "seeds": [
+      101,
+      202,
+      303,
+      404,
+      505
+    ],
+    "severity": 12
+  },
+  "policy": "primary",
+  "scopes": {
+    "affected": {
+      "kendall_tau_b": 0.6666666666666666,
+      "metrics": [
+        {
+          "clean_mae": 16.38907037838207,
+          "clean_r2": 0.701675132716665,
+          "clean_rank": 4.0,
+          "clean_rmse": 34.770685821683365,
+          "mae": 17.22457719384784,
+          "model": "gru",
+          "r2": 0.706917394241875,
+          "rank_change": 0.0,
+          "rmse": 35.24776805139872,
+          "rpd_percent": 5.097951233206257,
+          "stress_rank": 4.0
+        },
+        {
+          "clean_mae": 11.019612524993988,
+          "clean_r2": 0.935327192996689,
+          "clean_rank": 3.0,
+          "clean_rmse": 18.59367997930192,
+          "mae": 13.028131812595761,
+          "model": "mlp",
+          "r2": 0.921503903136805,
+          "rank_change": 0.0,
+          "rmse": 20.728973737808456,
+          "rpd_percent": 18.22676870939134,
+          "stress_rank": 3.0
+        },
+        {
+          "clean_mae": 10.56532317135497,
+          "clean_r2": 0.92876883617999,
+          "clean_rank": 2.0,
+          "clean_rmse": 19.509454387123476,
+          "mae": 10.56532317135497,
+          "model": "persistence",
+          "r2": 0.92876883617999,
+          "rank_change": -1.0,
+          "rmse": 19.509454387123476,
+          "rpd_percent": 0.0,
+          "stress_rank": 1.0
+        },
+        {
+          "clean_mae": 9.990249336414532,
+          "clean_r2": 0.93812749700416,
+          "clean_rank": 1.0,
+          "clean_rmse": 18.48582022683661,
+          "mae": 10.846145632925085,
+          "model": "xgboost",
+          "r2": 0.932057305796736,
+          "rank_change": 1.0,
+          "rmse": 19.298459061343966,
+          "rpd_percent": 8.567316667370896,
+          "stress_rank": 2.0
+        }
+      ],
+      "near_ties": [
+        "persistence",
+        "xgboost"
+      ],
+      "selected_family": "persistence",
+      "selected_is_numerical_best": true,
+      "selected_within_practical_near_tie": true,
+      "selection_regret": 0.0,
+      "test_oracle_families": [
+        "persistence"
+      ],
+      "threshold": 1.0,
+      "uncertainty": {
+        "available": true,
+        "block_hours": 24,
+        "confidence": 0.95,
+        "differences": {
+          "gru": {
+            "ci_high": -4.800175256130877,
+            "ci_low": -8.632472028083132,
+            "estimate": -6.659254022492865
+          },
+          "mlp": {
+            "ci_high": -2.13052494597431,
+            "ci_low": -2.816335319455849,
+            "estimate": -2.462808641240791
+          },
+          "persistence": {
+            "ci_high": 0.0,
+            "ci_low": 0.0,
+            "estimate": 0.0
+          },
+          "xgboost": {
+            "ci_high": -0.010049321701690647,
+            "ci_low": -0.5961183608989356,
+            "estimate": -0.28082246157011603
+          }
+        },
+        "method": "paired_calendar_moving_block_bootstrap",
+        "replicates": 2000,
+        "seed": 424242,
+        "seed_uncertainty": "conditional_on_fitted_training_and_corruption_seed_sets",
+        "selected_family": "persistence",
+        "selection_regret": {
+          "ci_high": 0.0,
+          "ci_low": 0.0,
+          "estimate": 0.0
+        },
+        "station_changes": {
+          "gru": {
+            "Aotizhongxin": {
+              "ci_high": 1.2886301721710063,
+              "ci_low": 0.5653385225877535,
+              "estimate": 0.9266797955650539
+            },
+            "Changping": {
+              "ci_high": 1.091245493251418,
+              "ci_low": 0.4045301847324052,
+              "estimate": 0.7648358361488068
+            },
+            "Dingling": {
+              "ci_high": 1.345457904615077,
+              "ci_low": 0.5867666552445172,
+              "estimate": 0.979768272760225
+            },
+            "Dongsi": {
+              "ci_high": 1.462750684005907,
+              "ci_low": -0.21431902387598387,
+              "estimate": 0.7147922038929231
+            },
+            "Guanyuan": {
+              "ci_high": 1.5240169713111065,
+              "ci_low": 0.2871930674820914,
+              "estimate": 0.8588256988138987
+            },
+            "Gucheng": {
+              "ci_high": 1.0895912272826904,
+              "ci_low": 0.0509122609990647,
+              "estimate": 0.6004828935608373
+            },
+            "Huairou": {
+              "ci_high": 1.3059534772032517,
+              "ci_low": 0.4453871293185098,
+              "estimate": 0.8671666065018098
+            },
+            "Nongzhanguan": {
+              "ci_high": 1.2309833034323718,
+              "ci_low": 0.3147839072607562,
+              "estimate": 0.8259749879954619
+            },
+            "Shunyi": {
+              "ci_high": 1.4964670637466646,
+              "ci_low": 0.6671860991565011,
+              "estimate": 1.0619454897925458
+            },
+            "Tiantan": {
+              "ci_high": 1.5770871308128267,
+              "ci_low": 0.3542139519420509,
+              "estimate": 0.9339824632385785
+            },
+            "Wanliu": {
+              "ci_high": 1.1731440764272207,
+              "ci_low": 0.292172215243713,
+              "estimate": 0.7494356342516308
+            },
+            "Wanshouxigong": {
+              "ci_high": 1.1289064785454554,
+              "ci_low": 0.35386611241825683,
+              "estimate": 0.7421919030674555
+            }
+          },
+          "mlp": {
+            "Aotizhongxin": {
+              "ci_high": 2.9663982404038918,
+              "ci_low": 1.7735137197111814,
+              "estimate": 2.3562443420887664
+            },
+            "Changping": {
+              "ci_high": 2.426652448052414,
+              "ci_low": 1.329936190381675,
+              "estimate": 1.8863013249248937
+            },
+            "Dingling": {
+              "ci_high": 1.9527742124456067,
+              "ci_low": 0.9515452495095529,
+              "estimate": 1.447008611011528
+            },
+            "Dongsi": {
+              "ci_high": 3.4452003035159793,
+              "ci_low": 2.0373703323995533,
+              "estimate": 2.697302450844992
+            },
+            "Guanyuan": {
+              "ci_high": 3.0026915116434076,
+              "ci_low": 1.513775203400941,
+              "estimate": 2.2056128133507293
+            },
+            "Gucheng": {
+              "ci_high": 3.2699354568881467,
+              "ci_low": 1.945980869513762,
+              "estimate": 2.5772286770204005
+            },
+            "Huairou": {
+              "ci_high": 2.386258280267231,
+              "ci_low": 1.1334432902365703,
+              "estimate": 1.743448827369713
+            },
+            "Nongzhanguan": {
+              "ci_high": 2.7385254159645074,
+              "ci_low": 1.4179697289857462,
+              "estimate": 2.041303477784398
+            },
+            "Shunyi": {
+              "ci_high": 2.287993936344144,
+              "ci_low": 1.0115051522669878,
+              "estimate": 1.6109221722522555
+            },
+            "Tiantan": {
+              "ci_high": 2.9794585095446884,
+              "ci_low": 1.4130583704429283,
+              "estimate": 2.138152583496124
+            },
+            "Wanliu": {
+              "ci_high": 2.1134773928546498,
+              "ci_low": 0.8883065114029237,
+              "estimate": 1.4887199844158427
+            },
+            "Wanshouxigong": {
+              "ci_high": 2.435775008936419,
+              "ci_low": 1.4106789202368704,
+              "estimate": 1.9099861866616479
+            }
+          },
+          "persistence": {
+            "Aotizhongxin": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "Changping": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "Dingling": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "Dongsi": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "Guanyuan": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "Gucheng": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "Huairou": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "Nongzhanguan": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "Shunyi": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "Tiantan": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "Wanliu": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "Wanshouxigong": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            }
+          },
+          "xgboost": {
+            "Aotizhongxin": {
+              "ci_high": 1.0630681789740222,
+              "ci_low": 0.5518959050297512,
+              "estimate": 0.7966874605082381
+            },
+            "Changping": {
+              "ci_high": 0.6877690279706872,
+              "ci_low": 0.34183193730339695,
+              "estimate": 0.5132584438146193
+            },
+            "Dingling": {
+              "ci_high": 1.0701926011669474,
+              "ci_low": 0.49637909345603565,
+              "estimate": 0.7810915104448455
+            },
+            "Dongsi": {
+              "ci_high": 1.472442815858214,
+              "ci_low": 0.7181519495446924,
+              "estimate": 1.0650986959449913
+            },
+            "Guanyuan": {
+              "ci_high": 1.2903750804676146,
+              "ci_low": 0.6161618236947236,
+              "estimate": 0.9397019911156494
+            },
+            "Gucheng": {
+              "ci_high": 1.0134978470296563,
+              "ci_low": 0.5512983076530996,
+              "estimate": 0.7931511611192903
+            },
+            "Huairou": {
+              "ci_high": 1.0791709758478474,
+              "ci_low": 0.5971744537414994,
+              "estimate": 0.8273685292570772
+            },
+            "Nongzhanguan": {
+              "ci_high": 1.589440500016306,
+              "ci_low": 0.7136236196927748,
+              "estimate": 1.1269543622661917
+            },
+            "Shunyi": {
+              "ci_high": 1.0464007750236053,
+              "ci_low": 0.5672388215192682,
+              "estimate": 0.7960933719479488
+            },
+            "Tiantan": {
+              "ci_high": 1.2120830901976898,
+              "ci_low": 0.4940257500244056,
+              "estimate": 0.8401779765371256
+            },
+            "Wanliu": {
+              "ci_high": 1.2210259984571037,
+              "ci_low": 0.690578572853655,
+              "estimate": 0.9521449665573218
+            },
+            "Wanshouxigong": {
+              "ci_high": 1.3541472929776412,
+              "ci_low": 0.3835990314882144,
+              "estimate": 0.8390270886133369
+            }
+          }
+        }
+      }
+    },
+    "full": {
+      "kendall_tau_b": 1.0,
+      "metrics": [
+        {
+          "clean_mae": 15.95741437488415,
+          "clean_r2": 0.688383280078758,
+          "clean_rank": 4.0,
+          "clean_rmse": 37.165978947654295,
+          "mae": 15.997602531788365,
+          "model": "gru",
+          "r2": 0.68855782841496,
+          "rank_change": 0.0,
+          "rmse": 37.196175297193726,
+          "rpd_percent": 0.251846295145835,
+          "stress_rank": 4.0
+        },
+        {
+          "clean_mae": 10.810205954093624,
+          "clean_r2": 0.946263106288692,
+          "clean_rank": 3.0,
+          "clean_rmse": 18.938472995098575,
+          "mae": 10.906606697216738,
+          "model": "mlp",
+          "r2": 0.945651266350323,
+          "rank_change": 0.0,
+          "rmse": 19.047911751783342,
+          "rpd_percent": 0.891756767007839,
+          "stress_rank": 3.0
+        },
+        {
+          "clean_mae": 10.27964339759353,
+          "clean_r2": 0.942216112136101,
+          "clean_rank": 2.0,
+          "clean_rmse": 19.65493342148468,
+          "mae": 10.27964339759353,
+          "model": "persistence",
+          "r2": 0.942216112136101,
+          "rank_change": 0.0,
+          "rmse": 19.65493342148468,
+          "rpd_percent": 0.0,
+          "stress_rank": 2.0
+        },
+        {
+          "clean_mae": 9.710861193660564,
+          "clean_r2": 0.946610613945749,
+          "clean_rank": 1.0,
+          "clean_rmse": 18.920933682092432,
+          "mae": 9.751948731692499,
+          "model": "xgboost",
+          "r2": 0.946410595614639,
+          "rank_change": 0.0,
+          "rmse": 18.956620218324556,
+          "rpd_percent": 0.423109106520412,
+          "stress_rank": 1.0
+        }
+      ],
+      "near_ties": [
+        "persistence",
+        "xgboost"
+      ],
+      "selected_family": "persistence",
+      "selected_is_numerical_best": false,
+      "selected_within_practical_near_tie": true,
+      "selection_regret": 0.5276946659010306,
+      "test_oracle_families": [
+        "xgboost"
+      ],
+      "threshold": 1.0,
+      "uncertainty": {
+        "available": true,
+        "block_hours": 24,
+        "confidence": 0.95,
+        "differences": {
+          "gru": {
+            "ci_high": -4.049074945134956,
+            "ci_low": -7.559739650925177,
+            "estimate": -5.717959134194835
+          },
+          "mlp": {
+            "ci_high": -0.42675046692997676,
+            "ci_low": -0.8322790890237322,
+            "estimate": -0.626963299623208
+          },
+          "persistence": {
+            "ci_high": 0.0,
+            "ci_low": 0.0,
+            "estimate": 0.0
+          },
+          "xgboost": {
+            "ci_high": 0.7212084917390933,
+            "ci_low": 0.30007969063607215,
+            "estimate": 0.5276946659010289
+          }
+        },
+        "method": "paired_calendar_moving_block_bootstrap",
+        "replicates": 2000,
+        "seed": 424242,
+        "seed_uncertainty": "conditional_on_fitted_training_and_corruption_seed_sets",
+        "selected_family": "persistence",
+        "selection_regret": {
+          "ci_high": 0.7212084917390933,
+          "ci_low": 0.30007969063607215,
+          "estimate": 0.5276946659010289
+        },
+        "station_changes": {
+          "gru": {
+            "Aotizhongxin": {
+              "ci_high": 0.063294996084114,
+              "ci_low": 0.026113176957151835,
+              "estimate": 0.04461081511249532
+            },
+            "Changping": {
+              "ci_high": 0.05338586357985218,
+              "ci_low": 0.018431162335207276,
+              "estimate": 0.03642084318281036
+            },
+            "Dingling": {
+              "ci_high": 0.06840641813084218,
+              "ci_low": 0.02744101430469215,
+              "estimate": 0.04782634794414342
+            },
+            "Dongsi": {
+              "ci_high": 0.07147498260791652,
+              "ci_low": -0.009248069583094671,
+              "estimate": 0.03416948457210367
+            },
+            "Guanyuan": {
+              "ci_high": 0.07312448163651103,
+              "ci_low": 0.014024015458942966,
+              "estimate": 0.04030395973428824
+            },
+            "Gucheng": {
+              "ci_high": 0.053115270013294746,
+              "ci_low": 0.0024339898603202913,
+              "estimate": 0.029008640429324828
+            },
+            "Huairou": {
+              "ci_high": 0.06545030052342056,
+              "ci_low": 0.020203396531017905,
+              "estimate": 0.041576807066448396
+            },
+            "Nongzhanguan": {
+              "ci_high": 0.06158415321229505,
+              "ci_low": 0.013577428585787397,
+              "estimate": 0.03978774726478207
+            },
+            "Shunyi": {
+              "ci_high": 0.07532914425829475,
+              "ci_low": 0.03067125149607879,
+              "estimate": 0.05202665928653971
+            },
+            "Tiantan": {
+              "ci_high": 0.07665902796767908,
+              "ci_low": 0.017101446175260066,
+              "estimate": 0.04489838616123443
+            },
+            "Wanliu": {
+              "ci_high": 0.056439877878124496,
+              "ci_low": 0.013293317274572057,
+              "estimate": 0.03620510306133795
+            },
+            "Wanshouxigong": {
+              "ci_high": 0.05373299343956423,
+              "ci_low": 0.016157370803371863,
+              "estimate": 0.035423089035059974
+            }
+          },
+          "mlp": {
+            "Aotizhongxin": {
+              "ci_high": 0.15313902011843072,
+              "ci_low": 0.07997002212757835,
+              "estimate": 0.11365016209130019
+            },
+            "Changping": {
+              "ci_high": 0.12245028730848732,
+              "ci_low": 0.059360529820976594,
+              "estimate": 0.09004020911264377
+            },
+            "Dingling": {
+              "ci_high": 0.10022666798444306,
+              "ci_low": 0.045293635826295864,
+              "estimate": 0.070632885532536
+            },
+            "Dongsi": {
+              "ci_high": 0.17422725565998293,
+              "ci_low": 0.09309231353680217,
+              "estimate": 0.13046308760153558
+            },
+            "Guanyuan": {
+              "ci_high": 0.1444574123770312,
+              "ci_low": 0.0670760122987324,
+              "estimate": 0.10247843188118111
+            },
+            "Gucheng": {
+              "ci_high": 0.16915160632091922,
+              "ci_low": 0.0866032169401516,
+              "estimate": 0.12394604231788975
+            },
+            "Huairou": {
+              "ci_high": 0.12087241728206391,
+              "ci_low": 0.0512658374646863,
+              "estimate": 0.08375828690221354
+            },
+            "Nongzhanguan": {
+              "ci_high": 0.14282195864805955,
+              "ci_low": 0.06294651510546703,
+              "estimate": 0.09810155063425086
+            },
+            "Shunyi": {
+              "ci_high": 0.1158039160428027,
+              "ci_low": 0.04724093339663625,
+              "estimate": 0.07896079164269132
+            },
+            "Tiantan": {
+              "ci_high": 0.1523165970273702,
+              "ci_low": 0.06098631201360618,
+              "estimate": 0.10244896022285488
+            },
+            "Wanliu": {
+              "ci_high": 0.10723245304258217,
+              "ci_low": 0.041727650165794654,
+              "estimate": 0.07181749797781123
+            },
+            "Wanshouxigong": {
+              "ci_high": 0.12045340993149493,
+              "ci_low": 0.0614530379834576,
+              "estimate": 0.09051101156046393
+            }
+          },
+          "persistence": {
+            "Aotizhongxin": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "Changping": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "Dingling": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "Dongsi": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "Guanyuan": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "Gucheng": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "Huairou": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "Nongzhanguan": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "Shunyi": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "Tiantan": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "Wanliu": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "Wanshouxigong": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            }
+          },
+          "xgboost": {
+            "Aotizhongxin": {
+              "ci_high": 0.053849920311663836,
+              "ci_low": 0.02520616788808723,
+              "estimate": 0.03833846726932677
+            },
+            "Changping": {
+              "ci_high": 0.0343479518545084,
+              "ci_low": 0.015856032102674566,
+              "estimate": 0.02431761780299091
+            },
+            "Dingling": {
+              "ci_high": 0.055949587725650556,
+              "ci_low": 0.02334562808474554,
+              "estimate": 0.038139047360553846
+            },
+            "Dongsi": {
+              "ci_high": 0.07595647168759596,
+              "ci_low": 0.0314668539002231,
+              "estimate": 0.05104149538895264
+            },
+            "Guanyuan": {
+              "ci_high": 0.0642170739657427,
+              "ci_low": 0.027028781244299752,
+              "estimate": 0.04442978461815272
+            },
+            "Gucheng": {
+              "ci_high": 0.052579403175651636,
+              "ci_low": 0.024687968821190603,
+              "estimate": 0.038230680613098755
+            },
+            "Huairou": {
+              "ci_high": 0.053787353835054966,
+              "ci_low": 0.02672406788877808,
+              "estimate": 0.03976965228191176
+            },
+            "Nongzhanguan": {
+              "ci_high": 0.080213006160801,
+              "ci_low": 0.03152369688041073,
+              "estimate": 0.0541760974042127
+            },
+            "Shunyi": {
+              "ci_high": 0.05278522804569081,
+              "ci_low": 0.02617252466932527,
+              "estimate": 0.038954922297513406
+            },
+            "Tiantan": {
+              "ci_high": 0.061194770466798644,
+              "ci_low": 0.023024586074577125,
+              "estimate": 0.0402836832085427
+            },
+            "Wanliu": {
+              "ci_high": 0.06304737889171812,
+              "ci_low": 0.030836629912591777,
+              "estimate": 0.04601215526042779
+            },
+            "Wanshouxigong": {
+              "ci_high": 0.06639628688129368,
+              "ci_low": 0.01558973931805592,
+              "estimate": 0.039356852877514115
+            }
+          }
+        }
+      }
+    }
+  }
+}
