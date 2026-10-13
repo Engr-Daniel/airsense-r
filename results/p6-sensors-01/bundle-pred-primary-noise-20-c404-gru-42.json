@@ -1,0 +1,13 @@
+{
+  "arrays": {
+    "prediction": {
+      "dtype": "float64",
+      "shape": [
+        102753
+      ]
+    }
+  },
+  "bytes": 383297,
+  "file": "pred-primary-noise-20-c404-gru-42.npz",
+  "sha256": "254cbeeebc5b6267949a709636279f1dc03acd42746e55312b54f56d8cb6dfaf"
+}
