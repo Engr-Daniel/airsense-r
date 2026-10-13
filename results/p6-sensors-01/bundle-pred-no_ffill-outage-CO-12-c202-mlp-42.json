@@ -1,0 +1,13 @@
+{
+  "arrays": {
+    "prediction": {
+      "dtype": "float64",
+      "shape": [
+        102753
+      ]
+    }
+  },
+  "bytes": 432089,
+  "file": "pred-no_ffill-outage-CO-12-c202-mlp-42.npz",
+  "sha256": "f02adef913602f5139f355b1449a2cbd7bf331a0e3301ec48849450be0468a76"
+}
