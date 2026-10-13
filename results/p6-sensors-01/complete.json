@@ -1,0 +1,10 @@
+{
+  "conditions_per_policy": 15,
+  "phase": "P6",
+  "policies": [
+    "primary",
+    "no_ffill"
+  ],
+  "selected_family": "persistence",
+  "sensor_degradation_complete": true
+}
