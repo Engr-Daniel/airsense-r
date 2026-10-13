@@ -103,6 +103,10 @@
     "preflight-complete.json": {
       "bytes": 159,
       "sha256": "145a44db369229746332c547c2a92de77cc97ed99c8ae6ccd1f58fbdeb11c60f"
+    },
+    "realization-random_dropout-10-c101.json": {
+      "bytes": 582,
+      "sha256": "45ba794990470baf6176b647d13d7c7b2f70955c45e18f42eadfa2775191969d"
     }
   },
   "provenance": {
