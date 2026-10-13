@@ -1,0 +1,13 @@
+{
+  "arrays": {
+    "prediction": {
+      "dtype": "float64",
+      "shape": [
+        102753
+      ]
+    }
+  },
+  "bytes": 431958,
+  "file": "pred-primary-whole-CO-c-1-gru-31415.npz",
+  "sha256": "edf10d542b9a11d79f7b11159cab81ae510237faea17787375eb57b78be3f1bd"
+}
