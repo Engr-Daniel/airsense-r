@@ -800,6 +800,10 @@
       "bytes": 272,
       "sha256": "760ce22744e8919e47399f14018a615563a3f4d8630adbcec5c96f546cc65234"
     },
+    "bundle-pred-no_ffill-outage-CO-6-c505-mlp-42.json": {
+      "bytes": 268,
+      "sha256": "f4e4890ef286bcb43c7b46c00135d33c01e6520c97260c2c8c2a3153e6eea2ca"
+    },
     "bundle-pred-no_ffill-outage-CO-6-c505-persistence--1.json": {
       "bytes": 276,
       "sha256": "04b80aed0a7d4861c1ebeb77ec14ee8038074e1b48db5ee50a9878c16a2fcbe8"
