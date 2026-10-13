@@ -16,6 +16,10 @@
       "bytes": 8964,
       "sha256": "7ce36070f558622130d43ee3aeabecabff26b6685464fe8e0dc6bb3d940f8333"
     },
+    "review-primary-outage-NO2-6.json": {
+      "bytes": 18522,
+      "sha256": "fcaeec616809743d8f804b07e6c8a8e0e78c687d1dc44af9014a889115deacc0"
+    },
     "review-primary-random_dropout-10.json": {
       "bytes": 8970,
       "sha256": "17cd30dd492c8900102a08a239a2a44ab3b54b7523788f33aed084c87293d539"
