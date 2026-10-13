@@ -1,5 +1,9 @@
 {
   "artifacts": {
+    "bundle-pred-no_ffill-clean-gru-27182.json": {
+      "bytes": 260,
+      "sha256": "c7ed4c0cb254c5f5fc40cb052c4f34108cd0b7d290536aabe0f91195009446dd"
+    },
     "bundle-pred-no_ffill-clean-gru-31415.json": {
       "bytes": 260,
       "sha256": "22360526efbce7da0be32a635760dd627bb76b97e091bf2b4fa49ad6df2d5ec3"
