@@ -480,6 +480,10 @@
       "bytes": 278,
       "sha256": "fe40c8fb4e3960b45688f46e0cb49b9eac6f398fd964ce5d7a42da3344a09cba"
     },
+    "bundle-pred-no_ffill-random_dropout-50-c202-gru-27182.json": {
+      "bytes": 277,
+      "sha256": "faf21384b66a2354270d896e4f1ef5b7446c23cfaaebbe400369b6c5f05d1ca7"
+    },
     "bundle-pred-no_ffill-random_dropout-50-c202-gru-31415.json": {
       "bytes": 277,
       "sha256": "159c4f1e9d75616ab68553a57b74425058a04222108d5006d74e9869e77e024a"
