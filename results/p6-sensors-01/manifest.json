@@ -356,6 +356,10 @@
       "bytes": 17622,
       "sha256": "da0341a25032d3b49843ba787f9373d39bb9f2c1de2d93ab45754340a0c9ffaa"
     },
+    "metrics-primary-random_dropout-30-c101.csv": {
+      "bytes": 17610,
+      "sha256": "f14d4e537c43a326b5ad763210c0555c79940d741946ce1fdae0a2e31f3affcc"
+    },
     "noise-scales.json": {
       "bytes": 364,
       "sha256": "2e8e24762575aa1ec270cda2454a1ce32c45dc5257be2f6171d1f3e129c7ac6a"
