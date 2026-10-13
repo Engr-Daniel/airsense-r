@@ -1,0 +1,13 @@
+{
+  "arrays": {
+    "prediction": {
+      "dtype": "float64",
+      "shape": [
+        102753
+      ]
+    }
+  },
+  "bytes": 431930,
+  "file": "pred-primary-outage-TEMP-12-c303-mlp-42.npz",
+  "sha256": "0f0f1886e9d7859daefffd85be1e47a14c05d68757a131345ad1a79b8ae5789a"
+}
