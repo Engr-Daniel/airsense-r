@@ -680,6 +680,10 @@
       "bytes": 582,
       "sha256": "99c96c1768449946272d33bceddb758081de897f7feddcecade143996e57450d"
     },
+    "realization-random_dropout-50-c303.json": {
+      "bytes": 582,
+      "sha256": "4cbd1aeadb7e1ac1e7ad8d0e8e74cc3b1716d76850b85b683760e2497b3c0255"
+    },
     "summary-primary-random_dropout-10.json": {
       "bytes": 11444,
       "sha256": "c5613a3356834426a6b11f4ee3f92621d03677ed2b9b2da1b0a2685bdd534428"
