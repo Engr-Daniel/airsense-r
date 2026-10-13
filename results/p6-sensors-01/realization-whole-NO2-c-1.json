@@ -1,0 +1,28 @@
+{
+  "changed_cells": {
+    "CO": 0,
+    "DEWP": 0,
+    "NO2": 102936,
+    "O3": 0,
+    "PM10": 0,
+    "PRES": 0,
+    "RAIN": 0,
+    "SO2": 0,
+    "TEMP": 0,
+    "WSPM": 0,
+    "wd": 0
+  },
+  "condition": {
+    "channel": "NO2",
+    "id": "whole-NO2",
+    "kind": "whole_variable",
+    "seeds": [
+      -1
+    ],
+    "severity": 1
+  },
+  "outage_events": [],
+  "seed": -1,
+  "stream_sha256": "7bfbb49004775071e52a5e044af0bca74824a5e1d9de48a1a1a05053edcdccf7",
+  "target_unchanged": true
+}
