@@ -112,13 +112,18 @@ P5 is complete after corrected evaluation and independent review on 2026-10-12. 
 
 ## P6 — Sensor degradation
 
-Implementation is present; real stress results remain pending. See
+The real evaluation has published completion for both policies and all 15
+conditions. Final scientific acceptance remains pending prediction-file and
+independent uncertainty verification. See
 [docs/P6_WORKFLOW.md](docs/P6_WORKFLOW.md) and
 [research/P6_IMPLEMENTATION_DECISIONS.md](research/P6_IMPLEMENTATION_DECISIONS.md).
 
 - [x] Implement frozen-model replay gates, persistent predictions and paired stress summaries
 - [x] Complete local lifecycle verification and review before notebook handoff (75 regression tests plus the fresh-process P6 lifecycle test passed)
 - [x] Review user-run Colab P6 preflight before full evaluation (2026-10-13; 25 Git artifacts verified; see results/p6/preflight_acceptance.json)
+- [x] Preserve completed evaluation notebook, including the failed duplicate invocation and successful final inspection
+- [ ] Independently verify final Drive prediction files and recompute uncertainty before scientific acceptance
+- [ ] Simplify the notebook to automatic run/resume with clear progress and completion status; test reconnect and duplicate-process handling before handoff
 
 - [ ] Random feature dropout at frozen severities
 - [ ] Whole-variable dropout at frozen channels

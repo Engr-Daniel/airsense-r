@@ -41,3 +41,10 @@ The accepted Colab preflight is preserved byte-for-byte in
 `05_p6_sensor_degradation_preflight_executed.ipynb`. Its review is recorded in
 `results/p6/preflight_acceptance.json`. Continue evaluation at its original
 source commit and run ID; the unsuffixed notebook remains the unexecuted template.
+
+`05_p6_sensor_degradation_evaluation_executed.ipynb` preserves the completed
+evaluation session, including the failed duplicate invocation after writer-lock
+deletion and the later successful final inspection. It is historical evidence,
+not a runnable template: do not copy its lock-deletion code. Final scientific
+acceptance still requires verification of the underlying Drive prediction files
+and independent uncertainty recomputation.

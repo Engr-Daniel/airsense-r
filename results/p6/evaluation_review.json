@@ -1,0 +1,15 @@
+{
+  "review_date": "2026-10-13",
+  "run_id": "p6-sensors-01",
+  "result_commit": "464574140e7abb79094935313d6f3eb44fce3a93",
+  "status": "execution_complete_scientific_acceptance_pending",
+  "verified_git_artifacts": 1520,
+  "condition_reports": 30,
+  "scope_reports": 42,
+  "prediction_references": 1280,
+  "aggregate_metrics_recomputed": true,
+  "unavailable_sensitivity_intervals": 0,
+  "prediction_files_independently_verified": false,
+  "bootstrap_intervals_independently_recomputed": false,
+  "remaining": "Verify final Drive arrays against their references and independently recompute metrics and uncertainty; preserve duplicate-writer incident evidence."
+}
