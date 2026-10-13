@@ -1,0 +1,23 @@
+{
+  "review_date": "2026-10-13",
+  "status": "preflight_accepted_evaluation_pending",
+  "run_id": "p6-sensors-01",
+  "result_commit": "9f7b6b199b50f3c514baa8e7e56a566e56665daf",
+  "code_commit": "3c9b5d49fb90b30cc967f8d31f9f3c3007b81a0d",
+  "manifest_sha256": "4b6a41a3decddb762fb6c34196308cdf5320288d0ab283fdd6451f5b9b891b86",
+  "verified_git_artifacts": 25,
+  "development_replays": 10,
+  "validation_targets_per_replay": 103287,
+  "clean_prediction_references": 10,
+  "test_targets_per_prediction": 102753,
+  "parent_lineage_verified": true,
+  "executed_notebook_sha256": "e71e3c68cc44c2b1557dca77d9e41e1458d9dd450bc0d9f6bbe573a5287ba905",
+  "preflight": {
+    "accepted_clean_replay": true,
+    "development_replay": true,
+    "no_stress_evaluated": true,
+    "passed": true,
+    "persistent_prediction_round_trip": true
+  },
+  "review_limits": "Drive arrays and native models were verified by the Colab preflight, not independently downloaded in this review. No real stress results exist yet."
+}

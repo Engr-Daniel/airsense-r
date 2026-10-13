@@ -118,7 +118,7 @@ Implementation is present; real stress results remain pending. See
 
 - [x] Implement frozen-model replay gates, persistent predictions and paired stress summaries
 - [x] Complete local lifecycle verification and review before notebook handoff (75 regression tests plus the fresh-process P6 lifecycle test passed)
-- [ ] Review user-run Colab P6 preflight before full evaluation
+- [x] Review user-run Colab P6 preflight before full evaluation (2026-10-13; 25 Git artifacts verified; see results/p6/preflight_acceptance.json)
 
 - [ ] Random feature dropout at frozen severities
 - [ ] Whole-variable dropout at frozen channels

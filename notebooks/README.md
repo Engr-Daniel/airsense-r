@@ -36,3 +36,8 @@ Successful corrected execution is preserved byte-for-byte in `04b_p5_corrected_t
 ## P6 notebook
 
 `05_p6_sensor_degradation_analysis.ipynb` has explicit `preflight` and `evaluate` stages. It reuses frozen P5 models, verifies development and clean-test replay, and stores lossless predictions in Drive with Git references. Follow [P6_WORKFLOW.md](../docs/P6_WORKFLOW.md). Local tests and preflight are engineering acceptance, not completed stress findings.
+
+The accepted Colab preflight is preserved byte-for-byte in
+`05_p6_sensor_degradation_preflight_executed.ipynb`. Its review is recorded in
+`results/p6/preflight_acceptance.json`. Continue evaluation at its original
+source commit and run ID; the unsuffixed notebook remains the unexecuted template.
