@@ -684,6 +684,10 @@
       "bytes": 277,
       "sha256": "8bf1a8ff47ab9caf2db58275a447b5694d7268c25baea7edce07830da5dd66ab"
     },
+    "bundle-pred-no_ffill-outage-CO-12-c202-xgboost-42.json": {
+      "bytes": 273,
+      "sha256": "399b9a7b6d4518a18b743916ace6c1d947a15b24f87c9305f54c9860bcc1b84a"
+    },
     "bundle-pred-no_ffill-outage-CO-6-c101-gru-27182.json": {
       "bytes": 271,
       "sha256": "a00bc7d4befe5e6eb5d0428ce9f7b97fb33d9fbbb3e16bd0278c393c5055e556"
