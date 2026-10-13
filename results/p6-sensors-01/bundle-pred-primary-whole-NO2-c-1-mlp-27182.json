@@ -1,0 +1,13 @@
+{
+  "arrays": {
+    "prediction": {
+      "dtype": "float64",
+      "shape": [
+        102753
+      ]
+    }
+  },
+  "bytes": 432518,
+  "file": "pred-primary-whole-NO2-c-1-mlp-27182.npz",
+  "sha256": "ede57fe11fa0cff4ca4184ffc7fd6cec03d250a6c0cf5efe49eeafb746b13fd6"
+}
