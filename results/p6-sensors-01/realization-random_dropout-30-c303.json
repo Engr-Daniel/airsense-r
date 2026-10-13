@@ -1,0 +1,32 @@
+{
+  "changed_cells": {
+    "CO": 30863,
+    "DEWP": 31783,
+    "NO2": 30921,
+    "O3": 30814,
+    "PM10": 31038,
+    "PRES": 31596,
+    "RAIN": 31706,
+    "SO2": 30968,
+    "TEMP": 31540,
+    "WSPM": 31509,
+    "wd": 31261
+  },
+  "condition": {
+    "channel": null,
+    "id": "random_dropout-30",
+    "kind": "random_dropout",
+    "seeds": [
+      101,
+      202,
+      303,
+      404,
+      505
+    ],
+    "severity": 0.3
+  },
+  "outage_events": [],
+  "seed": 303,
+  "stream_sha256": "f987f8d78fa52a2a032cb68e2d3e9ecb37af3f991674e6de96ed1541f8cbb92a",
+  "target_unchanged": true
+}
