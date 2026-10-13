@@ -1,0 +1,13 @@
+{
+  "arrays": {
+    "prediction": {
+      "dtype": "float64",
+      "shape": [
+        102753
+      ]
+    }
+  },
+  "bytes": 430533,
+  "file": "pred-no_ffill-outage-NO2-6-c303-gru-27182.npz",
+  "sha256": "1937c003fea0450fc9bd5527e7c6543213ee2b8097a4a58384575da291ffa458"
+}
