@@ -600,6 +600,10 @@
       "bytes": 268,
       "sha256": "d90711074c9db99e5e6228f811d982ac1ba94ec824cb98cd9a8853bd56cfaf95"
     },
+    "bundle-pred-primary-noise-20-c505-gru-42.json": {
+      "bytes": 264,
+      "sha256": "3c5b573e18251864ede3b06436eb7d81d858291242da0dd554a03fcc074498c2"
+    },
     "bundle-pred-primary-noise-20-c505-mlp-27182.json": {
       "bytes": 267,
       "sha256": "d3899072b6d153d3143ea186563c7959153ad64ddb12304e3299a9547d71857b"
