@@ -1,0 +1,13 @@
+{
+  "arrays": {
+    "prediction": {
+      "dtype": "float64",
+      "shape": [
+        102753
+      ]
+    }
+  },
+  "bytes": 431273,
+  "file": "pred-primary-outage-NO2-12-c303-mlp-27182.npz",
+  "sha256": "bcb0b812e7237eaa7506c0c0cf1302c23a840dc19b79418c4fd6993353f658ed"
+}
