@@ -1000,6 +1000,10 @@
       "bytes": 17619,
       "sha256": "3ee2654c9c18830969e398c484faa263a4444b8e29e9125f67a9f5b2894262dd"
     },
+    "metrics-primary-noise-10-c202.csv": {
+      "bytes": 17619,
+      "sha256": "032ab0bd4cc6dd13374cdade49ebd0c069bb4c13a9ff909411e81510f985d86f"
+    },
     "metrics-primary-random_dropout-10-c101.csv": {
       "bytes": 17641,
       "sha256": "e62c51bdb39833efbaebcad524e56e62056967eb7045308a689e50da02544def"
