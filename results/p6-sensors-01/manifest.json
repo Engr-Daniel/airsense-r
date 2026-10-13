@@ -560,6 +560,10 @@
       "bytes": 278,
       "sha256": "473f0637922af683d5cfe09f0f3cc72a4555ca97c66d5ba0c789cdd649d38e7a"
     },
+    "bundle-pred-no_ffill-random_dropout-50-c404-persistence--1.json": {
+      "bytes": 282,
+      "sha256": "462c536d04500d1278015b48f8ab3292efa3952a5ea1f078bd9314a351d5e777"
+    },
     "bundle-pred-primary-clean-gru-27182.json": {
       "bytes": 259,
       "sha256": "fe333dcc7a0fdb94be6625855a576f957b5456a42b45a10ae8750f4ba460269d"
