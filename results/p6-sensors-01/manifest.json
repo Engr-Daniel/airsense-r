@@ -3840,6 +3840,10 @@
       "bytes": 11387,
       "sha256": "34807e5c56fd72b42bc713444daf0403b0026514599af017cd6fc5546e40b9f9"
     },
+    "summary-no_ffill-random_dropout-50.json": {
+      "bytes": 11429,
+      "sha256": "549d25a7703c92b7497376f0376ebec9407415edc9a2a641ca35b0f9addb3367"
+    },
     "summary-primary-noise-05.json": {
       "bytes": 11598,
       "sha256": "1f29ab42078d8aeb6d9a54898db1c45a787d4d9c15814b7b86c428c90029c2fd"
