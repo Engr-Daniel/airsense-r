@@ -40,6 +40,10 @@
       "bytes": 260,
       "sha256": "d068a5e83a8a32c5461e067f6b322cbd6d3ddd5a3c12dc4bec9e07d8d1c69d40"
     },
+    "bundle-pred-primary-random_dropout-10-c101-persistence--1.json": {
+      "bytes": 281,
+      "sha256": "7fd2686ab24bdb58816f0b19c33e2f6e0d8945813a66fe7ebd2222d4d64d4fb1"
+    },
     "bundle-targets.json": {
       "bytes": 401,
       "sha256": "bd3eb96de7b880c31ebdab45d1b34a5b92a38e17eae76d214ccd0cb6998368e1"
