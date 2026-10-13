@@ -120,6 +120,10 @@
       "bytes": 269,
       "sha256": "4ac73486394443f39ef6edbed27046e88a04190a69e4100d972d7fe62c6e742a"
     },
+    "bundle-pred-no_ffill-noise-05-c303-gru-42.json": {
+      "bytes": 265,
+      "sha256": "3efbd340a9216e165a4b7d3efda10d7419aad1bdbcd0a1055e0234d5e84d9ea3"
+    },
     "bundle-pred-no_ffill-noise-05-c303-mlp-27182.json": {
       "bytes": 268,
       "sha256": "9f92a99b45defabc87e230b86190c8e64cf84e67fa4962913313a5966e49c67a"
