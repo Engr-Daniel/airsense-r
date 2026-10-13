@@ -1,0 +1,10 @@
+{
+  "comparison_atol": 1e-08,
+  "comparison_rtol": 1e-10,
+  "condition_reports": 30,
+  "independent_bootstrap": true,
+  "independent_metrics": true,
+  "no_models_fitted_or_predicted": true,
+  "passed": true,
+  "prediction_files": 1281
+}
