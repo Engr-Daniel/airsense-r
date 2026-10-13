@@ -2484,6 +2484,10 @@
       "bytes": 35532,
       "sha256": "29ae700e2bab921eea2976a9f25510fb0c9207fd53b6ff158a98d8262b69926c"
     },
+    "metrics-primary-outage-TEMP-6-c303.csv": {
+      "bytes": 35488,
+      "sha256": "fb16f39b55ef3a2e0b0a24ba2a8ea84933afa8562f0e456efaf178ec123897f5"
+    },
     "metrics-primary-random_dropout-10-c101.csv": {
       "bytes": 17641,
       "sha256": "e62c51bdb39833efbaebcad524e56e62056967eb7045308a689e50da02544def"
