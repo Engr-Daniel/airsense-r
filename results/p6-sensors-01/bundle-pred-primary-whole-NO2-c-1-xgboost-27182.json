@@ -1,0 +1,13 @@
+{
+  "arrays": {
+    "prediction": {
+      "dtype": "float64",
+      "shape": [
+        102753
+      ]
+    }
+  },
+  "bytes": 428634,
+  "file": "pred-primary-whole-NO2-c-1-xgboost-27182.npz",
+  "sha256": "c9075b1f1cc40d3e790ab18d23d0ad8d08620dc389b4fa8e055eea8ef7f3f261"
+}
