@@ -1,0 +1,13 @@
+{
+  "arrays": {
+    "prediction": {
+      "dtype": "float64",
+      "shape": [
+        102753
+      ]
+    }
+  },
+  "bytes": 432891,
+  "file": "pred-no_ffill-noise-10-c505-mlp-27182.npz",
+  "sha256": "4288a625fab7a389f7f560b94e4e57ae531ba20ecc6a3b253fc5eba07c855205"
+}
