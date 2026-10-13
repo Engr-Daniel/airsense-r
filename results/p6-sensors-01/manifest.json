@@ -587,6 +587,10 @@
     "summary-primary-random_dropout-10.json": {
       "bytes": 11444,
       "sha256": "c5613a3356834426a6b11f4ee3f92621d03677ed2b9b2da1b0a2685bdd534428"
+    },
+    "summary-primary-random_dropout-30.json": {
+      "bytes": 11394,
+      "sha256": "f22979d31550f360fa29a50a0c58f7cde15116b146a41e880fe615905c292af9"
     }
   },
   "provenance": {
