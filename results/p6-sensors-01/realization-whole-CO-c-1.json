@@ -1,0 +1,28 @@
+{
+  "changed_cells": {
+    "CO": 102800,
+    "DEWP": 0,
+    "NO2": 0,
+    "O3": 0,
+    "PM10": 0,
+    "PRES": 0,
+    "RAIN": 0,
+    "SO2": 0,
+    "TEMP": 0,
+    "WSPM": 0,
+    "wd": 0
+  },
+  "condition": {
+    "channel": "CO",
+    "id": "whole-CO",
+    "kind": "whole_variable",
+    "seeds": [
+      -1
+    ],
+    "severity": 1
+  },
+  "outage_events": [],
+  "seed": -1,
+  "stream_sha256": "556d494f297c9269e5f9b634f6d571738533fcfee1f5920c2b2aafa9cf8af4d0",
+  "target_unchanged": true
+}
