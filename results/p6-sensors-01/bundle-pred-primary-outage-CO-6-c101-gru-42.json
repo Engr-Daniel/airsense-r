@@ -1,0 +1,13 @@
+{
+  "arrays": {
+    "prediction": {
+      "dtype": "float64",
+      "shape": [
+        102753
+      ]
+    }
+  },
+  "bytes": 381816,
+  "file": "pred-primary-outage-CO-6-c101-gru-42.npz",
+  "sha256": "a9aed05130a793f7b2ba605f0b58a8bfbc1f9f3259e0b941584cdb1685b2f145"
+}
