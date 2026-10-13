@@ -160,6 +160,10 @@
       "bytes": 269,
       "sha256": "bf5c59f2c80a76a345bc0076e5ec159f994c19586ddd5bfc811c4002f7534230"
     },
+    "bundle-pred-no_ffill-noise-05-c404-mlp-42.json": {
+      "bytes": 265,
+      "sha256": "79686de8be72ea3871784a83c1ce26fe99d1a64257fde7102c5fee352d6171e5"
+    },
     "bundle-pred-no_ffill-noise-05-c404-persistence--1.json": {
       "bytes": 273,
       "sha256": "c9ca185daef682a862d2c25510c7a0bb14efbd75f9203ffaebc57cccd26bc009"
