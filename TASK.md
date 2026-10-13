@@ -123,7 +123,8 @@ independent uncertainty verification. See
 - [x] Review user-run Colab P6 preflight before full evaluation (2026-10-13; 25 Git artifacts verified; see results/p6/preflight_acceptance.json)
 - [x] Preserve completed evaluation notebook, including the failed duplicate invocation and successful final inspection
 - [ ] Independently verify final Drive prediction files and recompute uncertainty before scientific acceptance
-- [ ] Simplify the notebook to automatic run/resume with clear progress and completion status; test reconnect and duplicate-process handling before handoff
+- [x] Provide automatic settings, run/resume and visible status for the next P6 step in notebook 05b; historical experiment notebook 05 remains unchanged apart from its source fingerprint
+- [ ] Review live notebook 05b output before final P6 acceptance
 
 - [ ] Random feature dropout at frozen severities
 - [ ] Whole-variable dropout at frozen channels
@@ -134,6 +135,7 @@ independent uncertainty verification. See
 
 ## P7 — Site shift
 
+- [ ] Use the tested reconnectable notebook interface with embedded settings for P7 execution
 - [ ] Train without held-out site(s)
 - [ ] Evaluate on unseen site(s)
 - [ ] Quantify cross-site generalization performance (do not call it a penalty without matched comparator)

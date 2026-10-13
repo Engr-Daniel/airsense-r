@@ -50,3 +50,26 @@ resume existing runs, display durable progress and explicit completion/failure,
 and prevent duplicate launches without deleting locks. Test reconnection and
 interruption behavior before handing over that interface. Keep this completed
 run and its generating identity unchanged.
+
+The follow-up is implemented as a separate saved-result verification notebook
+`05b_p6_saved_result_verification.ipynb`, with an independent verifier and
+reconnectable worker. See `docs/P6_VERIFICATION.md`. It keeps the completed
+experiment read-only and publishes review evidence separately. Live execution
+of that verifier remains pending; implementation tests are not acceptance of
+the user's Drive arrays.
+
+Local verification of the follow-up: 83 regression tests passed (the unchanged,
+long P6 experiment lifecycle fixture was excluded from this invocation). The
+final eight verifier/job tests also passed after expanding the serialized review
+fixture to all four model families. These cover independent bootstrap agreement,
+partial final blocks, masked targets, exact outage boundaries, altered intervals,
+Drive-file corruption, provenance rejection, interruption/resume, stale unlocked
+files, duplicate workers, failure recovery, and fresh-process execution of all
+four notebook cells. Seven current notebook templates passed format/fingerprint
+checks; archived executions and frozen protocol/configuration are unchanged.
+
+A synthetic calculation at the full array dimensions (five realizations, four
+models, 12 stations, 8,760 hours and 2,000 replicates) completed in 2.56 seconds
+locally. This checks that the independent method is computationally practical;
+it is not a forecast result or a promise about Colab/Drive wall time. Real file
+verification and independent interval agreement remain pending the user run.

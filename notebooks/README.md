@@ -48,3 +48,8 @@ deletion and the later successful final inspection. It is historical evidence,
 not a runnable template: do not copy its lock-deletion code. Final scientific
 acceptance still requires verification of the underlying Drive prediction files
 and independent uncertainty recomputation.
+
+For that remaining review, use `05b_p6_saved_result_verification.ipynb`: four
+cells, embedded settings, reconnectable progress and checkpointed verification.
+See [P6_VERIFICATION.md](../docs/P6_VERIFICATION.md). It reads saved predictions;
+it does not rerun the P6 experiment.

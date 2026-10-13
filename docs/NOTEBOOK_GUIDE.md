@@ -96,4 +96,14 @@ Before committing a reviewed notebook, restart and run all cells, inspect its di
 
 ## Implementation status
 
+New workflows should embed their matching code revision and known run settings
+in a published notebook rather than requiring repeated SHA/stage entry. Keep
+provenance checks in the package. Use a reconnectable file-log worker for long
+jobs, show current unit and explicit running/failed/completed status, and reuse
+confirmed checkpoints after runtime replacement. Never delete a lock to resume.
+The first such interface is `05b_p6_saved_result_verification.ipynb`; see
+`P6_VERIFICATION.md`. Older notebooks remain historical advanced workflows until
+explicitly migrated and tested. Colab Drive/secret authorization can still be
+required by the platform.
+
 Shared provenance loaders, checkpoint persistence, Git synchronization, resume support, and notebooks 01–03 are implemented in P4. Local integration tests cover these behaviors using bare Git remotes and explicit notebook fixture setup. Actual GitHub pushing requires runtime credentials. User-run Colab publication and notebook 03 fresh-runtime recovery were reviewed on 2026-10-09 using an import workaround, now standardized in bootstrap with local regression coverage. See `P4_WORKFLOW.md` and `../research/P4_COMPLETION_REPORT.md`.
