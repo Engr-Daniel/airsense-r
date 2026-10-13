@@ -2624,6 +2624,10 @@
       "bytes": 23486,
       "sha256": "2e082880e898b723a7cf028ee9ac72e53eb1a7f469bfc15b9bf32c942b0280fb"
     },
+    "realization-outage-TEMP-6-c202.json": {
+      "bytes": 23486,
+      "sha256": "f16bf5c8f703c5665b0a138bd81d5202127c4348874a4e89536e7336cece58a9"
+    },
     "realization-random_dropout-10-c101.json": {
       "bytes": 582,
       "sha256": "45ba794990470baf6176b647d13d7c7b2f70955c45e18f42eadfa2775191969d"
