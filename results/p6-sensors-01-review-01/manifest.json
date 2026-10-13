@@ -4,6 +4,10 @@
       "bytes": 41,
       "sha256": "63b33bf4eca7484a59346eeddc64a9544ffc4ba9e1eab3599f3c2d4c2ac5b9ae"
     },
+    "review-primary-noise-05.json": {
+      "bytes": 9143,
+      "sha256": "4627e79327b79e91d97ca52752556aec99f12d3ad3619b735dd0d1d661907600"
+    },
     "review-primary-random_dropout-10.json": {
       "bytes": 8970,
       "sha256": "17cd30dd492c8900102a08a239a2a44ab3b54b7523788f33aed084c87293d539"
