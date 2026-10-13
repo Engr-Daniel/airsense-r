@@ -1,5 +1,10 @@
 {
-  "artifacts": {},
+  "artifacts": {
+    "files-verified.json": {
+      "bytes": 41,
+      "sha256": "63b33bf4eca7484a59346eeddc64a9544ffc4ba9e1eab3599f3c2d4c2ac5b9ae"
+    }
+  },
   "provenance": {
     "atol": 1e-08,
     "environment": {
