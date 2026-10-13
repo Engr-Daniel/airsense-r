@@ -1,0 +1,13 @@
+{
+  "arrays": {
+    "prediction": {
+      "dtype": "float64",
+      "shape": [
+        102753
+      ]
+    }
+  },
+  "bytes": 430331,
+  "file": "pred-primary-whole-NO2-c-1-gru-27182.npz",
+  "sha256": "e6aac4fbb9db3c7c7f1e122c7ca3a7d2b938f428c6c16fd9f4bae409b8362758"
+}
