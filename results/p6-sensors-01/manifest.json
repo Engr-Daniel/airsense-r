@@ -1604,6 +1604,10 @@
       "bytes": 279,
       "sha256": "b4a99bbbf8a321b20e85e84676aca10661280366b02104bf92bb3d2197cb1dbf"
     },
+    "bundle-pred-no_ffill-outage-TEMP-12-c505-xgboost-27182.json": {
+      "bytes": 278,
+      "sha256": "e3efe18e85fe144446366c62feeeccf1b4e7f16faf9da463040edbb97163e119"
+    },
     "bundle-pred-no_ffill-outage-TEMP-12-c505-xgboost-31415.json": {
       "bytes": 278,
       "sha256": "75ff0d758b91ba49308ee383cca555ef9478d1bd9adba88308ca6507701ae862"
