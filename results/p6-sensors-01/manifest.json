@@ -1600,6 +1600,10 @@
       "bytes": 273,
       "sha256": "8c220b9f19692a48c95a645bd731f5877f39a58b083441135f8f4f4607f24fca"
     },
+    "bundle-pred-primary-outage-TEMP-6-c505-persistence--1.json": {
+      "bytes": 277,
+      "sha256": "b5979ae6bb41edf8048d3ef7f9e394986e9b15e293f4967d41913c797d089c80"
+    },
     "bundle-pred-primary-random_dropout-10-c101-gru-27182.json": {
       "bytes": 276,
       "sha256": "a24a1269cfecbca231ceb1ea7a25317ea2874bd6c3155fde85b792c405132781"
