@@ -1,0 +1,32 @@
+{
+  "changed_cells": {
+    "CO": 102800,
+    "DEWP": 105177,
+    "NO2": 102936,
+    "O3": 102294,
+    "PM10": 103561,
+    "PRES": 105183,
+    "RAIN": 54609,
+    "SO2": 103359,
+    "TEMP": 105177,
+    "WSPM": 104726,
+    "wd": 0
+  },
+  "condition": {
+    "channel": null,
+    "id": "noise-10",
+    "kind": "noise",
+    "seeds": [
+      101,
+      202,
+      303,
+      404,
+      505
+    ],
+    "severity": 0.1
+  },
+  "outage_events": [],
+  "seed": 404,
+  "stream_sha256": "a6e0863e11ed84eb6f392989c5cfb781502bed825153e38d767ddb5c54bbe8ce",
+  "target_unchanged": true
+}
