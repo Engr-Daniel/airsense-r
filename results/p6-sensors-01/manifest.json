@@ -480,6 +480,10 @@
       "bytes": 269,
       "sha256": "ad00bdef0eaaac413fc47062eef3d3e234d577cad239b15675b21063e2219368"
     },
+    "bundle-pred-no_ffill-noise-20-c202-gru-42.json": {
+      "bytes": 265,
+      "sha256": "ee05309b79dc66fafdf8b5ab4343a7bfcaa962b872438f635360034417896294"
+    },
     "bundle-pred-no_ffill-noise-20-c202-mlp-27182.json": {
       "bytes": 268,
       "sha256": "f20ceede7fd969520235dac4196f98ebe9fa367f69918726f959a0ad4442ac8b"
