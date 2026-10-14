@@ -16,6 +16,10 @@
       "bytes": 3328,
       "sha256": "e2b813f754ea8c9681cbac64f1c0e9442392b57019dd27702c73f23f1fd5d83f"
     },
+    "fold-Aotizhongxin--model-refit-mlp-seed42-00001.json": {
+      "bytes": 338,
+      "sha256": "5ad5b3a3ceb552f4142f13648420a665b838df6b9db4526a2a652ab63cf3edc7"
+    },
     "fold-Aotizhongxin--model-refit-xgboost-seed27182-00025.json": {
       "bytes": 344,
       "sha256": "9259e1368c20b43b48450ebb02fb3b83273cb67fcb3637264862d642c727b462"
