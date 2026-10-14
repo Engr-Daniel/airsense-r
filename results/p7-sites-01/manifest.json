@@ -5072,6 +5072,10 @@
       "bytes": 350,
       "sha256": "3246ed56776ee623b7b130891a6e37f4cd6f0a3cd52c1ff934b55c2d7a611921"
     },
+    "fold-Changping--model-tune-gru-small-fold1-seed42-00018.json": {
+      "bytes": 350,
+      "sha256": "aa54224e6498415b4735d648c771bd4b1f5e4cf376129b930336b12baabed195"
+    },
     "fold-Changping--model-tune-xgb-medium-fold0-seed27182-00025.json": {
       "bytes": 352,
       "sha256": "306965576500336b82e7b3cae206c11bece331593845279a766c9027f859d42e"
