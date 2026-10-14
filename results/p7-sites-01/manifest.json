@@ -5560,6 +5560,10 @@
       "bytes": 353,
       "sha256": "432cd4f0bb3b45066b2f885c1c9f175ff1ff4f71360a44d97a8d0d8227a9298c"
     },
+    "fold-Changping--model-tune-gru-small-fold2-seed27182-00020.json": {
+      "bytes": 353,
+      "sha256": "a1490188e0546bce3e8bc70e614cc233a0f18bee8c0d498108b36862c070cc90"
+    },
     "fold-Changping--model-tune-gru-small-fold2-seed31415-00001.json": {
       "bytes": 352,
       "sha256": "0288f1cc9e20451b2da7507e0fbd4baa82a3d76b1bc2813bd6c5fdec4ce1e429"
