@@ -20,6 +20,10 @@
       "bytes": 342,
       "sha256": "58aa0fe916491974b0ec9a384676db73aed6bab0c70ba983eea86ac8033c2bff"
     },
+    "fold-Aotizhongxin--model-refit-xgboost-seed42-00125.json": {
+      "bytes": 342,
+      "sha256": "87fc277102518232aa3b52c1569ea41aec8ddfdb439500ddb7a24a219434e71b"
+    },
     "fold-Aotizhongxin--model-tune-gru-medium-fold0-seed27182-00001.json": {
       "bytes": 353,
       "sha256": "922c6027fa5fe73e272b688999a08a4cfeaacfd71ec09d4cf8c89d8994939c58"
