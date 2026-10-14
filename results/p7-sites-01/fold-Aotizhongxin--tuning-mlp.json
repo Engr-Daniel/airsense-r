@@ -1,0 +1,17 @@
+{
+  "scores": {
+    "mlp-medium": 11.386668131702457,
+    "mlp-small": 11.218852200160011
+  },
+  "selected_config": {
+    "epochs": 20,
+    "hidden": [
+      64,
+      32
+    ],
+    "id": "mlp-small",
+    "learning_rate": 0.001
+  },
+  "target_scope": "training only",
+  "tiebreak": "listed order"
+}
