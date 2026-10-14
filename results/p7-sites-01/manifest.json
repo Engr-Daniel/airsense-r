@@ -2336,6 +2336,10 @@
       "bytes": 349,
       "sha256": "264eac2639344d90ef58b05760dbba986c3119200013ac6a3a4eae78798f91e7"
     },
+    "fold-Aotizhongxin--score-tune-gru-medium-fold0-seed42.json": {
+      "bytes": 2112,
+      "sha256": "7c9b89b7b0c0a72c1a8ae962e6993dcb189812855f29f384510da78c10ae3d8b"
+    },
     "fold-Aotizhongxin--score-tune-gru-small-fold0-seed27182.json": {
       "bytes": 2151,
       "sha256": "54ede7adf5644fc6da7a50d0253bac644852ac2a82ec9ae0a372b0605f579d42"
