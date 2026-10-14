@@ -60,6 +60,11 @@ Live Colab installation, authorization, Drive durability and the full 12-station
 computation remain to be demonstrated. The notebook embeds the reviewed full
 source commit; use the published pinned notebook for the live run.
 
+Published notebook source revision:
+`7278ba95c88ea28e8861f59d0a6f8e097087c9d7`. The notebook fingerprint was
+checked against an archive of that exact commit, and the final pinned notebook
+passed its fresh-process run/resume/provenance-rejection test.
+
 ## Acceptance still required
 
 A successful run writes `execution_complete: true` and
