@@ -1,5 +1,9 @@
 {
   "artifacts": {
+    "fold-Aotizhongxin--model-tune-xgb-medium-fold0-seed27182-00025.json": {
+      "bytes": 352,
+      "sha256": "1a4a9e41597391b1b0b2532a28ba5cc67eeb0751320d5a3d585905b547bc3e04"
+    },
     "fold-Aotizhongxin--model-tune-xgb-medium-fold0-seed31415-00025.json": {
       "bytes": 352,
       "sha256": "2de2eb3638e71eca4083975147f97a133fe7353defd92ab89afa0dbcc11ff21c"
