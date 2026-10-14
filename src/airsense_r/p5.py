@@ -51,7 +51,10 @@ def read_predictions(store: RunStore, phase: str, *, round_trip: bool = False) -
     if not names:
         raise ValueError(f"No {phase} predictions")
     precision = "round_trip" if round_trip else None
-    return pd.concat([pd.read_csv(store.directory / n, float_precision=precision) for n in names], ignore_index=True)
+    # Read-only evidence wrappers keep the historical directory interface;
+    # P7 fold stores resolve persistent prediction references explicitly.
+    resolve = getattr(store, "_path", lambda name: store.directory / name)
+    return pd.concat([pd.read_csv(resolve(n), float_precision=precision) for n in names], ignore_index=True)
 
 
 def prediction_frame(windows, indices, family: str, seed: int, phase: str, predicted) -> pd.DataFrame:
@@ -86,6 +89,10 @@ def train_unit(store: RunStore, model_root: Path, task: str, family: str, candid
                 "family": family, "candidate": candidate, "seed": seed,
                 "data_hash": data_identity(windows, train_indices), "processor": processor.state}
     checkpoint = unit_checkpoint(model_root, task, identity)
+    if (checkpoint.restore()[0] == 0
+            and any(n.startswith(f"model-{task}-") for n in store.manifest["artifacts"])):
+        raise ValueError("Published training progress exists but native state is missing; restore persistent storage")
+    LOG.info("Training unit: %s", task)
 
     def publish(record: dict) -> None:
         store.save(f"model-{task}-{record['completed_units']:05d}.json",
@@ -224,7 +231,7 @@ def export_summary(store: RunStore, phase: str, decision: dict) -> None:
     table, aggregate = metric_tables(read_predictions(store, phase))
     store.save(f"metrics-{phase}-station-seed.csv", table.to_csv(index=False).encode())
     store.save(f"metrics-{phase}-aggregate.csv", aggregate.to_csv(index=False).encode())
-    payload = {"phase": "P5", "partition": phase, "selected_family": decision["selected_family"],
+    payload = {"phase": store.manifest["provenance"].get("parameters", {}).get("phase", "P5"), "partition": phase, "selected_family": decision["selected_family"],
                "metrics": json.loads(aggregate.to_json(orient="records")),
                "provenance": store.manifest["provenance"], "benchmark_status": "partial" if phase == "validation" else "scored"}
     store.save(f"dashboard-{phase}.json", json_bytes(payload))

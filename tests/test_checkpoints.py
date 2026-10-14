@@ -76,3 +76,35 @@ def test_reject_unrelated_staged_file(tmp_path):
     git(sync.checkout, "add", "other.json")
     with pytest.raises(ValueError, match="Unrelated"):
         sync.publish()
+
+
+def test_resume_after_artifacts_staged_before_commit(tmp_path):
+    remote = tmp_path / "remote.git"
+    subprocess.run(["git", "init", "--bare", str(remote)], check=True, capture_output=True)
+    sync = GitCheckpointSync(str(remote), tmp_path / "checkout", "run", retries=1)
+    store = RunStore(sync.directory, {"fixture": True})
+    sync.preflight()
+    store.save("unit.json", b'{"saved": true}')
+    git(sync.checkout, "add", "--", "results/run/manifest.json", "results/run/unit.json")
+    sync.preflight()
+    assert not git(sync.checkout, "diff", "--cached", "--name-only")
+    assert git(sync.checkout, "rev-parse", "HEAD") in git(sync.checkout, "ls-remote", "origin", "refs/heads/results/run")
+    (sync.directory / "unregistered.json").write_text("{}")
+    git(sync.checkout, "add", "--", "results/run/unregistered.json")
+    with pytest.raises(ValueError, match="Unrelated"):
+        sync.preflight()
+
+
+def test_publish_large_registered_artifact_inventory(tmp_path):
+    remote = tmp_path / "remote.git"
+    subprocess.run(["git", "init", "--bare", str(remote)], check=True, capture_output=True)
+    sync = GitCheckpointSync(str(remote), tmp_path / "checkout", "many", retries=1)
+    sync.preflight()
+    store = RunStore(sync.directory, {"fixture": True})
+    for index in range(205):
+        store.save(f"fold-station-model-epoch-{index:05d}.json", json_bytes({"step": index}))
+    sync.publish()
+    restored_sync = GitCheckpointSync(str(remote), tmp_path / "restored", "many", retries=1)
+    restored = RunStore(restored_sync.directory, {"fixture": True})
+    assert len(restored.manifest["artifacts"]) == 205
+    assert restored.load_json("fold-station-model-epoch-00204.json") == {"step": 204}

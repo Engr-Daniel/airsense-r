@@ -98,9 +98,9 @@ def run_and_watch(command: list[str], directory: Path, cwd: Path) -> dict:
     """Display live logs and explicit status; rerunning reattaches without duplication."""
     initial = start_or_attach(command, directory, cwd)
     if initial["state"] == "complete":
-        print("COMPLETE: this verification already finished. Continue to the results cell.")
+        print("COMPLETE: this job already finished. Continue to the results cell.")
         return initial
-    print("RUNNING: attached to verification. Rerunning this cell reconnects to the same job.")
+    print("RUNNING: attached to the job. Rerunning this cell reconnects to the same job.")
     offset = 0; heartbeat = time.monotonic()
     try:
         while True:
@@ -113,11 +113,11 @@ def run_and_watch(command: list[str], directory: Path, cwd: Path) -> dict:
             current = status(directory)
             if current["state"] != "running":
                 if current["state"] != "complete":
-                    raise RuntimeError(f"{current['state'].upper()}: saved checks are retained. See the log above; rerun this cell to resume after resolving the cause.")
-                print("COMPLETE: verification finished. Continue to the results cell.")
+                    raise RuntimeError(f"{current['state'].upper()}: saved checkpoints are retained. See the log above; rerun this cell to resume after resolving the cause.")
+                print("COMPLETE: job finished. Continue to the results cell.")
                 return current
             if time.monotonic()-heartbeat > 30:
-                print("RUNNING: worker still active; waiting for the next file/condition checkpoint.", flush=True)
+                print("RUNNING: worker still active; waiting for the next progress checkpoint.", flush=True)
                 heartbeat = time.monotonic()
             time.sleep(1)
     except KeyboardInterrupt:

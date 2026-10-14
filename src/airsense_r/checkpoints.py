@@ -39,7 +39,7 @@ class GitCheckpointSync:
         self.retries = retries
         if not checkout.exists():
             checkout.parent.mkdir(parents=True, exist_ok=True)
-            result = subprocess.run(["git", "clone", "--no-checkout", remote, str(checkout)],
+            result = subprocess.run(["git", "clone", "--no-checkout", "--config", "core.autocrlf=false", remote, str(checkout)],
                                     stdout=subprocess.PIPE, stderr=subprocess.PIPE)
             if result.returncode:
                 raise RuntimeError("Cannot initialize artifact checkout")
@@ -62,8 +62,20 @@ class GitCheckpointSync:
     def preflight(self) -> None:
         """Test a real artifact-branch push before starting expensive computation."""
         staged = set(git(self.checkout, "diff", "--cached", "--name-only").splitlines())
-        if staged - {"checkpoint-branch.json"}:
-            raise ValueError("Unrelated staged changes during preflight")
+        pending = staged - {"checkpoint-branch.json"}
+        if pending:
+            manifest_path = self.directory / "manifest.json"
+            if not manifest_path.is_file():
+                raise ValueError("Unrelated staged changes during preflight")
+            manifest = json.loads(manifest_path.read_bytes())
+            store = RunStore(self.directory, manifest["provenance"])
+            allowed = {(self.directory / n).relative_to(self.checkout).as_posix()
+                       for n in ["manifest.json", *store.manifest["artifacts"]]}
+            if pending - allowed or "checkpoint-branch.json" in staged:
+                raise ValueError("Unrelated staged changes during preflight")
+            # A process may die after git add but before commit. Restage only
+            # checksum-verified registered bytes, then retry publication.
+            self.publish()
         marker = self.checkout / "checkpoint-branch.json"
         if not marker.exists():
             atomic_write(marker, json_bytes({"run_id": self.run_id, "purpose": "incremental research artifacts"}))
@@ -104,7 +116,10 @@ class GitCheckpointSync:
         staged = set(git(self.checkout, "diff", "--cached", "--name-only").splitlines())
         if staged - set(relative):
             raise ValueError("Unrelated staged changes")
-        git(self.checkout, "add", "--", *relative)
+        # A full LOSO run can register thousands of epoch references. Bounded
+        # calls avoid Windows command-line and POSIX argument-size limits.
+        for start in range(0, len(relative), 100):
+            git(self.checkout, "add", "--", *relative[start:start+100])
         self._commit_and_push()
 
 

@@ -136,12 +136,21 @@ prediction files, metrics and uncertainty. See
 
 ## P7 — Site shift
 
-- [ ] Use the tested reconnectable notebook interface with embedded settings for P7 execution
+Implementation is complete; final local regression verification is underway. The frozen experiment
+requires 12 LOSO folds and 756 learned-model fits. Live execution and scientific
+acceptance remain pending; see [docs/P7_WORKFLOW.md](docs/P7_WORKFLOW.md).
+
+- [x] Implement the reconnectable notebook interface with embedded settings for P7 execution
+- [x] Implement per-fold tuning, all-fold selection freeze and native development replay before test access
+- [x] Implement one result branch, persistent prediction references and automatic checkpoint recovery
+- [x] Declare fold-specific selection regret and paired uncertainty before P7 results
+- [ ] Complete local regression and fresh-process lifecycle verification before notebook handoff
+- [ ] Review live Colab completion, independently verify saved predictions/metrics/uncertainty, and accept P7
 - [ ] Train without held-out site(s)
 - [ ] Evaluate on unseen site(s)
 - [ ] Quantify cross-site generalization performance (do not call it a penalty without matched comparator)
 - [ ] Compare model ranking stability
-- [ ] Build `notebooks/06_p7_site_shift_analysis.ipynb`
+- [x] Build `notebooks/06_p7_site_shift_analysis.ipynb`
 
 ## P8 — Statistical and failure analysis
 

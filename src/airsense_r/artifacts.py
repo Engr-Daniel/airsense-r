@@ -49,6 +49,7 @@ def source_hash(root: Path) -> str:
              root / "configs/p5_identity.json", root / "research/P5_IMPLEMENTATION_DECISIONS.md"]
     paths.append(root / "research/P6_IMPLEMENTATION_DECISIONS.md")
     paths.append(root / "requirements-p6-review.txt")
+    paths.append(root / "research/P7_IMPLEMENTATION_DECISIONS.md")
     for path in sorted(paths):
         if path.is_file():
             digest.update(path.relative_to(root).as_posix().encode())

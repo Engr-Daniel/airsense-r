@@ -52,12 +52,28 @@ def test_job_lock_blocks_fresh_process(tmp_path):
         assert result.returncode==0,result.stderr
 
 
-def test_four_review_notebook_cells_in_fresh_process(tmp_path):
+def test_four_review_notebook_cells_in_fresh_process(tmp_path, monkeypatch):
     import nbformat
     from hashlib import sha256
     root=Path(__file__).resolve().parents[1]
     path=root/'notebooks/05b_p6_saved_result_verification.ipynb'
     n=nbformat.read(path,as_version=4); nbformat.validate(n)
+    # The published review is pinned to historical P6 source; preserve it.
+    # Exercise the current generator/worker together without rewriting that file.
+    from scripts import build_p6_review_notebook as builder
+    generated = {}
+    original_write = Path.write_text
+    def capture(path, text, *args, **kwargs):
+        if path.name == '05b_p6_saved_result_verification.ipynb':
+            generated['notebook'] = text
+            return len(text)
+        return original_write(path, text, *args, **kwargs)
+    with monkeypatch.context() as patch:
+        patch.setattr(Path, 'write_text', capture)
+        patch.setattr(sys, 'argv', ['builder', '--revision', 'a'*40])
+        builder.main()
+    n = nbformat.reads(generated['notebook'], as_version=4)
+    nbformat.validate(n)
     cells=[c.source for c in n.cells if c.cell_type=='code']
     assert len(cells)==4 and all('input(' not in c for c in cells)
     run='review-fixture-'+sha256(str(tmp_path).encode()).hexdigest()[:12]
