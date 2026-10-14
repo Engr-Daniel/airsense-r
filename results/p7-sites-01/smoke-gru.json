@@ -1,0 +1,9 @@
+{
+  "complete_units": 2,
+  "engineering_only": true,
+  "family": "gru",
+  "resume_max_abs_difference": 0.0,
+  "save_load_max_abs_difference": 0.0,
+  "score_targets": 48,
+  "training_targets": 168
+}
