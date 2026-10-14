@@ -100,6 +100,10 @@
       "bytes": 339,
       "sha256": "d2727f3d7b6681757a61e44aa0d908c2371b8fd16781f6da2b27745bb739bdd8"
     },
+    "fold-Aotizhongxin--model-refit-gru-seed42-00019.json": {
+      "bytes": 339,
+      "sha256": "7d740e55f5c4fd7689798d16c7f74386e7f84147b4106782f0e3140d521cd6ca"
+    },
     "fold-Aotizhongxin--model-refit-mlp-seed27182-00001.json": {
       "bytes": 341,
       "sha256": "92f27ea83011b76c47f06355c13cd2ca6259ccb8349e451fb339d2bfc4cc455b"
