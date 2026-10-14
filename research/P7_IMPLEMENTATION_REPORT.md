@@ -46,9 +46,19 @@ caught and corrected byte-changing Git checkout conversion, recovery after
 staging but before committing, and compatibility with P6's read-only evidence
 wrapper. Historical executed notebooks and the pinned P6 verifier are preserved.
 
-Final test counts and pinned handoff revision are recorded after the regression
-run and source publication. Live Colab installation, authorization, Drive
-durability and the full 12-station computation remain to be demonstrated.
+All **94 collected tests** are covered by passing local runs: the 91-test main
+regression run, two subsequently added regression cases, and the separate P6
+native-model/interruption/Git lifecycle test (757.30 seconds). Six focused P7
+checks passed, followed by ten notebook/bootstrap/worker checks after the final
+results-cell provenance guard. Those focused sets overlap the 94-test total.
+Only existing Keras deprecation warnings remain. The final results cell checks
+source revision, frozen protocol/configuration, dataset identity, run identity
+and persistent-storage identity before displaying results; its fixture also
+proves that mismatched provenance is rejected.
+
+Live Colab installation, authorization, Drive durability and the full 12-station
+computation remain to be demonstrated. The notebook embeds the reviewed full
+source commit; use the published pinned notebook for the live run.
 
 ## Acceptance still required
 

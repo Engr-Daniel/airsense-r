@@ -64,7 +64,10 @@ def test_p7_four_cells_fresh_process(tmp_path):
     assert len(cells) == 4 and all("input(" not in cell for cell in cells)
     run = "p7-notebook-fixture-"+sha256(str(tmp_path).encode()).hexdigest()[:12]
     output = ROOT / ".tmp/checkpoint-checkouts" / run / "results" / run
-    child = f"from pathlib import Path; from airsense_r.artifacts import RunStore,json_bytes; s=RunStore(Path({str(output)!r}),{{'fixture':True}}); s.save('complete.json',json_bytes({{'execution_complete':True}})); s.save('site-shift-report.json',json_bytes({{'synthetic_only':True}}))"
+    storage_id = "f"*32
+    (tmp_path / "storage.json").write_text(json.dumps({"storage_id": storage_id}))
+    parameters = {"phase": "P7", "run_id": run, "model_storage_id": storage_id, "synthetic_only": True}
+    child = f"from pathlib import Path; from airsense_r.artifacts import RunStore,json_bytes,provenance; s=RunStore(Path({str(output)!r}),provenance(Path({str(ROOT)!r}),{parameters!r})); s.save('complete.json',json_bytes({{'execution_complete':True}})); s.save('site-shift-report.json',json_bytes({{'synthetic_only':True}}))"
     env = {**os.environ, "AIRSENSE_NOTEBOOK_TEST_MODE": "1", "AIRSENSE_NOTEBOOK_TEST_ROOT": str(ROOT),
         "AIRSENSE_P7_TEST_MODELS": str(tmp_path), "AIRSENSE_P7_TEST_RUN": run,
         "AIRSENSE_P7_TEST_COMMAND": json.dumps([sys.executable, "-c", child])}
@@ -73,3 +76,10 @@ def test_p7_four_cells_fresh_process(tmp_path):
             env=env, capture_output=True, text=True, timeout=45)
         assert result.returncode == 0, result.stdout+result.stderr
         assert "P7 EXECUTION COMPLETE" in result.stdout
+    manifest_path = output / "manifest.json"
+    changed = json.loads(manifest_path.read_bytes())
+    changed["provenance"]["source_hash"] = "0"*64
+    manifest_path.write_text(json.dumps(changed))
+    rejected = subprocess.run([sys.executable, "-c", "from IPython.display import display\n"+"\n\n".join(cells)],
+        env=env, capture_output=True, text=True, timeout=45)
+    assert rejected.returncode != 0 and "incompatible source_hash" in rejected.stderr

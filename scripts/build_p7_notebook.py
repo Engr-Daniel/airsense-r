@@ -55,13 +55,22 @@ if TEST_MODE:
 run_and_watch(command, JOB_DIRECTORY, ROOT)
 '''
     inspect = '''import json
-from airsense_r.artifacts import RunStore
+from airsense_r.artifacts import RunStore, provenance
 from airsense_r.notebook_job import status
 if status(JOB_DIRECTORY)["state"] != "complete":
     raise RuntimeError("P7 is not finished. Rerun the preceding cell to reconnect or resume.")
 output = ROOT / ".tmp/checkpoint-checkouts" / RUN_ID / "results" / RUN_ID
 manifest = json.loads((output / "manifest.json").read_bytes())
 store = RunStore(output, manifest["provenance"])
+expected = provenance(ROOT, {})
+for key in ("source_hash", "code_commit", "config_hash", "protocol_hash", "dataset_sha256"):
+    if manifest["provenance"].get(key) != expected[key]:
+        raise RuntimeError(f"Saved P7 results have incompatible {key}; preserve them for review")
+parameters = manifest["provenance"].get("parameters", {})
+storage_id = json.loads((MODEL_DIRECTORY / "storage.json").read_bytes())["storage_id"]
+if (parameters.get("phase") != "P7" or parameters.get("run_id") != RUN_ID
+        or parameters.get("model_storage_id") != storage_id):
+    raise RuntimeError("Saved P7 results belong to a different run or persistent storage")
 completion = store.load_json("complete.json")
 if completion.get("execution_complete") is not True:
     raise RuntimeError("P7 execution completion record is missing")

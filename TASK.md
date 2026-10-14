@@ -136,7 +136,8 @@ prediction files, metrics and uncertainty. See
 
 ## P7 — Site shift
 
-Implementation is complete; final local regression verification is underway. The frozen experiment
+Implementation and local verification are complete (94 collected tests covered
+by passing runs, plus final notebook/provenance checks). The frozen experiment
 requires 12 LOSO folds and 756 learned-model fits. Live execution and scientific
 acceptance remain pending; see [docs/P7_WORKFLOW.md](docs/P7_WORKFLOW.md).
 
@@ -144,7 +145,7 @@ acceptance remain pending; see [docs/P7_WORKFLOW.md](docs/P7_WORKFLOW.md).
 - [x] Implement per-fold tuning, all-fold selection freeze and native development replay before test access
 - [x] Implement one result branch, persistent prediction references and automatic checkpoint recovery
 - [x] Declare fold-specific selection regret and paired uncertainty before P7 results
-- [ ] Complete local regression and fresh-process lifecycle verification before notebook handoff
+- [x] Complete local regression and fresh-process lifecycle verification before notebook handoff
 - [ ] Review live Colab completion, independently verify saved predictions/metrics/uncertainty, and accept P7
 - [ ] Train without held-out site(s)
 - [ ] Evaluate on unseen site(s)
