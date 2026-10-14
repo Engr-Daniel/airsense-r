@@ -1,5 +1,9 @@
 {
   "artifacts": {
+    "fold-Aotizhongxin--done-refit-gru-seed42.json": {
+      "bytes": 3352,
+      "sha256": "bfebf6f0d58d0503f3af1bc261ddc1c58721dd8a1016a654c504a6348ac79162"
+    },
     "fold-Aotizhongxin--done-refit-mlp-seed27182.json": {
       "bytes": 3364,
       "sha256": "74186e460111289be824256b48e10a7a81f0035fa3ebbcaa83faf53ec355116d"
