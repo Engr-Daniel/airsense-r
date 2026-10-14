@@ -4068,6 +4068,10 @@
       "bytes": 349,
       "sha256": "264eac2639344d90ef58b05760dbba986c3119200013ac6a3a4eae78798f91e7"
     },
+    "fold-Aotizhongxin--pred-validation-gru-27182-000.csv.reference.json": {
+      "bytes": 103,
+      "sha256": "903fcf4c377666f76d80d87e86000efbda6ca8fa5fbff9c0bb8da8e1bcbf3bee"
+    },
     "fold-Aotizhongxin--pred-validation-gru-31415-000.csv.reference.json": {
       "bytes": 103,
       "sha256": "2d3870a036d0790fcdaf057b11840ab60dfe6f0a00e09e1505f46fa1e6aeb0c5"
