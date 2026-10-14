@@ -1,5 +1,10 @@
 {
-  "artifacts": {},
+  "artifacts": {
+    "smoke-xgboost.json": {
+      "bytes": 202,
+      "sha256": "2f9a735a54dac2f45bbe7a32f1dd3911a08218f306ac5cdd935a3c9760c61775"
+    }
+  },
   "provenance": {
     "code_commit": "7278ba95c88ea28e8861f59d0a6f8e097087c9d7",
     "config": {
