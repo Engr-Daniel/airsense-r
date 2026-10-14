@@ -5104,6 +5104,10 @@
       "bytes": 349,
       "sha256": "495420122f6727a1f8b82ba33ea929c2364daf76c6073449bb2f4d29ff935053"
     },
+    "fold-Changping--score-tune-gru-small-fold0-seed27182.json": {
+      "bytes": 2152,
+      "sha256": "84ebce930835dcb1c40712d1fc0f25fa57d1b907c47644a7494c1e454bfd16f3"
+    },
     "fold-Changping--score-tune-gru-small-fold0-seed31415.json": {
       "bytes": 2152,
       "sha256": "323b08a6a6a9a25417df8d1e5b2214771ecd24d3590d6de11c8dbdb1b9f03540"
