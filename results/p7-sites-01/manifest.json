@@ -8432,6 +8432,10 @@
       "bytes": 103,
       "sha256": "c40b5e8671cbf3c4760dde0354b0210ca32a326bc8c57978a50e124e9852a7c0"
     },
+    "fold-Changping--pred-validation-gru-42-002.csv.reference.json": {
+      "bytes": 103,
+      "sha256": "ef307648d28efa2c679cb9e6413786cdbe23299c2ba3407d2b4d93a046cebaf6"
+    },
     "fold-Changping--pred-validation-mlp-27182-000.csv.reference.json": {
       "bytes": 103,
       "sha256": "d814c87d683ad8642175ff305c0147710995ee0b64fa54b1a8f1e42494cb5b6c"
