@@ -648,6 +648,10 @@
       "bytes": 2160,
       "sha256": "3b31175c5f15b65a0a81a648012ab1daf96d62943aeb9e9e7012baf12325b7d7"
     },
+    "fold-Aotizhongxin--tuning-xgboost.json": {
+      "bytes": 265,
+      "sha256": "91c1257731e970a32b611be7536b3a201d515c47c880e2b347b77f7702b802b4"
+    },
     "smoke-complete.json": {
       "bytes": 118,
       "sha256": "a09e95e7c6a7c9fa20521190a93550a49c8cfb605a5e6ef6441cea60b23edf3b"
