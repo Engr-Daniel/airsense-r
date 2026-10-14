@@ -4616,6 +4616,10 @@
       "bytes": 339,
       "sha256": "6263e8ca80890dc29355fc5c0810b7eba7ea2cdb173a98bd5cc7ac627bb90727"
     },
+    "fold-Changping--model-refit-gru-seed42-00017.json": {
+      "bytes": 339,
+      "sha256": "acfac42a6b12caa7778b65edef339dddd320934513e1e09456cb5f387ef2fd25"
+    },
     "fold-Changping--model-refit-mlp-seed27182-00001.json": {
       "bytes": 341,
       "sha256": "7aef7bcd60e1cc2be31a77685ee162e8363ded1be3ce0d173f40182492d42824"
