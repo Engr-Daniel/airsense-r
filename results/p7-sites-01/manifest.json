@@ -3656,6 +3656,10 @@
       "bytes": 103,
       "sha256": "db376fb2926925e24cb1d0c54f07f93f2196b6598f924eb0c100746efa237ed0"
     },
+    "fold-Aotizhongxin--pred-validation-mlp-42-002.csv.reference.json": {
+      "bytes": 103,
+      "sha256": "3d635ca09251972b64164f438ea2f1789fdcff1c72c5de1a76d5fb08744dfb0f"
+    },
     "fold-Aotizhongxin--pred-validation-persistence--1-000.csv.reference.json": {
       "bytes": 103,
       "sha256": "adeb2b0e4aceb7000bf0d5c8052f9a33f1e09687cab792325b4920319d89353f"
