@@ -1744,6 +1744,10 @@
       "bytes": 2110,
       "sha256": "b4030d0099289dfc7e7b049746bee7c344ba712fad9905a55800ba2361649e12"
     },
+    "fold-Aotizhongxin--score-tune-mlp-small-fold2-seed31415.json": {
+      "bytes": 2154,
+      "sha256": "f08447e14066b0b1e52477f8637386c5fe136e04cd17f97259f3bcb199275ec2"
+    },
     "fold-Aotizhongxin--score-tune-mlp-small-fold2-seed42.json": {
       "bytes": 2113,
       "sha256": "e19a91696bddaa70def043f7378b35474c7eac672e744c8d96ffd54eab38189d"
