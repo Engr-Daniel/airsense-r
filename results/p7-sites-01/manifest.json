@@ -528,6 +528,10 @@
       "bytes": 350,
       "sha256": "5f7f365ea5137d6dc18d1187bc895716e694900d7240632687342b865c9c2784"
     },
+    "fold-Aotizhongxin--model-tune-gru-small-fold1-seed42-00013.json": {
+      "bytes": 350,
+      "sha256": "42a3a759ca43aef4c638a1950b9098c65e0e14a3025bd340aee2536223019926"
+    },
     "fold-Aotizhongxin--model-tune-mlp-medium-fold0-seed27182-00001.json": {
       "bytes": 354,
       "sha256": "cf4e4b183369f132f86d3de22949301de6f88c3777896b2452ceb745c4903fc0"
