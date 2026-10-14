@@ -204,6 +204,10 @@
       "bytes": 352,
       "sha256": "bb7617e88ea8b0d1cb52ec28bb61ca123c7fe6bfe8b802a96ef251e8b983c644"
     },
+    "fold-Aotizhongxin--model-tune-xgb-medium-fold2-seed31415-00100.json": {
+      "bytes": 353,
+      "sha256": "999dd316fe2cb0386f5d694e388041b804327b26dcf0856a7d132548131911bf"
+    },
     "fold-Aotizhongxin--model-tune-xgb-medium-fold2-seed42-00025.json": {
       "bytes": 349,
       "sha256": "d359dd71bfc3056d77e1579ee4f00231d3b9cc76fa6bf72c57b0d7547090f8e7"
