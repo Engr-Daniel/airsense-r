@@ -13612,6 +13612,10 @@
       "bytes": 3329,
       "sha256": "94fee6ee6204fa048132843bf68fe413dc1a0bf92e4d2e70497dc93d7a389a9c"
     },
+    "fold-Dongsi--metrics-validation-aggregate.csv": {
+      "bytes": 270,
+      "sha256": "9ab2b2bcf1e5ba2384f1b0f1b42296e5ac49c8260b1a768fc034b511e04b54fd"
+    },
     "fold-Dongsi--metrics-validation-station-seed.csv": {
       "bytes": 8952,
       "sha256": "1fa9a44d7c148166a8e838cd2cad222537d6abd26b1cca7fedb6887982b78254"
