@@ -18116,6 +18116,10 @@
       "bytes": 352,
       "sha256": "6ecca84149716a208cd730798f8b90e21cae0d561bbbd8b6ad688c398d319b1d"
     },
+    "fold-Guanyuan--model-tune-gru-small-fold0-seed31415-00006.json": {
+      "bytes": 352,
+      "sha256": "ea424d9a9eb7ef0edd857fa60f498e77a4e46f9d5762fcc0d733ae553725ef81"
+    },
     "fold-Guanyuan--model-tune-gru-small-fold0-seed42-00001.json": {
       "bytes": 349,
       "sha256": "9b28ae56910c63281d2ea9dca367d2fb5ec34bb219ef73b4d5c4c6d31421e22c"
