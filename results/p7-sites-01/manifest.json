@@ -19560,6 +19560,10 @@
       "bytes": 2108,
       "sha256": "2c5dc0cf425f7da5efed6ed14a7b25c1f82c5f7c32a2b6d16160ed232e696a38"
     },
+    "fold-Guanyuan--score-tune-gru-medium-fold2-seed27182.json": {
+      "bytes": 2158,
+      "sha256": "38d60a337e53a8a497cc0241062c8c59799c22e8ea9a29d4319a5cd42144de17"
+    },
     "fold-Guanyuan--score-tune-gru-medium-fold2-seed31415.json": {
       "bytes": 2154,
       "sha256": "b3f91fcd03a900bceed84901a3fe997e09f400842b61f564f127f8e9795f7079"
