@@ -17568,6 +17568,10 @@
       "bytes": 103,
       "sha256": "eccae9c8d32f5aa4d835854b6fd58f6cac6f85cef12aee5f6f27dd2f9373e13a"
     },
+    "fold-Dongsi--pred-validation-gru-31415-003.csv.reference.json": {
+      "bytes": 103,
+      "sha256": "40ea45b682e102f97bc937c26fbae5c5262bed7f45b199a673db5c469c3dd7e5"
+    },
     "fold-Dongsi--pred-validation-gru-42-000.csv.reference.json": {
       "bytes": 103,
       "sha256": "175d3d020602c7473d896b26c2db83707d3bcfcf81d34b01888d5bbf2cd62423"
