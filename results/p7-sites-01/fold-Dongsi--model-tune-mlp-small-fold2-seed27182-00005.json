@@ -1,0 +1,8 @@
+{
+  "bytes": 819740,
+  "completed_units": 5,
+  "file": "step-00005-cd4bb98bf03a2100eac00c696d914a359eec587378398807c508ecaeae888b71.keras",
+  "identity_hash": "56ad8fe2ac59ef410726126a41e3502e4bf5ce19a321bdc2099ac5acf4c85f9f",
+  "sha256": "cd4bb98bf03a2100eac00c696d914a359eec587378398807c508ecaeae888b71",
+  "task": "tune-mlp-small-fold2-seed27182"
+}
