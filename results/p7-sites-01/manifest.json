@@ -13652,6 +13652,10 @@
       "bytes": 350,
       "sha256": "8d95027c35e7658ec8d70a45bf3af88cacbba0dc0ecee363d257d61a76ce8719"
     },
+    "fold-Dongsi--score-tune-gru-small-fold0-seed42.json": {
+      "bytes": 2115,
+      "sha256": "9a362993bb4552dd8a1b63759a96d41d3025454506218a26af7aac85a9fac8d0"
+    },
     "smoke-complete.json": {
       "bytes": 118,
       "sha256": "a09e95e7c6a7c9fa20521190a93550a49c8cfb605a5e6ef6441cea60b23edf3b"
