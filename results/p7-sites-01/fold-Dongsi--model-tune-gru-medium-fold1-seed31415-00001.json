@@ -1,0 +1,8 @@
+{
+  "bytes": 296065,
+  "completed_units": 1,
+  "file": "step-00001-b8b08bc095e14f5043fb636e659b5fea752b1d85841cc5928e20c465a34c198c.keras",
+  "identity_hash": "9a612d454ca0f2b31774fe4c19d24243146296c1d64f53d38ec46da29ecbcf90",
+  "sha256": "b8b08bc095e14f5043fb636e659b5fea752b1d85841cc5928e20c465a34c198c",
+  "task": "tune-gru-medium-fold1-seed31415"
+}
