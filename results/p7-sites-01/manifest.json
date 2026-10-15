@@ -12948,6 +12948,10 @@
       "bytes": 349,
       "sha256": "005136629efd130e324dddee38a173933801443fac4faddfcc22337aab5b7445"
     },
+    "fold-Dingling--pred-validation-gru-42-000.csv.reference.json": {
+      "bytes": 103,
+      "sha256": "b13d924b6d825a8a2acdf5c444fde96c1b8a4c24a90a535481f784f6a4459453"
+    },
     "fold-Dingling--pred-validation-mlp-27182-000.csv.reference.json": {
       "bytes": 103,
       "sha256": "f7dfe138c323ab5a1d4f6c5444ade54904a0213dfe1282518b7d236b701134f4"
