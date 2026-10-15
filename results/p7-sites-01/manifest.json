@@ -14876,6 +14876,10 @@
       "bytes": 2112,
       "sha256": "e6f98583d0d7139872989f778b87fcc818a747b2e78b760507cced829fde9227"
     },
+    "fold-Dongsi--score-tune-gru-medium-fold2-seed42.json": {
+      "bytes": 2122,
+      "sha256": "5edbee73706a04e06e7edad1f089eab1b0fccb80387d63eecec38dd48f8a8749"
+    },
     "fold-Dongsi--score-tune-gru-small-fold0-seed27182.json": {
       "bytes": 2158,
       "sha256": "1e21b1450400e735b6c9eee618e09685d4be58a2382c7737bd30bc5c7afbf64c"
