@@ -9088,6 +9088,10 @@
       "bytes": 338,
       "sha256": "bc3fa8899a16de4f1a5fc8450a492c1d326dccda7fa9ec0e3740472da76ae0df"
     },
+    "fold-Dingling--model-refit-gru-seed42-00004.json": {
+      "bytes": 338,
+      "sha256": "868930b30dc2904ac2be7fee9be40ee211d0432d0e37c048e517c0ec2b3d03d2"
+    },
     "fold-Dingling--model-refit-mlp-seed27182-00001.json": {
       "bytes": 341,
       "sha256": "2e3a583a755fd6fb1e94c2b0e1f7edebc00b5695f75a1ab4a9aeadffb2cb4039"
