@@ -1,0 +1,95 @@
+{
+  "near_ties": [
+    "persistence",
+    "xgboost",
+    "mlp",
+    "gru"
+  ],
+  "partition": "validation",
+  "provenance_hash": "fdcae9b538f4bfadd3d1aa69799b37f1178526199ac953b8e391f56028be330d",
+  "rule": "mean_seed_metric_within_station_then_equal_station_mae",
+  "selected_configs": {
+    "gru": {
+      "epochs": 20,
+      "head_units": 16,
+      "id": "gru-medium",
+      "learning_rate": 0.001,
+      "units": 64
+    },
+    "mlp": {
+      "epochs": 20,
+      "hidden": [
+        64,
+        32
+      ],
+      "id": "mlp-small",
+      "learning_rate": 0.001
+    },
+    "xgboost": {
+      "eta": 0.05,
+      "id": "xgb-medium",
+      "max_depth": 6,
+      "rounds": 200
+    }
+  },
+  "selected_family": "persistence",
+  "threshold": 1.0,
+  "validation_artifacts": {
+    "pred-validation-gru-27182-000.csv": "20bbc80066db30a84d23f6538d1fe52c1090baedf72dd2c5ab60e4a9af25efb7",
+    "pred-validation-gru-27182-001.csv": "8605222cc00a60a9b3f7f3fbf12a5cd9cee3a8fb35140a4f51cbca333c8c6c93",
+    "pred-validation-gru-27182-002.csv": "cd16e07b42d760026d93eacec2a51f5aac846271dd30057578c27b7efd14c424",
+    "pred-validation-gru-27182-003.csv": "ce814c2362030d92677809129d00ea394cb8a2667b7ef2dde533f3026457db50",
+    "pred-validation-gru-27182-004.csv": "fb345c27d0205b4a352a9af3caec13321cf3d41ad4be8119e0533627f5911e14",
+    "pred-validation-gru-31415-000.csv": "19f3d72973e6669414008344489a93ff8fc675aea82bcd81daa6cc04fca8d453",
+    "pred-validation-gru-31415-001.csv": "a7b22da4753552b5d5ebd8c85d94bd39757b1bcb185f6a8e7357975f22591c69",
+    "pred-validation-gru-31415-002.csv": "b6eb3334ff8dbe9bbeff76a3580bfa9918edb554c533c513cfbf62ae159c1069",
+    "pred-validation-gru-31415-003.csv": "d2ba74e9f7fed43bd4032a4496be124f6bd3c05bbccf959f77d5981963b103fa",
+    "pred-validation-gru-31415-004.csv": "5305cb8657f1269249c5e054d130e30777ad33be2cef3559ae6899a195b955dd",
+    "pred-validation-gru-42-000.csv": "7101dc5ccdecf59e2813328a2b00ee19801f927b554e8ba8d79316663c30bf8d",
+    "pred-validation-gru-42-001.csv": "1264b09ef4212d1e582c57f5e1cfc3a630eea9e4e797e28c10f37cbd7bc8db71",
+    "pred-validation-gru-42-002.csv": "eb2e9bc9f7f06247c19d50cd2782fb0843f2cf788250454a9256fe04f9b4a076",
+    "pred-validation-gru-42-003.csv": "8bfa4e26c51becb18053db01948a6919df78da9be668f4c2a1722eac2e587147",
+    "pred-validation-gru-42-004.csv": "bf4b17ac020a9520a2cb355963803a380099e569409920c1e468ea26ba56425e",
+    "pred-validation-mlp-27182-000.csv": "bffb76fa0be4fd3051386622bc45aa528d7c44f30b6328e069f290b25bacde74",
+    "pred-validation-mlp-27182-001.csv": "a5b7d2062285af07dfaeef27f9ab0b687ae5f0fbb2643050d39b0ef9ac0c0b0a",
+    "pred-validation-mlp-27182-002.csv": "9a7ad899702cc9dd0cb316a0da23d9b18ffb910658bbcf470d20bf000835645b",
+    "pred-validation-mlp-27182-003.csv": "c599e33822b0b62b254f8e39de26b09685096f009904ec49ddccd58e297f0aa2",
+    "pred-validation-mlp-27182-004.csv": "5cd1ff09c307078bc2283cbc8a6cf2891d27e0d9f8442ae56de09cf31ac23e82",
+    "pred-validation-mlp-31415-000.csv": "9ef064e1a5a8ac60b5e112d10dfecc41c2d80674b559051f31a6cd2ade8d68cf",
+    "pred-validation-mlp-31415-001.csv": "64b59e9d806eb48e5357a598b10a3aca9b50b248e650f13b1a785c47cb5338df",
+    "pred-validation-mlp-31415-002.csv": "b089eba1f30532223462fa7f171ce096427ad8c618ecace1e61419e4b9b8935d",
+    "pred-validation-mlp-31415-003.csv": "a78f3a3e95589d76acdd6b90ec97c8b0d0e4ddbee5dbb39a1432398b567d63c0",
+    "pred-validation-mlp-31415-004.csv": "dfd0a8528720def8dae0d49e638aa51c5f080c4df17c327eb3d107fcd438420a",
+    "pred-validation-mlp-42-000.csv": "45a8433d674a30ece5ca784d99144f65d114ba90c373791849c5aba41e35966d",
+    "pred-validation-mlp-42-001.csv": "de353ca45fe1522e40e171ebb0eeade9c5d8cc0dce035defd28203bdb44c7862",
+    "pred-validation-mlp-42-002.csv": "1bf15b258864e48fed79f0e7a37180825ebdd36ea6fce76a9f691a7fcbd08e97",
+    "pred-validation-mlp-42-003.csv": "5774207dc4fb682173a7dc116278b6555a863037cf43c62b4ad6a025dac9b053",
+    "pred-validation-mlp-42-004.csv": "ca3b37e6869f23dc5a554f9fcdeca2dda55267ccabc73e5a461ba57fc9f21bbf",
+    "pred-validation-persistence--1-000.csv": "ce4ef2f89be176860830365bd0ce2b8176b6fc15686096568c465a44eedf01e9",
+    "pred-validation-persistence--1-001.csv": "c992396d183ba008925673739e4e149a3035e3618ac523a516e133bac3fdd7ce",
+    "pred-validation-persistence--1-002.csv": "eefa5c2921100250e78924897e3bdea3da0cd7deea310ad1239332eacba82e05",
+    "pred-validation-persistence--1-003.csv": "5b7dd3d4f846b8d5a642918948a39b103d86c9d74b0cd105c1d11d8c73a120b3",
+    "pred-validation-persistence--1-004.csv": "372bee0ae0188ebd2ce28ec9b9cbedd6ce0fefc56099d6f21503f70f883d9341",
+    "pred-validation-xgboost-27182-000.csv": "1687756171d718f7c85768e03c6e118018669f1487cf0f9e1f7ff0de4e3dd378",
+    "pred-validation-xgboost-27182-001.csv": "a725941c88b7961309a5405a787dd7e1eb40f734428d02c0c9d42941fc041b3a",
+    "pred-validation-xgboost-27182-002.csv": "e308353e73cd5cbfa01cd19dc8362ae64da501bd647607a8b8eb81e73c6816c6",
+    "pred-validation-xgboost-27182-003.csv": "6ef3223852c8254a37b3e1297c290c39a31ad49f152fcbef96ddb34bd2f0b72a",
+    "pred-validation-xgboost-27182-004.csv": "d08200d52297fc97a18be907df25cfb7e31890ab96bcae4355001b7f5d1043cc",
+    "pred-validation-xgboost-31415-000.csv": "d4412686184de005a0584d61501a2a66d51fcbb2846690a5d56a3fe5c542cafc",
+    "pred-validation-xgboost-31415-001.csv": "0a4092baa72d72e3715898e41afe037244f90ff3a5129c76cce2871d9d2f5c2e",
+    "pred-validation-xgboost-31415-002.csv": "c03c12ed2f09a2e562ab51ba8d268df7b2ae6db27ee6bf779e3903c7c39085bb",
+    "pred-validation-xgboost-31415-003.csv": "47b676be622255d01172530143128d608129a675a6c2a61e0007faffb9326c64",
+    "pred-validation-xgboost-31415-004.csv": "beca8b049e934eda11aefd90037292532fc9ba0d21b7ff8f5f5bf3cbf485a89c",
+    "pred-validation-xgboost-42-000.csv": "d78583cf3c5c42a89d709fddce49296be608b0beb9c8c9b0d86cc7923ff205e1",
+    "pred-validation-xgboost-42-001.csv": "e7de3f7ad17a89821e8c78594b3e1f87cc4e496f972f99a6b42869c78ffce783",
+    "pred-validation-xgboost-42-002.csv": "69c6b688ff3d5a1d239089832b3ecaec72cf9971b0314170cbe9c90b9e8ceac3",
+    "pred-validation-xgboost-42-003.csv": "90bfe9bc3fbc0be22253e8e8d3110ff35077f3db2c76a519726f5214ce95c310",
+    "pred-validation-xgboost-42-004.csv": "2776ce4080e547c5b87719427c0a59bc6b3526ad2ea7c243797e8d52d93dfbfd"
+  },
+  "validation_mae": {
+    "gru": 9.95843230001619,
+    "mlp": 10.619807049158872,
+    "persistence": 10.065886161821938,
+    "xgboost": 9.69648494786373
+  }
+}
