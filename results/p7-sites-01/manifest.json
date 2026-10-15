@@ -10008,6 +10008,10 @@
       "bytes": 350,
       "sha256": "42497eaa768274214e6592b4fb366702e54bb73a802a3a49041230c565e5be2e"
     },
+    "fold-Dingling--model-tune-gru-small-fold2-seed42-00001.json": {
+      "bytes": 349,
+      "sha256": "ae24b95ceafafe944db1f30ff663735b40ba1d7629f5bc5beec594c3ea28221a"
+    },
     "fold-Dingling--score-tune-gru-medium-fold0-seed27182.json": {
       "bytes": 2151,
       "sha256": "87604777332a3b7762b91a2f318d92ca11a22fb74f682cf57adfb97bc26c1534"
