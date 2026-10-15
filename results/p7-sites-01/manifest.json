@@ -13584,6 +13584,10 @@
       "bytes": 350,
       "sha256": "3f6e85e41d1c76e96898e4336ffd0d2815aa237af7a6b50dc0c9a48c9950472d"
     },
+    "fold-Dongsi--model-tune-gru-medium-fold0-seed42-00004.json": {
+      "bytes": 350,
+      "sha256": "38ede0bdb7ddae83e9398e5b94e613db1b6950f2ae7f83f87398c037af0e59d4"
+    },
     "fold-Dongsi--model-tune-gru-small-fold0-seed27182-00001.json": {
       "bytes": 352,
       "sha256": "d1f53bd452d0a0f3d3eac9c23b8b75d99392f9e167306405be25d39e1fa4ee84"
