@@ -1,0 +1,14 @@
+{
+  "scores": {
+    "xgb-medium": 9.894799909012015,
+    "xgb-small": 10.355003369111511
+  },
+  "selected_config": {
+    "eta": 0.05,
+    "id": "xgb-medium",
+    "max_depth": 6,
+    "rounds": 200
+  },
+  "target_scope": "training only",
+  "tiebreak": "listed order"
+}
