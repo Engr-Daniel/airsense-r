@@ -19576,6 +19576,10 @@
       "bytes": 350,
       "sha256": "65bc5990d9d05af0931b1ffbb05d79cdfeaae3af6ea8f3142a344b4ac4033834"
     },
+    "fold-Guanyuan--model-tune-mlp-small-fold0-seed42-00011.json": {
+      "bytes": 350,
+      "sha256": "8745827cbf9da95ac535defd84992511c4549df14fd9d0c824205fa529596b4a"
+    },
     "fold-Guanyuan--score-tune-gru-medium-fold0-seed27182.json": {
       "bytes": 2148,
       "sha256": "0feba03e47aa2acaaea22cea0bdd70c42cecc6c9f0b621967404c520208b06bd"
