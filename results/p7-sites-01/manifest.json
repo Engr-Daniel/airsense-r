@@ -13664,6 +13664,10 @@
       "bytes": 339,
       "sha256": "09b03d4174a6cdbd254317146f7a3cc540ccc5c9d80e38cb4e6350f653d210b6"
     },
+    "fold-Dongsi--model-refit-gru-seed42-00017.json": {
+      "bytes": 339,
+      "sha256": "104273437a12690b6d04b23600f60320a7128e413ef0faebdc5e80bb169306f5"
+    },
     "fold-Dongsi--model-refit-mlp-seed27182-00001.json": {
       "bytes": 341,
       "sha256": "1895af1c363835fa9db120974a3247772d0cb0547c644bde27ab56ae4a4b0311"
