@@ -15544,6 +15544,10 @@
       "bytes": 350,
       "sha256": "06aa300eacaf587410761685cccf498a28d58c9da42e428275e2387ad9132951"
     },
+    "fold-Dongsi--model-tune-mlp-small-fold1-seed42-00014.json": {
+      "bytes": 350,
+      "sha256": "63a81e6d4bb09c2a57b81b6d87f73e6a37f7ac0fb81264c7fd34952fe7cf9235"
+    },
     "fold-Dongsi--score-tune-gru-medium-fold0-seed27182.json": {
       "bytes": 2153,
       "sha256": "7ad7d476567066e0b611f4bfc87fd353515df2eecdc1c41085e377b817d4e36c"
