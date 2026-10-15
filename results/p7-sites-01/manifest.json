@@ -9088,6 +9088,10 @@
       "bytes": 3337,
       "sha256": "df853767fcb51d6c615c11107139ec7c9bb8664c7dad8c001aed9b4ca216e3fd"
     },
+    "fold-Dingling--metrics-validation-aggregate.csv": {
+      "bytes": 265,
+      "sha256": "c5ef386f5b2ad60918846a9d643a593b1975add64c570de7de9cb8750bd637d1"
+    },
     "fold-Dingling--metrics-validation-station-seed.csv": {
       "bytes": 8959,
       "sha256": "ea5216c0df9a55a4694a888ce5c7b9b8bdb1b87d695cc83508530d03973ae93c"
