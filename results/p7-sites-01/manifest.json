@@ -27244,6 +27244,10 @@
       "bytes": 339,
       "sha256": "f00980fb820a8cfb10c2b1fef1060a6227be3dc79c64cc3e3228cab21aaa5710"
     },
+    "fold-Huairou--model-refit-gru-seed42-00019.json": {
+      "bytes": 339,
+      "sha256": "353a6346fb64a916d9d06edb45385f1384d0fa15a14288a796c4fba8cacbd16e"
+    },
     "fold-Huairou--model-refit-mlp-seed27182-00001.json": {
       "bytes": 341,
       "sha256": "e19f96bb1015292b890a41877a0402ddef9a21c9affc36773e5cb62aaf26520b"
