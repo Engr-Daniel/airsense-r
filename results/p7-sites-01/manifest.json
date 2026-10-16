@@ -18136,6 +18136,10 @@
       "bytes": 3335,
       "sha256": "8887faf3b7c0cba0200b381254cc2191df187993caa8c34270d6a69dc7f644d4"
     },
+    "fold-Guanyuan--metrics-validation-station-seed.csv": {
+      "bytes": 8944,
+      "sha256": "30120e37038e36e45712c5a70a349c4ba4575d03fd65b454fd589b283c6fbb24"
+    },
     "fold-Guanyuan--model-refit-gru-seed27182-00001.json": {
       "bytes": 341,
       "sha256": "adb926f7325cc30b25bc0b033a0b208df9d7050acfecd065057973412a66700a"
