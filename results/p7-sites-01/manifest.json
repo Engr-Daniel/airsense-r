@@ -18128,6 +18128,10 @@
       "bytes": 342,
       "sha256": "df429f662523e931f8f604a3828df9f625809911624192233777a96fc3b4c8e7"
     },
+    "fold-Guanyuan--model-refit-xgboost-seed42-00200.json": {
+      "bytes": 342,
+      "sha256": "74360c95b3353004d88b51591e16d53d5949d9b985699f5439f42abb84ef90ed"
+    },
     "fold-Guanyuan--model-tune-gru-medium-fold0-seed27182-00001.json": {
       "bytes": 353,
       "sha256": "6a7a1cca5468c90ab14c49da2debcca3bf499ae36e2b72b25eb81aaaec5270f0"
