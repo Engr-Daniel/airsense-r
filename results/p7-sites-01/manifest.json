@@ -22660,6 +22660,10 @@
       "bytes": 3331,
       "sha256": "71433a6a4fc9cdbb60142ec3e71a3e760ad5e689502cde1a8d83595395ca42e9"
     },
+    "fold-Gucheng--metrics-validation-aggregate.csv": {
+      "bytes": 266,
+      "sha256": "1615ba1b1b19c59f84439fb1dc474cc9061def220cde7d31d1b06ee6d44779b6"
+    },
     "fold-Gucheng--metrics-validation-station-seed.csv": {
       "bytes": 8962,
       "sha256": "803d45956129fb563a67343fb48f2563a650a92ea346e4b40d244ed5b79e7bc0"
