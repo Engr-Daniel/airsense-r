@@ -22724,6 +22724,10 @@
       "bytes": 342,
       "sha256": "2e09e72a506b2de3b96c83f850d2ff97cb5bdedce4a66f097709e6eb5587507f"
     },
+    "fold-Gucheng--model-refit-gru-seed31415-00019.json": {
+      "bytes": 342,
+      "sha256": "ea2197c2cee017f57382ba976e9a1afa1669837b496b11bb608bd42441b77154"
+    },
     "fold-Gucheng--model-refit-gru-seed42-00001.json": {
       "bytes": 338,
       "sha256": "1519c98c4919c7871cefd71f05e50bb5d5d0d65997ee6446c2cdc32f07adb5df"
