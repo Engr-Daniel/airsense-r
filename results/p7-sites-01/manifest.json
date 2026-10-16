@@ -20776,6 +20776,10 @@
       "bytes": 2109,
       "sha256": "c9bd60bf9779be539d09c7002848656e3d3a3eac692a3cd1b28990b9371a7253"
     },
+    "fold-Guanyuan--score-tune-mlp-small-fold2-seed31415.json": {
+      "bytes": 2152,
+      "sha256": "5fffcf2f3573cd7cfebf1e70692680ccb4e96382d5efd649630ea96a89bed7c4"
+    },
     "fold-Guanyuan--score-tune-mlp-small-fold2-seed42.json": {
       "bytes": 2123,
       "sha256": "15526f3b7d576f9544aef2195968e7bf8dd770f41b02a56ddbf16a04071701bd"
