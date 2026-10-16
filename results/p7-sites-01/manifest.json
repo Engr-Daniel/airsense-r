@@ -28180,6 +28180,10 @@
       "bytes": 353,
       "sha256": "9e37536f5bb5bef7b0fe36d3b7aab3195f190bb3d4727ce14f88d4c8b026698f"
     },
+    "fold-Huairou--model-tune-gru-small-fold2-seed27182-00020.json": {
+      "bytes": 353,
+      "sha256": "e15ddd58e649c25725c4afc6ec91fc8915ad36ca56f90d8bb55aa98e98452ed9"
+    },
     "fold-Huairou--model-tune-gru-small-fold2-seed31415-00001.json": {
       "bytes": 352,
       "sha256": "6d086f22bbd5c894ee79f6ab18df867e6bc25313ac1901240e4a44d86942f3ec"
