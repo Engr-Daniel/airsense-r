@@ -1,0 +1,15 @@
+{
+  "scores": {
+    "gru-medium": 10.432991637217981,
+    "gru-small": 13.563427274483367
+  },
+  "selected_config": {
+    "epochs": 20,
+    "head_units": 16,
+    "id": "gru-medium",
+    "learning_rate": 0.001,
+    "units": 64
+  },
+  "target_scope": "training only",
+  "tiebreak": "listed order"
+}
