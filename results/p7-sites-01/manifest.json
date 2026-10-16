@@ -22620,6 +22620,10 @@
       "bytes": 265,
       "sha256": "cfed8f53700f880acbe3d00e12b4c301ad0cf015311c1aa1d16861edf940e2fd"
     },
+    "fold-Gucheng--done-refit-persistence-seed-1.json": {
+      "bytes": 44,
+      "sha256": "d04e93a063558170315b5c4af249d529a495280cc166730cc388119fb97718ce"
+    },
     "fold-Gucheng--model-tune-gru-medium-fold0-seed27182-00001.json": {
       "bytes": 353,
       "sha256": "f7b46af159d6db3139e47933fa3c4072afcd703b43191e246caf4c6d82ec3b14"
