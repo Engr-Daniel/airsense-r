@@ -1,0 +1,107 @@
+{
+  "candidate": "gru-small",
+  "fold": 1,
+  "mean_station_mae": 8.451227512561191,
+  "seed": 31415,
+  "station_metrics": [
+    {
+      "mae": 9.0970136553,
+      "model": "gru",
+      "n": 2916,
+      "r2": 0.9582564554,
+      "rmse": 15.4356364348,
+      "seed": 31415,
+      "station": "Aotizhongxin"
+    },
+    {
+      "mae": 8.4025248138,
+      "model": "gru",
+      "n": 2836,
+      "r2": 0.960374271,
+      "rmse": 15.2721277909,
+      "seed": 31415,
+      "station": "Changping"
+    },
+    {
+      "mae": 7.2777213169,
+      "model": "gru",
+      "n": 2896,
+      "r2": 0.9746770893,
+      "rmse": 12.1309473038,
+      "seed": 31415,
+      "station": "Dingling"
+    },
+    {
+      "mae": 8.4798811944,
+      "model": "gru",
+      "n": 2938,
+      "r2": 0.9719158424,
+      "rmse": 12.6754560256,
+      "seed": 31415,
+      "station": "Dongsi"
+    },
+    {
+      "mae": 9.0726587606,
+      "model": "gru",
+      "n": 2828,
+      "r2": 0.9642390038,
+      "rmse": 14.1932364367,
+      "seed": 31415,
+      "station": "Guanyuan"
+    },
+    {
+      "mae": 8.5459203889,
+      "model": "gru",
+      "n": 2932,
+      "r2": 0.9696115862,
+      "rmse": 12.8086804761,
+      "seed": 31415,
+      "station": "Gucheng"
+    },
+    {
+      "mae": 8.0837945321,
+      "model": "gru",
+      "n": 2894,
+      "r2": 0.9748484282,
+      "rmse": 12.320178383,
+      "seed": 31415,
+      "station": "Nongzhanguan"
+    },
+    {
+      "mae": 8.2613654791,
+      "model": "gru",
+      "n": 2858,
+      "r2": 0.9672494955,
+      "rmse": 12.651046483,
+      "seed": 31415,
+      "station": "Shunyi"
+    },
+    {
+      "mae": 8.7045350113,
+      "model": "gru",
+      "n": 2881,
+      "r2": 0.966170465,
+      "rmse": 12.7647813856,
+      "seed": 31415,
+      "station": "Tiantan"
+    },
+    {
+      "mae": 8.4558988354,
+      "model": "gru",
+      "n": 2926,
+      "r2": 0.9707795613,
+      "rmse": 12.9382092643,
+      "seed": 31415,
+      "station": "Wanliu"
+    },
+    {
+      "mae": 8.5821886504,
+      "model": "gru",
+      "n": 2892,
+      "r2": 0.9605144612,
+      "rmse": 13.2042347574,
+      "seed": 31415,
+      "station": "Wanshouxigong"
+    }
+  ]
+}
