@@ -26536,6 +26536,10 @@
       "bytes": 103,
       "sha256": "4030ed31ed02062083f67efe70eb6a9395e9b33599c50b6b912a47756f08e333"
     },
+    "fold-Gucheng--pred-validation-gru-42-004.csv.reference.json": {
+      "bytes": 103,
+      "sha256": "abeef02bd94305792c7c0c306ae3ca5cc44950ca7ba56462218c438874321964"
+    },
     "fold-Gucheng--pred-validation-mlp-27182-000.csv.reference.json": {
       "bytes": 103,
       "sha256": "225218ad22bf5359f6bc3e55758d43c4bafe65a9ae3a9cd21bcb416a8077aaa5"
