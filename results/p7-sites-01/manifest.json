@@ -22164,6 +22164,10 @@
       "bytes": 349,
       "sha256": "cfec85e942e74f3e5b37b777ca899637d0173dde8b8866c229e616c6dc74e782"
     },
+    "fold-Guanyuan--pred-validation-gru-27182-000.csv.reference.json": {
+      "bytes": 103,
+      "sha256": "22545e21aa33951deb293b1f428df089bfbd567b7840e8f56bc1978c340823dd"
+    },
     "fold-Guanyuan--pred-validation-gru-31415-000.csv.reference.json": {
       "bytes": 103,
       "sha256": "a846eaeb491798b2b927acbbdbd00e02b85643bec7bbb214a2d07a34669f8047"
