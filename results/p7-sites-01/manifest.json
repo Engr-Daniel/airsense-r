@@ -18124,6 +18124,10 @@
       "bytes": 3335,
       "sha256": "8887faf3b7c0cba0200b381254cc2191df187993caa8c34270d6a69dc7f644d4"
     },
+    "fold-Guanyuan--model-refit-gru-seed42-00001.json": {
+      "bytes": 338,
+      "sha256": "848eb5482f11c27af6286f3f9296e46c92f4c9ff80e83db3c86c04b84dfe537f"
+    },
     "fold-Guanyuan--model-refit-mlp-seed27182-00001.json": {
       "bytes": 341,
       "sha256": "e011f641440de258abf2f5ce2ee2ae6bf1d372962e1a5304c71a91255b739f70"
