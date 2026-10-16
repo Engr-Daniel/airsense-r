@@ -24616,6 +24616,10 @@
       "bytes": 353,
       "sha256": "6f9dfbc89e5e8e8e3fc771b742332458e9c14e2ad826f8693cf8cacba435ab55"
     },
+    "fold-Gucheng--model-tune-mlp-small-fold1-seed27182-00020.json": {
+      "bytes": 353,
+      "sha256": "8980fc5debc724084d31cf7c7553b5e7cd7c3cc4864b51dfa2c7b9214971cfbe"
+    },
     "fold-Gucheng--model-tune-mlp-small-fold1-seed31415-00001.json": {
       "bytes": 352,
       "sha256": "5505bbde01625006ab6069efbcae6477c4da42a12b4e06cbdf5fb4b0db2de3ac"
