@@ -20544,6 +20544,10 @@
       "bytes": 353,
       "sha256": "954143443b33ef92de52ab8a04e9f7a93639f0325b3b76eb101caee526723d8a"
     },
+    "fold-Guanyuan--model-tune-mlp-small-fold2-seed27182-00013.json": {
+      "bytes": 353,
+      "sha256": "f6745a4f1583ba5b167ffd9b771917230352f243ded02314840f72b9c80db5a9"
+    },
     "fold-Guanyuan--model-tune-mlp-small-fold2-seed31415-00001.json": {
       "bytes": 352,
       "sha256": "7a0d22ca869c6de7d7413ee923385e568f58d8839b12aaf446cefc88ca6f6715"
