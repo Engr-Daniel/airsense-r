@@ -22636,6 +22636,10 @@
       "bytes": 341,
       "sha256": "093c7b549eeeae642a7dfa40a2153cf73f9cc78cd17a2af70a71b6fdaf19770b"
     },
+    "fold-Gucheng--model-refit-xgboost-seed42-00100.json": {
+      "bytes": 342,
+      "sha256": "95c4536bac05d9ac7bdf05be4f8755a24a2a7a7c420715461e6e801446934060"
+    },
     "fold-Gucheng--model-tune-gru-medium-fold0-seed27182-00001.json": {
       "bytes": 353,
       "sha256": "f7b46af159d6db3139e47933fa3c4072afcd703b43191e246caf4c6d82ec3b14"
