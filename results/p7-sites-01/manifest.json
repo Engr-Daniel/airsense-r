@@ -22588,6 +22588,10 @@
       "bytes": 2159,
       "sha256": "b53e6129bba157651cc338ee7393174888001d9c4dcc7dfaa1f4cdd109330de1"
     },
+    "fold-Guanyuan--selection.json": {
+      "bytes": 6422,
+      "sha256": "87f64eae5483219f2ceaad58c116ac1e3dcedcdfbddf1de8f2ba3a95b5dd8edb"
+    },
     "fold-Guanyuan--tuning-gru.json": {
       "bytes": 296,
       "sha256": "2be5f3bdb0b504d7b244dc21fd4df8a776f99c8f570baf84261aef9d8b8c7541"
