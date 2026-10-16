@@ -27184,6 +27184,10 @@
       "bytes": 3333,
       "sha256": "18944c2546847c578993f970c05a852b7272765e0ca003fd3aabd6398c631155"
     },
+    "fold-Huairou--metrics-validation-station-seed.csv": {
+      "bytes": 8972,
+      "sha256": "86ead03cc3d9f1e0e6f5d56543ee5309f4501728553aaff619a81af16848a40c"
+    },
     "fold-Huairou--model-refit-gru-seed27182-00001.json": {
       "bytes": 341,
       "sha256": "2c014ed1af6c130b552abec2e84a156033441fb63f5df49220fee3c6b1e210b2"
