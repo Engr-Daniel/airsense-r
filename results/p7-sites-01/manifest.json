@@ -22696,6 +22696,10 @@
       "bytes": 351,
       "sha256": "6551d8a890c556f6b64b39164caee50ed18d62df3d8ddd655a8bd49fda7f5683"
     },
+    "fold-Gucheng--model-tune-gru-medium-fold0-seed42-00020.json": {
+      "bytes": 351,
+      "sha256": "a2bdc6c2bf25354c5acd922d2e2015aacfb36898e97e243a6fb7e089edd329e7"
+    },
     "fold-Gucheng--model-tune-gru-small-fold0-seed27182-00001.json": {
       "bytes": 352,
       "sha256": "026733c29365e9dcad0dc7d6d553d5a0d1a017daad00626e796dac38691cf5fb"
