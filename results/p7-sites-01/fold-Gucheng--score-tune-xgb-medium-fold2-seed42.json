@@ -1,0 +1,107 @@
+{
+  "candidate": "xgb-medium",
+  "fold": 2,
+  "mean_station_mae": 11.013381119911413,
+  "seed": 42,
+  "station_metrics": [
+    {
+      "mae": 10.6333926512,
+      "model": "xgboost",
+      "n": 2503,
+      "r2": 0.9507351592,
+      "rmse": 19.6824127091,
+      "seed": 42,
+      "station": "Aotizhongxin"
+    },
+    {
+      "mae": 12.2497312043,
+      "model": "xgboost",
+      "n": 2833,
+      "r2": 0.9288598214,
+      "rmse": 21.6321288265,
+      "seed": 42,
+      "station": "Changping"
+    },
+    {
+      "mae": 10.6377113317,
+      "model": "xgboost",
+      "n": 2849,
+      "r2": 0.9311141276,
+      "rmse": 21.5031973072,
+      "seed": 42,
+      "station": "Dingling"
+    },
+    {
+      "mae": 11.7621610594,
+      "model": "xgboost",
+      "n": 2829,
+      "r2": 0.9515193242,
+      "rmse": 20.7027121501,
+      "seed": 42,
+      "station": "Dongsi"
+    },
+    {
+      "mae": 10.1904736365,
+      "model": "xgboost",
+      "n": 2843,
+      "r2": 0.9509020779,
+      "rmse": 18.8205060122,
+      "seed": 42,
+      "station": "Guanyuan"
+    },
+    {
+      "mae": 8.6773359923,
+      "model": "xgboost",
+      "n": 2836,
+      "r2": 0.9397111739,
+      "rmse": 17.8972655543,
+      "seed": 42,
+      "station": "Huairou"
+    },
+    {
+      "mae": 12.460523035,
+      "model": "xgboost",
+      "n": 2818,
+      "r2": 0.9483249908,
+      "rmse": 23.554637622,
+      "seed": 42,
+      "station": "Nongzhanguan"
+    },
+    {
+      "mae": 11.4434664843,
+      "model": "xgboost",
+      "n": 2831,
+      "r2": 0.9428681519,
+      "rmse": 20.9522022254,
+      "seed": 42,
+      "station": "Shunyi"
+    },
+    {
+      "mae": 11.2409173662,
+      "model": "xgboost",
+      "n": 2741,
+      "r2": 0.9546613569,
+      "rmse": 19.3546561451,
+      "seed": 42,
+      "station": "Tiantan"
+    },
+    {
+      "mae": 10.475288256,
+      "model": "xgboost",
+      "n": 2849,
+      "r2": 0.9518240328,
+      "rmse": 19.284740173,
+      "seed": 42,
+      "station": "Wanliu"
+    },
+    {
+      "mae": 11.3761913022,
+      "model": "xgboost",
+      "n": 2828,
+      "r2": 0.9528115179,
+      "rmse": 21.2763370368,
+      "seed": 42,
+      "station": "Wanshouxigong"
+    }
+  ]
+}
