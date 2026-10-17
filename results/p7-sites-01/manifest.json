@@ -31668,6 +31668,10 @@
       "bytes": 267,
       "sha256": "7f5c8d42ef9c86199a65c75336111d8a3c6028b5b8d689c168e642ffb7569614"
     },
+    "fold-Nongzhanguan--done-refit-persistence-seed-1.json": {
+      "bytes": 44,
+      "sha256": "d04e93a063558170315b5c4af249d529a495280cc166730cc388119fb97718ce"
+    },
     "fold-Nongzhanguan--model-tune-gru-medium-fold0-seed27182-00001.json": {
       "bytes": 353,
       "sha256": "8051af5db982c6804f0c3b023d8da902b4b5cdf3bf983a8664e78f6c693d7782"
