@@ -31760,6 +31760,10 @@
       "bytes": 339,
       "sha256": "a6290da3b14455c05609d6ef38c445f6df071c831505f7b3c67e4a067cb4eb9c"
     },
+    "fold-Nongzhanguan--model-refit-mlp-seed42-00020.json": {
+      "bytes": 339,
+      "sha256": "7290012811c0e2cd56d9795b885aa6f22f5e7a5784feaba7d251e0b81ab37f51"
+    },
     "fold-Nongzhanguan--model-refit-xgboost-seed27182-00025.json": {
       "bytes": 344,
       "sha256": "1481e5ad17d5e8f8a87982d817c2ec7f102e006154c17a6a7d3919442f3ac1e8"
