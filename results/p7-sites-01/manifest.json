@@ -32212,6 +32212,10 @@
       "bytes": 351,
       "sha256": "06cd98d30dcdc858115bdc0bf1d643a97c180069977a2abec19b8dbd3bb2efe7"
     },
+    "fold-Nongzhanguan--model-tune-gru-medium-fold2-seed42-00017.json": {
+      "bytes": 351,
+      "sha256": "d6bd67acee0e4b13c41c9d21e3cdddf18eca2c0e3f009d0d26052e74871f06fd"
+    },
     "fold-Nongzhanguan--model-tune-gru-small-fold0-seed27182-00001.json": {
       "bytes": 352,
       "sha256": "1ebc3147717808e5aebfe7b6c1d36b51a1bb516f717af11ee39d7d26ef86b4ac"
