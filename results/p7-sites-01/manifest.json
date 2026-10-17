@@ -31776,6 +31776,10 @@
       "bytes": 342,
       "sha256": "5bd2615268e7b35e82cb558a44cc9ba5c52610afb1fb901a7ab3b998ccf6f8c5"
     },
+    "fold-Nongzhanguan--model-refit-gru-seed31415-00020.json": {
+      "bytes": 342,
+      "sha256": "cc466f68dfae88c52411ad4fecd3bd4ff82c5fb66b6e95216eab7cf4e6e1d05a"
+    },
     "fold-Nongzhanguan--model-refit-gru-seed42-00001.json": {
       "bytes": 338,
       "sha256": "29e929431dc87fd0b697ee55547fd0ff4d5f42ad61a0eaa6e0eca125324d2b40"
