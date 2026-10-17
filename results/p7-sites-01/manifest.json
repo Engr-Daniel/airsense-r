@@ -33592,6 +33592,10 @@
       "bytes": 349,
       "sha256": "abd5ca1f0618c8eb3dbe09453ca10ea6b4348d2d4d83f1c6e79bb9520c2098a2"
     },
+    "fold-Nongzhanguan--model-tune-mlp-small-fold1-seed42-00002.json": {
+      "bytes": 349,
+      "sha256": "921ab0a3fe328fc4e3657d88f2e0021fc6e1e00c9f6ce19884a213c6b59ecb79"
+    },
     "fold-Nongzhanguan--score-tune-gru-medium-fold0-seed27182.json": {
       "bytes": 2150,
       "sha256": "a9e2d1e57b7df1ebf57da0d6dfd93d8f2cf721e321f005421722c53e4c27862b"
