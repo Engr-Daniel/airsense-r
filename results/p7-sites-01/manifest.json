@@ -34760,6 +34760,10 @@
       "bytes": 350,
       "sha256": "5a39c96e175d31e68908cb187d1dfc2562eb495ee7a9c262749e0b56ce709f2f"
     },
+    "fold-Nongzhanguan--model-tune-xgb-medium-fold2-seed42-00150.json": {
+      "bytes": 350,
+      "sha256": "fe7ec445cb519e3cdc877c573ea288dcc2c0f9afc921db90874e09bfb9c2feb7"
+    },
     "fold-Nongzhanguan--model-tune-xgb-small-fold0-seed27182-00025.json": {
       "bytes": 350,
       "sha256": "812aa18aa906002ecaead30275bc88dccf8ba3bd747f3fd761367b891c09515c"
