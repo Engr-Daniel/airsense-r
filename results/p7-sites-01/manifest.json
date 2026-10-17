@@ -39472,6 +39472,10 @@
       "bytes": 349,
       "sha256": "c22c789dc9447d0692cdcb296257beaf235a63dfd4da1ef052c78719ea2ef5c2"
     },
+    "fold-Shunyi--model-tune-xgb-small-fold2-seed42-00125.json": {
+      "bytes": 349,
+      "sha256": "c1980c0c1ddb9bf3acdaee92bb3753a07b356acf847c108f9f050979efa22b28"
+    },
     "fold-Shunyi--score-tune-gru-medium-fold0-seed27182.json": {
       "bytes": 2158,
       "sha256": "ac2e7c7dc0098f0a4c81f674368ccb356c5d38d353bbae473d846209aa39f466"
