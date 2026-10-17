@@ -35568,6 +35568,10 @@
       "bytes": 349,
       "sha256": "33b9a7923272ad684e811663518c26b3bdf3581e5cf4adee2c5ea1baf0dd9214"
     },
+    "fold-Nongzhanguan--pred-validation-gru-42-000.csv.reference.json": {
+      "bytes": 103,
+      "sha256": "d6fd347fe4b57ac884666218fc9c5f82fee309ddd68abd60f9b77e05ca21b916"
+    },
     "fold-Nongzhanguan--pred-validation-mlp-27182-000.csv.reference.json": {
       "bytes": 103,
       "sha256": "5c6295b7f80e653efc4f571212293e49122fc5b222f589925a20bc443bfe16af"
