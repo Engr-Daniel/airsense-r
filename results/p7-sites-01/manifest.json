@@ -41220,6 +41220,10 @@
       "bytes": 353,
       "sha256": "9e8191ee0b7e3bc45d6cf5bd8d3221a649e2674afa957ff0b87d3700013e4caf"
     },
+    "fold-Tiantan--model-tune-gru-medium-fold2-seed31415-00007.json": {
+      "bytes": 353,
+      "sha256": "bb6deb3f2a92501dc1871f0dec953d12b7f9f6050396f490bfeb7fa8522ecebd"
+    },
     "fold-Tiantan--model-tune-gru-medium-fold2-seed42-00001.json": {
       "bytes": 350,
       "sha256": "157f0fe5e8cc32480e9e1a9c11bf7fa754bd7c5106571aafcacf3958b452ced2"
