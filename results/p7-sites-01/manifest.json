@@ -40684,6 +40684,10 @@
       "bytes": 2166,
       "sha256": "8cf0cb0dfccf6270801b583145a8429c6c8a12a3367ceedaead7cd325313f07c"
     },
+    "fold-Shunyi--selection.json": {
+      "bytes": 6422,
+      "sha256": "5d5e94680a34c32bc7a8b2960e2659d9c0fccdbfeb1471957e51f0a49503a5b6"
+    },
     "fold-Shunyi--tuning-gru.json": {
       "bytes": 296,
       "sha256": "f0b3a77ab98ed7c16ac92e3814262546752e332b84ea4fbcc64cdd69ce89398b"
