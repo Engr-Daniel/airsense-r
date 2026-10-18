@@ -47724,6 +47724,10 @@
       "bytes": 2123,
       "sha256": "3fe9684f0a17fefd5a3ed7c9a1810875b2e066ae83a9268d5e93277a6a5bc3c1"
     },
+    "fold-Wanliu--score-tune-mlp-medium-fold1-seed27182.json": {
+      "bytes": 2146,
+      "sha256": "f6d91fa662910ef2fcef98e1b4266c9cfcbe1bdf78ee56112880f5b0109ccf16"
+    },
     "fold-Wanliu--score-tune-mlp-medium-fold1-seed31415.json": {
       "bytes": 2145,
       "sha256": "b4fab218085fb04ecb5476814befbad383fe229b208565178cbd6371cd233786"
