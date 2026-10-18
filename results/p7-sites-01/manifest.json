@@ -44784,6 +44784,10 @@
       "bytes": 349,
       "sha256": "d5df44dfef84717447d8db0fd883ecba705d13a95da582b7966282f0179349f5"
     },
+    "fold-Tiantan--pred-validation-gru-27182-000.csv.reference.json": {
+      "bytes": 103,
+      "sha256": "8ab0ae23b4094565d6c1fdab5ed76d13614405c856738f2e5a30f6b5b1a38f11"
+    },
     "fold-Tiantan--pred-validation-gru-31415-000.csv.reference.json": {
       "bytes": 103,
       "sha256": "c088fec64e59963264aa3a43ca28029d01689be2421fc95744b57a6a6f6d2176"
