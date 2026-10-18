@@ -36220,6 +36220,10 @@
       "bytes": 3335,
       "sha256": "3cc458bb0ae35809336192167fbb26e5a4c421d349aa6d4c8ec1e6da418af42c"
     },
+    "fold-Shunyi--model-refit-gru-seed42-00001.json": {
+      "bytes": 338,
+      "sha256": "4e0746c70940a69e54b7183d41b0eac5bfd13b1b988b621c119e20e5ea86c7be"
+    },
     "fold-Shunyi--model-refit-mlp-seed27182-00001.json": {
       "bytes": 341,
       "sha256": "6c9d7025bac6a95751ff154686af52a3da437c616d6a40b9da57e09616755979"
