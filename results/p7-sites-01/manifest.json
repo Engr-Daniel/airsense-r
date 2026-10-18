@@ -40108,6 +40108,10 @@
       "bytes": 103,
       "sha256": "ae66a7ca29ff50add0e3c3e8ac0d0d852e928878e9c269970969fc48aa3edbcd"
     },
+    "fold-Shunyi--pred-validation-gru-42-004.csv.reference.json": {
+      "bytes": 103,
+      "sha256": "57252d9a0d9af79e34e36c8dca88876c48d1e768da902f83b04c15e750981216"
+    },
     "fold-Shunyi--pred-validation-mlp-27182-000.csv.reference.json": {
       "bytes": 103,
       "sha256": "9b7f4f26510d0958ce56dadde98d07f93263d4ba96a84d7f6815722604aaefa7"
