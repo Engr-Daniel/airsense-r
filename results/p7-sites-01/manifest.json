@@ -42676,6 +42676,10 @@
       "bytes": 355,
       "sha256": "ae509aeefdb63222aaae82bec185bf3858e8c82d341bd2fb89934787a17101d8"
     },
+    "fold-Tiantan--model-tune-mlp-medium-fold2-seed31415-00011.json": {
+      "bytes": 355,
+      "sha256": "a1bce49e373fea0924b615ef986d00944f924081c4988b6b058ba4aa38ecf255"
+    },
     "fold-Tiantan--model-tune-mlp-medium-fold2-seed42-00001.json": {
       "bytes": 351,
       "sha256": "c2487bd085ac8cb6d59d1d4270f8e54da13a5bed6b9eef66e0631453d6d0c86b"
