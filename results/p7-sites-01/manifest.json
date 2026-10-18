@@ -40800,6 +40800,10 @@
       "bytes": 342,
       "sha256": "1c2d307c64e1283cad694e05f974196f8765be578929d0091ac1f2849a58aa2b"
     },
+    "fold-Tiantan--model-refit-gru-seed31415-00014.json": {
+      "bytes": 342,
+      "sha256": "588108dd81d77ca99de4196083e7e6b71793ed7d7e5756aec7ccb9cdf8b3693d"
+    },
     "fold-Tiantan--model-refit-gru-seed42-00001.json": {
       "bytes": 338,
       "sha256": "c65451e1a83b4c7cff33b141131ded08a3c951204f8e042ac1c1d96d1d2b967c"
