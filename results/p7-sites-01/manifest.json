@@ -47160,6 +47160,10 @@
       "bytes": 350,
       "sha256": "6bf2a8a7622a484688f8b1f6030df10b5afc63ba0f82e5cea49aa1d5406a6e4c"
     },
+    "fold-Wanliu--model-tune-mlp-small-fold1-seed27182-00001.json": {
+      "bytes": 352,
+      "sha256": "61f734d066b8743b4eb48217ad05eeea184551c3f093e4985fc9cbc0c7065b30"
+    },
     "fold-Wanliu--model-tune-mlp-small-fold1-seed31415-00001.json": {
       "bytes": 352,
       "sha256": "0667c5766d36dd43b2fef1dce8633f434ef36f766b1a20b37db502e9e5b0dd5d"
