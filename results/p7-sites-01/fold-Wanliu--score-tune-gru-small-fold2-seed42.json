@@ -1,0 +1,107 @@
+{
+  "candidate": "gru-small",
+  "fold": 2,
+  "mean_station_mae": 30.149796520155988,
+  "seed": 42,
+  "station_metrics": [
+    {
+      "mae": 31.6781056374,
+      "model": "gru",
+      "n": 2503,
+      "r2": 0.2175597259,
+      "rmse": 78.4396036465,
+      "seed": 42,
+      "station": "Aotizhongxin"
+    },
+    {
+      "mae": 30.1198976256,
+      "model": "gru",
+      "n": 2833,
+      "r2": 0.2586954079,
+      "rmse": 69.8296926034,
+      "seed": 42,
+      "station": "Changping"
+    },
+    {
+      "mae": 21.8036421868,
+      "model": "gru",
+      "n": 2849,
+      "r2": 0.49695679,
+      "rmse": 58.1086256914,
+      "seed": 42,
+      "station": "Dingling"
+    },
+    {
+      "mae": 31.4586034544,
+      "model": "gru",
+      "n": 2829,
+      "r2": 0.2850063694,
+      "rmse": 79.5049187144,
+      "seed": 42,
+      "station": "Dongsi"
+    },
+    {
+      "mae": 32.0940133497,
+      "model": "gru",
+      "n": 2843,
+      "r2": 0.1707636904,
+      "rmse": 77.3461845115,
+      "seed": 42,
+      "station": "Guanyuan"
+    },
+    {
+      "mae": 35.6232346705,
+      "model": "gru",
+      "n": 2847,
+      "r2": 0.0712104998,
+      "rmse": 82.1476921815,
+      "seed": 42,
+      "station": "Gucheng"
+    },
+    {
+      "mae": 15.799808297,
+      "model": "gru",
+      "n": 2836,
+      "r2": 0.6349456644,
+      "rmse": 44.0399709312,
+      "seed": 42,
+      "station": "Huairou"
+    },
+    {
+      "mae": 38.1678394759,
+      "model": "gru",
+      "n": 2818,
+      "r2": 0.1782142746,
+      "rmse": 93.9324050817,
+      "seed": 42,
+      "station": "Nongzhanguan"
+    },
+    {
+      "mae": 26.985514705,
+      "model": "gru",
+      "n": 2831,
+      "r2": 0.3670659832,
+      "rmse": 69.738043571,
+      "seed": 42,
+      "station": "Shunyi"
+    },
+    {
+      "mae": 29.8194153265,
+      "model": "gru",
+      "n": 2741,
+      "r2": 0.3014470312,
+      "rmse": 75.9715299066,
+      "seed": 42,
+      "station": "Tiantan"
+    },
+    {
+      "mae": 38.0976869928,
+      "model": "gru",
+      "n": 2828,
+      "r2": 0.1551424527,
+      "rmse": 90.0265487725,
+      "seed": 42,
+      "station": "Wanshouxigong"
+    }
+  ]
+}
