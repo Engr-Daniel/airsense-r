@@ -46216,6 +46216,10 @@
       "bytes": 349,
       "sha256": "25f2f62793826ffd3b366c3d6e8157fb61e6325ebc4e4b8477427389a12b6a7d"
     },
+    "fold-Wanliu--model-tune-gru-small-fold2-seed42-00005.json": {
+      "bytes": 349,
+      "sha256": "9425dddc51f17fd793ad19cc7e704cdbe25088e8c9de9c27a8710f71d135bcbe"
+    },
     "fold-Wanliu--score-tune-gru-medium-fold0-seed27182.json": {
       "bytes": 2157,
       "sha256": "d17043ad3d634135014e6b067092e12d62516438af696842774583c48743059b"
