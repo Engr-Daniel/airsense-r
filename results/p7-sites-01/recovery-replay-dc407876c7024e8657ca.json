@@ -1,0 +1,20 @@
+{
+  "atol": 1e-05,
+  "completed_folds": [
+    "Aotizhongxin",
+    "Changping",
+    "Dingling",
+    "Dongsi",
+    "Guanyuan",
+    "Gucheng",
+    "Huairou",
+    "Nongzhanguan",
+    "Shunyi",
+    "Tiantan",
+    "Wanliu"
+  ],
+  "environment_record": "recovery-env-4450a049ab41d28c9b74.json",
+  "model_refitting": false,
+  "passed": true,
+  "rtol": 1e-06
+}
