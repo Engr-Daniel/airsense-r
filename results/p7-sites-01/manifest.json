@@ -48940,6 +48940,10 @@
       "bytes": 103,
       "sha256": "dd5b2a4c36036ee99438fa456d40b811c42f4052ecd4af4966b4e9c7d50fcaf6"
     },
+    "fold-Wanliu--pred-validation-mlp-42-003.csv.reference.json": {
+      "bytes": 103,
+      "sha256": "0abaf428e84f9403419afb54ebe10a9a8bcef9e5e20a07ca8b8c2cba2da3f72b"
+    },
     "fold-Wanliu--pred-validation-persistence--1-000.csv.reference.json": {
       "bytes": 103,
       "sha256": "47984685bf3c82ba3b7f9ad70a492082e5f6a5b9bb9674cede87f81868bfab7f"
