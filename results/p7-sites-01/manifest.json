@@ -45360,6 +45360,10 @@
       "bytes": 339,
       "sha256": "ec7baac734b6493b57f44090a4097bc23fc442f4c1d76cdd5af50f82b0f3e940"
     },
+    "fold-Wanliu--model-refit-gru-seed42-00014.json": {
+      "bytes": 339,
+      "sha256": "758305f50ea6dc1e0c99af245a2ea757f4e6f96a32e43743877ab95cf0ac2be0"
+    },
     "fold-Wanliu--model-refit-mlp-seed27182-00001.json": {
       "bytes": 341,
       "sha256": "b37e14f1b8c8e03fa2a43ff3539c6718a63efda167485e9b5c8ec503f2592cd9"
