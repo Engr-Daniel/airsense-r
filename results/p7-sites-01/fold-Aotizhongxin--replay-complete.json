@@ -1,0 +1,6 @@
+{
+  "atol": 1e-05,
+  "model_refitting": false,
+  "passed": true,
+  "rtol": 1e-06
+}
