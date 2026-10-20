@@ -49828,6 +49828,10 @@
       "bytes": 342,
       "sha256": "52ae8ad3e59556ea2ea61f107a6fe8f32b407b51d7b866e3f7e32411a0b73273"
     },
+    "fold-Wanshouxigong--model-refit-xgboost-seed42-00125.json": {
+      "bytes": 342,
+      "sha256": "ac6dbfc52b593f9567c5e3061639138a46f1bfe1370ff8b5893dc8f8eb12b92e"
+    },
     "fold-Wanshouxigong--model-tune-gru-medium-fold0-seed27182-00001.json": {
       "bytes": 353,
       "sha256": "945aec09e47b348a8ed0fcf4b1c4f6d16593f4e0e4a57bf9fddd3221038d5113"
