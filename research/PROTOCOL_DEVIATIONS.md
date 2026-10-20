@@ -2,6 +2,18 @@
 
 Record every change made after `PROTOCOL.md` is marked **FROZEN**.
 
+2026-10-20 P7 recovery correction: replacement Colab runtimes changed their
+preinstalled package inventories and prevented resume despite unchanged core
+model/data package versions. A separately pinned recovery adapter retains the
+original scientific source, experiment identity and native model identities.
+It restores exact original versions throughout the active scientific dependency
+closure, permits unrelated inventory changes only, and records the actual
+environment separately. Completed selections undergo saved development prediction
+replay before further training; final-test gates and tolerances are unchanged.
+P5/P6 results have been inspected, but no P7 final-test results exist at the
+time of this correction. No budgets, station splits, seeds, model candidates,
+selection rules or statistical estimands change. Originals remain immutable.
+
 | Date | Protocol item | Change | Reason | Expected impact |
 |---|---|---|---|---|
 | 2026-10-08 | P3 sections 6–13, input representation and preprocessing | Clarified training-statistic scope, numeric scaling, input layout, leap-year encoding, persistence fallback, eligibility, and stress-boundary history in `P4_IMPLEMENTATION_DECISIONS.md` | Make unspecified implementation choices explicit before model execution | No final-test performance inspected; choices affect model inputs and are recorded before evaluation |

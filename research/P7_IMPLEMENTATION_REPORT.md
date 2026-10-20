@@ -72,3 +72,31 @@ A successful run writes `execution_complete: true` and
 verify prediction/model hashes, selection lineage, per-station metrics, aggregate
 regret and bootstrap intervals before closing P7 or interpreting findings.
 No P5/P6 experiment rerun is required for this implementation.
+# Colab environment recovery verification — 2026-10-20
+
+The original run stopped before further fitting because Colab's full package
+inventory changed. Recovery is an external adapter in `scripts/recovery/`,
+separately pinned and SHA-256-verified by notebook 06b. It is intentionally
+outside the original scientific fingerprint: that fingerprint remains
+`9c1237fbbad6e1ca6abe065bbbc9c7f91baf8e2381ed6c86ae50a8df7f6519d3`,
+and the original source commit remains
+`7278ba95c88ea28e8861f59d0a6f8e097087c9d7`.
+
+The adapter verifies the original Python/source/configuration/storage identity,
+restores exact recorded versions of required scientific dependencies and their
+active transitive dependencies, and retains the original native model identity.
+Actual runtime provenance and the adapter digest are saved as separate immutable
+records. Completed station selections undergo development replay before any
+remaining training. The final test gate and numerical tolerances are unchanged.
+
+Local validation: **24 targeted tests passed in 233.96 seconds** across
+`test_p7_colab_recovery`, `test_p7_workflow`, `test_notebook_job`, `test_p7`,
+`test_model_storage`, and `test_p5_recovery`. These cover transitive/extra
+dependency resolution, rejection of scientific provenance changes, normalized
+date serialization, replay failure blocking, notebook fresh-process execution,
+all-family native model and CSV round trips, interruption/restoration through
+a bare Git remote, immutable refit checkpoints, and duplicate-writer behavior.
+An evolving replay-scope record and Windows path length issue were found and
+corrected during verification. Synthetic fixtures use reduced budgets and are
+not research results. Package restoration in live Colab and the full-data
+recovery replay still require the user's execution; P7 is not yet accepted.

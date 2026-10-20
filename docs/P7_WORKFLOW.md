@@ -18,6 +18,37 @@ account that holds `MyDrive/AirSense-R/model-checkpoints/storage.json`.
 
 ## Recovery
 
+### Colab package-inventory mismatch (20 October 2026)
+
+If the original worker reports `Incompatible run provenance`, use the published
+`06b_p7_colab_recovery.ipynb` and Run all with the original Drive account.
+Do not create a new experiment run or edit the saved manifest. This recovery
+notebook retains the original scientific source revision and `p7-sites-01`.
+Its separately pinned adapter is downloaded with SHA-256 verification outside
+the scientific source tree. The original notebook and its logs are preserved.
+
+The original implementation required equality of every preinstalled Colab
+package, including packages unrelated to the experiment. Recovery instead
+requires the original versions of the full declared scientific dependency
+chain (including active transitive dependencies). Setup restores those exact
+versions where necessary; it does not downgrade unrelated Colab packages.
+Python, source, protocol, configuration, training settings, runtime settings,
+core package versions and persistent storage identity must still match.
+
+The worker retains the original experiment/model identity and publishes the
+actual environment, original provenance, required dependency inventory and
+recovery script hash as separate immutable `recovery-env-*` records. Before
+resuming any fitting, it replays saved development predictions for every fold
+with a frozen selection. No completed model is fitted again for that replay;
+the existing exact-label and numerical prediction checks are unchanged.
+Recovery replay can take time. Final-test access retains all original gates.
+An interrupted replay is repeated on the next recovery attempt.
+
+Use one runtime only. The recovery worker has a separate log directory but
+shares the original experiment writer lock. It never deletes locks, native
+models, prediction shards or prior evidence. Scientific acceptance remains
+pending; locally tested recovery is not a claim of live Colab acceptance.
+
 After a browser disconnect, reconnect and rerun cell 3. It attaches to the
 existing worker instead of starting a second copy. Stopping its output display
 also leaves the worker running. A heartbeat confirms the process is present;

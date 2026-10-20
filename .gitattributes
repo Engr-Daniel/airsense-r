@@ -1,3 +1,5 @@
 # Preserve byte-exact P5 artifacts: manifest checksums cover serialized bytes.
 results/p5/** -text
 notebooks/*_executed.ipynb -text
+# Recovery adapters are downloaded by byte checksum from their pinned commits.
+scripts/recovery/*.py text eol=lf

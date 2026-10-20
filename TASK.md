@@ -138,8 +138,11 @@ prediction files, metrics and uncertainty. See
 
 Implementation and local verification are complete (94 collected tests covered
 by passing runs, plus final notebook/provenance checks). The frozen experiment
-requires 12 LOSO folds and 756 learned-model fits. Live execution and scientific
-acceptance remain pending; see [docs/P7_WORKFLOW.md](docs/P7_WORKFLOW.md).
+requires 12 LOSO folds and 756 learned-model fits. Live execution has recorded
+667 completed fits as of 2026-10-20 and is blocked by a replacement Colab
+package inventory. Notebook 06b provides audited recovery of the same run.
+Completion and scientific acceptance remain pending;
+see [docs/P7_WORKFLOW.md](docs/P7_WORKFLOW.md).
 
 - [x] Implement the reconnectable notebook interface with embedded settings for P7 execution
 - [x] Implement per-fold tuning, all-fold selection freeze and native development replay before test access

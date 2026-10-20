@@ -78,6 +78,21 @@ def main() -> None:
         def no_acquisition():
             raise AssertionError("Completed run must not reacquire data")
         p7.temporary_uci_dataset = no_acquisition
+    if mode in {"evaluate-interrupt", "evaluation-resume"}:
+        # Exercise the external recovery hooks against actual serialized models,
+        # CSVs, a bare Git remote and the original checkpoint identities.
+        from copy import deepcopy
+        sys.path.insert(0, str(root))
+        from scripts.recovery.resume_p7_colab import install_recovery_hooks
+        from airsense_r.p5 import storage_identity
+        parameters = {"phase": "P7", "model_storage_id": storage_identity(work / "drive"),
+            "run_id": p7.RUN_ID, "stations": sorted(p7.EXPECTED_STATIONS),
+            "selection_gate": "all_folds_before_test"}
+        saved = p7.training_provenance(work, parameters)
+        current = deepcopy(saved)
+        current["environment"]["installed_packages"] = {"unrelated-colab-package": "new"}
+        p7.training_provenance = lambda root, parameters: deepcopy(current)
+        install_recovery_hooks(p7, saved, current, work / "drive", {"fixture_current": current})
     output = p7.run_site_shift(work, work / "drive", remote)
     assert (output / "complete.json").is_file()
     print("P7_FIXTURE_COMPLETE", flush=True)
