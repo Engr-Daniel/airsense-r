@@ -50296,6 +50296,10 @@
       "bytes": 349,
       "sha256": "fbeca1e92402e57bc307753fe9f6253629cb6b085a6bfd76296f80a85d2b7d77"
     },
+    "fold-Wanshouxigong--model-tune-gru-small-fold1-seed42-00004.json": {
+      "bytes": 349,
+      "sha256": "48f9b35dff04469d9e036ed623f7e8b412c02762b9ec230adc7ff77183c173f8"
+    },
     "fold-Wanshouxigong--score-tune-gru-medium-fold0-seed27182.json": {
       "bytes": 2147,
       "sha256": "9e179eebe096a7448caadbf972b5e9065c6811fa26d47a179c249799bcfdb597"
