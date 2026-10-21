@@ -55332,6 +55332,10 @@
       "bytes": 6424,
       "sha256": "74ffaeeb7684c0d54902e13a2e51e18bce2d3e5214323a7f1a6968d7bd137980"
     },
+    "fold-Wanshouxigong--test-complete.json": {
+      "bytes": 62,
+      "sha256": "585eb7251321ea0e74ff3854b59c1f51d472f131445fdb0a3b733af115e1ec5f"
+    },
     "fold-Wanshouxigong--tuning-gru.json": {
       "bytes": 297,
       "sha256": "762327fd64c3661c61939c02bef3d48a45772f1a1a00206c1adf4bf8288440d5"
