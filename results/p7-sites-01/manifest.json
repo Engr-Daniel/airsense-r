@@ -49892,6 +49892,10 @@
       "bytes": 339,
       "sha256": "d2eaa4a36ff578088cf2a6cb533539e4980e6472f35224ca8cd00269959eb28a"
     },
+    "fold-Wanshouxigong--model-refit-gru-seed42-00015.json": {
+      "bytes": 339,
+      "sha256": "1bf9d2721dd97d74f848fdfee3ad839f8769a0d195f68fd19709abc9fbed3132"
+    },
     "fold-Wanshouxigong--model-refit-mlp-seed27182-00001.json": {
       "bytes": 341,
       "sha256": "347d5e412d4b1050b30b3c7a9925b5e3dadb2430b6b4260f6c18ba1443b089be"
