@@ -41556,6 +41556,10 @@
       "bytes": 3336,
       "sha256": "1f7880d571a6748789c73d8a267dd3f4060231dd3b9b737a3f12d550668d76cd"
     },
+    "fold-Tiantan--done-test-gru-42.json": {
+      "bytes": 56,
+      "sha256": "ba8dadefcc0ae8c77e26ec8cfe88d06bbd9489d40facba4a811ef912ad3f94d9"
+    },
     "fold-Tiantan--done-test-mlp-27182.json": {
       "bytes": 56,
       "sha256": "ba8dadefcc0ae8c77e26ec8cfe88d06bbd9489d40facba4a811ef912ad3f94d9"
