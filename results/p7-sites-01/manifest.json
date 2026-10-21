@@ -31764,6 +31764,10 @@
       "bytes": 349,
       "sha256": "f11ab34575fb986d4e19065b3cd5874cf75fb7c3b13b94403d8233d93153c3cb"
     },
+    "fold-Huairou--pred-test-persistence--1-000.csv.reference.json": {
+      "bytes": 102,
+      "sha256": "29a189d53cd4989ab6f49c9d7f4212d9e5259087f2ac02280ea92ea55181c9bc"
+    },
     "fold-Huairou--pred-validation-gru-27182-000.csv.reference.json": {
       "bytes": 103,
       "sha256": "01ba05250a36e38e6494651c0a35c12b7a91fe7e8711d4e96ea6e012bbe8d71d"
