@@ -23108,6 +23108,10 @@
       "bytes": 3331,
       "sha256": "71433a6a4fc9cdbb60142ec3e71a3e760ad5e689502cde1a8d83595395ca42e9"
     },
+    "fold-Gucheng--done-test-gru-42.json": {
+      "bytes": 56,
+      "sha256": "04d4cdfc914b378702908321537a685b036381a91125a4bcbca17b7c3dddef37"
+    },
     "fold-Gucheng--done-test-mlp-27182.json": {
       "bytes": 56,
       "sha256": "04d4cdfc914b378702908321537a685b036381a91125a4bcbca17b7c3dddef37"
