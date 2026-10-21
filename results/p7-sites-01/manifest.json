@@ -4600,6 +4600,10 @@
       "bytes": 6424,
       "sha256": "622904071b5f72ea6b8e8613b9c9f9033fc758fe35591f82ec5021c01feb609c"
     },
+    "fold-Aotizhongxin--test-complete.json": {
+      "bytes": 61,
+      "sha256": "845a5a25c60439d7b2a09c253ba335515fd47ab30655a10d94c2b69f8d16752f"
+    },
     "fold-Aotizhongxin--tuning-gru.json": {
       "bytes": 297,
       "sha256": "1850a232c47738f3fbf0e213a457f83e95f9067be24bd8ccf991e8e2447d444b"
