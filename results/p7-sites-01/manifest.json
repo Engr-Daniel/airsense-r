@@ -53724,6 +53724,10 @@
       "bytes": 103,
       "sha256": "ec664eb3fa894f36d7128ab9422c42009ebdd6398508145bf40f1b42b5a3a7ab"
     },
+    "fold-Wanshouxigong--pred-validation-gru-42-004.csv.reference.json": {
+      "bytes": 102,
+      "sha256": "3cf52a1ebc6976590ad60888790a0f6ce0434ac70d521ecea89c9283880e4925"
+    },
     "fold-Wanshouxigong--pred-validation-mlp-27182-000.csv.reference.json": {
       "bytes": 103,
       "sha256": "b2071c359e05f88a47e97668529d758f69cc7d6be183b2cb19c698c67626b8f9"
