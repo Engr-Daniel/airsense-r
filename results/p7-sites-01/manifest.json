@@ -9272,6 +9272,10 @@
       "bytes": 3337,
       "sha256": "df853767fcb51d6c615c11107139ec7c9bb8664c7dad8c001aed9b4ca216e3fd"
     },
+    "fold-Dingling--done-test-gru-42.json": {
+      "bytes": 57,
+      "sha256": "ab20b2e420553a80f67203529eaf87c698b82e71c6fd0414e5b9872e3342fda4"
+    },
     "fold-Dingling--done-test-mlp-27182.json": {
       "bytes": 57,
       "sha256": "ab20b2e420553a80f67203529eaf87c698b82e71c6fd0414e5b9872e3342fda4"
