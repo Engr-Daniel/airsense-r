@@ -36376,6 +36376,10 @@
       "bytes": 349,
       "sha256": "33b9a7923272ad684e811663518c26b3bdf3581e5cf4adee2c5ea1baf0dd9214"
     },
+    "fold-Nongzhanguan--pred-test-persistence--1-000.csv.reference.json": {
+      "bytes": 102,
+      "sha256": "852dc0c901556206d377e2188670f2c8bd980f3f9745d512b7514d9d795c801b"
+    },
     "fold-Nongzhanguan--pred-validation-gru-27182-000.csv.reference.json": {
       "bytes": 103,
       "sha256": "88ef426b43998eec7092932bb85569bbebc566ed49fda7ae693df0c6abcf39d8"
