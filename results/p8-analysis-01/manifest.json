@@ -887,6 +887,10 @@
     "sensor-ranking-summary.csv": {
       "bytes": 34519,
       "sha256": "70d4c519ef2c573cf2dcb9096ea35a539af3db4e361d4defaf207af6e12c8471"
+    },
+    "site-selection-regret.csv": {
+      "bytes": 1144,
+      "sha256": "efb92dabe1d2fb3b5db0f85406e400068b9dd043826ff5c7296cdb49cbffdb6e"
     }
   },
   "provenance": {
