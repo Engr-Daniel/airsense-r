@@ -1,5 +1,10 @@
 {
-  "artifacts": {},
+  "artifacts": {
+    "analysis-config.json": {
+      "bytes": 509,
+      "sha256": "67ed3974283d5fcabbda95988edbb41445ffb2b60be6da0858b705d66bfd7365"
+    }
+  },
   "provenance": {
     "code_commit": "af76b79578036cfeb8fb614db086975bc88173b8",
     "environment": {
