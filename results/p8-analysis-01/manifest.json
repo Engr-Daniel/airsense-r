@@ -891,6 +891,10 @@
     "site-selection-regret.csv": {
       "bytes": 1144,
       "sha256": "efb92dabe1d2fb3b5db0f85406e400068b9dd043826ff5c7296cdb49cbffdb6e"
+    },
+    "site-selection-regret.png": {
+      "bytes": 69121,
+      "sha256": "388914b32b190ed3e365615c40d9d951897ca4e504ea3d6a36cb274179b3dade"
     }
   },
   "provenance": {
