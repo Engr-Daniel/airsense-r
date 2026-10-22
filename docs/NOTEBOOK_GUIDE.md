@@ -108,9 +108,9 @@ required by the platform.
 
 P7 uses the same reconnectable interface in `06_p7_site_shift_analysis.ipynb`,
 with automatic scientific stage gates and an explicit final-results provenance
-check. See `P7_WORKFLOW.md`. Execution is complete; independent acceptance is
-the first gate in notebook `07_p8_statistical_failure_analysis.ipynb`, followed
-by descriptive failure analysis. See `P8_WORKFLOW.md`.
+check. See `P7_WORKFLOW.md`. Execution and independent verification are accepted.
+Notebook `07_p8_statistical_failure_analysis.ipynb` completed P7 verification
+and descriptive failure analysis. See `P8_WORKFLOW.md` and the P8 completion report.
 
 Preserve executed notebooks under `notebooks/executed/`, with path and checksum
 entries in its index. Keep runnable templates at the top notebook level. Package

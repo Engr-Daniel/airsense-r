@@ -1,6 +1,10 @@
 # Research notebooks
 
-**Current step: [07 — statistical and failure analysis](07_p8_statistical_failure_analysis.ipynb).**
+**Status (22 October 2026): completed and reviewed. No rerun is required.**
+Next: P9 manuscript. See [the completion report](../research/P8_COMPLETION_REPORT.md).
+The execution instructions below are retained for reproducibility.
+
+**Completed workflow: [07 — statistical and failure analysis](07_p8_statistical_failure_analysis.ipynb).**
 Open it in Colab, choose a CPU runtime and Run all with the original Drive account
 and GitHub secret. No SHA or stage entry is needed. It verifies P7 before analyzing
 saved P6/P7 evidence. See [the workflow](../docs/P8_WORKFLOW.md).
@@ -10,8 +14,8 @@ saved P6/P7 evidence. See [the workflow](../docs/P8_WORKFLOW.md).
 | 01–03 | Dataset review, development diagnostics, pipeline validation | Completed |
 | 04 / 04b | Clean benchmark / corrected frozen-model scoring | Accepted; no rerun |
 | 05 / 05b | Sensor degradation / independent verification | Accepted; no rerun |
-| 06 / 06b | Site shift / recovery in replacement Colab runtime | Execution complete; verification begins in 07 |
-| 07 | Independent P7 verification and P8 failure analysis | Run next |
+| 06 / 06b | Site shift / recovery in replacement Colab runtime | Accepted after independent verification in 07 |
+| 07 | Independent P7 verification and P8 failure analysis | Completed and reviewed |
 
 Numbered notebooks are source templates. Historical recovery/review notebooks
 embed their original commits and environments; do not repoint them to current

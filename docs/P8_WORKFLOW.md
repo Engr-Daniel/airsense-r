@@ -1,5 +1,9 @@
 # P8: statistical and failure analysis
 
+**Status (22 October 2026): completed and reviewed. No rerun is required.**
+Next: P9 manuscript. See [the completion report](../research/P8_COMPLETION_REPORT.md).
+The execution instructions below are retained for reproducibility.
+
 Open `notebooks/07_p8_statistical_failure_analysis.ipynb` in Colab and **Run all**
 on a CPU runtime. The published notebook embeds its matching source revision.
 Connect the original Drive account and the `AIRSENSE_GITHUB_TOKEN` Colab secret.

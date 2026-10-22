@@ -136,43 +136,38 @@ prediction files, metrics and uncertainty. See
 
 ## P7 — Site shift
 
-Implementation and local verification are complete (94 collected tests covered
-by passing runs, plus final notebook/provenance checks). The frozen experiment
-requires 12 LOSO folds and 756 learned-model fits. All training and held-out
-evaluation completed on 2026-10-21. The executed recovery notebook and 13,850
-Git artifacts passed local review on 2026-10-22. Independent Drive prediction,
-native lineage and uncertainty verification remain pending before acceptance
-of P7. The user authorized repository cleanup and P8 preparation; independent
-P7 verification is the first gate in notebook 07.
-See [research/P7_EXECUTION_REVIEW.md](research/P7_EXECUTION_REVIEW.md).
+P7 execution and independent verification are complete. The P8 Colab verifier
+checked saved Drive predictions, native model lineage, metrics and uncertainty;
+published verification evidence passed local review on 2026-10-22. See
+[P8 completion review](research/P8_COMPLETION_REPORT.md).
 
 - [x] Implement the reconnectable notebook interface with embedded settings for P7 execution
 - [x] Implement per-fold tuning, all-fold selection freeze and native development replay before test access
 - [x] Implement one result branch, persistent prediction references and automatic checkpoint recovery
 - [x] Declare fold-specific selection regret and paired uncertainty before P7 results
 - [x] Complete local regression and fresh-process lifecycle verification before notebook handoff
-- [ ] Review live Colab completion, independently verify saved predictions/metrics/uncertainty, and accept P7
+- [x] Review live Colab completion, independently verify saved predictions/metrics/uncertainty, and accept P7
 - [x] Train without held-out site(s)
 - [x] Evaluate on unseen site(s)
-- [ ] Quantify cross-site generalization performance (do not call it a penalty without matched comparator)
-- [ ] Compare model ranking stability
+- [x] Quantify cross-site generalization performance (do not call it a penalty without matched comparator)
+- [x] Compare model ranking stability
 - [x] Build `notebooks/06_p7_site_shift_analysis.ipynb`
 
 ## P8 — Statistical and failure analysis
 
-Implemented for saved P6/P7 evidence; live execution and output review are
-pending. Follow [docs/P8_WORKFLOW.md](docs/P8_WORKFLOW.md). No model retraining.
+Completed and reviewed on 2026-10-22. See [the completion report](research/P8_COMPLETION_REPORT.md).
+Subgroup diagnostics remain exploratory; final figure layout/captions belong to P9.
 
 - [x] Consolidate dependencies and preserve executed notebooks separately
 - [x] Implement independent P7 prediction/native-lineage/uncertainty verification
 - [x] Implement resumable descriptive diagnostics and exported tables/figures
 - [x] Verify local regression, native interruption/recovery, notebook execution and pinned Git inputs
 
-- [ ] Compute required paired dependence-aware uncertainty / temporal-block bootstrap intervals
-- [ ] Analyze worst-error cases
-- [ ] Check error by pollution regime
-- [ ] Check whether clean ranking persists under degradation
-- [ ] Create publication figures/tables
+- [x] Compute required paired dependence-aware uncertainty / temporal-block bootstrap intervals
+- [x] Analyze worst-error cases
+- [x] Check error by pollution regime
+- [x] Check whether clean ranking persists under degradation
+- [x] Create publication figures/tables
 - [x] Build `notebooks/07_p8_statistical_failure_analysis.ipynb`
 
 ## P9 — Paper

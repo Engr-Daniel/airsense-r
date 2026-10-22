@@ -28,8 +28,8 @@ The project follows a pre-specified workflow. Before final model evaluation, fre
 | P4 | Causal pipeline, Colab notebooks, checkpoint recovery | Complete |
 | P5 | Clean forecasting benchmark | Complete after corrected evaluation; see [report](research/P5_COMPLETION_REPORT.md) |
 | P6 | Sensor degradation | Complete; predictions, metrics and uncertainty independently verified; see [report](research/P6_COMPLETION_REPORT.md) |
-| P7 | Leave-one-station-out evaluation | Execution complete; local evidence review passed. Independent prediction/uncertainty verification pending; see [review](research/P7_EXECUTION_REVIEW.md) |
-| P8 | Statistical and failure analysis | Implemented; live verification/analysis pending; [workflow](docs/P8_WORKFLOW.md) |
+| P7 | Leave-one-station-out evaluation | Complete; independent verification accepted; [review](research/P8_COMPLETION_REPORT.md) |
+| P8 | Statistical and failure analysis | Complete; descriptive diagnostics and verification reviewed; [report](research/P8_COMPLETION_REPORT.md) |
 | P9 | Manuscript | Planned |
 | P10 | Reliability explorer | Planned |
 | P11 | Reproducibility release | Planned |
@@ -59,7 +59,7 @@ The 12 stations are all in Beijing. This tests within-city unseen-station
 generalization, not transfer to another city, climate, or instrument type.
 Synthetic degradation of regulatory monitoring data is not evidence of real
 device failure or embedded deployment. P5/P6 findings have passed independent
-review; P7 execution is complete but prediction-level acceptance is still pending.
+review; P7 prediction-level verification and P8 analysis are now accepted.
 P8 subgroup diagnostics are explicitly post-results descriptive analyses.
 
 ## Repository map
@@ -109,11 +109,12 @@ The static dashboard lives in `docs/`. Configure GitHub Pages to deploy from the
 
 ## Current next step
 
-Run **[notebook 07](notebooks/07_p8_statistical_failure_analysis.ipynb)** in Colab
-using the original Drive account and existing GitHub secret. Choose a CPU runtime
-and Run all; no SHA or stage entry is needed. It verifies P7's saved predictions
-and uncertainty before producing P6/P7 failure-analysis tables and figures.
-It does not retrain models. See [P8 instructions](docs/P8_WORKFLOW.md).
+P7 and P8 are complete and reviewed. Next is **P9: the manuscript**; no notebook
+rerun is required. See [the P8 completion report](research/P8_COMPLETION_REPORT.md)
+for verified findings and limitations. P7 mean station selection regret is
+0.5504 µg/m³ (95% CI 0.4004–0.7388); 11/12 station point estimates meet the
+predefined practical near-tie threshold. This is within-Beijing evidence,
+not inter-city transfer or robustness to failure of the target-history channel.
 
 Dependency versions are defined once in `pyproject.toml`. `requirements.txt`
 installs the full research environment; `pip install -e ".[notebooks]"` installs

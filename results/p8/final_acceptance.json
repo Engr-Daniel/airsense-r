@@ -1,0 +1,34 @@
+{
+  "review_date": "2026-10-22",
+  "status": "P7_and_P8_accepted",
+  "verification_run": "p8-analysis-01",
+  "result_commit": "296999a0df73363f2922a34fd15cf520f1d75e2d",
+  "manifest_sha256": "532036f0776f740e92562a9590ccc63b7d2a28c3cbcf8145c9bb3b4440a81a14",
+  "source_commit": "af76b79578036cfeb8fb614db086975bc88173b8",
+  "source_hash": "00975004069736d0faefa4d6f5d4de431a74f61e911925b5dbe4354972545721",
+  "input_commits": {
+    "p6": "464574140e7abb79094935313d6f3eb44fce3a93",
+    "p6_review": "19382df3d505502cc4dda05a70777b17f7735b93",
+    "p7": "73c32f0b2cd7fcf447f9483413561b7104536e7f"
+  },
+  "artifacts_verified": 226,
+  "p7_prediction_files_verified_in_colab": 720,
+  "p7_native_models_verified_in_colab": 108,
+  "p6_bundles_reverified_in_colab": 1281,
+  "p7_independent_metrics_and_bootstrap_passed": true,
+  "p6_accepted_uncertainty_lineage_matches": true,
+  "diagnostic_units_reaggregated": 33,
+  "diagnostic_aggregate_tables_recomputed": 66,
+  "sensor_scope_summaries_checked": 42,
+  "worst_case_rows_sanity_checked": 7920,
+  "executed_notebook": "notebooks/executed/07_p8_statistical_failure_analysis_executed.ipynb",
+  "executed_notebook_sha256": "06d3b0d49a9fe7a7824821f6e2ccdd6ea3ffc0ed32d5733faa509226e849d66c",
+  "code_cells_match_published_template": true,
+  "mean_station_selection_regret": {
+    "ci_high": 0.7387928892039342,
+    "ci_low": 0.40041729870083886,
+    "estimate": 0.5503810810785558
+  },
+  "stations_within_practical_near_tie": 11,
+  "limitations": "Drive prediction/native bytes and independent bootstrap were verified in Colab; not downloaded locally. Local review verifies publication lineage, all artifacts, headline consistency and diagnostic aggregation. Worst-case rows are sanity-checked, not independently reselected from all Drive predictions. Descriptive subgroups remain post-results exploratory."
+}

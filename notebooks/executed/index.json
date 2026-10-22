@@ -30,5 +30,9 @@
   "notebooks/06b_p7_colab_recovery_runcomplete.ipynb": {
     "path": "notebooks/executed/06b_p7_colab_recovery_runcomplete.ipynb",
     "sha256": "f8cb3b9fb15e560ebfbc68b065b0ea59412befb57273a5f69b5649057e85aa72"
+  },
+  "notebooks/07_p8_statistical_failure_analysis.ipynb": {
+    "path": "notebooks/executed/07_p8_statistical_failure_analysis_executed.ipynb",
+    "sha256": "06d3b0d49a9fe7a7824821f6e2ccdd6ea3ffc0ed32d5733faa509226e849d66c"
   }
 }

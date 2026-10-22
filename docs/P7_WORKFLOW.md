@@ -1,7 +1,7 @@
 # P7 Colab workflow
 
-**Current status (22 October 2026): execution complete.** Continue with
-[P8 verification and analysis](P8_WORKFLOW.md); do not rerun training.
+**Current status (22 October 2026): execution and independent verification accepted.**
+See [the P7/P8 completion review](../research/P8_COMPLETION_REPORT.md); no rerun is needed.
 The instructions below document the original execution/recovery workflow.
 
 P7 evaluates within-Beijing unseen-station generalization under the frozen

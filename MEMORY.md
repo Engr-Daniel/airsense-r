@@ -1,5 +1,18 @@
 # MEMORY.md — AirSense-R Project Memory
 
+Current status (2026-10-22, after live P8 review): P7 and P8 accepted. Notebook 07
+completed with unchanged code and no error outputs; its executed bytes are saved
+under notebooks/executed/. Result commit 296999a0df73363f2922a34fd15cf520f1d75e2d
+has 226 verified artifacts. Colab independently verified 720 P7 prediction CSVs,
+108 native models, metrics and paired uncertainty, and rechecked 1,281 P6 bundles.
+Local review reproduced 66 diagnostic aggregate tables and checked all 42 sensor
+scope summaries. Mean P7 station regret is 0.5504 (95% CI 0.4004–0.7388) ug/m3;
+11/12 station point estimates meet the practical near-tie threshold. These are
+within-Beijing findings; subgroup analyses are post-results descriptive. See
+research/P8_COMPLETION_REPORT.md and results/p8/final_acceptance.json. Next: P9
+manuscript, followed by remaining explorer/release work. No experiment rerun is
+needed. Previous pending-verification statuses below are historical.
+
 Current status (2026-10-22): P7 execution is complete at result commit
 73c32f0b2cd7fcf447f9483413561b7104536e7f. The user's executed notebook
 06b_p7_colab_recovery_runcomplete.ipynb matches all four published code cells,
