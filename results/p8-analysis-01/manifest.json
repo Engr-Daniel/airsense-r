@@ -480,6 +480,10 @@
       "bytes": 13023,
       "sha256": "0f6acf4e6a0e798404b1016c9ef3c6ab1acd731d4ea4ff0c86fda57f3f63c8f5"
     },
+    "p6-primary-random_dropout-50-concentration_band.csv": {
+      "bytes": 1048,
+      "sha256": "17f4dc5a370265a04dccdf259b6035721576dd22b9f8f19ea7d75e67fa329228"
+    },
     "p7-independent-report.json": {
       "bytes": 20190,
       "sha256": "3147ab8a9f3602f2202da8074160c1adc9cc063e032746d8ea72fe9484cb288f"
