@@ -512,6 +512,10 @@
       "bytes": 12410,
       "sha256": "b5e5867d2f097b5d26855369f8a2a5ffd3b2af7d4d2dbe7d54db4a705281c47a"
     },
+    "p6-primary-outage-NO2-6-season.csv": {
+      "bytes": 987,
+      "sha256": "f3d70825c3a251d3d4ffe4e8e07a5f9adf9d32373521591e78c7f82dee19ce84"
+    },
     "p6-primary-random_dropout-10-complete.json": {
       "bytes": 74,
       "sha256": "a03d1f621e83715f36122310e4883812f04b19769287a81d5a9616c4bd033078"
