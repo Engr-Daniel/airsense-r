@@ -428,6 +428,10 @@
       "bytes": 23132,
       "sha256": "c951aff7c28750558a2d141b21abfa1724614beafe5330fd705eb8a8a269c041"
     },
+    "p6-primary-random_dropout-10-concentration_band-station.csv": {
+      "bytes": 13051,
+      "sha256": "e6e471c8dc40c05034858f2e9c0bb4bab9b24424450134fe9aa9e3f8f95fb487"
+    },
     "p7-independent-report.json": {
       "bytes": 20190,
       "sha256": "3147ab8a9f3602f2202da8074160c1adc9cc063e032746d8ea72fe9484cb288f"
