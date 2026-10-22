@@ -600,6 +600,10 @@
       "bytes": 13066,
       "sha256": "45fcfb4835afeb747c83a00a7701ccb47dcec51e9cbe84009e82fa7b42dd3367"
     },
+    "p6-primary-outage-TEMP-6-concentration_band.csv": {
+      "bytes": 1052,
+      "sha256": "6874a143e2c5f9016139dd979680a1c425a73aacf724a478b4a06ae3f8325181"
+    },
     "p6-primary-random_dropout-10-complete.json": {
       "bytes": 74,
       "sha256": "a03d1f621e83715f36122310e4883812f04b19769287a81d5a9616c4bd033078"
