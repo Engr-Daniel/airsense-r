@@ -96,6 +96,10 @@
       "bytes": 12458,
       "sha256": "eea2372c8e3d341092d8145e2812358ca7a98b1b2faeaf7f38b444c4141a23d6"
     },
+    "p6-no_ffill-noise-20-season.csv": {
+      "bytes": 989,
+      "sha256": "5b4d178ca8d126cf6f313b10b3002eb4970bc0ea24d05708340b661e23309f41"
+    },
     "p6-no_ffill-random_dropout-10-complete.json": {
       "bytes": 74,
       "sha256": "a03d1f621e83715f36122310e4883812f04b19769287a81d5a9616c4bd033078"
