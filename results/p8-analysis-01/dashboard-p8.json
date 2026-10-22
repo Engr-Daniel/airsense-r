@@ -1,0 +1,138 @@
+{
+  "exploratory_diagnostics": {
+    "comparison_atol": 1e-08,
+    "comparison_rtol": 1e-10,
+    "notes": "Concentration bands and seasonal/worst-case analyses are exploratory diagnostics, declared after aggregate P5-P7 results. They are not health/AQI categories or additional confirmatory hypotheses. Models and selection remain frozen.",
+    "phase": "P8",
+    "pollution_boundaries_ug_m3": [
+      50.0,
+      100.0,
+      200.0
+    ],
+    "run_id": "p8-analysis-01",
+    "status": "post-results-descriptive-analysis",
+    "worst_cases_per_station_model": 5
+  },
+  "limitations": [
+    "within-Beijing generalization only",
+    "synthetic non-target sensor interventions",
+    "diagnostic bands and seasons are post-results descriptive analyses",
+    "uncertainty conditional on fitted seeds and observed stations"
+  ],
+  "mean_station_selection_regret": {
+    "ci_high": 0.7387928892039342,
+    "ci_low": 0.40041729870083886,
+    "estimate": 0.5503810810785558
+  },
+  "site_selection": [
+    {
+      "ci_high": 1.0481688096759059,
+      "ci_low": 0.47563510029017586,
+      "estimate": 0.7953252667571373,
+      "kendall_tau_b": 0.6666666666666669,
+      "selected_family": "persistence",
+      "station": "Aotizhongxin",
+      "within_practical_near_tie": true
+    },
+    {
+      "ci_high": 0.5461212762564667,
+      "ci_low": 0.0,
+      "estimate": 0.3057983198562706,
+      "kendall_tau_b": 1.0,
+      "selected_family": "persistence",
+      "station": "Changping",
+      "within_practical_near_tie": true
+    },
+    {
+      "ci_high": 0.3957478663807906,
+      "ci_low": 0.08325372902033194,
+      "estimate": 0.236556679198479,
+      "kendall_tau_b": 0.6666666666666669,
+      "selected_family": "persistence",
+      "station": "Dingling",
+      "within_practical_near_tie": true
+    },
+    {
+      "ci_high": 0.8478537913866667,
+      "ci_low": 0.0,
+      "estimate": 0.39357814241132694,
+      "kendall_tau_b": 1.0,
+      "selected_family": "persistence",
+      "station": "Dongsi",
+      "within_practical_near_tie": true
+    },
+    {
+      "ci_high": 0.9908524587609027,
+      "ci_low": 0.57926532886375,
+      "estimate": 0.8003276858091919,
+      "kendall_tau_b": 1.0,
+      "selected_family": "persistence",
+      "station": "Guanyuan",
+      "within_practical_near_tie": true
+    },
+    {
+      "ci_high": 0.5941280710638133,
+      "ci_low": 0.0,
+      "estimate": 0.0,
+      "kendall_tau_b": 0.6666666666666669,
+      "selected_family": "persistence",
+      "station": "Gucheng",
+      "within_practical_near_tie": true
+    },
+    {
+      "ci_high": 0.5518014413886132,
+      "ci_low": 0.24489521401363948,
+      "estimate": 0.396823754043945,
+      "kendall_tau_b": 0.3333333333333334,
+      "selected_family": "persistence",
+      "station": "Huairou",
+      "within_practical_near_tie": true
+    },
+    {
+      "ci_high": 0.9739024414691285,
+      "ci_low": 0.529339637368011,
+      "estimate": 0.7459828885595066,
+      "kendall_tau_b": 1.0,
+      "selected_family": "persistence",
+      "station": "Nongzhanguan",
+      "within_practical_near_tie": true
+    },
+    {
+      "ci_high": 1.3108705020704376,
+      "ci_low": 0.741690783281534,
+      "estimate": 1.0503523126756917,
+      "kendall_tau_b": 1.0,
+      "selected_family": "persistence",
+      "station": "Shunyi",
+      "within_practical_near_tie": false
+    },
+    {
+      "ci_high": 0.9234989827668263,
+      "ci_low": 0.2821090042348777,
+      "estimate": 0.6273345727446706,
+      "kendall_tau_b": 1.0,
+      "selected_family": "persistence",
+      "station": "Tiantan",
+      "within_practical_near_tie": true
+    },
+    {
+      "ci_high": 0.8357149650215149,
+      "ci_low": 0.44321195514016487,
+      "estimate": 0.6391105827175405,
+      "kendall_tau_b": 1.0,
+      "selected_family": "persistence",
+      "station": "Wanliu",
+      "within_practical_near_tie": true
+    },
+    {
+      "ci_high": 0.9222770049940289,
+      "ci_low": 0.3797786358321135,
+      "estimate": 0.6133827681689095,
+      "kendall_tau_b": 1.0,
+      "selected_family": "persistence",
+      "station": "Wanshouxigong",
+      "within_practical_near_tie": true
+    }
+  ],
+  "status": "awaiting_independent_review"
+}
