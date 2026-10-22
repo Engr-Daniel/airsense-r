@@ -596,6 +596,10 @@
       "bytes": 23130,
       "sha256": "02209cc8260077dc48b8a5aa1ddcdcca2d88f289daa58395a625af1ae77834e3"
     },
+    "p6-primary-outage-TEMP-12-complete.json": {
+      "bytes": 74,
+      "sha256": "a03d1f621e83715f36122310e4883812f04b19769287a81d5a9616c4bd033078"
+    },
     "p6-primary-outage-TEMP-12-concentration_band-station.csv": {
       "bytes": 13060,
       "sha256": "1aeec84f1b724e7269bb4b842b54e9cef5b6af117de4b332e9a921c34b894de6"
