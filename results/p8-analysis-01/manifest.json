@@ -1,0 +1,45 @@
+{
+  "artifacts": {},
+  "provenance": {
+    "code_commit": "af76b79578036cfeb8fb614db086975bc88173b8",
+    "environment": {
+      "packages": {
+        "PyYAML": "6.0.3",
+        "matplotlib": "3.10.7",
+        "numpy": "2.1.3",
+        "pandas": "2.2.3",
+        "scipy": "1.17.1",
+        "threadpoolctl": "3.7.0"
+      },
+      "python": "3.13.16"
+    },
+    "input_commits": {
+      "p6": "464574140e7abb79094935313d6f3eb44fce3a93",
+      "p6_review": "19382df3d505502cc4dda05a70777b17f7735b93",
+      "p7": "73c32f0b2cd7fcf447f9483413561b7104536e7f"
+    },
+    "input_manifests": {
+      "p6": "09eb055295233e824c666735f35cd62e1a066a4b161e779eb61fabc29a1cb2bb",
+      "p7": "d354c6a89021f69786395d6f7d2301e1d8a4b378329e40080ea037bb92feef71"
+    },
+    "no_fitting_or_inference": true,
+    "phase": "P8",
+    "run_id": "p8-analysis-01",
+    "settings": {
+      "comparison_atol": 1e-08,
+      "comparison_rtol": 1e-10,
+      "notes": "Concentration bands and seasonal/worst-case analyses are exploratory diagnostics, declared after aggregate P5-P7 results. They are not health/AQI categories or additional confirmatory hypotheses. Models and selection remain frozen.",
+      "phase": "P8",
+      "pollution_boundaries_ug_m3": [
+        50.0,
+        100.0,
+        200.0
+      ],
+      "run_id": "p8-analysis-01",
+      "status": "post-results-descriptive-analysis",
+      "worst_cases_per_station_model": 5
+    },
+    "source_hash": "00975004069736d0faefa4d6f5d4de431a74f61e911925b5dbe4354972545721"
+  },
+  "schema": 1
+}
