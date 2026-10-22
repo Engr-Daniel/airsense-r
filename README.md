@@ -30,7 +30,7 @@ The project follows a pre-specified workflow. Before final model evaluation, fre
 | P6 | Sensor degradation | Complete; predictions, metrics and uncertainty independently verified; see [report](research/P6_COMPLETION_REPORT.md) |
 | P7 | Leave-one-station-out evaluation | Complete; independent verification accepted; [review](research/P8_COMPLETION_REPORT.md) |
 | P8 | Statistical and failure analysis | Complete; descriptive diagnostics and verification reviewed; [report](research/P8_COMPLETION_REPORT.md) |
-| P9 | Manuscript | Planned |
+| P9 | Manuscript | First complete [draft](paper/manuscript.md); author review and submission preparation pending |
 | P10 | Reliability explorer | Planned |
 | P11 | Reproducibility release | Planned |
 
@@ -109,8 +109,8 @@ The static dashboard lives in `docs/`. Configure GitHub Pages to deploy from the
 
 ## Current next step
 
-P7 and P8 are complete and reviewed. Next is **P9: the manuscript**; no notebook
-rerun is required. See [the P8 completion report](research/P8_COMPLETION_REPORT.md)
+P7 and P8 are complete and reviewed. The **[first manuscript draft](paper/manuscript.md)** is ready for author review;
+no notebook rerun is required. See [the P8 completion report](research/P8_COMPLETION_REPORT.md)
 for verified findings and limitations. P7 mean station selection regret is
 0.5504 µg/m³ (95% CI 0.4004–0.7388); 11/12 station point estimates meet the
 predefined practical near-tie threshold. This is within-Beijing evidence,

@@ -172,17 +172,25 @@ Subgroup diagnostics remain exploratory; final figure layout/captions belong to 
 
 ## P9 — Paper
 
-- [ ] Abstract
-- [ ] Introduction
-- [ ] Related work
-- [ ] Dataset
-- [ ] Methods
-- [ ] Experimental protocol
-- [ ] Results
-- [ ] Discussion
-- [ ] Limitations
-- [ ] Future work / Edge-ML path
-- [ ] Conclusion
+First complete manuscript draft prepared from accepted results; see [paper/manuscript.md](paper/manuscript.md).
+The checks below indicate drafted sections, not journal submission readiness.
+Two figures and six supplementary tables are generated from checksum-verified evidence.
+
+- [x] Abstract
+- [x] Introduction
+- [x] Related work
+- [x] Dataset
+- [x] Methods
+- [x] Experimental protocol
+- [x] Results
+- [x] Discussion
+- [x] Limitations
+- [x] Future work / Edge-ML path
+- [x] Conclusion
+
+- [ ] Author review and confirmation of affiliation, correspondence, contributions and declarations
+- [ ] Target-journal formatting and final citation/novelty review
+- [ ] Public release plan for large prediction/model artifacts before submission
 
 ## P10 — GitHub Pages explorer
 

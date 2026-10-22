@@ -1,5 +1,15 @@
 # MEMORY.md — AirSense-R Project Memory
 
+Current status (2026-10-22, P9): first complete manuscript draft is in
+paper/manuscript.md, with two PNG/PDF figures and six generated supplementary
+tables. paper/build_assets.py verifies the accepted P8 manifest before rendering;
+paper/evidence.json records lineage. All 24 main metric values and six headline
+regret/CI values were checked against accepted records; table regeneration is
+deterministic and rejects unaccepted input. Scientific source, protocol, models
+and predictions are unchanged. P9 draft sections are complete, but author review,
+declarations, target-journal formatting, fuller novelty review and large-artifact
+public archiving remain. Do not call this submitted or publication-ready.
+
 Current status (2026-10-22, after live P8 review): P7 and P8 accepted. Notebook 07
 completed with unchanged code and no error outputs; its executed bytes are saved
 under notebooks/executed/. Result commit 296999a0df73363f2922a34fd15cf520f1d75e2d
