@@ -444,6 +444,10 @@
       "bytes": 986,
       "sha256": "08c6a44c5aea3d564ab522f96456597b5c9556641090c32924e667073b1f610c"
     },
+    "p6-primary-random_dropout-10-worst-cases.csv": {
+      "bytes": 23184,
+      "sha256": "33c32b0e9b65f0c45be978c091c28023378a6df26bd7dea6a57e1ab079d6a03f"
+    },
     "p7-independent-report.json": {
       "bytes": 20190,
       "sha256": "3147ab8a9f3602f2202da8074160c1adc9cc063e032746d8ea72fe9484cb288f"
