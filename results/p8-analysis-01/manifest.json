@@ -212,6 +212,10 @@
       "bytes": 1052,
       "sha256": "3bc0afce2182cea072ee2ea96466196cd322f0b1fa8ba75ae6c4c75c719860af"
     },
+    "p6-no_ffill-outage-TEMP-12-season-station.csv": {
+      "bytes": 12431,
+      "sha256": "58263e446d13df073813c2b891f9731d926526313dea48ff39d57081d014bbb0"
+    },
     "p6-no_ffill-outage-TEMP-6-complete.json": {
       "bytes": 74,
       "sha256": "a03d1f621e83715f36122310e4883812f04b19769287a81d5a9616c4bd033078"
