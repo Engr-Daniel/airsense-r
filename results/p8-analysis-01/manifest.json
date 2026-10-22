@@ -612,6 +612,10 @@
       "bytes": 985,
       "sha256": "b1b3d964891698ff9b3b6a541fb1b062d218ef6668a356ca2381f14a538af55f"
     },
+    "p6-primary-outage-TEMP-6-worst-cases.csv": {
+      "bytes": 23143,
+      "sha256": "608cdf696486042ebc30693bc733656087df95d8ea4ddae8a5f5c022aa4efc2c"
+    },
     "p6-primary-random_dropout-10-complete.json": {
       "bytes": 74,
       "sha256": "a03d1f621e83715f36122310e4883812f04b19769287a81d5a9616c4bd033078"
