@@ -36,6 +36,10 @@
       "bytes": 23139,
       "sha256": "92889cec20ceefdea1fe354455796fb08054a32a7a31605e9f07b435a4d72273"
     },
+    "p6-no_ffill-random_dropout-10-complete.json": {
+      "bytes": 74,
+      "sha256": "a03d1f621e83715f36122310e4883812f04b19769287a81d5a9616c4bd033078"
+    },
     "p6-no_ffill-random_dropout-10-concentration_band-station.csv": {
       "bytes": 13074,
       "sha256": "65f57e2b4f97bb50300a522e839a22a09d2eeec3588baf8a36a43e21b484880e"
