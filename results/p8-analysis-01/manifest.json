@@ -432,6 +432,10 @@
       "bytes": 13069,
       "sha256": "525f014305b40783292cf78217fddd90400c416483afe0c7225750ea185807c8"
     },
+    "p6-primary-noise-05-concentration_band.csv": {
+      "bytes": 1054,
+      "sha256": "0fde574d7f4bf3cddba4b8bffdb63a9df7c9512a04accab3a2283a713ed99d1f"
+    },
     "p6-primary-random_dropout-10-complete.json": {
       "bytes": 74,
       "sha256": "a03d1f621e83715f36122310e4883812f04b19769287a81d5a9616c4bd033078"
