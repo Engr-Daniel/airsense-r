@@ -460,6 +460,10 @@
       "bytes": 1048,
       "sha256": "35235737d85010c856886d646a59c58500736a06b0b57011606a26b4ace2bdcb"
     },
+    "p6-primary-noise-10-season-station.csv": {
+      "bytes": 12439,
+      "sha256": "3e171373869ef7ff73369911d35b1ac55b5431c85b4815f4f3eeb1c067d6783f"
+    },
     "p6-primary-random_dropout-10-complete.json": {
       "bytes": 74,
       "sha256": "a03d1f621e83715f36122310e4883812f04b19769287a81d5a9616c4bd033078"
