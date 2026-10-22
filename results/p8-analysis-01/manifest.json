@@ -216,6 +216,10 @@
       "bytes": 12447,
       "sha256": "7327f78d177bc484b88584964297c787ec67c085369a1c5ea3de1df22b5b9909"
     },
+    "p6-no_ffill-outage-TEMP-6-season.csv": {
+      "bytes": 987,
+      "sha256": "d58be4b8673bb07e8de870108b5acbf8339839b0fe94a48baf92a94ab8d1d8b8"
+    },
     "p6-no_ffill-random_dropout-10-complete.json": {
       "bytes": 74,
       "sha256": "a03d1f621e83715f36122310e4883812f04b19769287a81d5a9616c4bd033078"
