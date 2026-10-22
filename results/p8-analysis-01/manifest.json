@@ -604,6 +604,10 @@
       "bytes": 1049,
       "sha256": "5a53e691584a07273774dc49d7797519afd63e4c7b8049721800af7abd58d22d"
     },
+    "p6-primary-outage-TEMP-12-season-station.csv": {
+      "bytes": 12413,
+      "sha256": "346043cd7c6a2b0e18439bef04e15a705a3bf6419b8de161de3ddec6aa1c6110"
+    },
     "p6-primary-outage-TEMP-6-complete.json": {
       "bytes": 74,
       "sha256": "a03d1f621e83715f36122310e4883812f04b19769287a81d5a9616c4bd033078"
