@@ -488,6 +488,10 @@
       "bytes": 12435,
       "sha256": "3a40352569d16cebe98a5e973f278dc4288a752851d31be0c1b5842bbb52aaff"
     },
+    "p6-primary-noise-20-season.csv": {
+      "bytes": 992,
+      "sha256": "ac7167904d2f316bfcbfce4e335a2898569b2b0704e29022306707070352cf35"
+    },
     "p6-primary-random_dropout-10-complete.json": {
       "bytes": 74,
       "sha256": "a03d1f621e83715f36122310e4883812f04b19769287a81d5a9616c4bd033078"
