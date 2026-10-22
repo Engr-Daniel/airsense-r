@@ -492,6 +492,10 @@
       "bytes": 992,
       "sha256": "ac7167904d2f316bfcbfce4e335a2898569b2b0704e29022306707070352cf35"
     },
+    "p6-primary-noise-20-worst-cases.csv": {
+      "bytes": 23153,
+      "sha256": "d3dae568f6cce669dca0a17e92a85d4dddea9ae611ff56a5c250e2895b657780"
+    },
     "p6-primary-random_dropout-10-complete.json": {
       "bytes": 74,
       "sha256": "a03d1f621e83715f36122310e4883812f04b19769287a81d5a9616c4bd033078"
