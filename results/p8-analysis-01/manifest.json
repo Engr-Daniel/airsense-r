@@ -875,6 +875,10 @@
     "p7-verified-Wanshouxigong.json": {
       "bytes": 67,
       "sha256": "5adec2fd046bdb0d7b1ae650ebc74a25709bf8ca4871949f898b9fd26cbebb1d"
+    },
+    "sensor-ranking-summary.csv": {
+      "bytes": 34519,
+      "sha256": "70d4c519ef2c573cf2dcb9096ea35a539af3db4e361d4defaf207af6e12c8471"
     }
   },
   "provenance": {
