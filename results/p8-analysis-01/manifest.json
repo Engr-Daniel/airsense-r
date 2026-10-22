@@ -100,6 +100,10 @@
       "bytes": 977,
       "sha256": "f680a10519f6ceca1b49ff4c1541cde15a06ba7e0c03bf8b621e5ed280e8c2c7"
     },
+    "p6-no_ffill-random_dropout-50-worst-cases.csv": {
+      "bytes": 23232,
+      "sha256": "0e601ac9e39a7a7c0a3c9a279dd77ff28986eae875f2eca17776e4b048c68868"
+    },
     "p7-independent-report.json": {
       "bytes": 20190,
       "sha256": "3147ab8a9f3602f2202da8074160c1adc9cc063e032746d8ea72fe9484cb288f"
