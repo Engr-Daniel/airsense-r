@@ -124,6 +124,10 @@
       "bytes": 987,
       "sha256": "13b6fbef272f23db9474f4f161ed7728b7cb621874eee088730d89711c4e4a60"
     },
+    "p6-no_ffill-outage-CO-6-worst-cases.csv": {
+      "bytes": 23145,
+      "sha256": "34cfdb86546f0ba84c4005045e96fb364072e25d3b83d9fdd37c01634b4dbac7"
+    },
     "p6-no_ffill-outage-NO2-12-complete.json": {
       "bytes": 74,
       "sha256": "a03d1f621e83715f36122310e4883812f04b19769287a81d5a9616c4bd033078"
