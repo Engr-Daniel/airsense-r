@@ -188,6 +188,10 @@
       "bytes": 1053,
       "sha256": "e647fae7751f3c017b11a750dab3ef748f67ea47af597dd335955b46a8703574"
     },
+    "p6-no_ffill-whole-CO-season-station.csv": {
+      "bytes": 12419,
+      "sha256": "11abff16abb7a567efc45abe675cc12f0ce4b86c96b2636b3d5006e32faca6bd"
+    },
     "p6-no_ffill-whole-NO2-complete.json": {
       "bytes": 74,
       "sha256": "a03d1f621e83715f36122310e4883812f04b19769287a81d5a9616c4bd033078"
