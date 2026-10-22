@@ -2,5 +2,6 @@
 results/p5/** -text
 notebooks/*_executed.ipynb -text
 notebooks/*_runcomplete.ipynb -text
+notebooks/executed/*.ipynb -text
 # Recovery adapters are downloaded by byte checksum from their pinned commits.
 scripts/recovery/*.py text eol=lf

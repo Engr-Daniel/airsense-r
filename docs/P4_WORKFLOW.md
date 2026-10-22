@@ -7,7 +7,7 @@ P4 builds data and recovery infrastructure. It does not train the P5 forecasting
 Use Python 3.11+ in a virtual environment:
 
 ```bash
-python -m pip install -r requirements-p4.txt -e .
+python -m pip install -e ".[notebooks,dev]"
 python -m pytest -q
 python scripts/run_pipeline.py --run-id p4-development
 ```

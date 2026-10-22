@@ -22,14 +22,14 @@ The project follows a pre-specified workflow. Before final model evaluation, fre
 
 | Phase | Work | Status |
 |---|---|---|
-| P0?P1.5 | Setup, literature review, methodology hardening | Complete |
+| P0–P1.5 | Setup, literature review, methodology hardening | Complete |
 | P2 | Dataset acquisition and structural audit | Complete |
 | P3 | Freeze research protocol | Complete |
 | P4 | Causal pipeline, Colab notebooks, checkpoint recovery | Complete |
 | P5 | Clean forecasting benchmark | Complete after corrected evaluation; see [report](research/P5_COMPLETION_REPORT.md) |
 | P6 | Sensor degradation | Complete; predictions, metrics and uncertainty independently verified; see [report](research/P6_COMPLETION_REPORT.md) |
 | P7 | Leave-one-station-out evaluation | Execution complete; local evidence review passed. Independent prediction/uncertainty verification pending; see [review](research/P7_EXECUTION_REVIEW.md) |
-| P8 | Statistical and failure analysis | Planned |
+| P8 | Statistical and failure analysis | Implemented; live verification/analysis pending; [workflow](docs/P8_WORKFLOW.md) |
 | P9 | Manuscript | Planned |
 | P10 | Reliability explorer | Planned |
 | P11 | Reproducibility release | Planned |
@@ -58,40 +58,26 @@ See [the protocol](research/PROTOCOL.md) for sensitivity and statistical rules.
 The 12 stations are all in Beijing. This tests within-city unseen-station
 generalization, not transfer to another city, climate, or instrument type.
 Synthetic degradation of regulatory monitoring data is not evidence of real
-device failure or embedded deployment. No forecasting findings are available yet;
-pipeline validation is not a predictive benchmark.
+device failure or embedded deployment. P5/P6 findings have passed independent
+review; P7 execution is complete but prediction-level acceptance is still pending.
+P8 subgroup diagnostics are explicitly post-results descriptive analyses.
 
 ## Repository map
 
-```text
-airsense-r/
-├── AGENTS.md
-├── MEMORY.md
-├── TASK.md
-├── README.md
-├── LICENSE
-├── CITATION.cff
-├── pyproject.toml
-├── requirements.txt
-├── configs/
-├── artifacts/models/      # fitted model artifacts (generated later)
-├── data/
-├── docs/                # GitHub Pages reliability explorer
-├── experiments/
-├── figures/
-├── paper/
-├── research/
-├── results/
-├── scripts/
-├── src/airsense_r/
-│   ├── models/            # model definitions (persistence now; ML/DL after P3)
-│   ├── data/
-│   ├── features/
-│   ├── corruption/
-│   ├── evaluation/
-│   └── visualization/
-└── tests/
-```
+| Location | Contents |
+|---|---|
+| `src/airsense_r/` | Reusable scientific implementation |
+| `scripts/`, `notebooks/` | Execution entry points and Colab workflows |
+| `notebooks/executed/` | Preserved execution evidence and checksum index |
+| `configs/`, `research/` | Frozen settings, methodology and phase reports |
+| `audit/`, `results/`, `figures/` | Dataset receipts, reviewed results and figures |
+| `docs/`, `paper/` | Workflow guides, explorer and manuscript |
+| `tests/` | Scientific and recovery regression checks |
+
+`AGENTS.md`, `MEMORY.md` and `TASK.md` remain at the root for contributor and
+IDE discovery. Large models and prediction arrays remain in persistent Drive
+storage, with checksum references in result branches.
+
 
 ## Quick start
 
@@ -121,7 +107,21 @@ The static dashboard lives in `docs/`. Configure GitHub Pages to deploy from the
 - Treat Edge-ML as future work unless actual embedded deployment is completed.
 - Record deviations from the frozen protocol in `research/PROTOCOL_DEVIATIONS.md`.
 
-## Status
+## Current next step
+
+Run **[notebook 07](notebooks/07_p8_statistical_failure_analysis.ipynb)** in Colab
+using the original Drive account and existing GitHub secret. Choose a CPU runtime
+and Run all; no SHA or stage entry is needed. It verifies P7's saved predictions
+and uncertainty before producing P6/P7 failure-analysis tables and figures.
+It does not retrain models. See [P8 instructions](docs/P8_WORKFLOW.md).
+
+Dependency versions are defined once in `pyproject.toml`. `requirements.txt`
+installs the full research environment; `pip install -e ".[notebooks]"` installs
+the smaller analysis environment. Historical pinned notebooks keep their original
+environments. Executed notebooks are preserved in [notebooks/executed](notebooks/executed/)
+with a checksum index; they are evidence, not runnable templates.
+
+## Earlier completed workflow
 
 P0–P3 are complete and the protocol is frozen. P4's causal data pipeline, provenance checks, incremental Git checkpoints, resume support, and first three Colab notebooks are implemented and locally verified. Authoritative UCI coverage checkpoints are saved under `results/p4/p4-final/`. User-run Colab execution and fresh-runtime checkpoint recovery have been reviewed successfully. See [the P4 workflow](docs/P4_WORKFLOW.md) and [completion report](research/P4_COMPLETION_REPORT.md). P5 model adapters, training-only tuning, validation selection, persistent model checkpoints and notebook 04 are implemented. The corrected clean benchmark is complete, with frozen-model validation replay and independently reproduced test metrics/uncertainty. See [P5 completion and correction disclosures](research/P5_COMPLETION_REPORT.md). See [the P5 workflow](docs/P5_WORKFLOW.md).
 

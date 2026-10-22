@@ -3,7 +3,7 @@
 **Execution complete; scientific acceptance pending.**
 
 The final result snapshot is `73c32f0b2cd7fcf447f9483413561b7104536e7f`.
-The user's `notebooks/06b_p7_colab_recovery_runcomplete.ipynb` is preserved
+The user's `notebooks/executed/06b_p7_colab_recovery_runcomplete.ipynb` is preserved
 byte-for-byte. All four code cells match the published recovery template and
 have executed without saved error outputs. The worker exited successfully,
 and the final cell verified and displayed the completion record and report.

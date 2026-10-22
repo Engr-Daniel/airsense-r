@@ -25,7 +25,7 @@ def main() -> None:
         "Do not use smoke outputs as research results. See `docs/P5_WORKFLOW.md`."),
         md("## 1. Bootstrap\nUse the code SHA from the same GitHub revision as this notebook. "
            "Installing the declared environment can require a kernel restart; preserve the checkout and rerun setup."),
-        code(common["BOOTSTRAP"].replace("requirements-p4.txt", "requirements-p5.txt")),
+        code(common["BOOTSTRAP"].replace("[notebooks]", "[train,notebooks]")),
         md("## 2. Provenance and GitHub authentication\nUse a new run ID for new code. "
            "Reuse the benchmark ID for select, test and recovery; use a separate smoke ID."),
         code(common["SETUP"].replace("NOTEBOOK_SOURCE_HASH", source_hash(ROOT)).replace("nb03-validation-01", "p5-smoke-01")),

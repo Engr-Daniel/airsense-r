@@ -1,0 +1,11 @@
+phase: P8
+status: post-results-descriptive-analysis
+run_id: p8-analysis-01
+pollution_boundaries_ug_m3: [50.0, 100.0, 200.0]
+worst_cases_per_station_model: 5
+comparison_atol: 1.0e-8
+comparison_rtol: 1.0e-10
+notes: >-
+  Concentration bands and seasonal/worst-case analyses are exploratory diagnostics,
+  declared after aggregate P5-P7 results. They are not health/AQI categories or
+  additional confirmatory hypotheses. Models and selection remain frozen.

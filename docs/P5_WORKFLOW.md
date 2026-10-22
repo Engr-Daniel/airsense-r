@@ -13,7 +13,7 @@ Implementation and smoke checks are not a completed scientific benchmark.
 Use Python 3.11+ in a fresh environment:
 
 ```bash
-python -m pip install -e . -r requirements-p5.txt
+python -m pip install -e ".[train,notebooks,dev]"
 python -m pytest -q
 ```
 

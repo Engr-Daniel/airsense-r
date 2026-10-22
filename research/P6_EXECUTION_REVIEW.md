@@ -25,7 +25,7 @@ failure, but its underlying stderr was not retained in the displayed error.
 
 Preserve this history. The complete submitted notebook, including its failed
 invocation and subsequent successful inspection, is archived byte-for-byte as
-`notebooks/05_p6_sensor_degradation_evaluation_executed.ipynb` (SHA-256
+`notebooks/executed/05_p6_sensor_degradation_evaluation_executed.ipynb` (SHA-256
 `805655f55708d7db74fe24295a2d7888444a3ef87cb4bf2c89d33f75f29867bd`).
 The source template has been restored without the lock-deletion edit.
 

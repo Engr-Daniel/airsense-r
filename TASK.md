@@ -2,7 +2,7 @@
 
 ## Objective
 
-Complete a scientifically defensible v1 research study, technical manuscript, reproducible repository, and GitHub Pages reliability explorer within a two-day sprint.
+Complete a scientifically defensible v1 research study, technical manuscript, reproducible repository, and GitHub Pages reliability explorer, with independent verification before phase acceptance.
 
 ## P0 — Repository bootstrap
 
@@ -142,7 +142,9 @@ requires 12 LOSO folds and 756 learned-model fits. All training and held-out
 evaluation completed on 2026-10-21. The executed recovery notebook and 13,850
 Git artifacts passed local review on 2026-10-22. Independent Drive prediction,
 native lineage and uncertainty verification remain pending before acceptance
-or repository cleanup. See [research/P7_EXECUTION_REVIEW.md](research/P7_EXECUTION_REVIEW.md).
+of P7. The user authorized repository cleanup and P8 preparation; independent
+P7 verification is the first gate in notebook 07.
+See [research/P7_EXECUTION_REVIEW.md](research/P7_EXECUTION_REVIEW.md).
 
 - [x] Implement the reconnectable notebook interface with embedded settings for P7 execution
 - [x] Implement per-fold tuning, all-fold selection freeze and native development replay before test access
@@ -150,20 +152,28 @@ or repository cleanup. See [research/P7_EXECUTION_REVIEW.md](research/P7_EXECUTI
 - [x] Declare fold-specific selection regret and paired uncertainty before P7 results
 - [x] Complete local regression and fresh-process lifecycle verification before notebook handoff
 - [ ] Review live Colab completion, independently verify saved predictions/metrics/uncertainty, and accept P7
-- [ ] Train without held-out site(s)
-- [ ] Evaluate on unseen site(s)
+- [x] Train without held-out site(s)
+- [x] Evaluate on unseen site(s)
 - [ ] Quantify cross-site generalization performance (do not call it a penalty without matched comparator)
 - [ ] Compare model ranking stability
 - [x] Build `notebooks/06_p7_site_shift_analysis.ipynb`
 
 ## P8 — Statistical and failure analysis
 
+Implemented for saved P6/P7 evidence; live execution and output review are
+pending. Follow [docs/P8_WORKFLOW.md](docs/P8_WORKFLOW.md). No model retraining.
+
+- [x] Consolidate dependencies and preserve executed notebooks separately
+- [x] Implement independent P7 prediction/native-lineage/uncertainty verification
+- [x] Implement resumable descriptive diagnostics and exported tables/figures
+- [x] Verify local regression, native interruption/recovery, notebook execution and pinned Git inputs
+
 - [ ] Compute required paired dependence-aware uncertainty / temporal-block bootstrap intervals
 - [ ] Analyze worst-error cases
 - [ ] Check error by pollution regime
 - [ ] Check whether clean ranking persists under degradation
 - [ ] Create publication figures/tables
-- [ ] Build `notebooks/07_p8_statistical_failure_analysis.ipynb`
+- [x] Build `notebooks/07_p8_statistical_failure_analysis.ipynb`
 
 ## P9 — Paper
 

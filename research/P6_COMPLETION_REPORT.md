@@ -22,7 +22,7 @@ AirSense-R: Do Air-Quality Forecasters Keep Their Rank Under Sensor Degradation 
   Review interval/point values agree with original reports to a maximum absolute
   difference of `2.1715962361668062e-13`. No tolerance adjustment was needed.
 - Notebook 05b completed all four cells without errors. Its executed copy is
-  retained as `notebooks/05b_p6_saved_result_verification_executed.ipynb`.
+  retained as `notebooks/executed/05b_p6_saved_result_verification_executed.ipynb`.
   The review performed no model training or prediction rerun.
 
 The machine-readable acceptance record is

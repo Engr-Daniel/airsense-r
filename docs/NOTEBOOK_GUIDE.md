@@ -108,6 +108,13 @@ required by the platform.
 
 P7 uses the same reconnectable interface in `06_p7_site_shift_analysis.ipynb`,
 with automatic scientific stage gates and an explicit final-results provenance
-check. See `P7_WORKFLOW.md`. Its full Colab execution remains pending.
+check. See `P7_WORKFLOW.md`. Execution is complete; independent acceptance is
+the first gate in notebook `07_p8_statistical_failure_analysis.ipynb`, followed
+by descriptive failure analysis. See `P8_WORKFLOW.md`.
+
+Preserve executed notebooks under `notebooks/executed/`, with path and checksum
+entries in its index. Keep runnable templates at the top notebook level. Package
+dependencies are defined once in `pyproject.toml`; new analysis notebooks install
+the `notebooks` extra, and training workflows additionally install `train`.
 
 Shared provenance loaders, checkpoint persistence, Git synchronization, resume support, and notebooks 01–03 are implemented in P4. Local integration tests cover these behaviors using bare Git remotes and explicit notebook fixture setup. Actual GitHub pushing requires runtime credentials. User-run Colab publication and notebook 03 fresh-runtime recovery were reviewed on 2026-10-09 using an import workaround, now standardized in bootstrap with local regression coverage. See `P4_WORKFLOW.md` and `../research/P4_COMPLETION_REPORT.md`.

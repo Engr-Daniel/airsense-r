@@ -25,7 +25,6 @@ def main() -> None:
         'CODE_REVISION = (os.environ.get("AIRSENSE_CODE_REVISION") or input("Code version: full 40-character Git commit SHA (not a run ID): ")).strip().lower()',
         f'CODE_REVISION = "{revision}"')
     bootstrap = bootstrap.replace('ROOT = Path.cwd() / "airsense-r"', f'ROOT = Path.cwd() / "airsense-r-review-{revision[:12]}"')
-    bootstrap = bootstrap.replace('requirements-p4.txt', 'requirements-p6-review.txt')
     bootstrap += f'''\nfrom airsense_r.artifacts import source_hash
 if source_hash(ROOT) != "{source_hash(ROOT)}":
     raise RuntimeError("Verification notebook/source mismatch; reopen the published notebook")

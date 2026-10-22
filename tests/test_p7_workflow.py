@@ -55,11 +55,40 @@ def test_fresh_process_loso_interruption_restore_and_completion(tmp_path):
     assert final.returncode == 0, final.stdout+final.stderr
     assert all(sha256(p.read_bytes()).hexdigest() == digest for p, digest in before.items())
     assert len(subprocess.check_output(["git", "--git-dir", str(remote), "for-each-ref", "--format=%(refname)", "refs/heads"], text=True).splitlines()) == 1
+    # Independently verify actual native files and lossless CSVs without refitting.
+    from airsense_r.evaluation.p6_verify import Snapshot
+    from airsense_r.evaluation.p7_verify import verify_run
+    review = RunStore(tmp_path / "review", {"fixture": True})
+    predictions = verify_run(Snapshot(directory), work / "drive", review, lambda _: None)
+    assert review.load_json("p7-verification.json")["native_models"] == 6
+    assert {74.3, 81.8}.issubset(set(predictions.y_true))
+    verify_run(Snapshot(directory), work / "drive", review, lambda _: None)
+    assert all(sha256(p.read_bytes()).hexdigest() == digest for p, digest in before.items())
+    native = next((work / "drive").rglob("*.ubj"))
+    # Pick the final referenced native file, not an intermediate checkpoint.
+    pointer = next((work / "drive").glob("p7-sites-01/*/refit-xgboost-*/progress.json"))
+    native = pointer.parent / json.loads(pointer.read_bytes())["file"]
+    native.write_bytes(native.read_bytes() + b"tampered")
+    with pytest.raises(ValueError, match="Native model checksum"):
+        verify_run(Snapshot(directory), work / "drive", review, lambda _: None)
 
 
-def test_p7_four_cells_fresh_process(tmp_path):
+def test_p7_four_cells_fresh_process(tmp_path, monkeypatch):
     notebook = nbformat.read(ROOT / "notebooks/06_p7_site_shift_analysis.ipynb", as_version=4)
     nbformat.validate(notebook)
+    from scripts import build_p7_notebook as builder
+    generated = {}
+    original_write = Path.write_text
+    def capture(path, text, *args, **kwargs):
+        if path.name == "06_p7_site_shift_analysis.ipynb":
+            generated["notebook"] = text
+            return len(text)
+        return original_write(path, text, *args, **kwargs)
+    with monkeypatch.context() as patch:
+        patch.setattr(Path, "write_text", capture)
+        patch.setattr(sys, "argv", ["builder", "--revision", "a"*40])
+        builder.main()
+    notebook = nbformat.reads(generated["notebook"], as_version=4)
     cells = [cell.source for cell in notebook.cells if cell.cell_type == "code"]
     assert len(cells) == 4 and all("input(" not in cell for cell in cells)
     run = "p7-notebook-fixture-"+sha256(str(tmp_path).encode()).hexdigest()[:12]

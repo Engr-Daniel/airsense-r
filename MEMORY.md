@@ -9,9 +9,12 @@ records were checked. Aggregate metrics and point selection regret agree with
 recalculation from 120 station/model/seed metric rows. See
 results/p7/execution_review.json. Scientific acceptance is still pending checks
 of 720 Drive prediction CSVs, original native model lineage, prediction-level
-metrics/selection and independently recomputed uncertainty. Do not retrain or
-start P8/cleanup on the basis of execution completion alone. Earlier status
-entries below are historical.
+metrics/selection and independently recomputed uncertainty. Do not retrain.
+The user subsequently authorized cleanup and P8 preparation; notebook 07 makes
+independent P7 verification its first gate before failure analysis. Dependencies
+have one definition in pyproject.toml. Executed notebooks are preserved under
+notebooks/executed/ with a path/checksum index. Live P8 execution and review are
+still pending. See docs/P8_WORKFLOW.md. Earlier status entries are historical.
 
 Current status (2026-10-20): P7 has 667/756 completed model fits recorded; ten
 station folds have completed selection, Wanliu has 37/54 tuning fits, and

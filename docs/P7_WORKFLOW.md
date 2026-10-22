@@ -1,5 +1,9 @@
 # P7 Colab workflow
 
+**Current status (22 October 2026): execution complete.** Continue with
+[P8 verification and analysis](P8_WORKFLOW.md); do not rerun training.
+The instructions below document the original execution/recovery workflow.
+
 P7 evaluates within-Beijing unseen-station generalization under the frozen
 protocol. It does not measure a causal site-shift penalty or inter-city transfer.
 P5 and P6 are accepted; their models and result branches remain unchanged.

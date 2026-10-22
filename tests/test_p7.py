@@ -103,6 +103,8 @@ def test_policy_regret_is_station_oracle_not_fixed_family():
     p["y_pred"] += (p.target_timestamp.dt.hour % 7) * (p.model == "xgboost") + (p.seed == 31415)*.5
     report = summarize_sites(p, decisions, config)
     errors = (p.assign(error=abs(p.y_true-p.y_pred)).groupby(["station", "model", "target_timestamp"]).error.mean())
+    from airsense_r.evaluation.p7_verify import independent_report, check
+    check(independent_report(p, decisions, config), report)
     a = np.array([[errors.loc[s, m].reindex(times).to_numpy() for m in ["persistence", "xgboost"]] for s in ["A", "B"]])
     rng = np.random.default_rng(config["seeds"]["bootstrap"])
     regrets = []

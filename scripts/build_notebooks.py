@@ -39,7 +39,7 @@ else:
             raise RuntimeError("; ".join(problems) + ". Preserve existing work and use a fresh runtime filesystem; restarting only the kernel does not remove the checkout.")
     if sys.version_info < (3, 11):
         raise RuntimeError("Python 3.11+ required")
-    subprocess.run([sys.executable, "-m", "pip", "install", "-q", "-r", str(ROOT / "requirements-p4.txt"), "-e", str(ROOT)], check=True)
+    subprocess.run([sys.executable, "-m", "pip", "install", "-q", "-e", str(ROOT) + "[notebooks]"], check=True)
     print("Code revision:", CODE_REVISION)
 # Editable installs may not activate their .pth file in an already-running kernel.
 # Activate only this checkout, and reject cached modules from another checkout.

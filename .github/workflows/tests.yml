@@ -13,7 +13,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - run: pip install -e . -r requirements-p4.txt
+      - run: pip install -e '.[notebooks,dev]'
       - run: pytest -q
 
   training:
@@ -23,5 +23,5 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - run: pip install -e . -r requirements-p5.txt
+      - run: pip install -e '.[train,notebooks,dev]'
       - run: pytest -q tests/test_p5_training.py tests/test_p5_selection.py tests/test_model_storage.py tests/test_p5_notebook.py tests/test_p5_recovery.py tests/test_pipeline.py tests/test_p6.py tests/test_p6_workflow.py tests/test_p7.py tests/test_p7_workflow.py tests/test_p7_colab_recovery.py
