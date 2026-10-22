@@ -1,5 +1,18 @@
 # MEMORY.md — AirSense-R Project Memory
 
+Current status (2026-10-22): P7 execution is complete at result commit
+73c32f0b2cd7fcf447f9483413561b7104536e7f. The user's executed notebook
+06b_p7_colab_recovery_runcomplete.ipynb matches all four published code cells,
+contains no error outputs and confirms successful worker completion. All 13,850
+Git artifact checksums passed; all 12 selection/exclusion/replay/test-completion
+records were checked. Aggregate metrics and point selection regret agree with
+recalculation from 120 station/model/seed metric rows. See
+results/p7/execution_review.json. Scientific acceptance is still pending checks
+of 720 Drive prediction CSVs, original native model lineage, prediction-level
+metrics/selection and independently recomputed uncertainty. Do not retrain or
+start P8/cleanup on the basis of execution completion alone. Earlier status
+entries below are historical.
+
 Current status (2026-10-20): P7 has 667/756 completed model fits recorded; ten
 station folds have completed selection, Wanliu has 37/54 tuning fits, and
 Wanshouxigong is pending. No P7 final-test evaluation or scientific acceptance

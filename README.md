@@ -28,7 +28,7 @@ The project follows a pre-specified workflow. Before final model evaluation, fre
 | P4 | Causal pipeline, Colab notebooks, checkpoint recovery | Complete |
 | P5 | Clean forecasting benchmark | Complete after corrected evaluation; see [report](research/P5_COMPLETION_REPORT.md) |
 | P6 | Sensor degradation | Complete; predictions, metrics and uncertainty independently verified; see [report](research/P6_COMPLETION_REPORT.md) |
-| P7 | Leave-one-station-out evaluation | Training in progress; Colab environment recovery uses [notebook 06b](notebooks/06b_p7_colab_recovery.ipynb). Completion and independent acceptance pending; see [workflow](docs/P7_WORKFLOW.md) |
+| P7 | Leave-one-station-out evaluation | Execution complete; local evidence review passed. Independent prediction/uncertainty verification pending; see [review](research/P7_EXECUTION_REVIEW.md) |
 | P8 | Statistical and failure analysis | Planned |
 | P9 | Manuscript | Planned |
 | P10 | Reliability explorer | Planned |

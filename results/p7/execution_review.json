@@ -1,0 +1,33 @@
+{
+  "review_date": "2026-10-22",
+  "phase": "P7",
+  "run_id": "p7-sites-01",
+  "result_commit": "73c32f0b2cd7fcf447f9483413561b7104536e7f",
+  "source_commit": "7278ba95c88ea28e8861f59d0a6f8e097087c9d7",
+  "source_hash": "9c1237fbbad6e1ca6abe065bbbc9c7f91baf8e2381ed6c86ae50a8df7f6519d3",
+  "manifest_sha256": "d354c6a89021f69786395d6f7d2301e1d8a4b378329e40080ea037bb92feef71",
+  "executed_notebook": "notebooks/06b_p7_colab_recovery_runcomplete.ipynb",
+  "executed_notebook_sha256": "f8cb3b9fb15e560ebfbc68b065b0ea59412befb57273a5f69b5649057e85aa72",
+  "notebook_code_matches_published_template": true,
+  "notebook_code_cells": 4,
+  "notebook_error_outputs": 0,
+  "git_artifacts_verified": 13850,
+  "git_artifact_checksum_mismatches": 0,
+  "training_fits_complete": 756,
+  "station_selections_verified": 12,
+  "held_out_station_exclusions_verified": 12,
+  "development_replay_records_passed": 12,
+  "test_station_completion_records": 12,
+  "test_model_seed_completion_records": 120,
+  "aggregate_metrics_recomputed_from_station_seed_metrics": true,
+  "selection_regret_point_recomputed_from_station_seed_metrics": true,
+  "execution_complete": true,
+  "scientifically_accepted": false,
+  "pending": [
+    "Verify all 720 Drive prediction CSV files against registered byte counts and SHA256 references",
+    "Recompute validation choices and final metrics from prediction rows",
+    "Independently recompute paired calendar-block uncertainty from prediction rows",
+    "Review final native model references and Drive lineage"
+  ],
+  "limitations": "Saved metric consistency checks are not independent prediction-level or uncertainty verification."
+}
