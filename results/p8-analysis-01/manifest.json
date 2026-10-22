@@ -220,6 +220,10 @@
       "bytes": 986,
       "sha256": "9d746bf0d0baaa02ec86650e2aef33bbb78d2d6e6c1da4a47d3d700ad6a4c360"
     },
+    "p6-no_ffill-outage-TEMP-12-worst-cases.csv": {
+      "bytes": 23146,
+      "sha256": "ac828b4d0410ed60573aa0cd208f41284c6b56f86cd45d25e68e1c0147ade48a"
+    },
     "p6-no_ffill-outage-TEMP-6-complete.json": {
       "bytes": 74,
       "sha256": "a03d1f621e83715f36122310e4883812f04b19769287a81d5a9616c4bd033078"
