@@ -1,5 +1,9 @@
 {
   "artifacts": {
+    "bundle-targets.json": {
+      "bytes": 401,
+      "sha256": "bd3eb96de7b880c31ebdab45d1b34a5b92a38e17eae76d214ccd0cb6998368e1"
+    },
     "development-replay-gru-27182.json": {
       "bytes": 112,
       "sha256": "2d0b1c9dabcda8c33a14bc7daa763c826d5b3a2c02e30d474f2c9dea4f1e69b3"

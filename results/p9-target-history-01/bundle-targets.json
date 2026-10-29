@@ -1,0 +1,25 @@
+{
+  "arrays": {
+    "station": {
+      "dtype": "<U13",
+      "shape": [
+        102753
+      ]
+    },
+    "time": {
+      "dtype": "int64",
+      "shape": [
+        102753
+      ]
+    },
+    "y": {
+      "dtype": "float64",
+      "shape": [
+        102753
+      ]
+    }
+  },
+  "bytes": 701033,
+  "file": "targets.npz",
+  "sha256": "dd88190021c8fdb0520c8fad08b2cc8c9b87863cbd5e61a6f4eccbe98d1ca6ec"
+}
