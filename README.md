@@ -109,8 +109,17 @@ The static dashboard lives in `docs/`. Configure GitHub Pages to deploy from the
 
 ## Current next step
 
-P7 and P8 are complete and reviewed. The **[first manuscript draft](paper/manuscript.md)** is ready for author review;
-no notebook rerun is required. See [the P8 completion report](research/P8_COMPLETION_REPORT.md)
+P7 and P8 are complete and reviewed. The **[manuscript draft](paper/manuscript.md)**
+now includes a separate [post-results tolerance audit](research/P9_THRESHOLD_REVIEW.md).
+The next run is **[notebook 08: target-history checkpoint](notebooks/08_p9_target_history_checkpoint.ipynb)**:
+open in Colab, choose CPU, and Run all with the original Drive model storage and
+GitHub secret. The code revision and stages are automatic. After a network
+disconnect, rerun cell 3; after runtime replacement, Run all. Use one runtime.
+It evaluates five PM2.5 dropout/outage conditions with frozen models; no old
+notebook rerun or retraining is required. Real-data execution and acceptance
+are pending. See the [bounded post-results plan](research/P9_CHECKPOINT_PLAN.md)
+and [positioning review](research/P9_POSITIONING_REVIEW.md).
+See [the P8 completion report](research/P8_COMPLETION_REPORT.md)
 for verified findings and limitations. P7 mean station selection regret is
 0.5504 µg/m³ (95% CI 0.4004–0.7388); 11/12 station point estimates meet the
 predefined practical near-tie threshold. This is within-Beijing evidence,

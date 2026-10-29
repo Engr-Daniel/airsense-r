@@ -10,6 +10,11 @@ At 0.5, original LOSO membership is 5/12 (versus 11/12 at 1); only Nongzhanguan
 changes counterfactual selection, with mean regret 0.4978. Counterfactual
 intervals were not recomputed. Target-history real-data execution/acceptance
 still requires the user's original Drive models in Colab; do not claim it done.
+Notebook 08 is pinned to 0cd6c470471625409affb97dffbc4b3473663602 with source
+fingerprint dadc9f741c40c249573f9fb740f9d1d0275c89944594e6d89f06ed990c80b035.
+Local checks cover pairing/labels, native reload in fresh processes, actual
+runner replay-before-test with no fitting, interruption/resume, notebook rerun
+and duplicate-writer refusal. All 440 MC2 table rows were independently checked.
 Focused literature audit supports input versus evaluation-reference distinction
 but journal full-text/novelty checks remain. No model-switching policy validated.
 CI import regression fixed in ebc255d202c9d18bbc1656d71478c770b3791c70;
