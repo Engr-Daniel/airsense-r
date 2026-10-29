@@ -1080,6 +1080,10 @@
       "bytes": 36357,
       "sha256": "2cf16b69d81b2c0f36f59158fc6dff1d1e310bc9f46b8f61b1cd05927e9d6c8e"
     },
+    "metrics-pm25-outage-12-c303.csv": {
+      "bytes": 36327,
+      "sha256": "f8bed8b352a3ca7e8af96d71b3f111d08e53c763698398bff8acffe953a8b0f4"
+    },
     "metrics-pm25-outage-6-c101.csv": {
       "bytes": 36367,
       "sha256": "399de6bdc379c16eb04bb46cbbc3100aba60c154ea44b2a75059ced6b5eef72d"
