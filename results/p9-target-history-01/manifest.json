@@ -748,6 +748,10 @@
       "bytes": 18040,
       "sha256": "8ed3cd6e1787f6707111f3ab38a3f85d482b21c4c31ba9a2b340968b6c767d8d"
     },
+    "metrics-pm25-dropout-50-c505.csv": {
+      "bytes": 18034,
+      "sha256": "efaa81d8d4989490cbcc16cfe7ee78c076c28cd68c7741d4a9c5ca2f7b9250ae"
+    },
     "preflight-complete.json": {
       "bytes": 132,
       "sha256": "5642d239a89911354c33021f8544860b53a1359e9303272c30efd88bda966000"
