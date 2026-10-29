@@ -1,0 +1,13 @@
+{
+  "arrays": {
+    "prediction": {
+      "dtype": "float64",
+      "shape": [
+        102753
+      ]
+    }
+  },
+  "bytes": 429376,
+  "file": "pred-primary-pm25-outage-6-c404-xgboost-31415.npz",
+  "sha256": "bc22e284ea0f1b6e48c2dd5cffd5ededebee57de2055ebc540ca022b8fde0379"
+}
