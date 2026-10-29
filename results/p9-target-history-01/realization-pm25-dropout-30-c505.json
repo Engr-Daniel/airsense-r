@@ -1,0 +1,12 @@
+{
+  "changed_pm25_cells": 30396,
+  "condition": {
+    "id": "pm25-dropout-30",
+    "kind": "random_dropout",
+    "severity": 0.3
+  },
+  "labels_source": "separate_original_stream",
+  "observation_sha256": "f134577d6d074264ec1235acbae319db94ab506ce3faae038f9d9ce86230ad14",
+  "outage_events": [],
+  "seed": 505
+}
