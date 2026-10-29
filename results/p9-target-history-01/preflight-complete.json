@@ -1,0 +1,8 @@
+{
+  "atol": 1e-05,
+  "clean_replay": true,
+  "no_refitting": true,
+  "passed": true,
+  "rtol": 1e-06,
+  "validation_replay": true
+}

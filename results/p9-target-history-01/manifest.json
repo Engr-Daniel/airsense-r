@@ -91,6 +91,10 @@
     "lineage.json": {
       "bytes": 8319,
       "sha256": "cf60e837b07f3cb9a59683b097c3940d6b50453a5dea2dd191ee22aa33f16e42"
+    },
+    "preflight-complete.json": {
+      "bytes": 132,
+      "sha256": "5642d239a89911354c33021f8544860b53a1359e9303272c30efd88bda966000"
     }
   },
   "provenance": {
