@@ -724,6 +724,10 @@
       "bytes": 278,
       "sha256": "c86fe5a1fa11f30591b17d4e5e0c6f54ff53bf61811472c5fd34cdf01a31b021"
     },
+    "bundle-pred-primary-pm25-outage-12-c303-xgboost-42.json": {
+      "bytes": 274,
+      "sha256": "ac55a136066097100ef17eeaebee037b43a38b3f7878b28290c09fec6b4f7375"
+    },
     "bundle-pred-primary-pm25-outage-6-c101-gru-27182.json": {
       "bytes": 272,
       "sha256": "f84c9f3d6a601b4dbee88122b2441102c063bcd3aab3d7044af5aff7fa5ea7ef"
