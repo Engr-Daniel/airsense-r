@@ -1,5 +1,9 @@
 {
   "artifacts": {
+    "development-replay-persistence--1.json": {
+      "bytes": 117,
+      "sha256": "e083168131a0515fc9ad02d0bced30bf670f8cba5c1f174f97c89e72742d3e33"
+    },
     "lineage.json": {
       "bytes": 8319,
       "sha256": "cf60e837b07f3cb9a59683b097c3940d6b50453a5dea2dd191ee22aa33f16e42"
