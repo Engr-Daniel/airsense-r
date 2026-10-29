@@ -1,0 +1,13 @@
+{
+  "arrays": {
+    "prediction": {
+      "dtype": "float64",
+      "shape": [
+        102753
+      ]
+    }
+  },
+  "bytes": 430855,
+  "file": "pred-primary-pm25-dropout-10-c404-xgboost-42.npz",
+  "sha256": "2deaf6d50688df48fd85e06377e037ab7cb9f939852f172ee8ecd129f78f028c"
+}
