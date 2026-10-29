@@ -200,6 +200,10 @@
       "bytes": 275,
       "sha256": "d4d527613562c9ab9a3469a7b2f257fd8484b03972cd4e89fcf197b2339babb4"
     },
+    "bundle-pred-primary-pm25-dropout-10-c505-gru-42.json": {
+      "bytes": 271,
+      "sha256": "fb4505b816b1d050b0f2094b46edf2b30a174ff8c9bdbd1b0ed9c71d5166fcc2"
+    },
     "bundle-pred-primary-pm25-dropout-10-c505-mlp-27182.json": {
       "bytes": 274,
       "sha256": "8da8156d937828fa7826e06142a49152c31a3bbdc1df168d60280e694a0c7c0f"
