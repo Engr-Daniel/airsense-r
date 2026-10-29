@@ -1,5 +1,9 @@
 {
   "artifacts": {
+    "bundle-pred-primary-clean-mlp-27182.json": {
+      "bytes": 259,
+      "sha256": "d1bc6f236c7619fe74851cfb27dbac77669699d4656ab8651e93d4939e2e6676"
+    },
     "bundle-pred-primary-clean-mlp-31415.json": {
       "bytes": 259,
       "sha256": "5a11ff857aad075b6685c171d2434432d36b6836d988e858f83c10f7d17b4a8f"
