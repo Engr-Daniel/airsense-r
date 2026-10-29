@@ -204,6 +204,10 @@
       "bytes": 279,
       "sha256": "4ea34335e64631b006d0e8bc09d07b8f4264ef7f0b135ca3175d8c3ab5dc38f0"
     },
+    "bundle-pred-primary-pm25-dropout-10-c505-xgboost-42.json": {
+      "bytes": 275,
+      "sha256": "d2214b8b9fbfa0b7492936e4f08d28ecf2d2c05c8ce56b19e4fdfd5a9792b75b"
+    },
     "bundle-targets.json": {
       "bytes": 401,
       "sha256": "bd3eb96de7b880c31ebdab45d1b34a5b92a38e17eae76d214ccd0cb6998368e1"
