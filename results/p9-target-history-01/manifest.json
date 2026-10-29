@@ -968,6 +968,10 @@
       "bytes": 36329,
       "sha256": "3efaf708b1f866564f0fd426ebcb3e1949c3c947e0e825f95c8f7034392294f1"
     },
+    "metrics-pm25-outage-6-c505.csv": {
+      "bytes": 36351,
+      "sha256": "1e5648b824635f2f9e517b7559cb96336169202c16ea3e9c328b1204421237de"
+    },
     "preflight-complete.json": {
       "bytes": 132,
       "sha256": "5642d239a89911354c33021f8544860b53a1359e9303272c30efd88bda966000"
