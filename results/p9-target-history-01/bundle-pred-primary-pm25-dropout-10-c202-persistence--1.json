@@ -1,0 +1,13 @@
+{
+  "arrays": {
+    "prediction": {
+      "dtype": "float64",
+      "shape": [
+        102753
+      ]
+    }
+  },
+  "bytes": 138321,
+  "file": "pred-primary-pm25-dropout-10-c202-persistence--1.npz",
+  "sha256": "cfa553a83401d102ff137406a703703ae2bcc77b8f9fd001dbf522210b586dbb"
+}
