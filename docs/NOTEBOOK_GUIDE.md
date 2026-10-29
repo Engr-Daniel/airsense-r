@@ -13,6 +13,7 @@ Reusable scientific logic belongs in `src/airsense_r/`, experiment entry points 
 5. `05_p6_sensor_degradation_analysis.ipynb`
 6. `06_p7_site_shift_analysis.ipynb`
 7. `07_p8_statistical_failure_analysis.ipynb`
+8. `08_p9_target_history_checkpoint.ipynb` — explicitly post-results, frozen-model inference; see `research/P9_CHECKPOINT_PLAN.md`.
 
 Build the first three during P4 and the others alongside their respective phases. The P2 notebook inspects saved audit evidence; authoritative acquisition and auditing remain script/CI responsibilities.
 

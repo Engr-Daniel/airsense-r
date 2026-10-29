@@ -37,10 +37,11 @@ def test_bootstrap_without_editable_install_activation(tmp_path, cached_other_ch
 @pytest.mark.parametrize("filename", [
     "01_p2_dataset_audit_review.ipynb", "02_p3_development_diagnostics.ipynb", "03_p4_pipeline_validation.ipynb"
 ])
-def test_notebook_cells_in_fresh_process(filename, tmp_path):
+def test_notebook_cells_in_fresh_process(filename, tmp_path, current_source_notebook):
     # Test-mode substitution skips only installation/authentication, not analysis cells.
     import os
     notebook = json.loads((ROOT / "notebooks" / filename).read_text())
+    notebook = current_source_notebook(notebook)
     import nbformat
     nbformat.validate(nbformat.from_dict(notebook))
     remote = tmp_path / "artifacts.git"

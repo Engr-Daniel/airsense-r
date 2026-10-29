@@ -1,0 +1,13 @@
+{
+  "review_date": "2026-10-29",
+  "status": "descriptive_threshold_tables_checked",
+  "rows_independently_checked": 440,
+  "p7_original_validation_decisions_crosschecked": 12,
+  "primary_rule_unchanged": true,
+  "counterfactual_intervals_computed": false,
+  "artifacts": {
+    "interpretation.csv": "70c9fd11178ea473c03f4e88d66069ac412eb569f7bd0fb512554040c0f7027d",
+    "counterfactual-selection.csv": "dcb07b9711d2d6ae836ec502d79f9b5069abd08852a73e98d43ebd44ab99b438",
+    "summary.json": "6351e878351b5856b82d477491c97cf6c3bf96be9c8bb089107d86253ec22bb3"
+  }
+}

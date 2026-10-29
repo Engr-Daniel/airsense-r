@@ -176,6 +176,18 @@ First complete manuscript draft prepared from accepted results; see [paper/manus
 The checks below indicate drafted sections, not journal submission readiness.
 Two figures and six supplementary tables are generated from checksum-verified evidence.
 
+Post-results checkpoint authorized 2026-10-29; primary P5–P8 remains accepted
+and unchanged. See [checkpoint plan](research/P9_CHECKPOINT_PLAN.md).
+
+- [x] Declare bounded PM2.5 dropout/outage extension and record post-results status
+- [x] Generate separate interpretation and counterfactual-selection tolerance tables
+- [x] Document focused prior-work comparison and cautious contribution wording
+- [ ] Complete target-history Colab execution and independently accept saved evidence
+- [ ] Integrate accepted target-history findings, regardless of direction, then close experiments
+
+The full-text Semper et al. comparison remains a submission check; the focused
+audit distinguishes inspected abstract/minimal code from unavailable full text.
+
 - [x] Abstract
 - [x] Introduction
 - [x] Related work

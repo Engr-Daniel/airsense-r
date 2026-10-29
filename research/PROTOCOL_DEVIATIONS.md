@@ -2,6 +2,17 @@
 
 Record every change made after `PROTOCOL.md` is marked **FROZEN**.
 
+2026-10-29 P9 post-results extension: P5–P8 outcomes HAVE been inspected.
+The user authorized a bounded target-history checkpoint and tolerance audit;
+see `P9_CHECKPOINT_PLAN.md`. The original protocol and accepted evidence remain
+unchanged. Additional evaluation uses frozen models with PM2.5 input dropout
+(10/30/50%) and outages (6/12 hours), primary imputation only, original labels,
+seeds and paired uncertainty. Separate descriptive sensitivity considers
+0.5/1/1.5/2 tolerances without replacing the primary rule. No retraining,
+test-based model choice, additional architecture, drift or adaptive policy.
+This probes the protected target-history limitation and dependence on the
+practical tolerance; results may weaken or narrow the existing interpretation.
+
 2026-10-20 P7 recovery correction: replacement Colab runtimes changed their
 preinstalled package inventories and prevented resume despite unchanged core
 model/data package versions. A separately pinned recovery adapter retains the

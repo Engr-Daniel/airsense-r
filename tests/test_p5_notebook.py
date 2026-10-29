@@ -11,11 +11,12 @@ import pytest
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def test_p5_notebook_smoke_cells(tmp_path):
+def test_p5_notebook_smoke_cells(tmp_path, current_source_notebook):
     if not find_spec("tensorflow") or not find_spec("xgboost"):
         pytest.skip("P5 training dependencies required")
     import nbformat
     notebook = nbformat.read(ROOT / "notebooks/04_p5_clean_benchmark_analysis.ipynb", as_version=4)
+    notebook = current_source_notebook(notebook)
     nbformat.validate(notebook)
     remote = tmp_path / "remote.git"
     subprocess.run(["git", "init", "--bare", str(remote)], check=True, capture_output=True)

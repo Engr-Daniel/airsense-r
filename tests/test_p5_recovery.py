@@ -74,16 +74,17 @@ def test_test_rows_only_loaded_after_validation_gate(tmp_path, monkeypatch, repl
         assert calls == ["validation", "replay", "test", "evaluate"]
 
 
-def test_recovery_notebook_is_valid_and_uses_current_source():
+def test_recovery_notebook_preserves_accepted_source():
     from pathlib import Path
     import nbformat
-    from airsense_r.artifacts import source_hash
+    import json
     root = Path(__file__).resolve().parents[1]
     notebook = nbformat.read(root / "notebooks/04b_p5_corrected_test.ipynb", as_version=4)
     nbformat.validate(notebook)
     cells = [c.source for c in notebook.cells if c.cell_type == "code"]
     assert len(cells) == 5
-    assert source_hash(root) in cells[1]
+    accepted_hash = json.loads((root / "results/p8/final_acceptance.json").read_bytes())["source_hash"]
+    assert accepted_hash in cells[1]
     assert "recover_p5_test.py" in cells[3] and "process.terminate()" in cells[3]
     for cell in cells:
         compile(cell, "recovery-notebook", "exec")

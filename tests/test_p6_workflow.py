@@ -24,7 +24,7 @@ from airsense_r.training.settings import configure_cpu, load_plan
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def test_p6_notebook_preflight_interrupted_evaluation_and_resume(tmp_path):
+def test_p6_notebook_preflight_interrupted_evaluation_and_resume(tmp_path, current_source_notebook):
     """Exercise all corruption kinds/policies with actual saved XGB/MLP/GRU models."""
     configure_cpu()
     config = yaml.safe_load((ROOT / "configs/experiment.yaml").read_text())
@@ -71,6 +71,7 @@ def test_p6_notebook_preflight_interrupted_evaluation_and_resume(tmp_path):
         "AIRSENSE_NOTEBOOK_TEST_RUN": run_id, "AIRSENSE_NOTEBOOK_TEST_REMOTE": str(remote)}
     import nbformat
     notebook = nbformat.read(ROOT / "notebooks/05_p6_sensor_degradation_analysis.ipynb", as_version=4)
+    notebook = current_source_notebook(notebook)
     nbformat.validate(notebook)
     cells = "\n\n".join(c.source for c in notebook.cells if c.cell_type == "code")
     fixture = '''

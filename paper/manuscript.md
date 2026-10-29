@@ -4,6 +4,8 @@ Oyewale Daniel Oyewola
 
 **First complete manuscript draft — 22 October 2026.** Based on accepted P5–P8 results. Author affiliation, correspondence, funding, competing-interest and contribution statements require author confirmation before submission. This draft has not been submitted or peer reviewed.
 
+**Checkpoint update — 29 October 2026:** added post-results tolerance sensitivity and focused prior-work positioning. Target-history extension outcomes are pending and are not included in the reported primary results.
+
 ## Abstract
 
 Selecting an air-quality forecaster from clean validation accuracy does not establish whether that choice remains competitive when observations deteriorate or the monitoring site changes. We evaluate the reliability of this selection decision for one-hour-ahead PM2.5 forecasting using hourly observations from 12 Beijing stations. Persistence, XGBoost, a multilayer perceptron and a compact gated recurrent unit network were compared under a frozen chronological protocol with training-only tuning, a predefined 1 µg/m³ practical near-tie rule and paired temporal-block uncertainty. Synthetic interventions covered random non-target feature dropout, channel loss, measurement noise and contiguous outages; historical PM2.5 was not synthetically corrupted. Site shift was evaluated through 12 leave-one-station-out folds with fold-specific fitting and selection. Although XGBoost had the lowest clean-test MAE (9.711 µg/m³), the validation rule selected persistence, whose clean-test regret was 0.569 µg/m³ (95% CI 0.340–0.763). Persistence remained within the practical threshold in all 15 full-period stress conditions under each imputation policy. Mean station-specific regret under site holdout was 0.550 µg/m³ (95% CI 0.400–0.739), with 11 of 12 station point estimates within the practical threshold. Numerical rank changes therefore did not generally imply a large penalty for retaining the selected model. These findings support a bounded conclusion about selection reliability with available target history, rather than universal persistence superiority, robustness to physical sensor failure, or inter-city transfer.
@@ -28,7 +30,9 @@ Imputation is also part of the forecasting system rather than a neutral preparat
 
 Distribution-shift evaluation is established prior art. Liu et al. compare graph-based and non-graph-based PM2.5 forecasting under different temporal splits and report differing sensitivity to shift. Their study concerns graph learning and temporal distribution shift; our site-holdout experiment uses local station histories and repeats model selection after excluding each station. [Liu et al. (2024)](https://experts.illinois.edu/en/publications/pm25-forecasting-under-distribution-shift-a-graph-learning-approa/).
 
-AirSense-R's narrower emphasis is the excess forecasting error incurred by retaining a predefined clean-validation choice. Its contribution is not established by the absence of an identical title in prior literature. A fuller forward/backward citation review remains necessary before any strong novelty claim. The current comparison supports positioning the work as a reproducible empirical study of selection reliability.
+Semper et al. address robust post-training selection by reevaluating fixed predictions against perturbed evaluation references, with selection regret and validation-based rule comparison; their study includes PM2.5 data. AirSense-R instead intervenes on input observations and generates corresponding forecasts, alongside station exclusion. This distinction supports cautious empirical positioning, not a claim to invent selection regret. A full-text comparison and broader citation review remain necessary. [Semper et al. (2026)](https://doi.org/10.1016/j.knosys.2026.116673).
+
+AirSense-R's narrower emphasis is the excess forecasting error incurred by retaining a predefined clean-validation choice. Its contribution is not established by the absence of an identical title in prior literature. The [focused positioning audit](../research/P9_POSITIONING_REVIEW.md) distinguishes verified source material from remaining full-text checks. The work is positioned as a reproducible empirical study of selection reliability.
 
 ## 3. Data and forecasting task
 
@@ -158,11 +162,17 @@ In P7's target-concentration bands below 200 µg/m³, XGBoost has the lowest des
 
 The largest exported P7 absolute error occurs at Wanshouxigong on 4 January 2017 at 13:00: the observed target is 3 µg/m³ and the persistence forecast is 621 µg/m³. The resulting error is 618 µg/m³. This flags a case for contextual examination but does not identify its physical cause or prove sensor malfunction. The observation was retained; no post hoc deletion or retuning was performed. Low aggregate selection regret can coexist with severe individual forecast errors.
 
+### 6.5 Post-results practical-tolerance sensitivity
+
+After the primary results were accepted, we examined tolerances of 0.5, 1.0, 1.5 and 2.0 µg/m³ in two separate descriptive analyses. The original 1.0 rule remains primary. First, retaining the original selections, the numbers of LOSO station point regrets within tolerance were 5/12, 11/12, 12/12 and 12/12 respectively. For full-period auxiliary stress, corresponding counts were 8/15, 15/15, 15/15 and 15/15 under each policy. Clean regret exceeds 0.5 by point estimate, but its interval crosses that tolerance. These counts do not establish statistical equivalence.
+
+Second, applying each tolerance to saved validation scores alone retained persistence in the pooled clean benchmark at all four values. At 0.5, one LOSO fold, Nongzhanguan, instead selected XGBoost; the resulting mean station-specific test regret was 0.4978, compared with 0.5504 under the original rule. No new intervals were computed for that counterfactual policy. The selection decision was largely stable over this range, whereas its practical interpretation depended on tolerance. No threshold was chosen from test results. Separate tables and provenance are available in the [threshold audit](../research/P9_THRESHOLD_REVIEW.md).
+
 ## 7. Discussion
 
 The principal result is practical competitiveness of a simple validation-selected rule despite imperfect retention of numerical ranking. It does not require every candidate to maintain its position. The distinction is clearest under site holdout: persistence is numerically best at only one station, yet its point regret is within the predefined practical threshold at eleven. A narrative based solely on winner retention would obscure that magnitude distinction.
 
-The result also depends on the selection rule. Persistence was selected through an explicit simplicity preference among near-ties, not because it minimized validation error everywhere. Consequently, AirSense-R evaluates an accuracy-and-simplicity decision rule. The study does not establish what would happen under another threshold, cost function or family-selection policy; changing those choices after inspecting test outcomes would require a separate analysis.
+The result also depends on the selection rule. Persistence was selected through an explicit simplicity preference among near-ties, not because it minimized validation error everywhere. Consequently, AirSense-R evaluates an accuracy-and-simplicity decision rule. The post-results tolerance audit illustrates dependence on the practical criterion without replacing it. Other cost functions and adaptive selection policies remain untested. Selection regret evaluates model-choice cost relative to available alternatives; it does not establish absolute forecasting adequacy. High regret alone does not validate a switching or fallback policy.
 
 The protected target history is central to interpretation. A one-hour persistence forecast can remain informative while other channels deteriorate. Its unchanged forecasts under within-policy synthetic stress are a designed property, whereas its competitiveness relative to the learned models is the empirical outcome. The observed stability therefore does not remove the need to stress-test target-history loss, longer horizons or cities with different dynamics in future work.
 
@@ -181,6 +191,8 @@ The no-forward-fill analysis changes inference preprocessing while retaining fit
 The concentration/season/worst-case diagnostics were defined after aggregate results, and the large-error example has not been assigned an independently established physical cause. Software corrections occurred after initial test inspection and are disclosed; preserved originals and replay checks improve auditability but cannot make that chronology disappear. No embedded deployment, energy measurement, field reliability or public-health benefit is demonstrated.
 
 ## 9. Future work
+
+A bounded post-results target-history checkpoint was declared on 29 October 2026: PM2.5 dropout at 10/30/50% and 6/12-hour outages, using frozen models, common causal imputation and unchanged labels. Its real-data execution and acceptance are pending; no target-history robustness finding is claimed here. This extension is separate from the original confirmatory evidence and is documented in the [checkpoint plan](../research/P9_CHECKPOINT_PLAN.md).
 
 A separate prospective extension should test failure of historical PM2.5, additional cities, longer horizons, correlated outages and drift, and a stronger set of simple linear baselines. Such extensions should freeze their selection rules and evaluation settings before new final-test inspection. Case-level investigations can distinguish rapid environmental changes, data-quality issues and model behavior without removing inconvenient observations from the present evaluation. Embedded implementation, quantization and device measurements remain future engineering work, conditional on hardware access and an appropriate deployment study.
 
@@ -205,6 +217,7 @@ The bibliography is maintained in [references.bib](references.bib). References c
 5. Chen, T., and Guestrin, C. (2016). XGBoost: A Scalable Tree Boosting System. https://arxiv.org/abs/1603.02754.
 6. Cho, K., et al. (2014). Learning Phrase Representations using RNN Encoder–Decoder for Statistical Machine Translation. *EMNLP*, 1724–1734. https://doi.org/10.3115/v1/D14-1179.
 7. Künsch, H. R. (1989). The Jackknife and the Bootstrap for General Stationary Observations. *The Annals of Statistics*, 17(3), 1217–1241. https://doi.org/10.1214/aos/1176347265.
+8. Semper, M., Curado, M., Vicent, J. F., and Tortosa, L. (2026). A practical decision-support system for robust post-training model selection in spatiotemporal forecasting. *Knowledge-Based Systems*, 351, 116673. https://doi.org/10.1016/j.knosys.2026.116673.
 
 ## Editorial checks before submission
 

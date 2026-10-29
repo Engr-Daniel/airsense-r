@@ -1,5 +1,20 @@
 # MEMORY.md — AirSense-R Project Memory
 
+Current status (2026-10-29, P9 checkpoint): user authorized a bounded post-results
+extension after external review. Original P5–P8 evidence and protocol remain
+unchanged. P9_CHECKPOINT_PLAN.md declares five PM2.5-history conditions, primary
+imputation only, no fitting, and no noise/drift expansion. Tolerance sensitivity
+is computed separately for interpretation and counterfactual validation choice;
+see results/p9-threshold-sensitivity and research/P9_THRESHOLD_REVIEW.md.
+At 0.5, original LOSO membership is 5/12 (versus 11/12 at 1); only Nongzhanguan
+changes counterfactual selection, with mean regret 0.4978. Counterfactual
+intervals were not recomputed. Target-history real-data execution/acceptance
+still requires the user's original Drive models in Colab; do not claim it done.
+Focused literature audit supports input versus evaluation-reference distinction
+but journal full-text/novelty checks remain. No model-switching policy validated.
+CI import regression fixed in ebc255d202c9d18bbc1656d71478c770b3791c70;
+both GitHub jobs passed. All older statuses below are historical.
+
 Current status (2026-10-22, P9): first complete manuscript draft is in
 paper/manuscript.md, with two PNG/PDF figures and six generated supplementary
 tables. paper/build_assets.py verifies the accepted P8 manifest before rendering;
