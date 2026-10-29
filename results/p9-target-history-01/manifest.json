@@ -800,6 +800,10 @@
       "bytes": 274,
       "sha256": "08838fce72b040b312dbbdbcaa3d2d9254e552dac321d23e591f51a532f01a9a"
     },
+    "bundle-pred-primary-pm25-outage-12-c505-persistence--1.json": {
+      "bytes": 278,
+      "sha256": "c72ca482dee8d9df9025a247a67bac2e4b2f9fde45320b16d73303b0aebd6a8c"
+    },
     "bundle-pred-primary-pm25-outage-6-c101-gru-27182.json": {
       "bytes": 272,
       "sha256": "f84c9f3d6a601b4dbee88122b2441102c063bcd3aab3d7044af5aff7fa5ea7ef"
