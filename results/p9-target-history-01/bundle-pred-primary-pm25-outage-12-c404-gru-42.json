@@ -1,0 +1,13 @@
+{
+  "arrays": {
+    "prediction": {
+      "dtype": "float64",
+      "shape": [
+        102753
+      ]
+    }
+  },
+  "bytes": 382062,
+  "file": "pred-primary-pm25-outage-12-c404-gru-42.npz",
+  "sha256": "0e27522954e100a8e28122b119c236b6421e6b1b1f6003e2bb78d7806e8cf804"
+}
