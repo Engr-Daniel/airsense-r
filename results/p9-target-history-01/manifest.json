@@ -1,5 +1,9 @@
 {
   "artifacts": {
+    "bundle-pred-primary-clean-persistence--1.json": {
+      "bytes": 264,
+      "sha256": "bc0e5ab3115c7b0126b00a141d9aaff32a45d4647adbc5fb2f4f8551b946924a"
+    },
     "bundle-targets.json": {
       "bytes": 401,
       "sha256": "bd3eb96de7b880c31ebdab45d1b34a5b92a38e17eae76d214ccd0cb6998368e1"
