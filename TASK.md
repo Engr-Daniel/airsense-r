@@ -182,7 +182,8 @@ and unchanged. See [checkpoint plan](research/P9_CHECKPOINT_PLAN.md).
 - [x] Declare bounded PM2.5 dropout/outage extension and record post-results status
 - [x] Generate separate interpretation and counterfactual-selection tolerance tables
 - [x] Document focused prior-work comparison and cautious contribution wording
-- [ ] Complete target-history Colab execution and independently accept saved evidence
+- [x] Complete target-history Colab execution; verify Git checksums, lineage and metric aggregation; preserve executed notebook
+- [ ] Independently verify final saved target-history Drive predictions and uncertainty before scientific acceptance
 - [ ] Integrate accepted target-history findings, regardless of direction, then close experiments
 
 The full-text Semper et al. comparison remains a submission check; the focused

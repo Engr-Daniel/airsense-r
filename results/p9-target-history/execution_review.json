@@ -1,0 +1,91 @@
+{
+  "review_date": "2026-10-30",
+  "status": "execution_reviewed_acceptance_pending",
+  "result_commit": "a816353692920e56915316b98b6481313e72a461",
+  "manifest_sha256": "751cec98c86b0c9fda2c5569c5a86aa918f81f8e8b4050eccf2cffd1e89401b1",
+  "registered_artifacts_verified": 331,
+  "metric_files_verified": 25,
+  "scope_summaries_recomputed": 7,
+  "model_metric_rows_recomputed": 28,
+  "notebook_code_matches_published": true,
+  "executed_notebook": {
+    "path": "notebooks/executed/08_p9_target_history_checkpoint_executed.ipynb",
+    "sha256": "01a7e85ed75a441d35372c9d015798b18961acee9d308bad6dc809b2756f24f0"
+  },
+  "lineage_matches_accepted_p5": true,
+  "scientifically_accepted": false,
+  "interval_verification": "Independent frequency-weight implementation checked intervals during Colab execution. Local review checked interval settings and point estimates, not bootstrap endpoints from Drive arrays.",
+  "remaining": "Read-only independent verification of final saved Drive prediction bundles and recomputation of metrics and intervals; no refitting or inference rerun required.",
+  "summaries": [
+    {
+      "condition": "pm25-dropout-10",
+      "scope": "full",
+      "regret": 0.0,
+      "reported_interval": {
+        "ci_high": 0.0,
+        "ci_low": 0.0,
+        "estimate": 0.0
+      }
+    },
+    {
+      "condition": "pm25-dropout-30",
+      "scope": "full",
+      "regret": 0.0,
+      "reported_interval": {
+        "ci_high": 0.0,
+        "ci_low": 0.0,
+        "estimate": 0.0
+      }
+    },
+    {
+      "condition": "pm25-dropout-50",
+      "scope": "full",
+      "regret": 0.0,
+      "reported_interval": {
+        "ci_high": 0.0,
+        "ci_low": 0.0,
+        "estimate": 0.0
+      }
+    },
+    {
+      "condition": "pm25-outage-12",
+      "scope": "affected",
+      "regret": 2.282187286654416,
+      "reported_interval": {
+        "ci_high": 2.909690645757247,
+        "ci_low": 1.695576769265747,
+        "estimate": 2.2821872866544126
+      }
+    },
+    {
+      "condition": "pm25-outage-12",
+      "scope": "full",
+      "regret": 0.6508311848370294,
+      "reported_interval": {
+        "ci_high": 0.8410334087962835,
+        "ci_low": 0.43002992778893945,
+        "estimate": 0.6508311848370276
+      }
+    },
+    {
+      "condition": "pm25-outage-6",
+      "scope": "affected",
+      "regret": 0.19752357496568962,
+      "reported_interval": {
+        "ci_high": 0.7808064724037963,
+        "ci_low": 0.0,
+        "estimate": 0.19752357496568784
+      }
+    },
+    {
+      "condition": "pm25-outage-6",
+      "scope": "full",
+      "regret": 0.5565262311272985,
+      "reported_interval": {
+        "ci_high": 0.7518867047241378,
+        "ci_low": 0.32418074689809623,
+        "estimate": 0.5565262311272967
+      }
+    }
+  ]
+}

@@ -1,8 +1,4 @@
 {
-  "notebooks/04b_p5_corrected_test_executed.ipynb": {
-    "path": "notebooks/executed/04b_p5_corrected_test_executed.ipynb",
-    "sha256": "9256af5adf7d449788bc1afdb724e68b8b12e84d1b24b10b7662cb5454d4b95f"
-  },
   "notebooks/04_p5_clean_benchmark_analysis_select.ipynb": {
     "path": "notebooks/executed/04_p5_clean_benchmark_analysis_select.ipynb",
     "sha256": "48bd9d22af1fc133f74ebbd59f0e14e6ade77896037a48fff21ab8997a8132eb"
@@ -15,9 +11,9 @@
     "path": "notebooks/executed/04_p5_clean_benchmark_analysis_test.ipynb",
     "sha256": "71e015506967fa1fb999cc226689475bc2e4a6b50cce9f9e17c426d0714c1ba2"
   },
-  "notebooks/05b_p6_saved_result_verification_executed.ipynb": {
-    "path": "notebooks/executed/05b_p6_saved_result_verification_executed.ipynb",
-    "sha256": "a2b0ece60d36684732f0225fdbb7d1b5ed08e0657a0222031e400e7419406a28"
+  "notebooks/04b_p5_corrected_test_executed.ipynb": {
+    "path": "notebooks/executed/04b_p5_corrected_test_executed.ipynb",
+    "sha256": "9256af5adf7d449788bc1afdb724e68b8b12e84d1b24b10b7662cb5454d4b95f"
   },
   "notebooks/05_p6_sensor_degradation_evaluation_executed.ipynb": {
     "path": "notebooks/executed/05_p6_sensor_degradation_evaluation_executed.ipynb",
@@ -27,6 +23,10 @@
     "path": "notebooks/executed/05_p6_sensor_degradation_preflight_executed.ipynb",
     "sha256": "e71e3c68cc44c2b1557dca77d9e41e1458d9dd450bc0d9f6bbe573a5287ba905"
   },
+  "notebooks/05b_p6_saved_result_verification_executed.ipynb": {
+    "path": "notebooks/executed/05b_p6_saved_result_verification_executed.ipynb",
+    "sha256": "a2b0ece60d36684732f0225fdbb7d1b5ed08e0657a0222031e400e7419406a28"
+  },
   "notebooks/06b_p7_colab_recovery_runcomplete.ipynb": {
     "path": "notebooks/executed/06b_p7_colab_recovery_runcomplete.ipynb",
     "sha256": "f8cb3b9fb15e560ebfbc68b065b0ea59412befb57273a5f69b5649057e85aa72"
@@ -34,5 +34,9 @@
   "notebooks/07_p8_statistical_failure_analysis.ipynb": {
     "path": "notebooks/executed/07_p8_statistical_failure_analysis_executed.ipynb",
     "sha256": "06d3b0d49a9fe7a7824821f6e2ccdd6ea3ffc0ed32d5733faa509226e849d66c"
+  },
+  "notebooks/08_p9_target_history_checkpoint.ipynb": {
+    "path": "notebooks/executed/08_p9_target_history_checkpoint_executed.ipynb",
+    "sha256": "01a7e85ed75a441d35372c9d015798b18961acee9d308bad6dc809b2756f24f0"
   }
 }

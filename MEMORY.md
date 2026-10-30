@@ -1,5 +1,18 @@
 # MEMORY.md — AirSense-R Project Memory
 
+Current status (2026-10-30, target-history execution review): notebook 08
+completed all five conditions with unchanged code and no error outputs. All
+331 Git artifact checksums and accepted P5 lineage passed; independent local
+aggregation reproduced seven scope summaries / 28 model metric rows. Executed
+notebook preserved separately and published unrun template restored. Full-period
+regret is below 1 throughout, but 12-hour outage-affected regret is 2.282
+(reported 95% CI 1.696?2.910). Colab independently checked intervals during
+execution; final saved Drive arrays have not been independently rechecked locally.
+Scientific acceptance remains pending a read-only saved-prediction review;
+no retraining or inference rerun needed. See research/P9_TARGET_HISTORY_REVIEW.md
+and results/p9-target-history/execution_review.json. Earlier pending-execution
+statements below are historical.
+
 Current status (2026-10-29, P9 checkpoint): user authorized a bounded post-results
 extension after external review. Original P5–P8 evidence and protocol remain
 unchanged. P9_CHECKPOINT_PLAN.md declares five PM2.5-history conditions, primary
