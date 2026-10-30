@@ -1,5 +1,9 @@
 {
   "artifacts": {
+    "complete.json": {
+      "bytes": 235,
+      "sha256": "6ad83c7843564370be45602164a00e4fc8f153724b11a5bf414c189b5e528a85"
+    },
     "files-verified.json": {
       "bytes": 40,
       "sha256": "9746afeba85ebfce2bb9dd154e466df52c0dcc05820d96907f353f0840c055a8"
