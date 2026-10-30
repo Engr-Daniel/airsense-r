@@ -111,19 +111,22 @@ The static dashboard lives in `docs/`. Configure GitHub Pages to deploy from the
 
 P7 and P8 are complete and reviewed. The **[manuscript draft](paper/manuscript.md)**
 now includes a separate [post-results tolerance audit](research/P9_THRESHOLD_REVIEW.md).
-The next run is **[notebook 08: target-history checkpoint](notebooks/08_p9_target_history_checkpoint.ipynb)**:
-open in Colab, choose CPU, and Run all with the original Drive model storage and
-GitHub secret. The code revision and stages are automatic. After a network
-disconnect, rerun cell 3; after runtime replacement, Run all. Use one runtime.
-It evaluates five PM2.5 dropout/outage conditions with frozen models; no old
-notebook rerun or retraining is required. Real-data execution and acceptance
-are pending. See the [bounded post-results plan](research/P9_CHECKPOINT_PLAN.md)
-and [positioning review](research/P9_POSITIONING_REVIEW.md).
+The bounded **[target-history extension](research/P9_TARGET_HISTORY_REVIEW.md)**
+is now independently verified and accepted. All five PM2.5 dropout/outage
+conditions have full-period regret below 1 µg/m³, but 12-hour outage-affected
+windows show regret of **2.282 µg/m³ (95% CI 1.696–2.910)**. This post-results
+finding identifies a limitation hidden by full-period averages; it does not
+validate a model-switching policy. The manuscript includes the result separately
+from the primary experiment. No further experiment run is required.
+Next: author/declaration review, target-journal preparation, fuller prior-work
+review and public archiving of large artifacts. See the
+[bounded post-results plan](research/P9_CHECKPOINT_PLAN.md) and
+[positioning review](research/P9_POSITIONING_REVIEW.md).
 See [the P8 completion report](research/P8_COMPLETION_REPORT.md)
 for verified findings and limitations. P7 mean station selection regret is
 0.5504 µg/m³ (95% CI 0.4004–0.7388); 11/12 station point estimates meet the
 predefined practical near-tie threshold. This is within-Beijing evidence,
-not inter-city transfer or robustness to failure of the target-history channel.
+not inter-city transfer. Target-history degradation is addressed separately above.
 
 Dependency versions are defined once in `pyproject.toml`. `requirements.txt`
 installs the full research environment; `pip install -e ".[notebooks]"` installs

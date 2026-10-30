@@ -183,9 +183,9 @@ and unchanged. See [checkpoint plan](research/P9_CHECKPOINT_PLAN.md).
 - [x] Generate separate interpretation and counterfactual-selection tolerance tables
 - [x] Document focused prior-work comparison and cautious contribution wording
 - [x] Complete target-history Colab execution; verify Git checksums, lineage and metric aggregation; preserve executed notebook
-- [ ] Independently verify final saved target-history Drive predictions and uncertainty before scientific acceptance
-- [x] Prepare and locally test pinned read-only notebook 08b for that verification (live run pending)
-- [ ] Integrate accepted target-history findings, regardless of direction, then close experiments
+- [x] Independently verify final saved target-history Drive predictions and uncertainty before scientific acceptance
+- [x] Prepare and locally test pinned read-only notebook 08b; live verification accepted 2026-10-30
+- [x] Integrate accepted target-history findings, including adverse outage-affected result, then close bounded experiments
 
 The full-text Semper et al. comparison remains a submission check; the focused
 audit distinguishes inspected abstract/minimal code from unavailable full text.

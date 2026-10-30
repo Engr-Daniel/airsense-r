@@ -1,5 +1,17 @@
 # MEMORY.md — AirSense-R Project Memory
 
+Current status (2026-10-30, P9 extension accepted): notebook 08b completed
+with unchanged code and no errors. Review commit
+1b07632a12a5019faade81aa96f539f83ea55252 verifies all 261 saved Drive bundles,
+seed metrics and independent bootstrap for five conditions / seven scopes.
+Local checks verified both Git snapshots, exact provenance and all recomputed
+interval reports. Executed notebook archived; reusable template restored.
+See results/p9-target-history/final_acceptance.json. Manuscript and Table S7
+include the post-results finding: 12-hour outage-affected regret 2.282, reported
+95% CI 1.696 to 2.910, despite full-period regret 0.651. Bounded experiments
+are closed; next work is manuscript/journal/declarations and public archiving.
+Earlier pending-verification statements below are historical.
+
 P9 verification handoff (2026-10-30): notebook 08b reads the exact completed
 MC1 snapshot and original Drive prediction arrays, checks every bundle hash,
 and recomputes all metrics and paired intervals. Review results checkpoint

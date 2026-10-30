@@ -26,7 +26,9 @@ def main() -> None:
     """Verify input lineage before rendering; never refit or change the experiment."""
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--p8-directory',type=Path,required=True)
-    directory=parser.parse_args().p8_directory.resolve()
+    parser.add_argument('--tables-only', action='store_true', help='Keep existing figures unchanged')
+    args = parser.parse_args()
+    directory=args.p8_directory.resolve()
     receipt=json.loads((ROOT/'results/p8/final_acceptance.json').read_bytes())
     raw=(directory/'manifest.json').read_bytes()
     if sha256(raw).hexdigest()!=receipt['manifest_sha256']:
@@ -67,29 +69,52 @@ def main() -> None:
     bands=pd.read_csv(directory/'p7-site-shift-concentration_band.csv',float_precision='round_trip')
     tables.append('## S5. Exploratory concentration bands\n\n'+markdown(bands))
     tables.append('## S6. All sensor model comparisons\n\nPaired differences are selected-family minus comparator MAE; positive values favor the comparator. Clean metrics are matched to each scope.\n\n'+markdown(pd.DataFrame(comparison_rows)))
+    target_raw = (ROOT/'results/p9-target-history/final_acceptance.json').read_bytes()
+    target = json.loads(target_raw)
+    if target['status'] != 'P9_target_history_accepted' or not target['independent_bootstrap']:
+        raise ValueError('Target-history evidence has not been accepted')
+    target_rows = []
+    for summary in target['summaries']:
+        interval = summary['uncertainty']['selection_regret']
+        for metric in summary['metrics']:
+            target_rows.append({'condition': summary['condition'], 'scope': summary['scope'],
+                'model': metric['model'], 'MAE': metric['mae'], 'RMSE': metric['rmse'],
+                'R2': metric['r2'], 'matched_clean_MAE': metric['clean_mae'],
+                'RPD_percent': metric['rpd_percent'], 'selected_regret': summary['selection_regret'],
+                'regret_CI_low': interval['ci_low'], 'regret_CI_high': interval['ci_high'],
+                'tau_b': summary['kendall_tau_b']})
+    tables.append('## S7. Post-results PM2.5 target-history extension\n\n'
+        'Primary imputation only; original selected family is persistence. Regret and its interval '
+        'refer to that selected family and repeat across comparator rows. This extension was '
+        'declared after primary results; it does not replace the confirmatory experiment.\n\n'
+        +markdown(pd.DataFrame(target_rows)))
     (ROOT/'paper/tables.md').write_text('# Supplementary result tables\n\nGenerated from accepted artifacts. MAE/RMSE/regret are in µg/m³. Confidence intervals are pointwise, conditional paired 24-hour block-bootstrap intervals; subgroup bands have no confidence intervals.\n\n'+'\n\n'.join(tables)+'\n',encoding='utf-8')
     figures=ROOT/'figures/paper';figures.mkdir(parents=True,exist_ok=True)
-    plt.rcParams.update({'font.size':10,'pdf.fonttype':42})
-    fig,ax=plt.subplots(figsize=(8.5,5.5)); y=np.arange(len(station))
-    ax.hlines(y,station.ci_low,station.ci_high,color='#33658a',linewidth=2)
-    ax.scatter(station.estimate,y,color='#17324d',zorder=3,label='Point regret; lines: 95% CI')
-    ax.axvline(1,color='#a64b00',ls='--',label='Predefined practical threshold')
-    ax.set(yticks=y,yticklabels=station.station,xlabel='Selection regret (µg/m³)')
-    ax.legend(loc='lower center',bbox_to_anchor=(.5,1.02),frameon=False,ncol=1)
-    fig.tight_layout()
-    for ext in ['png','pdf']:fig.savefig(figures/f'01_site_regret.{ext}',dpi=300,bbox_inches='tight',metadata={'Creator':'AirSense-R'} if ext=='pdf' else {'Software':'AirSense-R'})
-    plt.close(fig)
-    fig,axes=plt.subplots(1,2,figsize=(11,5),sharex=True,sharey=True)
-    order=[r['condition']['id'] for r in sensors if r['policy']=='primary']
-    for ax,policy,label in zip(axes,['primary','no_ffill'],['Primary imputation','No-forward-fill sensitivity']):
-        subset=sensor_table.loc[(sensor_table.policy==policy)&(sensor_table.scope=='full')].set_index('condition').loc[order]
-        y=np.arange(len(subset));ax.hlines(y,subset.CI_low,subset.CI_high,color='#33658a',linewidth=2)
-        ax.scatter(subset.regret,y,color='#17324d',s=22,zorder=3)
-        ax.axvline(1,color='#a64b00',ls='--');ax.set(title=label,yticks=y,yticklabels=order,xlabel='Selection regret (µg/m³)',xlim=(-.04,1.06))
-    fig.tight_layout()
-    for ext in ['png','pdf']:fig.savefig(figures/f'02_sensor_regret.{ext}',dpi=300,bbox_inches='tight',metadata={'Creator':'AirSense-R'} if ext=='pdf' else {'Software':'AirSense-R'})
-    plt.close(fig)
+    if not args.tables_only:
+        plt.rcParams.update({'font.size':10,'pdf.fonttype':42})
+        fig,ax=plt.subplots(figsize=(8.5,5.5)); y=np.arange(len(station))
+        ax.hlines(y,station.ci_low,station.ci_high,color='#33658a',linewidth=2)
+        ax.scatter(station.estimate,y,color='#17324d',zorder=3,label='Point regret; lines: 95% CI')
+        ax.axvline(1,color='#a64b00',ls='--',label='Predefined practical threshold')
+        ax.set(yticks=y,yticklabels=station.station,xlabel='Selection regret (µg/m³)')
+        ax.legend(loc='lower center',bbox_to_anchor=(.5,1.02),frameon=False,ncol=1)
+        fig.tight_layout()
+        for ext in ['png','pdf']:fig.savefig(figures/f'01_site_regret.{ext}',dpi=300,bbox_inches='tight',metadata={'Creator':'AirSense-R'} if ext=='pdf' else {'Software':'AirSense-R'})
+        plt.close(fig)
+        fig,axes=plt.subplots(1,2,figsize=(11,5),sharex=True,sharey=True)
+        order=[r['condition']['id'] for r in sensors if r['policy']=='primary']
+        for ax,policy,label in zip(axes,['primary','no_ffill'],['Primary imputation','No-forward-fill sensitivity']):
+            subset=sensor_table.loc[(sensor_table.policy==policy)&(sensor_table.scope=='full')].set_index('condition').loc[order]
+            y=np.arange(len(subset));ax.hlines(y,subset.CI_low,subset.CI_high,color='#33658a',linewidth=2)
+            ax.scatter(subset.regret,y,color='#17324d',s=22,zorder=3)
+            ax.axvline(1,color='#a64b00',ls='--');ax.set(title=label,yticks=y,yticklabels=order,xlabel='Selection regret (µg/m³)',xlim=(-.04,1.06))
+        fig.tight_layout()
+        for ext in ['png','pdf']:fig.savefig(figures/f'02_sensor_regret.{ext}',dpi=300,bbox_inches='tight',metadata={'Creator':'AirSense-R'} if ext=='pdf' else {'Software':'AirSense-R'})
+        plt.close(fig)
     evidence={'input_result_commit':receipt['result_commit'],'input_manifest_sha256':receipt['manifest_sha256'],
+        'target_history_acceptance_sha256':sha256(target_raw).hexdigest(),
+        'target_history_result_commit':target['result_commit'],
+        'target_history_review_commit':target['review_commit'],
         'clean_acceptance_sha256':sha256((ROOT/'results/p5/corrected_acceptance.json').read_bytes()).hexdigest(),
         'builder_sha256':sha256(Path(__file__).read_bytes().replace(b'\r\n',b'\n')).hexdigest(),
         'generated_files':[p.relative_to(ROOT).as_posix() for p in sorted(figures.glob('*'))]+['paper/tables.md'],

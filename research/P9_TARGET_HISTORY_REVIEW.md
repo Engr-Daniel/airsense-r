@@ -35,6 +35,17 @@ These findings do not validate a switching or fallback policy.
 
 ## Acceptance boundary
 
+**Update, 2026-10-30: accepted.** The final saved-array verification below has
+now passed in Colab at review commit
+`1b07632a12a5019faade81aa96f539f83ea55252`. All 261 bundles, seed-level metrics
+and independent bootstrap intervals were checked. Local review verified all
+seven registered review artifacts, exact original/verifier provenance, and
+agreement of every interval report across all seven scopes. Notebook 08b has
+unchanged code, execution counts 1–4 and no error outputs; its executed bytes
+are archived separately. See [final acceptance](../results/p9-target-history/final_acceptance.json).
+Drive arrays were verified in Colab, not downloaded locally. The following
+paragraph records the earlier pending state; it is superseded by this acceptance.
+
 The Colab evaluator compared every interval against an independent
 frequency-weight bootstrap implementation. Local review checked recorded
 interval settings and recomputed point estimates. It did **not** read the final

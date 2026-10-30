@@ -1,8 +1,11 @@
 {
   "input_result_commit": "296999a0df73363f2922a34fd15cf520f1d75e2d",
   "input_manifest_sha256": "532036f0776f740e92562a9590ccc63b7d2a28c3cbcf8145c9bb3b4440a81a14",
+  "target_history_acceptance_sha256": "6ba190e0da4fbaba01f4aba29f0db40ac297a22396b60c106f7a3e8c20d71310",
+  "target_history_result_commit": "a816353692920e56915316b98b6481313e72a461",
+  "target_history_review_commit": "1b07632a12a5019faade81aa96f539f83ea55252",
   "clean_acceptance_sha256": "8eca2e5900de54c599797fdc6471ba3173cbaa1b3d7a076b8090c0e0bbd8914b",
-  "builder_sha256": "924743e03cf56045e4e76f187ac150ac5382cdd07f91f85bd89b6ba5731a7b22",
+  "builder_sha256": "8a8915c8d0a59719e62216f88e1ac29379ddbc344eeebda2778b50e6b972233a",
   "generated_files": [
     "figures/paper/01_site_regret.pdf",
     "figures/paper/01_site_regret.png",

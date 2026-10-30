@@ -38,5 +38,9 @@
   "notebooks/08_p9_target_history_checkpoint.ipynb": {
     "path": "notebooks/executed/08_p9_target_history_checkpoint_executed.ipynb",
     "sha256": "01a7e85ed75a441d35372c9d015798b18961acee9d308bad6dc809b2756f24f0"
+  },
+  "notebooks/08b_p9_saved_prediction_verification.ipynb": {
+    "path": "notebooks/executed/08b_p9_saved_prediction_verification_executed.ipynb",
+    "sha256": "80e5e2e6b808abebec431cb571dacf71a68c7826c5f09113be1367afa760ec53"
   }
 }
