@@ -2,6 +2,14 @@
 
 Record every change made after `PROTOCOL.md` is marked **FROZEN**.
 
+2026-10-30 P9 saved-prediction review: target-history outcomes HAVE been inspected.
+Extend the independent saved-array verifier with an explicit target-history mode;
+P6 retains its unchanged-persistence check. P9 verifies the predefined five
+conditions, allowing persistence predictions to change under PM2.5 missingness.
+No predictions, estimands, thresholds, seeds, tolerances or original evidence
+change. The separate review notebook recomputes metrics and bootstrap intervals
+from saved arrays without model fitting or inference.
+
 2026-10-29 P9 post-results extension: P5–P8 outcomes HAVE been inspected.
 The user authorized a bounded target-history checkpoint and tolerance audit;
 see `P9_CHECKPOINT_PLAN.md`. The original protocol and accepted evidence remain

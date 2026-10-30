@@ -142,13 +142,19 @@ def affected_targets(station: np.ndarray, time: np.ndarray, events: list[dict], 
 
 
 def verify_saved_run(snapshot: Snapshot, directory: Path, output: RunStore,
-                     progress: Callable[[str], None] = print) -> dict:
-    """Verify all saved files on every invocation; checkpoint each condition review."""
+                     progress: Callable[[str], None] = print, *,
+                     target_history: bool = False) -> dict:
+    """Verify saved files and checkpoint each review with explicit P9 semantics.
+
+    Target-history mode allows persistence to change. Default P6 verification
+    retains its protected target-history invariant. Neither mode calls a model.
+    """
     config = snapshot.manifest["provenance"]["config"]
     identity = json.loads((directory / "identity.json").read_bytes())
     if identity != {"provenance_hash": sha256(json_bytes(snapshot.manifest["provenance"])).hexdigest()}:
         raise ValueError("Wrong Drive run identity")
-    if not snapshot.json("complete.json")["sensor_degradation_complete"]:
+    completion_key = "execution_complete" if target_history else "sensor_degradation_complete"
+    if not snapshot.json("complete.json")[completion_key]:
         raise ValueError("Original evaluation is incomplete")
     names = sorted(k[7:-5] for k in snapshot.blobs if k.startswith("bundle-"))
     for i, name in enumerate(names, 1):
@@ -170,8 +176,17 @@ def verify_saved_run(snapshot: Snapshot, directory: Path, output: RunStore,
     selected = snapshot.json("lineage.json")["selection"]["selected_family"]
     keys = [(m, seed) for m in models for seed in ([-1] if m == "persistence" else config["seeds"]["training"])]
     weights = None
-    reports = snapshot.json("dashboard-p6.json")["reports"]
-    if len(reports) != 2 * snapshot.json("complete.json")["conditions_per_policy"]:
+    reports = snapshot.json("dashboard-target-history.json" if target_history else "dashboard-p6.json")["reports"]
+    if target_history:
+        expected_cases = {"pm25-dropout-10", "pm25-dropout-30", "pm25-dropout-50", "pm25-outage-6", "pm25-outage-12"}
+        if (len(reports) != 5 or {r["condition"]["id"] for r in reports} != expected_cases
+                or any(r["policy"] != "primary" for r in reports)):
+            raise ValueError("Unexpected target-history report matrix")
+        for report in reports:
+            expected_scopes = {"full", "affected"} if "outage" in report["condition"]["id"] else {"full"}
+            if set(report["scopes"]) != expected_scopes:
+                raise ValueError("Unexpected target-history scopes")
+    elif len(reports) != 2 * snapshot.json("complete.json")["conditions_per_policy"]:
         raise ValueError("Incomplete report matrix")
     def predictions(policy: str, unit: str) -> dict:
         result = {}
@@ -204,15 +219,17 @@ def verify_saved_run(snapshot: Snapshot, directory: Path, output: RunStore,
         clean = clean_cache[policy]
         pairs = {scope: ([], []) for scope in report["scopes"]}
         metric_rows = []
-        for corruption_seed in spec["seeds"]:
+        for corruption_seed in ([101, 202, 303, 404, 505] if target_history else spec["seeds"]):
             unit = f"{spec['id']}-c{corruption_seed}"
             preds = predictions(policy, unit)
-            np.testing.assert_array_equal(preds[("persistence", -1)], clean[("persistence", -1)])
+            if not target_history:
+                np.testing.assert_array_equal(preds[("persistence", -1)], clean[("persistence", -1)])
             masks = {"full": np.ones(len(y), dtype=bool)}
             if "affected" in pairs:
                 masks["affected"] = affected_targets(station, time,
                     snapshot.json(f"realization-{unit}.json")["outage_events"], config["data"]["lookback_hours"])
-            saved = pd.read_csv(io.BytesIO(snapshot.blobs[f"metrics-{policy}-{unit}.csv"]), float_precision="round_trip")
+            metric_name = f"metrics-{unit}.csv" if target_history else f"metrics-{policy}-{unit}.csv"
+            saved = pd.read_csv(io.BytesIO(snapshot.blobs[metric_name]), float_precision="round_trip")
             if len(saved) != len(masks)*len(stations)*len(keys) or saved.duplicated(["scope", "station", "model", "seed"]).any():
                 raise ValueError("Missing/duplicate seed metrics")
             for scope, mask in masks.items():
@@ -251,6 +268,9 @@ def verify_saved_run(snapshot: Snapshot, directory: Path, output: RunStore,
                 compare_numbers(actual, metric)
             regret = float(scores.loc[selected, "mae"]-scores.mae.min())
             compare_numbers({"selection_regret": regret}, summary)
+            if target_history:
+                from scipy.stats import kendalltau
+                compare_numbers({"kendall_tau_b": float(kendalltau(scores.clean_mae, scores.mae).statistic)}, summary)
             oracle = set(scores.index[scores.mae == scores.mae.min()])
             near = set(scores.index[scores.mae <= scores.mae.min()+summary["threshold"]])
             if (set(summary["test_oracle_families"]) != oracle or set(summary["near_ties"]) != near
@@ -260,6 +280,10 @@ def verify_saved_run(snapshot: Snapshot, directory: Path, output: RunStore,
             if "near_tie" in config and summary["threshold"] != config["near_tie"]["absolute_threshold_ug_m3"]:
                 raise ValueError("Practical threshold differs")
             u = summary["uncertainty"]
+            if target_history and u.get("available") and (
+                    u.get("seed") != config["seeds"]["bootstrap"]
+                    or u.get("confidence") != config["uncertainty"]["confidence"]):
+                raise ValueError("Uncertainty seed/confidence differs")
             if (u["replicates"] != config["uncertainty"]["n_bootstrap"]
                     or u["block_hours"] != config["uncertainty"]["block_length_hours"]):
                 raise ValueError("Uncertainty settings differ")

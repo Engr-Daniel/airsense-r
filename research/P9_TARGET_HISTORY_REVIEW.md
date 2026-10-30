@@ -42,3 +42,22 @@ Drive prediction arrays or independently recompute interval endpoints from
 those saved arrays. Scientific acceptance remains pending that read-only check.
 Do not rerun training or inference, change the declared conditions, or present
 these findings as accepted manuscript evidence yet.
+
+## Read-only verification workflow
+
+Notebook `08b_p9_saved_prediction_verification.ipynb` prepares this final check.
+Use a CPU Colab runtime, the same Drive account and GitHub secret, then Run all.
+No SHA or stage entry is needed. It reads result commit
+`a816353692920e56915316b98b6481313e72a461` and refuses a different manifest or
+Drive storage identity. All bundle checksums are checked on every invocation;
+metrics and independent frequency-weight intervals are checkpointed per condition.
+Review outputs publish to `results/p9-target-history-review-01`, separately from
+the experiment. No model loading, fitting or inference is performed.
+Save the completed notebook with outputs for final acceptance review.
+
+Local validation: 12 tests passed across saved P6/P9 verification and reconnectable
+worker tests. They cover noninteger targets (74.3/81.8), all four model families'
+saved predictions, fresh-process resume, immutable input bytes, altered prediction
+files, changed uncertainty bounds, missing conditions, notebook fresh-process
+execution/rerun and duplicate-worker behavior. These are synthetic/local checks;
+they do not substitute for verifying the real Drive arrays in Colab.

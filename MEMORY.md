@@ -1,12 +1,18 @@
 # MEMORY.md — AirSense-R Project Memory
 
+P9 verification handoff (2026-10-30): notebook 08b reads the exact completed
+MC1 snapshot and original Drive prediction arrays, checks every bundle hash,
+and recomputes all metrics and paired intervals. Review results checkpoint
+separately under p9-target-history-review-01. No model inference or fitting.
+Live Colab verification and final acceptance are pending; do not claim them done.
+
 Current status (2026-10-30, target-history execution review): notebook 08
 completed all five conditions with unchanged code and no error outputs. All
 331 Git artifact checksums and accepted P5 lineage passed; independent local
 aggregation reproduced seven scope summaries / 28 model metric rows. Executed
 notebook preserved separately and published unrun template restored. Full-period
 regret is below 1 throughout, but 12-hour outage-affected regret is 2.282
-(reported 95% CI 1.696?2.910). Colab independently checked intervals during
+(reported 95% CI 1.696–2.910). Colab independently checked intervals during
 execution; final saved Drive arrays have not been independently rechecked locally.
 Scientific acceptance remains pending a read-only saved-prediction review;
 no retraining or inference rerun needed. See research/P9_TARGET_HISTORY_REVIEW.md

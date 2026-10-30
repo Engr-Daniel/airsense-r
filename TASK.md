@@ -184,6 +184,7 @@ and unchanged. See [checkpoint plan](research/P9_CHECKPOINT_PLAN.md).
 - [x] Document focused prior-work comparison and cautious contribution wording
 - [x] Complete target-history Colab execution; verify Git checksums, lineage and metric aggregation; preserve executed notebook
 - [ ] Independently verify final saved target-history Drive predictions and uncertainty before scientific acceptance
+- [x] Prepare and locally test pinned read-only notebook 08b for that verification (live run pending)
 - [ ] Integrate accepted target-history findings, regardless of direction, then close experiments
 
 The full-text Semper et al. comparison remains a submission check; the focused
