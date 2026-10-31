@@ -1,0 +1,5739 @@
+{
+ "schema": "airsense-r-explorer/1",
+ "threshold_ug_m3": 1.0,
+ "sensitivity_tolerances": [
+  0.5,
+  1.0,
+  1.5,
+  2.0
+ ],
+ "clean": {
+  "selected_family": "persistence",
+  "rule": "Lowest station-equal validation MAE; candidates within 1.0 µg/m³ resolved by simplicity order persistence → XGBoost → MLP → GRU",
+  "simplicity_order": [
+   "persistence",
+   "xgboost",
+   "mlp",
+   "gru"
+  ],
+  "near_ties": [
+   "persistence",
+   "xgboost",
+   "mlp"
+  ],
+  "validation_mae": {
+   "gru": 14.702016314882767,
+   "mlp": 10.295821061901663,
+   "persistence": 9.90127237578343,
+   "xgboost": 9.532510150625605
+  },
+  "validation_winner": "xgboost",
+  "validation_gap_to_best": {
+   "gru": 5.169506164257163,
+   "mlp": 0.7633109112760579,
+   "persistence": 0.3687622251578251,
+   "xgboost": 0.0
+  },
+  "test": [
+   {
+    "model": "persistence",
+    "mae": 10.27964339759353,
+    "rmse": 19.65493342148468,
+    "r2": 0.942216112136101,
+    "selected_minus_model": {
+     "estimate": 0.0,
+     "ci_low": 0.0,
+     "ci_high": 0.0
+    }
+   },
+   {
+    "model": "xgboost",
+    "mae": 9.710861193660564,
+    "rmse": 18.920933682092432,
+    "r2": 0.946610613945749,
+    "selected_minus_model": {
+     "estimate": 0.5687822039329653,
+     "ci_low": 0.33998450059135155,
+     "ci_high": 0.7631716808292689
+    }
+   },
+   {
+    "model": "mlp",
+    "mae": 10.810205954093624,
+    "rmse": 18.938472995098575,
+    "r2": 0.946263106288692,
+    "selected_minus_model": {
+     "estimate": -0.5305625565000902,
+     "ci_low": -0.7362678531620552,
+     "ci_high": -0.3282496225454676
+    }
+   },
+   {
+    "model": "gru",
+    "mae": 15.957414375293565,
+    "rmse": 37.16597894742892,
+    "r2": 0.688383280078031,
+    "selected_minus_model": {
+     "estimate": -5.677770977700037,
+     "ci_low": -7.521211812620892,
+     "ci_high": -4.0040974572015
+    }
+   }
+  ],
+  "test_winner": "xgboost",
+  "selection_regret": 0.5687822039329653,
+  "regret_ci": [
+   0.33998450059135155,
+   0.7631716808292689
+  ],
+  "status": "within",
+  "test_period": [
+   "2016-03-01 00:00:00",
+   "2017-02-28 23:00:00"
+  ],
+  "stations": 12,
+  "selected_configs": {
+   "gru": {
+    "epochs": 20,
+    "head_units": 16,
+    "id": "gru-medium",
+    "learning_rate": 0.001,
+    "units": 64
+   },
+   "mlp": {
+    "epochs": 20,
+    "hidden": [
+     64,
+     32
+    ],
+    "id": "mlp-small",
+    "learning_rate": 0.001
+   },
+   "xgboost": {
+    "eta": 0.05,
+    "id": "xgb-medium",
+    "max_depth": 6,
+    "rounds": 200
+   }
+  }
+ },
+ "sensors": [
+  {
+   "id": "random_dropout-10",
+   "policy": "primary",
+   "group": "random_dropout",
+   "label": "Random dropout 10%",
+   "channel": null,
+   "severity": "10%",
+   "seeds": [
+    101,
+    202,
+    303,
+    404,
+    505
+   ],
+   "scopes": {
+    "full": {
+     "selected_family": "persistence",
+     "selection_regret": 0.0,
+     "regret_ci": [
+      0.0,
+      0.0
+     ],
+     "kendall_tau_b": 0.6666666666666666,
+     "oracle_families": [
+      "persistence"
+     ],
+     "status": "within",
+     "metrics": [
+      {
+       "model": "persistence",
+       "mae": 10.27964339759353,
+       "rmse": 19.65493342148468,
+       "r2": 0.942216112136101,
+       "clean_mae": 10.27964339759353,
+       "rpd_percent": 0.0,
+       "clean_rank": 2.0,
+       "stress_rank": 1.0,
+       "selected_minus_model": {
+        "estimate": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0
+       }
+      },
+      {
+       "model": "xgboost",
+       "mae": 10.807772266369303,
+       "rmse": 19.859809784816616,
+       "r2": 0.941148522587981,
+       "clean_mae": 9.710861193660564,
+       "rpd_percent": 11.29571364303738,
+       "clean_rank": 1.0,
+       "stress_rank": 2.0,
+       "selected_minus_model": {
+        "estimate": -0.5281288687757737,
+        "ci_low": -0.7647046981715866,
+        "ci_high": -0.3264065885415299
+       }
+      },
+      {
+       "model": "mlp",
+       "mae": 13.422219325209205,
+       "rmse": 21.38007939497551,
+       "r2": 0.931494822160006,
+       "clean_mae": 10.810205954093624,
+       "rpd_percent": 24.162475555116146,
+       "clean_rank": 3.0,
+       "stress_rank": 3.0,
+       "selected_minus_model": {
+        "estimate": -3.142575927615674,
+        "ci_low": -3.3523286987954894,
+        "ci_high": -2.936661972859575
+       }
+      },
+      {
+       "model": "gru",
+       "mae": 17.551642249276906,
+       "rmse": 37.99206396218414,
+       "r2": 0.694922282596476,
+       "clean_mae": 15.95741437488415,
+       "rpd_percent": 9.990514985322173,
+       "clean_rank": 4.0,
+       "stress_rank": 4.0,
+       "selected_minus_model": {
+        "estimate": -7.271998851683373,
+        "ci_low": -9.061785267507217,
+        "ci_high": -5.653539744501815
+       }
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "random_dropout-30",
+   "policy": "primary",
+   "group": "random_dropout",
+   "label": "Random dropout 30%",
+   "channel": null,
+   "severity": "30%",
+   "seeds": [
+    101,
+    202,
+    303,
+    404,
+    505
+   ],
+   "scopes": {
+    "full": {
+     "selected_family": "persistence",
+     "selection_regret": 0.0,
+     "regret_ci": [
+      0.0,
+      0.0
+     ],
+     "kendall_tau_b": 0.6666666666666666,
+     "oracle_families": [
+      "persistence"
+     ],
+     "status": "within",
+     "metrics": [
+      {
+       "model": "persistence",
+       "mae": 10.27964339759353,
+       "rmse": 19.65493342148468,
+       "r2": 0.942216112136101,
+       "clean_mae": 10.27964339759353,
+       "rpd_percent": 0.0,
+       "clean_rank": 2.0,
+       "stress_rank": 1.0,
+       "selected_minus_model": {
+        "estimate": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0
+       }
+      },
+      {
+       "model": "xgboost",
+       "mae": 13.370129810238199,
+       "rmse": 22.161069768537615,
+       "r2": 0.926622642643535,
+       "clean_mae": 9.710861193660564,
+       "rpd_percent": 37.68222553697374,
+       "clean_rank": 1.0,
+       "stress_rank": 2.0,
+       "selected_minus_model": {
+        "estimate": -3.090486412644667,
+        "ci_low": -3.3857335788987215,
+        "ci_high": -2.8396460040044436
+       }
+      },
+      {
+       "model": "mlp",
+       "mae": 17.323565218966632,
+       "rmse": 25.54698121258897,
+       "r2": 0.902089795067445,
+       "clean_mae": 10.810205954093624,
+       "rpd_percent": 60.25194425094668,
+       "clean_rank": 3.0,
+       "stress_rank": 3.0,
+       "selected_minus_model": {
+        "estimate": -7.0439218213730985,
+        "ci_low": -7.317642505487988,
+        "ci_high": -6.7777510743535165
+       }
+      },
+      {
+       "model": "gru",
+       "mae": 20.319360504306044,
+       "rmse": 39.25281448028956,
+       "r2": 0.710522199672873,
+       "clean_mae": 15.95741437488415,
+       "rpd_percent": 27.334917969463085,
+       "clean_rank": 4.0,
+       "stress_rank": 4.0,
+       "selected_minus_model": {
+        "estimate": -10.039717106712517,
+        "ci_low": -11.647052555351499,
+        "ci_high": -8.609555825679855
+       }
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "random_dropout-50",
+   "policy": "primary",
+   "group": "random_dropout",
+   "label": "Random dropout 50%",
+   "channel": null,
+   "severity": "50%",
+   "seeds": [
+    101,
+    202,
+    303,
+    404,
+    505
+   ],
+   "scopes": {
+    "full": {
+     "selected_family": "persistence",
+     "selection_regret": 0.0,
+     "regret_ci": [
+      0.0,
+      0.0
+     ],
+     "kendall_tau_b": 0.6666666666666666,
+     "oracle_families": [
+      "persistence"
+     ],
+     "status": "within",
+     "metrics": [
+      {
+       "model": "persistence",
+       "mae": 10.27964339759353,
+       "rmse": 19.65493342148468,
+       "r2": 0.942216112136101,
+       "clean_mae": 10.27964339759353,
+       "rpd_percent": 0.0,
+       "clean_rank": 2.0,
+       "stress_rank": 1.0,
+       "selected_minus_model": {
+        "estimate": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0
+       }
+      },
+      {
+       "model": "xgboost",
+       "mae": 16.397455697575015,
+       "rmse": 24.97794565155222,
+       "r2": 0.906783621631869,
+       "clean_mae": 9.710861193660564,
+       "rpd_percent": 68.85686419119642,
+       "clean_rank": 1.0,
+       "stress_rank": 2.0,
+       "selected_minus_model": {
+        "estimate": -6.117812299981486,
+        "ci_low": -6.519363450841538,
+        "ci_high": -5.75254571892215
+       }
+      },
+      {
+       "model": "mlp",
+       "mae": 20.83601137598322,
+       "rmse": 29.295212570044754,
+       "r2": 0.870980455695216,
+       "clean_mae": 10.810205954093624,
+       "rpd_percent": 92.7438891031767,
+       "clean_rank": 3.0,
+       "stress_rank": 3.0,
+       "selected_minus_model": {
+        "estimate": -10.556367978389689,
+        "ci_low": -10.875092553872935,
+        "ci_high": -10.239557919172393
+       }
+      },
+      {
+       "model": "gru",
+       "mae": 23.90331650068883,
+       "rmse": 41.098393503719755,
+       "r2": 0.714518896186173,
+       "clean_mae": 15.95741437488415,
+       "rpd_percent": 49.79442119589858,
+       "clean_rank": 4.0,
+       "stress_rank": 4.0,
+       "selected_minus_model": {
+        "estimate": -13.623673103095298,
+        "ci_low": -14.998395300445267,
+        "ci_high": -12.397517471382105
+       }
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "noise-05",
+   "policy": "primary",
+   "group": "noise",
+   "label": "Measurement noise 5%",
+   "channel": null,
+   "severity": "5%",
+   "seeds": [
+    101,
+    202,
+    303,
+    404,
+    505
+   ],
+   "scopes": {
+    "full": {
+     "selected_family": "persistence",
+     "selection_regret": 0.4965432411839039,
+     "regret_ci": [
+      0.2704904212567689,
+      0.6911779042742121
+     ],
+     "kendall_tau_b": 1.0,
+     "oracle_families": [
+      "xgboost"
+     ],
+     "status": "within",
+     "metrics": [
+      {
+       "model": "persistence",
+       "mae": 10.27964339759353,
+       "rmse": 19.65493342148468,
+       "r2": 0.942216112136101,
+       "clean_mae": 10.27964339759353,
+       "rpd_percent": 0.0,
+       "clean_rank": 2.0,
+       "stress_rank": 2.0,
+       "selected_minus_model": {
+        "estimate": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0
+       }
+      },
+      {
+       "model": "xgboost",
+       "mae": 9.783100156409626,
+       "rmse": 19.004294893461473,
+       "r2": 0.946144802299584,
+       "clean_mae": 9.710861193660564,
+       "rpd_percent": 0.743898623494076,
+       "clean_rank": 1.0,
+       "stress_rank": 1.0,
+       "selected_minus_model": {
+        "estimate": 0.4965432411839039,
+        "ci_low": 0.2704904212567689,
+        "ci_high": 0.6911779042742121
+       }
+      },
+      {
+       "model": "mlp",
+       "mae": 11.009820740459958,
+       "rmse": 19.121341806644782,
+       "r2": 0.945219757313797,
+       "clean_mae": 10.810205954093624,
+       "rpd_percent": 1.846540086414763,
+       "clean_rank": 3.0,
+       "stress_rank": 3.0,
+       "selected_minus_model": {
+        "estimate": -0.7301773428664298,
+        "ci_low": -0.9350846940405699,
+        "ci_high": -0.5290767603051739
+       }
+      },
+      {
+       "model": "gru",
+       "mae": 16.215582315698615,
+       "rmse": 37.37623813968689,
+       "r2": 0.686571645139127,
+       "clean_mae": 15.95741437488415,
+       "rpd_percent": 1.617855717407471,
+       "clean_rank": 4.0,
+       "stress_rank": 4.0,
+       "selected_minus_model": {
+        "estimate": -5.9359389181050854,
+        "ci_low": -7.782390063697297,
+        "ci_high": -4.248161742098188
+       }
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "noise-10",
+   "policy": "primary",
+   "group": "noise",
+   "label": "Measurement noise 10%",
+   "channel": null,
+   "severity": "10%",
+   "seeds": [
+    101,
+    202,
+    303,
+    404,
+    505
+   ],
+   "scopes": {
+    "full": {
+     "selected_family": "persistence",
+     "selection_regret": 0.19170710859505746,
+     "regret_ci": [
+      0.0,
+      0.4134845153404273
+     ],
+     "kendall_tau_b": 1.0,
+     "oracle_families": [
+      "xgboost"
+     ],
+     "status": "within",
+     "metrics": [
+      {
+       "model": "persistence",
+       "mae": 10.27964339759353,
+       "rmse": 19.65493342148468,
+       "r2": 0.942216112136101,
+       "clean_mae": 10.27964339759353,
+       "rpd_percent": 0.0,
+       "clean_rank": 2.0,
+       "stress_rank": 2.0,
+       "selected_minus_model": {
+        "estimate": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0
+       }
+      },
+      {
+       "model": "xgboost",
+       "mae": 10.087936288998472,
+       "rmse": 19.387407951587516,
+       "r2": 0.943971561796876,
+       "clean_mae": 9.710861193660564,
+       "rpd_percent": 3.88302425313287,
+       "clean_rank": 1.0,
+       "stress_rank": 1.0,
+       "selected_minus_model": {
+        "estimate": 0.19170710859505746,
+        "ci_low": -0.0706837264381142,
+        "ci_high": 0.4134845153404273
+       }
+      },
+      {
+       "model": "mlp",
+       "mae": 11.62371992720878,
+       "rmse": 19.685068804532985,
+       "r2": 0.941936633911627,
+       "clean_mae": 10.810205954093624,
+       "rpd_percent": 7.525425293188741,
+       "clean_rank": 3.0,
+       "stress_rank": 3.0,
+       "selected_minus_model": {
+        "estimate": -1.3440765296152506,
+        "ci_low": -1.552221505030021,
+        "ci_high": -1.1437708117963945
+       }
+      },
+      {
+       "model": "gru",
+       "mae": 16.922728935406642,
+       "rmse": 37.95902510193399,
+       "r2": 0.681891343938812,
+       "clean_mae": 15.95741437488415,
+       "rpd_percent": 6.049316874554746,
+       "clean_rank": 4.0,
+       "stress_rank": 4.0,
+       "selected_minus_model": {
+        "estimate": -6.643085537813112,
+        "ci_low": -8.503573837205442,
+        "ci_high": -4.926477261524054
+       }
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "noise-20",
+   "policy": "primary",
+   "group": "noise",
+   "label": "Measurement noise 20%",
+   "channel": null,
+   "severity": "20%",
+   "seeds": [
+    101,
+    202,
+    303,
+    404,
+    505
+   ],
+   "scopes": {
+    "full": {
+     "selected_family": "persistence",
+     "selection_regret": 0.0,
+     "regret_ci": [
+      0.0,
+      0.0
+     ],
+     "kendall_tau_b": 0.6666666666666666,
+     "oracle_families": [
+      "persistence"
+     ],
+     "status": "within",
+     "metrics": [
+      {
+       "model": "persistence",
+       "mae": 10.27964339759353,
+       "rmse": 19.65493342148468,
+       "r2": 0.942216112136101,
+       "clean_mae": 10.27964339759353,
+       "rpd_percent": 0.0,
+       "clean_rank": 2.0,
+       "stress_rank": 1.0,
+       "selected_minus_model": {
+        "estimate": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0
+       }
+      },
+      {
+       "model": "xgboost",
+       "mae": 11.043897749464486,
+       "rmse": 20.68101590990192,
+       "r2": 0.936307484113358,
+       "clean_mae": 9.710861193660564,
+       "rpd_percent": 13.727274329429747,
+       "clean_rank": 1.0,
+       "stress_rank": 2.0,
+       "selected_minus_model": {
+        "estimate": -0.7642543518709566,
+        "ci_low": -1.133060656039244,
+        "ci_high": -0.4545296710717287
+       }
+      },
+      {
+       "model": "mlp",
+       "mae": 13.694165355206932,
+       "rmse": 21.78424104806902,
+       "r2": 0.928864953544824,
+       "clean_mae": 10.810205954093624,
+       "rpd_percent": 26.678117080842544,
+       "clean_rank": 3.0,
+       "stress_rank": 3.0,
+       "selected_minus_model": {
+        "estimate": -3.4145219576134025,
+        "ci_low": -3.6578580524662296,
+        "ci_high": -3.180984269454999
+       }
+      },
+      {
+       "model": "gru",
+       "mae": 19.05661830082729,
+       "rmse": 39.90138613756371,
+       "r2": 0.666843707147385,
+       "clean_mae": 15.95741437488415,
+       "rpd_percent": 19.421717410691972,
+       "clean_rank": 4.0,
+       "stress_rank": 4.0,
+       "selected_minus_model": {
+        "estimate": -8.776974903233759,
+        "ci_low": -10.702676909697884,
+        "ci_high": -7.003211374697129
+       }
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "whole-NO2",
+   "policy": "primary",
+   "group": "channel_loss",
+   "label": "Loss of NO₂",
+   "channel": "NO₂",
+   "severity": "Whole channel",
+   "seeds": [
+    -1
+   ],
+   "scopes": {
+    "full": {
+     "selected_family": "persistence",
+     "selection_regret": 0.5404978090469754,
+     "regret_ci": [
+      0.3404603139966633,
+      0.7153286438258614
+     ],
+     "kendall_tau_b": 1.0,
+     "oracle_families": [
+      "xgboost"
+     ],
+     "status": "within",
+     "metrics": [
+      {
+       "model": "persistence",
+       "mae": 10.27964339759353,
+       "rmse": 19.65493342148468,
+       "r2": 0.942216112136101,
+       "clean_mae": 10.27964339759353,
+       "rpd_percent": 0.0,
+       "clean_rank": 2.0,
+       "stress_rank": 2.0,
+       "selected_minus_model": {
+        "estimate": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0
+       }
+      },
+      {
+       "model": "xgboost",
+       "mae": 9.739145588546554,
+       "rmse": 18.817367319314588,
+       "r2": 0.947164589324486,
+       "clean_mae": 9.710861193660564,
+       "rpd_percent": 0.29126556668789,
+       "clean_rank": 1.0,
+       "stress_rank": 1.0,
+       "selected_minus_model": {
+        "estimate": 0.5404978090469736,
+        "ci_low": 0.3404603139966633,
+        "ci_high": 0.7153286438258614
+       }
+      },
+      {
+       "model": "mlp",
+       "mae": 11.031494930691062,
+       "rmse": 19.21646929421025,
+       "r2": 0.944690882408867,
+       "clean_mae": 10.810205954093624,
+       "rpd_percent": 2.04703756373523,
+       "clean_rank": 3.0,
+       "stress_rank": 3.0,
+       "selected_minus_model": {
+        "estimate": -0.7518515330975326,
+        "ci_low": -0.9393944898465605,
+        "ci_high": -0.5655235724635455
+       }
+      },
+      {
+       "model": "gru",
+       "mae": 14.050465898747852,
+       "rmse": 33.553892069052026,
+       "r2": 0.766050044777806,
+       "clean_mae": 15.95741437488415,
+       "rpd_percent": -11.950234739393,
+       "clean_rank": 4.0,
+       "stress_rank": 4.0,
+       "selected_minus_model": {
+        "estimate": -3.7708225011543224,
+        "ci_low": -5.265125353673585,
+        "ci_high": -2.420266076774964
+       }
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "whole-CO",
+   "policy": "primary",
+   "group": "channel_loss",
+   "label": "Loss of CO",
+   "channel": "CO",
+   "severity": "Whole channel",
+   "seeds": [
+    -1
+   ],
+   "scopes": {
+    "full": {
+     "selected_family": "persistence",
+     "selection_regret": 0.4379203832538163,
+     "regret_ci": [
+      0.2634094592142299,
+      0.594484826859145
+     ],
+     "kendall_tau_b": 1.0,
+     "oracle_families": [
+      "xgboost"
+     ],
+     "status": "within",
+     "metrics": [
+      {
+       "model": "persistence",
+       "mae": 10.27964339759353,
+       "rmse": 19.65493342148468,
+       "r2": 0.942216112136101,
+       "clean_mae": 10.27964339759353,
+       "rpd_percent": 0.0,
+       "clean_rank": 2.0,
+       "stress_rank": 2.0,
+       "selected_minus_model": {
+        "estimate": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0
+       }
+      },
+      {
+       "model": "xgboost",
+       "mae": 9.841723014339713,
+       "rmse": 18.700705609205187,
+       "r2": 0.947777590932743,
+       "clean_mae": 9.710861193660564,
+       "rpd_percent": 1.347582032833278,
+       "clean_rank": 1.0,
+       "stress_rank": 1.0,
+       "selected_minus_model": {
+        "estimate": 0.4379203832538181,
+        "ci_low": 0.2634094592142299,
+        "ci_high": 0.594484826859145
+       }
+      },
+      {
+       "model": "mlp",
+       "mae": 10.773573750809248,
+       "rmse": 18.83826329966468,
+       "r2": 0.946810466178936,
+       "clean_mae": 10.810205954093624,
+       "rpd_percent": -0.338866839724762,
+       "clean_rank": 3.0,
+       "stress_rank": 3.0,
+       "selected_minus_model": {
+        "estimate": -0.49393035321571865,
+        "ci_low": -0.6753904885269401,
+        "ci_high": -0.3142547032742648
+       }
+      },
+      {
+       "model": "gru",
+       "mae": 11.094885673650372,
+       "rmse": 23.282229549870916,
+       "r2": 0.910434107095826,
+       "clean_mae": 15.95741437488415,
+       "rpd_percent": -30.471908462106846,
+       "clean_rank": 4.0,
+       "stress_rank": 4.0,
+       "selected_minus_model": {
+        "estimate": -0.8152422760568427,
+        "ci_low": -1.2382684098308476,
+        "ci_high": -0.44476740712238416
+       }
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "whole-TEMP",
+   "policy": "primary",
+   "group": "channel_loss",
+   "label": "Loss of Temperature",
+   "channel": "Temperature",
+   "severity": "Whole channel",
+   "seeds": [
+    -1
+   ],
+   "scopes": {
+    "full": {
+     "selected_family": "persistence",
+     "selection_regret": 0.0,
+     "regret_ci": [
+      0.0,
+      0.0
+     ],
+     "kendall_tau_b": 0.3333333333333333,
+     "oracle_families": [
+      "persistence"
+     ],
+     "status": "within",
+     "metrics": [
+      {
+       "model": "persistence",
+       "mae": 10.27964339759353,
+       "rmse": 19.65493342148468,
+       "r2": 0.942216112136101,
+       "clean_mae": 10.27964339759353,
+       "rpd_percent": 0.0,
+       "clean_rank": 2.0,
+       "stress_rank": 1.0,
+       "selected_minus_model": {
+        "estimate": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0
+       }
+      },
+      {
+       "model": "xgboost",
+       "mae": 13.015583604933918,
+       "rmse": 21.847607138919503,
+       "r2": 0.928963978268157,
+       "clean_mae": 9.710861193660564,
+       "rpd_percent": 34.03119811279703,
+       "clean_rank": 1.0,
+       "stress_rank": 2.0,
+       "selected_minus_model": {
+        "estimate": -2.735940207340388,
+        "ci_low": -3.1453419194392356,
+        "ci_high": -2.368807327361035
+       }
+      },
+      {
+       "model": "mlp",
+       "mae": 21.808105623676,
+       "rmse": 31.071477246531817,
+       "r2": 0.852727520611046,
+       "clean_mae": 10.810205954093624,
+       "rpd_percent": 101.73626401093381,
+       "clean_rank": 3.0,
+       "stress_rank": 4.0,
+       "selected_minus_model": {
+        "estimate": -11.52846222608247,
+        "ci_low": -12.57170416453691,
+        "ci_high": -10.542517537875705
+       }
+      },
+      {
+       "model": "gru",
+       "mae": 17.594159616103614,
+       "rmse": 37.53774120502654,
+       "r2": 0.726186590134011,
+       "clean_mae": 15.95741437488415,
+       "rpd_percent": 10.256957692316277,
+       "clean_rank": 4.0,
+       "stress_rank": 3.0,
+       "selected_minus_model": {
+        "estimate": -7.314516218510084,
+        "ci_low": -9.127506829235363,
+        "ci_high": -5.691875818569245
+       }
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "outage-NO2-6",
+   "policy": "primary",
+   "group": "outage",
+   "label": "NO₂ outage 6 h",
+   "channel": "NO₂",
+   "severity": "6 h",
+   "seeds": [
+    101,
+    202,
+    303,
+    404,
+    505
+   ],
+   "scopes": {
+    "affected": {
+     "selected_family": "persistence",
+     "selection_regret": 0.5059432035190117,
+     "regret_ci": [
+      0.1701752699183289,
+      0.7631026947483325
+     ],
+     "kendall_tau_b": 1.0,
+     "oracle_families": [
+      "xgboost"
+     ],
+     "status": "within",
+     "metrics": [
+      {
+       "model": "persistence",
+       "mae": 10.609936379425688,
+       "rmse": 19.61651853699072,
+       "r2": 0.92583215881543,
+       "clean_mae": 10.609936379425688,
+       "rpd_percent": 0.0,
+       "clean_rank": 2.0,
+       "stress_rank": 2.0,
+       "selected_minus_model": {
+        "estimate": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0
+       }
+      },
+      {
+       "model": "xgboost",
+       "mae": 10.103993175906677,
+       "rmse": 18.738651895512923,
+       "r2": 0.935318413418865,
+       "clean_mae": 10.099448823977733,
+       "rpd_percent": 0.044996038973482,
+       "clean_rank": 1.0,
+       "stress_rank": 1.0,
+       "selected_minus_model": {
+        "estimate": 0.5059432035190117,
+        "ci_low": 0.1701752699183289,
+        "ci_high": 0.7631026947483325
+       }
+      },
+      {
+       "model": "mlp",
+       "mae": 11.203279053782204,
+       "rmse": 18.82964824365553,
+       "r2": 0.932601198419303,
+       "clean_mae": 11.09669906847685,
+       "rpd_percent": 0.96046567224773,
+       "clean_rank": 3.0,
+       "stress_rank": 3.0,
+       "selected_minus_model": {
+        "estimate": -0.5933426743565153,
+        "ci_low": -0.8430444259055963,
+        "ci_high": -0.3774183732047299
+       }
+      },
+      {
+       "model": "gru",
+       "mae": 16.355274135854497,
+       "rmse": 34.56960536179485,
+       "r2": 0.705766803460866,
+       "clean_mae": 16.445148014115535,
+       "rpd_percent": -0.546506958671917,
+       "clean_rank": 4.0,
+       "stress_rank": 4.0,
+       "selected_minus_model": {
+        "estimate": -5.745337756428809,
+        "ci_low": -7.794770481777826,
+        "ci_high": -3.8295950971420196
+       }
+      }
+     ]
+    },
+    "full": {
+     "selected_family": "persistence",
+     "selection_regret": 0.5686064490739415,
+     "regret_ci": [
+      0.3398066560006987,
+      0.7631286991972484
+     ],
+     "kendall_tau_b": 1.0,
+     "oracle_families": [
+      "xgboost"
+     ],
+     "status": "within",
+     "metrics": [
+      {
+       "model": "persistence",
+       "mae": 10.27964339759353,
+       "rmse": 19.65493342148468,
+       "r2": 0.942216112136101,
+       "clean_mae": 10.27964339759353,
+       "rpd_percent": 0.0,
+       "clean_rank": 2.0,
+       "stress_rank": 2.0,
+       "selected_minus_model": {
+        "estimate": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0
+       }
+      },
+      {
+       "model": "xgboost",
+       "mae": 9.711036948519588,
+       "rmse": 18.920363218604916,
+       "r2": 0.946613596087094,
+       "clean_mae": 9.710861193660564,
+       "rpd_percent": 0.001809879222025,
+       "clean_rank": 1.0,
+       "stress_rank": 1.0,
+       "selected_minus_model": {
+        "estimate": 0.5686064490739415,
+        "ci_low": 0.3398066560006987,
+        "ci_high": 0.7631286991972484
+       }
+      },
+      {
+       "model": "mlp",
+       "mae": 10.814451160493538,
+       "rmse": 18.94404185489991,
+       "r2": 0.946230496800844,
+       "clean_mae": 10.810205954093624,
+       "rpd_percent": 0.039270356346055,
+       "clean_rank": 3.0,
+       "stress_rank": 3.0,
+       "selected_minus_model": {
+        "estimate": -0.5348077629000088,
+        "ci_low": -0.7413706006560105,
+        "ci_high": -0.33315002078350925
+       }
+      },
+      {
+       "model": "gru",
+       "mae": 15.953840110374875,
+       "rmse": 37.15947620661664,
+       "r2": 0.688585925325242,
+       "clean_mae": 15.95741437488415,
+       "rpd_percent": -0.022398769783788,
+       "clean_rank": 4.0,
+       "stress_rank": 4.0,
+       "selected_minus_model": {
+        "estimate": -5.674196712781345,
+        "ci_low": -7.514151345128158,
+        "ci_high": -4.003040070490616
+       }
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "outage-NO2-12",
+   "policy": "primary",
+   "group": "outage",
+   "label": "NO₂ outage 12 h",
+   "channel": "NO₂",
+   "severity": "12 h",
+   "seeds": [
+    101,
+    202,
+    303,
+    404,
+    505
+   ],
+   "scopes": {
+    "affected": {
+     "selected_family": "persistence",
+     "selection_regret": 0.544171503142314,
+     "regret_ci": [
+      0.2464880707450346,
+      0.7754793807567281
+     ],
+     "kendall_tau_b": 1.0,
+     "oracle_families": [
+      "xgboost"
+     ],
+     "status": "within",
+     "metrics": [
+      {
+       "model": "persistence",
+       "mae": 10.56532317135497,
+       "rmse": 19.509454387123476,
+       "r2": 0.92876883617999,
+       "clean_mae": 10.56532317135497,
+       "rpd_percent": 0.0,
+       "clean_rank": 2.0,
+       "stress_rank": 2.0,
+       "selected_minus_model": {
+        "estimate": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0
+       }
+      },
+      {
+       "model": "xgboost",
+       "mae": 10.021151668212656,
+       "rmse": 18.516741013477258,
+       "r2": 0.937931868625468,
+       "clean_mae": 9.990249336414532,
+       "rpd_percent": 0.309324930314653,
+       "clean_rank": 1.0,
+       "stress_rank": 1.0,
+       "selected_minus_model": {
+        "estimate": 0.5441715031423158,
+        "ci_low": 0.2464880707450346,
+        "ci_high": 0.7754793807567281
+       }
+      },
+      {
+       "model": "mlp",
+       "mae": 11.223223285754656,
+       "rmse": 18.895433379851443,
+       "r2": 0.933509137519746,
+       "clean_mae": 11.019612524993988,
+       "rpd_percent": 1.847712524363729,
+       "clean_rank": 3.0,
+       "stress_rank": 3.0,
+       "selected_minus_model": {
+        "estimate": -0.6579001143996859,
+        "ci_low": -0.8873728838261105,
+        "ci_high": -0.45309686029988033
+       }
+      },
+      {
+       "model": "gru",
+       "mae": 16.045419227340442,
+       "rmse": 34.13864928359726,
+       "r2": 0.717961323156257,
+       "clean_mae": 16.38907037838207,
+       "rpd_percent": -2.0968312607585,
+       "clean_rank": 4.0,
+       "stress_rank": 4.0,
+       "selected_minus_model": {
+        "estimate": -5.4800960559854754,
+        "ci_low": -7.469536940947473,
+        "ci_high": -3.6605027837459034
+       }
+      }
+     ]
+    },
+    "full": {
+     "selected_family": "persistence",
+     "selection_regret": 0.567317185711314,
+     "regret_ci": [
+      0.33868058745224133,
+      0.7618878327123082
+     ],
+     "kendall_tau_b": 1.0,
+     "oracle_families": [
+      "xgboost"
+     ],
+     "status": "within",
+     "metrics": [
+      {
+       "model": "persistence",
+       "mae": 10.27964339759353,
+       "rmse": 19.65493342148468,
+       "r2": 0.942216112136101,
+       "clean_mae": 10.27964339759353,
+       "rpd_percent": 0.0,
+       "clean_rank": 2.0,
+       "stress_rank": 2.0,
+       "selected_minus_model": {
+        "estimate": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0
+       }
+      },
+      {
+       "model": "xgboost",
+       "mae": 9.712326211882216,
+       "rmse": 18.919982032392614,
+       "r2": 0.946615541039141,
+       "clean_mae": 9.710861193660564,
+       "rpd_percent": 0.015086388245439,
+       "clean_rank": 1.0,
+       "stress_rank": 1.0,
+       "selected_minus_model": {
+        "estimate": 0.567317185711314,
+        "ci_low": 0.33868058745224133,
+        "ci_high": 0.7618878327123082
+       }
+      },
+      {
+       "model": "mlp",
+       "mae": 10.81996634809169,
+       "rmse": 18.95309378637032,
+       "r2": 0.946179760704344,
+       "clean_mae": 10.810205954093624,
+       "rpd_percent": 0.09028869606661,
+       "clean_rank": 3.0,
+       "stress_rank": 3.0,
+       "selected_minus_model": {
+        "estimate": -0.5403229504981599,
+        "ci_low": -0.7473321325224958,
+        "ci_high": -0.3389221931384465
+       }
+      },
+      {
+       "model": "gru",
+       "mae": 15.940913886131824,
+       "rmse": 37.140989254701914,
+       "r2": 0.689060112375312,
+       "clean_mae": 15.95741437488415,
+       "rpd_percent": -0.103403273015815,
+       "clean_rank": 4.0,
+       "stress_rank": 4.0,
+       "selected_minus_model": {
+        "estimate": -5.661270488538296,
+        "ci_low": -7.498929838395999,
+        "ci_high": -3.995670525710896
+       }
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "outage-CO-6",
+   "policy": "primary",
+   "group": "outage",
+   "label": "CO outage 6 h",
+   "channel": "CO",
+   "severity": "6 h",
+   "seeds": [
+    101,
+    202,
+    303,
+    404,
+    505
+   ],
+   "scopes": {
+    "affected": {
+     "selected_family": "persistence",
+     "selection_regret": 0.49363326600892243,
+     "regret_ci": [
+      0.17272777218813254,
+      0.7403780934270463
+     ],
+     "kendall_tau_b": 1.0,
+     "oracle_families": [
+      "xgboost"
+     ],
+     "status": "within",
+     "metrics": [
+      {
+       "model": "persistence",
+       "mae": 10.609936379425688,
+       "rmse": 19.61651853699072,
+       "r2": 0.92583215881543,
+       "clean_mae": 10.609936379425688,
+       "rpd_percent": 0.0,
+       "clean_rank": 2.0,
+       "stress_rank": 2.0,
+       "selected_minus_model": {
+        "estimate": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0
+       }
+      },
+      {
+       "model": "xgboost",
+       "mae": 10.116303113416766,
+       "rmse": 18.776384826999077,
+       "r2": 0.934918537496248,
+       "clean_mae": 10.099448823977733,
+       "rpd_percent": 0.166883259995519,
+       "clean_rank": 1.0,
+       "stress_rank": 1.0,
+       "selected_minus_model": {
+        "estimate": 0.4936332660089242,
+        "ci_low": 0.17272777218813254,
+        "ci_high": 0.7403780934270463
+       }
+      },
+      {
+       "model": "mlp",
+       "mae": 11.17528612294462,
+       "rmse": 18.77375452152133,
+       "r2": 0.933058430795835,
+       "clean_mae": 11.09669906847685,
+       "rpd_percent": 0.70820208769126,
+       "clean_rank": 3.0,
+       "stress_rank": 3.0,
+       "selected_minus_model": {
+        "estimate": -0.5653497435189294,
+        "ci_low": -0.8094639832628293,
+        "ci_high": -0.3441602290541018
+       }
+      },
+      {
+       "model": "gru",
+       "mae": 16.27197286867001,
+       "rmse": 34.29065861670558,
+       "r2": 0.711619506065556,
+       "clean_mae": 16.445148014115535,
+       "rpd_percent": -1.053047046441194,
+       "clean_rank": 4.0,
+       "stress_rank": 4.0,
+       "selected_minus_model": {
+        "estimate": -5.66203648924432,
+        "ci_low": -7.703173479607392,
+        "ci_high": -3.7634484287335903
+       }
+      }
+     ]
+    },
+    "full": {
+     "selected_family": "persistence",
+     "selection_regret": 0.5680994119349059,
+     "regret_ci": [
+      0.3396251240399406,
+      0.7619944287452964
+     ],
+     "kendall_tau_b": 1.0,
+     "oracle_families": [
+      "xgboost"
+     ],
+     "status": "within",
+     "metrics": [
+      {
+       "model": "persistence",
+       "mae": 10.27964339759353,
+       "rmse": 19.65493342148468,
+       "r2": 0.942216112136101,
+       "clean_mae": 10.27964339759353,
+       "rpd_percent": 0.0,
+       "clean_rank": 2.0,
+       "stress_rank": 2.0,
+       "selected_minus_model": {
+        "estimate": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0
+       }
+      },
+      {
+       "model": "xgboost",
+       "mae": 9.711543985658624,
+       "rmse": 18.923451769966093,
+       "r2": 0.946596917731671,
+       "clean_mae": 9.710861193660564,
+       "rpd_percent": 0.007031219831514,
+       "clean_rank": 1.0,
+       "stress_rank": 1.0,
+       "selected_minus_model": {
+        "estimate": 0.5680994119349059,
+        "ci_low": 0.3396251240399406,
+        "ci_high": 0.7619944287452964
+       }
+      },
+      {
+       "model": "mlp",
+       "mae": 10.813338738392067,
+       "rmse": 18.941351736647054,
+       "r2": 0.946251030586428,
+       "clean_mae": 10.810205954093624,
+       "rpd_percent": 0.028979876162836,
+       "clean_rank": 3.0,
+       "stress_rank": 3.0,
+       "selected_minus_model": {
+        "estimate": -0.5336953407985341,
+        "ci_low": -0.7399806878917463,
+        "ci_high": -0.3324417549169595
+       }
+      },
+      {
+       "model": "gru",
+       "mae": 15.95053420229305,
+       "rmse": 37.15255379306582,
+       "r2": 0.688720359206397,
+       "clean_mae": 15.95741437488415,
+       "rpd_percent": -0.043115835870817,
+       "clean_rank": 4.0,
+       "stress_rank": 4.0,
+       "selected_minus_model": {
+        "estimate": -5.670890804699521,
+        "ci_low": -7.512538217636539,
+        "ci_high": -4.0004966815468475
+       }
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "outage-CO-12",
+   "policy": "primary",
+   "group": "outage",
+   "label": "CO outage 12 h",
+   "channel": "CO",
+   "severity": "12 h",
+   "seeds": [
+    101,
+    202,
+    303,
+    404,
+    505
+   ],
+   "scopes": {
+    "affected": {
+     "selected_family": "persistence",
+     "selection_regret": 0.5376316822209155,
+     "regret_ci": [
+      0.29665893635356044,
+      0.7418287736054321
+     ],
+     "kendall_tau_b": 1.0,
+     "oracle_families": [
+      "xgboost"
+     ],
+     "status": "within",
+     "metrics": [
+      {
+       "model": "persistence",
+       "mae": 10.56532317135497,
+       "rmse": 19.509454387123476,
+       "r2": 0.92876883617999,
+       "clean_mae": 10.56532317135497,
+       "rpd_percent": 0.0,
+       "clean_rank": 2.0,
+       "stress_rank": 2.0,
+       "selected_minus_model": {
+        "estimate": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0
+       }
+      },
+      {
+       "model": "xgboost",
+       "mae": 10.027691489134055,
+       "rmse": 18.391766489129374,
+       "r2": 0.93849200089729,
+       "clean_mae": 9.990249336414532,
+       "rpd_percent": 0.374786969360673,
+       "clean_rank": 1.0,
+       "stress_rank": 1.0,
+       "selected_minus_model": {
+        "estimate": 0.5376316822209137,
+        "ci_low": 0.29665893635356044,
+        "ci_high": 0.7418287736054321
+       }
+      },
+      {
+       "model": "mlp",
+       "mae": 11.210383849673319,
+       "rmse": 18.833753476770646,
+       "r2": 0.933987129695168,
+       "clean_mae": 11.019612524993988,
+       "rpd_percent": 1.73119811832435,
+       "clean_rank": 3.0,
+       "stress_rank": 3.0,
+       "selected_minus_model": {
+        "estimate": -0.6450606783183499,
+        "ci_low": -0.8917170195144539,
+        "ci_high": -0.4191264120326055
+       }
+      },
+      {
+       "model": "gru",
+       "mae": 15.53875882212015,
+       "rmse": 33.079992681676515,
+       "r2": 0.739295377954573,
+       "clean_mae": 16.38907037838207,
+       "rpd_percent": -5.188284244501869,
+       "clean_rank": 4.0,
+       "stress_rank": 4.0,
+       "selected_minus_model": {
+        "estimate": -4.973435650765175,
+        "ci_low": -6.803539610831726,
+        "ci_high": -3.2723723257024884
+       }
+      }
+     ]
+    },
+    "full": {
+     "selected_family": "persistence",
+     "selection_regret": 0.5669990343453648,
+     "regret_ci": [
+      0.339048371521745,
+      0.7595881768421222
+     ],
+     "kendall_tau_b": 1.0,
+     "oracle_families": [
+      "xgboost"
+     ],
+     "status": "within",
+     "metrics": [
+      {
+       "model": "persistence",
+       "mae": 10.27964339759353,
+       "rmse": 19.65493342148468,
+       "r2": 0.942216112136101,
+       "clean_mae": 10.27964339759353,
+       "rpd_percent": 0.0,
+       "clean_rank": 2.0,
+       "stress_rank": 2.0,
+       "selected_minus_model": {
+        "estimate": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0
+       }
+      },
+      {
+       "model": "xgboost",
+       "mae": 9.712644363248165,
+       "rmse": 18.907773281189527,
+       "r2": 0.946683018864364,
+       "clean_mae": 9.710861193660564,
+       "rpd_percent": 0.018362630790816,
+       "clean_rank": 1.0,
+       "stress_rank": 1.0,
+       "selected_minus_model": {
+        "estimate": 0.5669990343453666,
+        "ci_low": 0.339048371521745,
+        "ci_high": 0.7595881768421222
+       }
+      },
+      {
+       "model": "mlp",
+       "mae": 10.819359563594332,
+       "rmse": 18.950068686327803,
+       "r2": 0.946199459578723,
+       "clean_mae": 10.810205954093624,
+       "rpd_percent": 0.084675625418984,
+       "clean_rank": 3.0,
+       "stress_rank": 3.0,
+       "selected_minus_model": {
+        "estimate": -0.5397161660008027,
+        "ci_low": -0.7472118569207015,
+        "ci_high": -0.3381230965635501
+       }
+      },
+      {
+       "model": "gru",
+       "mae": 15.91656765029994,
+       "rmse": 37.092192718929525,
+       "r2": 0.690126481404747,
+       "clean_mae": 15.95741437488415,
+       "rpd_percent": -0.255973327662027,
+       "clean_rank": 4.0,
+       "stress_rank": 4.0,
+       "selected_minus_model": {
+        "estimate": -5.636924252706411,
+        "ci_low": -7.471246457166996,
+        "ci_high": -3.976983750566965
+       }
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "outage-TEMP-6",
+   "policy": "primary",
+   "group": "outage",
+   "label": "Temperature outage 6 h",
+   "channel": "Temperature",
+   "severity": "6 h",
+   "seeds": [
+    101,
+    202,
+    303,
+    404,
+    505
+   ],
+   "scopes": {
+    "affected": {
+     "selected_family": "persistence",
+     "selection_regret": 0.07914127110443125,
+     "regret_ci": [
+      0.0,
+      0.3505138682825985
+     ],
+     "kendall_tau_b": 1.0,
+     "oracle_families": [
+      "xgboost"
+     ],
+     "status": "within",
+     "metrics": [
+      {
+       "model": "persistence",
+       "mae": 10.609936379425688,
+       "rmse": 19.61651853699072,
+       "r2": 0.92583215881543,
+       "clean_mae": 10.609936379425688,
+       "rpd_percent": 0.0,
+       "clean_rank": 2.0,
+       "stress_rank": 2.0,
+       "selected_minus_model": {
+        "estimate": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0
+       }
+      },
+      {
+       "model": "xgboost",
+       "mae": 10.530795108321257,
+       "rmse": 19.121320711914233,
+       "r2": 0.932331549462894,
+       "clean_mae": 10.099448823977733,
+       "rpd_percent": 4.270988366409047,
+       "clean_rank": 1.0,
+       "stress_rank": 1.0,
+       "selected_minus_model": {
+        "estimate": 0.07914127110443303,
+        "ci_low": -0.26039817196628706,
+        "ci_high": 0.3505138682825985
+       }
+      },
+      {
+       "model": "mlp",
+       "mae": 11.859243609756248,
+       "rmse": 19.42731208818185,
+       "r2": 0.929278534495429,
+       "clean_mae": 11.09669906847685,
+       "rpd_percent": 6.871814190632695,
+       "clean_rank": 3.0,
+       "stress_rank": 3.0,
+       "selected_minus_model": {
+        "estimate": -1.2493072303305581,
+        "ci_low": -1.5247292888241581,
+        "ci_high": -0.9932907125259866
+       }
+      },
+      {
+       "model": "gru",
+       "mae": 16.894926550751197,
+       "rmse": 35.03263891910788,
+       "r2": 0.699694429854037,
+       "clean_mae": 16.445148014115535,
+       "rpd_percent": 2.735022732842534,
+       "clean_rank": 4.0,
+       "stress_rank": 4.0,
+       "selected_minus_model": {
+        "estimate": -6.284990171325509,
+        "ci_low": -8.33945039238785,
+        "ci_high": -4.367873506152493
+       }
+      }
+     ]
+    },
+    "full": {
+     "selected_family": "persistence",
+     "selection_regret": 0.5516041839730565,
+     "regret_ci": [
+      0.3231609173084063,
+      0.7459662501446074
+     ],
+     "kendall_tau_b": 1.0,
+     "oracle_families": [
+      "xgboost"
+     ],
+     "status": "within",
+     "metrics": [
+      {
+       "model": "persistence",
+       "mae": 10.27964339759353,
+       "rmse": 19.65493342148468,
+       "r2": 0.942216112136101,
+       "clean_mae": 10.27964339759353,
+       "rpd_percent": 0.0,
+       "clean_rank": 2.0,
+       "stress_rank": 2.0,
+       "selected_minus_model": {
+        "estimate": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0
+       }
+      },
+      {
+       "model": "xgboost",
+       "mae": 9.728039213620473,
+       "rmse": 18.933732648730665,
+       "r2": 0.946539638681358,
+       "clean_mae": 9.710861193660564,
+       "rpd_percent": 0.176894918147145,
+       "clean_rank": 1.0,
+       "stress_rank": 1.0,
+       "selected_minus_model": {
+        "estimate": 0.5516041839730583,
+        "ci_low": 0.3231609173084063,
+        "ci_high": 0.7459662501446074
+       }
+      },
+      {
+       "model": "mlp",
+       "mae": 10.840524475947348,
+       "rmse": 18.967993302040625,
+       "r2": 0.946101773172662,
+       "clean_mae": 10.810205954093624,
+       "rpd_percent": 0.280462018785526,
+       "clean_rank": 3.0,
+       "stress_rank": 3.0,
+       "selected_minus_model": {
+        "estimate": -0.5608810783538178,
+        "ci_low": -0.764887490214137,
+        "ci_high": -0.35896774664613024
+       }
+      },
+      {
+       "model": "gru",
+       "mae": 15.975318660929595,
+       "rmse": 37.176015268241706,
+       "r2": 0.688374887685733,
+       "clean_mae": 15.95741437488415,
+       "rpd_percent": 0.112200420599624,
+       "clean_rank": 4.0,
+       "stress_rank": 4.0,
+       "selected_minus_model": {
+        "estimate": -5.695675263336064,
+        "ci_low": -7.539755383894762,
+        "ci_high": -4.0237872891411195
+       }
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "outage-TEMP-12",
+   "policy": "primary",
+   "group": "outage",
+   "label": "Temperature outage 12 h",
+   "channel": "Temperature",
+   "severity": "12 h",
+   "seeds": [
+    101,
+    202,
+    303,
+    404,
+    505
+   ],
+   "scopes": {
+    "affected": {
+     "selected_family": "persistence",
+     "selection_regret": 0.0,
+     "regret_ci": [
+      0.0,
+      0.0
+     ],
+     "kendall_tau_b": 0.6666666666666666,
+     "oracle_families": [
+      "persistence"
+     ],
+     "status": "within",
+     "metrics": [
+      {
+       "model": "persistence",
+       "mae": 10.56532317135497,
+       "rmse": 19.509454387123476,
+       "r2": 0.92876883617999,
+       "clean_mae": 10.56532317135497,
+       "rpd_percent": 0.0,
+       "clean_rank": 2.0,
+       "stress_rank": 1.0,
+       "selected_minus_model": {
+        "estimate": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0
+       }
+      },
+      {
+       "model": "xgboost",
+       "mae": 10.846145632925085,
+       "rmse": 19.298459061343966,
+       "r2": 0.932057305796736,
+       "clean_mae": 9.990249336414532,
+       "rpd_percent": 8.567316667370896,
+       "clean_rank": 1.0,
+       "stress_rank": 2.0,
+       "selected_minus_model": {
+        "estimate": -0.28082246157011603,
+        "ci_low": -0.5961183608989356,
+        "ci_high": -0.010049321701690647
+       }
+      },
+      {
+       "model": "mlp",
+       "mae": 13.028131812595761,
+       "rmse": 20.728973737808456,
+       "r2": 0.921503903136805,
+       "clean_mae": 11.019612524993988,
+       "rpd_percent": 18.22676870939134,
+       "clean_rank": 3.0,
+       "stress_rank": 3.0,
+       "selected_minus_model": {
+        "estimate": -2.462808641240791,
+        "ci_low": -2.816335319455849,
+        "ci_high": -2.13052494597431
+       }
+      },
+      {
+       "model": "gru",
+       "mae": 17.22457719384784,
+       "rmse": 35.24776805139872,
+       "r2": 0.706917394241875,
+       "clean_mae": 16.38907037838207,
+       "rpd_percent": 5.097951233206257,
+       "clean_rank": 4.0,
+       "stress_rank": 4.0,
+       "selected_minus_model": {
+        "estimate": -6.659254022492865,
+        "ci_low": -8.632472028083132,
+        "ci_high": -4.800175256130877
+       }
+      }
+     ]
+    },
+    "full": {
+     "selected_family": "persistence",
+     "selection_regret": 0.5276946659010306,
+     "regret_ci": [
+      0.30007969063607215,
+      0.7212084917390933
+     ],
+     "kendall_tau_b": 1.0,
+     "oracle_families": [
+      "xgboost"
+     ],
+     "status": "within",
+     "metrics": [
+      {
+       "model": "persistence",
+       "mae": 10.27964339759353,
+       "rmse": 19.65493342148468,
+       "r2": 0.942216112136101,
+       "clean_mae": 10.27964339759353,
+       "rpd_percent": 0.0,
+       "clean_rank": 2.0,
+       "stress_rank": 2.0,
+       "selected_minus_model": {
+        "estimate": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0
+       }
+      },
+      {
+       "model": "xgboost",
+       "mae": 9.751948731692499,
+       "rmse": 18.956620218324556,
+       "r2": 0.946410595614639,
+       "clean_mae": 9.710861193660564,
+       "rpd_percent": 0.423109106520412,
+       "clean_rank": 1.0,
+       "stress_rank": 1.0,
+       "selected_minus_model": {
+        "estimate": 0.5276946659010289,
+        "ci_low": 0.30007969063607215,
+        "ci_high": 0.7212084917390933
+       }
+      },
+      {
+       "model": "mlp",
+       "mae": 10.906606697216738,
+       "rmse": 19.047911751783342,
+       "r2": 0.945651266350323,
+       "clean_mae": 10.810205954093624,
+       "rpd_percent": 0.891756767007839,
+       "clean_rank": 3.0,
+       "stress_rank": 3.0,
+       "selected_minus_model": {
+        "estimate": -0.626963299623208,
+        "ci_low": -0.8322790890237322,
+        "ci_high": -0.42675046692997676
+       }
+      },
+      {
+       "model": "gru",
+       "mae": 15.997602531788365,
+       "rmse": 37.196175297193726,
+       "r2": 0.68855782841496,
+       "clean_mae": 15.95741437488415,
+       "rpd_percent": 0.251846295145835,
+       "clean_rank": 4.0,
+       "stress_rank": 4.0,
+       "selected_minus_model": {
+        "estimate": -5.717959134194835,
+        "ci_low": -7.559739650925177,
+        "ci_high": -4.049074945134956
+       }
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "random_dropout-10",
+   "policy": "no_ffill",
+   "group": "random_dropout",
+   "label": "Random dropout 10%",
+   "channel": null,
+   "severity": "10%",
+   "seeds": [
+    101,
+    202,
+    303,
+    404,
+    505
+   ],
+   "scopes": {
+    "full": {
+     "selected_family": "persistence",
+     "selection_regret": 0.0,
+     "regret_ci": [
+      0.0,
+      0.0
+     ],
+     "kendall_tau_b": 0.6666666666666666,
+     "oracle_families": [
+      "persistence"
+     ],
+     "status": "within",
+     "metrics": [
+      {
+       "model": "persistence",
+       "mae": 10.521318291987798,
+       "rmse": 20.32358035199212,
+       "r2": 0.938281388916673,
+       "clean_mae": 10.521318291987798,
+       "rpd_percent": 0.0,
+       "clean_rank": 2.0,
+       "stress_rank": 1.0,
+       "selected_minus_model": {
+        "estimate": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0
+       }
+      },
+      {
+       "model": "xgboost",
+       "mae": 12.150897548166945,
+       "rmse": 22.77052564731832,
+       "r2": 0.922896677698969,
+       "clean_mae": 9.969349552313394,
+       "rpd_percent": 21.882550956870812,
+       "clean_rank": 1.0,
+       "stress_rank": 2.0,
+       "selected_minus_model": {
+        "estimate": -1.629579256179147,
+        "ci_low": -1.987666668970246,
+        "ci_high": -1.3406140976761771
+       }
+      },
+      {
+       "model": "mlp",
+       "mae": 17.926313326747444,
+       "rmse": 27.430728994092405,
+       "r2": 0.88741544598605,
+       "clean_mae": 11.303771772608288,
+       "rpd_percent": 58.58700695096428,
+       "clean_rank": 3.0,
+       "stress_rank": 3.0,
+       "selected_minus_model": {
+        "estimate": -7.404995034759645,
+        "ci_low": -7.810097644460735,
+        "ci_high": -7.02146708681371
+       }
+      },
+      {
+       "model": "gru",
+       "mae": 20.017545200590998,
+       "rmse": 40.62307759495916,
+       "r2": 0.691450720470723,
+       "clean_mae": 16.095529550459336,
+       "rpd_percent": 24.367111612178896,
+       "clean_rank": 4.0,
+       "stress_rank": 4.0,
+       "selected_minus_model": {
+        "estimate": -9.4962269086032,
+        "ci_low": -11.270579260332903,
+        "ci_high": -7.872636599929351
+       }
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "random_dropout-30",
+   "policy": "no_ffill",
+   "group": "random_dropout",
+   "label": "Random dropout 30%",
+   "channel": null,
+   "severity": "30%",
+   "seeds": [
+    101,
+    202,
+    303,
+    404,
+    505
+   ],
+   "scopes": {
+    "full": {
+     "selected_family": "persistence",
+     "selection_regret": 0.0,
+     "regret_ci": [
+      0.0,
+      0.0
+     ],
+     "kendall_tau_b": 0.3333333333333333,
+     "oracle_families": [
+      "persistence"
+     ],
+     "status": "within",
+     "metrics": [
+      {
+       "model": "persistence",
+       "mae": 10.521318291987798,
+       "rmse": 20.32358035199212,
+       "r2": 0.938281388916673,
+       "clean_mae": 10.521318291987798,
+       "rpd_percent": 0.0,
+       "clean_rank": 2.0,
+       "stress_rank": 1.0,
+       "selected_minus_model": {
+        "estimate": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0
+       }
+      },
+      {
+       "model": "xgboost",
+       "mae": 16.90282789344789,
+       "rmse": 28.047180712579603,
+       "r2": 0.882985957190081,
+       "clean_mae": 9.969349552313394,
+       "rpd_percent": 69.54795099471235,
+       "clean_rank": 1.0,
+       "stress_rank": 2.0,
+       "selected_minus_model": {
+        "estimate": -6.381509601460094,
+        "ci_low": -6.953736537998966,
+        "ci_high": -5.89381349264825
+       }
+      },
+      {
+       "model": "mlp",
+       "mae": 24.596096803033223,
+       "rmse": 35.37069641280727,
+       "r2": 0.812843080320134,
+       "clean_mae": 11.303771772608288,
+       "rpd_percent": 117.59194451037469,
+       "clean_rank": 3.0,
+       "stress_rank": 4.0,
+       "selected_minus_model": {
+        "estimate": -14.074778511045425,
+        "ci_low": -14.760555958051375,
+        "ci_high": -13.425670262715562
+       }
+      },
+      {
+       "model": "gru",
+       "mae": 23.985851388628685,
+       "rmse": 40.69214360964521,
+       "r2": 0.736851340214112,
+       "clean_mae": 16.095529550459336,
+       "rpd_percent": 49.02182195020837,
+       "clean_rank": 4.0,
+       "stress_rank": 3.0,
+       "selected_minus_model": {
+        "estimate": -13.46453309664088,
+        "ci_low": -14.770482710474733,
+        "ci_high": -12.271034939749022
+       }
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "random_dropout-50",
+   "policy": "no_ffill",
+   "group": "random_dropout",
+   "label": "Random dropout 50%",
+   "channel": null,
+   "severity": "50%",
+   "seeds": [
+    101,
+    202,
+    303,
+    404,
+    505
+   ],
+   "scopes": {
+    "full": {
+     "selected_family": "persistence",
+     "selection_regret": 0.0,
+     "regret_ci": [
+      0.0,
+      0.0
+     ],
+     "kendall_tau_b": 0.3333333333333333,
+     "oracle_families": [
+      "persistence"
+     ],
+     "status": "within",
+     "metrics": [
+      {
+       "model": "persistence",
+       "mae": 10.521318291987798,
+       "rmse": 20.32358035199212,
+       "r2": 0.938281388916673,
+       "clean_mae": 10.521318291987798,
+       "rpd_percent": 0.0,
+       "clean_rank": 2.0,
+       "stress_rank": 1.0,
+       "selected_minus_model": {
+        "estimate": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0
+       }
+      },
+      {
+       "model": "xgboost",
+       "mae": 22.559550047505855,
+       "rmse": 33.25345341717814,
+       "r2": 0.835137308118088,
+       "clean_mae": 9.969349552313394,
+       "rpd_percent": 126.28908665631948,
+       "clean_rank": 1.0,
+       "stress_rank": 2.0,
+       "selected_minus_model": {
+        "estimate": -12.038231755518053,
+        "ci_low": -12.805885409085432,
+        "ci_high": -11.39245936410386
+       }
+      },
+      {
+       "model": "mlp",
+       "mae": 28.120320942302104,
+       "rmse": 39.51890501160411,
+       "r2": 0.766115525029819,
+       "clean_mae": 11.303771772608288,
+       "rpd_percent": 148.7693621915146,
+       "clean_rank": 3.0,
+       "stress_rank": 4.0,
+       "selected_minus_model": {
+        "estimate": -17.599002650314304,
+        "ci_low": -18.43171080799317,
+        "ci_high": -16.820030642000077
+       }
+      },
+      {
+       "model": "gru",
+       "mae": 27.098757172290373,
+       "rmse": 39.427969617281,
+       "r2": 0.766784158135622,
+       "clean_mae": 16.095529550459336,
+       "rpd_percent": 68.36201062746038,
+       "clean_rank": 4.0,
+       "stress_rank": 3.0,
+       "selected_minus_model": {
+        "estimate": -16.577438880302573,
+        "ci_low": -17.479768203173116,
+        "ci_high": -15.75645803563304
+       }
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "noise-05",
+   "policy": "no_ffill",
+   "group": "noise",
+   "label": "Measurement noise 5%",
+   "channel": null,
+   "severity": "5%",
+   "seeds": [
+    101,
+    202,
+    303,
+    404,
+    505
+   ],
+   "scopes": {
+    "full": {
+     "selected_family": "persistence",
+     "selection_regret": 0.4812671747276305,
+     "regret_ci": [
+      0.23944253241781963,
+      0.6784480498737582
+     ],
+     "kendall_tau_b": 1.0,
+     "oracle_families": [
+      "xgboost"
+     ],
+     "status": "within",
+     "metrics": [
+      {
+       "model": "persistence",
+       "mae": 10.521318291987798,
+       "rmse": 20.32358035199212,
+       "r2": 0.938281388916673,
+       "clean_mae": 10.521318291987798,
+       "rpd_percent": 0.0,
+       "clean_rank": 2.0,
+       "stress_rank": 2.0,
+       "selected_minus_model": {
+        "estimate": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0
+       }
+      },
+      {
+       "model": "xgboost",
+       "mae": 10.040051117260168,
+       "rmse": 19.90838924511972,
+       "r2": 0.940976919360511,
+       "clean_mae": 9.969349552313394,
+       "rpd_percent": 0.709189346564412,
+       "clean_rank": 1.0,
+       "stress_rank": 1.0,
+       "selected_minus_model": {
+        "estimate": 0.4812671747276305,
+        "ci_low": 0.23944253241781963,
+        "ci_high": 0.6784480498737582
+       }
+      },
+      {
+       "model": "mlp",
+       "mae": 11.501915860315622,
+       "rmse": 20.36025297762397,
+       "r2": 0.93796522138876,
+       "clean_mae": 11.303771772608288,
+       "rpd_percent": 1.752902408977187,
+       "clean_rank": 3.0,
+       "stress_rank": 3.0,
+       "selected_minus_model": {
+        "estimate": -0.9805975683278234,
+        "ci_low": -1.2282960846834337,
+        "ci_high": -0.7414183566950289
+       }
+      },
+      {
+       "model": "gru",
+       "mae": 16.34725297606301,
+       "rmse": 37.68546656405271,
+       "r2": 0.685325019695645,
+       "clean_mae": 16.095529550459336,
+       "rpd_percent": 1.563933791768233,
+       "clean_rank": 4.0,
+       "stress_rank": 4.0,
+       "selected_minus_model": {
+        "estimate": -5.825934684075213,
+        "ci_low": -7.674486225487894,
+        "ci_high": -4.140675556517391
+       }
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "noise-10",
+   "policy": "no_ffill",
+   "group": "noise",
+   "label": "Measurement noise 10%",
+   "channel": null,
+   "severity": "10%",
+   "seeds": [
+    101,
+    202,
+    303,
+    404,
+    505
+   ],
+   "scopes": {
+    "full": {
+     "selected_family": "persistence",
+     "selection_regret": 0.18009395649467308,
+     "regret_ci": [
+      0.0,
+      0.40698037760807554
+     ],
+     "kendall_tau_b": 1.0,
+     "oracle_families": [
+      "xgboost"
+     ],
+     "status": "within",
+     "metrics": [
+      {
+       "model": "persistence",
+       "mae": 10.521318291987798,
+       "rmse": 20.32358035199212,
+       "r2": 0.938281388916673,
+       "clean_mae": 10.521318291987798,
+       "rpd_percent": 0.0,
+       "clean_rank": 2.0,
+       "stress_rank": 2.0,
+       "selected_minus_model": {
+        "estimate": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0
+       }
+      },
+      {
+       "model": "xgboost",
+       "mae": 10.341224335493125,
+       "rmse": 20.26947769942848,
+       "r2": 0.938831795506579,
+       "clean_mae": 9.969349552313394,
+       "rpd_percent": 3.730181003568454,
+       "clean_rank": 1.0,
+       "stress_rank": 1.0,
+       "selected_minus_model": {
+        "estimate": 0.18009395649467486,
+        "ci_low": -0.09232120430764419,
+        "ci_high": 0.40698037760807554
+       }
+      },
+      {
+       "model": "mlp",
+       "mae": 12.101719311910225,
+       "rmse": 20.890624498822536,
+       "r2": 0.93468011064098,
+       "clean_mae": 11.303771772608288,
+       "rpd_percent": 7.059126416861607,
+       "clean_rank": 3.0,
+       "stress_rank": 3.0,
+       "selected_minus_model": {
+        "estimate": -1.58040101992243,
+        "ci_low": -1.8298430260073493,
+        "ci_high": -1.3390149815208385
+       }
+      },
+      {
+       "model": "gru",
+       "mae": 17.040845914955582,
+       "rmse": 38.24526851570308,
+       "r2": 0.680809794993879,
+       "clean_mae": 16.095529550459336,
+       "rpd_percent": 5.873161001212719,
+       "clean_rank": 4.0,
+       "stress_rank": 4.0,
+       "selected_minus_model": {
+        "estimate": -6.5195276229677805,
+        "ci_low": -8.374903715126441,
+        "ci_high": -4.806379997198373
+       }
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "noise-20",
+   "policy": "no_ffill",
+   "group": "noise",
+   "label": "Measurement noise 20%",
+   "channel": null,
+   "severity": "20%",
+   "seeds": [
+    101,
+    202,
+    303,
+    404,
+    505
+   ],
+   "scopes": {
+    "full": {
+     "selected_family": "persistence",
+     "selection_regret": 0.0,
+     "regret_ci": [
+      0.0,
+      0.0
+     ],
+     "kendall_tau_b": 0.6666666666666666,
+     "oracle_families": [
+      "persistence"
+     ],
+     "status": "within",
+     "metrics": [
+      {
+       "model": "persistence",
+       "mae": 10.521318291987798,
+       "rmse": 20.32358035199212,
+       "r2": 0.938281388916673,
+       "clean_mae": 10.521318291987798,
+       "rpd_percent": 0.0,
+       "clean_rank": 2.0,
+       "stress_rank": 1.0,
+       "selected_minus_model": {
+        "estimate": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0
+       }
+      },
+      {
+       "model": "xgboost",
+       "mae": 11.291275421389827,
+       "rmse": 21.5202566180276,
+       "r2": 0.931100246119152,
+       "clean_mae": 9.969349552313394,
+       "rpd_percent": 13.259900880591339,
+       "clean_rank": 1.0,
+       "stress_rank": 2.0,
+       "selected_minus_model": {
+        "estimate": -0.7699571294020302,
+        "ci_low": -1.142718831450672,
+        "ci_high": -0.4532171512311386
+       }
+      },
+      {
+       "model": "mlp",
+       "mae": 14.123742725376252,
+       "rmse": 22.868455338995833,
+       "r2": 0.921682785615298,
+       "clean_mae": 11.303771772608288,
+       "rpd_percent": 24.947168162059146,
+       "clean_rank": 3.0,
+       "stress_rank": 3.0,
+       "selected_minus_model": {
+        "estimate": -3.602424433388453,
+        "ci_low": -3.8779803284163727,
+        "ci_high": -3.331399684588606
+       }
+      },
+      {
+       "model": "gru",
+       "mae": 19.152037674711778,
+       "rmse": 40.13897180730692,
+       "r2": 0.665802252825606,
+       "clean_mae": 16.095529550459336,
+       "rpd_percent": 18.9897953631803,
+       "clean_rank": 4.0,
+       "stress_rank": 4.0,
+       "selected_minus_model": {
+        "estimate": -8.63071938272398,
+        "ci_low": -10.539723335458897,
+        "ci_high": -6.849197298993176
+       }
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "whole-NO2",
+   "policy": "no_ffill",
+   "group": "channel_loss",
+   "label": "Loss of NO₂",
+   "channel": "NO₂",
+   "severity": "Whole channel",
+   "seeds": [
+    -1
+   ],
+   "scopes": {
+    "full": {
+     "selected_family": "persistence",
+     "selection_regret": 0.5260169064669622,
+     "regret_ci": [
+      0.313010349435525,
+      0.7037666342407966
+     ],
+     "kendall_tau_b": 1.0,
+     "oracle_families": [
+      "xgboost"
+     ],
+     "status": "within",
+     "metrics": [
+      {
+       "model": "persistence",
+       "mae": 10.521318291987798,
+       "rmse": 20.32358035199212,
+       "r2": 0.938281388916673,
+       "clean_mae": 10.521318291987798,
+       "rpd_percent": 0.0,
+       "clean_rank": 2.0,
+       "stress_rank": 2.0,
+       "selected_minus_model": {
+        "estimate": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0
+       }
+      },
+      {
+       "model": "xgboost",
+       "mae": 9.995301385520836,
+       "rmse": 19.74143945614722,
+       "r2": 0.94192777314748,
+       "clean_mae": 9.969349552313394,
+       "rpd_percent": 0.260316212921029,
+       "clean_rank": 1.0,
+       "stress_rank": 1.0,
+       "selected_minus_model": {
+        "estimate": 0.5260169064669604,
+        "ci_low": 0.313010349435525,
+        "ci_high": 0.7037666342407966
+       }
+      },
+      {
+       "model": "mlp",
+       "mae": 11.549538054657852,
+       "rmse": 20.466987043938474,
+       "r2": 0.93732846379534,
+       "clean_mae": 11.303771772608288,
+       "rpd_percent": 2.174197135199719,
+       "clean_rank": 3.0,
+       "stress_rank": 3.0,
+       "selected_minus_model": {
+        "estimate": -1.0282197626700533,
+        "ci_low": -1.270449065238792,
+        "ci_high": -0.792724690844981
+       }
+      },
+      {
+       "model": "gru",
+       "mae": 14.15870541633206,
+       "rmse": 33.825987249855864,
+       "r2": 0.765351438422652,
+       "clean_mae": 16.095529550459336,
+       "rpd_percent": -12.033304825761403,
+       "clean_rank": 4.0,
+       "stress_rank": 4.0,
+       "selected_minus_model": {
+        "estimate": -3.637387124344258,
+        "ci_low": -5.122213779220858,
+        "ci_high": -2.28779667400029
+       }
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "whole-CO",
+   "policy": "no_ffill",
+   "group": "channel_loss",
+   "label": "Loss of CO",
+   "channel": "CO",
+   "severity": "Whole channel",
+   "seeds": [
+    -1
+   ],
+   "scopes": {
+    "full": {
+     "selected_family": "persistence",
+     "selection_regret": 0.42662060766018683,
+     "regret_ci": [
+      0.24167608335897317,
+      0.5848405662750971
+     ],
+     "kendall_tau_b": 0.6666666666666666,
+     "oracle_families": [
+      "xgboost"
+     ],
+     "status": "within",
+     "metrics": [
+      {
+       "model": "persistence",
+       "mae": 10.521318291987798,
+       "rmse": 20.32358035199212,
+       "r2": 0.938281388916673,
+       "clean_mae": 10.521318291987798,
+       "rpd_percent": 0.0,
+       "clean_rank": 2.0,
+       "stress_rank": 2.0,
+       "selected_minus_model": {
+        "estimate": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0
+       }
+      },
+      {
+       "model": "xgboost",
+       "mae": 10.094697684327611,
+       "rmse": 19.599086338620655,
+       "r2": 0.942718534623202,
+       "clean_mae": 9.969349552313394,
+       "rpd_percent": 1.257335108539052,
+       "clean_rank": 1.0,
+       "stress_rank": 1.0,
+       "selected_minus_model": {
+        "estimate": 0.42662060766018506,
+        "ci_low": 0.24167608335897317,
+        "ci_high": 0.5848405662750971
+       }
+      },
+      {
+       "model": "mlp",
+       "mae": 11.28397167394501,
+       "rmse": 20.092262351260405,
+       "r2": 0.93955813043536,
+       "clean_mae": 11.303771772608288,
+       "rpd_percent": -0.175163645034472,
+       "clean_rank": 3.0,
+       "stress_rank": 4.0,
+       "selected_minus_model": {
+        "estimate": -0.7626533819572128,
+        "ci_low": -0.9848945244665797,
+        "ci_high": -0.5321339711229051
+       }
+      },
+      {
+       "model": "gru",
+       "mae": 11.248717113497207,
+       "rmse": 23.725949890151426,
+       "r2": 0.90745103268201,
+       "clean_mae": 16.095529550459336,
+       "rpd_percent": -30.112786421642213,
+       "clean_rank": 4.0,
+       "stress_rank": 3.0,
+       "selected_minus_model": {
+        "estimate": -0.7273988215094072,
+        "ci_low": -1.158578666143101,
+        "ci_high": -0.33855121994711274
+       }
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "whole-TEMP",
+   "policy": "no_ffill",
+   "group": "channel_loss",
+   "label": "Loss of Temperature",
+   "channel": "Temperature",
+   "severity": "Whole channel",
+   "seeds": [
+    -1
+   ],
+   "scopes": {
+    "full": {
+     "selected_family": "persistence",
+     "selection_regret": 0.0,
+     "regret_ci": [
+      0.0,
+      0.0
+     ],
+     "kendall_tau_b": 0.3333333333333333,
+     "oracle_families": [
+      "persistence"
+     ],
+     "status": "within",
+     "metrics": [
+      {
+       "model": "persistence",
+       "mae": 10.521318291987798,
+       "rmse": 20.32358035199212,
+       "r2": 0.938281388916673,
+       "clean_mae": 10.521318291987798,
+       "rpd_percent": 0.0,
+       "clean_rank": 2.0,
+       "stress_rank": 1.0,
+       "selected_minus_model": {
+        "estimate": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0
+       }
+      },
+      {
+       "model": "xgboost",
+       "mae": 13.262101228786207,
+       "rmse": 22.625519158222342,
+       "r2": 0.923858283999941,
+       "clean_mae": 9.969349552313394,
+       "rpd_percent": 33.02875136631885,
+       "clean_rank": 1.0,
+       "stress_rank": 2.0,
+       "selected_minus_model": {
+        "estimate": -2.7407829367984107,
+        "ci_low": -3.148720799712112,
+        "ci_high": -2.3791718361831986
+       }
+      },
+      {
+       "model": "mlp",
+       "mae": 22.376926210002477,
+       "rmse": 32.23393673430737,
+       "r2": 0.84193816378343,
+       "clean_mae": 11.303771772608288,
+       "rpd_percent": 97.95981960841655,
+       "clean_rank": 3.0,
+       "stress_rank": 4.0,
+       "selected_minus_model": {
+        "estimate": -11.855607918014679,
+        "ci_low": -12.91191966290637,
+        "ci_high": -10.827795875024337
+       }
+      },
+      {
+       "model": "gru",
+       "mae": 17.69397327641295,
+       "rmse": 37.82121708968257,
+       "r2": 0.724789519163217,
+       "clean_mae": 16.095529550459336,
+       "rpd_percent": 9.93097941228034,
+       "clean_rank": 4.0,
+       "stress_rank": 3.0,
+       "selected_minus_model": {
+        "estimate": -7.17265498442516,
+        "ci_low": -8.979930012198594,
+        "ci_high": -5.544585394689599
+       }
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "outage-NO2-6",
+   "policy": "no_ffill",
+   "group": "outage",
+   "label": "NO₂ outage 6 h",
+   "channel": "NO₂",
+   "severity": "6 h",
+   "seeds": [
+    101,
+    202,
+    303,
+    404,
+    505
+   ],
+   "scopes": {
+    "affected": {
+     "selected_family": "persistence",
+     "selection_regret": 0.5559801677004153,
+     "regret_ci": [
+      0.25495123698765787,
+      0.7900739698705561
+     ],
+     "kendall_tau_b": 1.0,
+     "oracle_families": [
+      "xgboost"
+     ],
+     "status": "within",
+     "metrics": [
+      {
+       "model": "persistence",
+       "mae": 10.878559265139025,
+       "rmse": 20.39625535393022,
+       "r2": 0.921114098486668,
+       "clean_mae": 10.878559265139025,
+       "rpd_percent": 0.0,
+       "clean_rank": 2.0,
+       "stress_rank": 2.0,
+       "selected_minus_model": {
+        "estimate": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0
+       }
+      },
+      {
+       "model": "xgboost",
+       "mae": 10.32257909743861,
+       "rmse": 19.471049110778925,
+       "r2": 0.930674154452625,
+       "clean_mae": 10.32249785139041,
+       "rpd_percent": 0.000787077404792,
+       "clean_rank": 1.0,
+       "stress_rank": 1.0,
+       "selected_minus_model": {
+        "estimate": 0.5559801677004135,
+        "ci_low": 0.25495123698765787,
+        "ci_high": 0.7900739698705561
+       }
+      },
+      {
+       "model": "mlp",
+       "mae": 11.756944179229421,
+       "rmse": 19.979610079042256,
+       "r2": 0.92538042705761,
+       "clean_mae": 11.6275297020473,
+       "rpd_percent": 1.113000615765664,
+       "clean_rank": 3.0,
+       "stress_rank": 3.0,
+       "selected_minus_model": {
+        "estimate": -0.8783849140903968,
+        "ci_low": -1.1501850205480626,
+        "ci_high": -0.6267190429794911
+       }
+      },
+      {
+       "model": "gru",
+       "mae": 16.214065354992602,
+       "rmse": 34.20189185928488,
+       "r2": 0.716981586720696,
+       "clean_mae": 16.562388234968015,
+       "rpd_percent": -2.103095731326972,
+       "clean_rank": 4.0,
+       "stress_rank": 4.0,
+       "selected_minus_model": {
+        "estimate": -5.3355060898535775,
+        "ci_low": -7.2940127484827,
+        "ci_high": -3.514281657696139
+       }
+      }
+     ]
+    },
+    "full": {
+     "selected_family": "persistence",
+     "selection_regret": 0.5519759544602323,
+     "regret_ci": [
+      0.31202816945541173,
+      0.7501328756368121
+     ],
+     "kendall_tau_b": 1.0,
+     "oracle_families": [
+      "xgboost"
+     ],
+     "status": "within",
+     "metrics": [
+      {
+       "model": "persistence",
+       "mae": 10.521318291987798,
+       "rmse": 20.32358035199212,
+       "r2": 0.938281388916673,
+       "clean_mae": 10.521318291987798,
+       "rpd_percent": 0.0,
+       "clean_rank": 2.0,
+       "stress_rank": 2.0,
+       "selected_minus_model": {
+        "estimate": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0
+       }
+      },
+      {
+       "model": "xgboost",
+       "mae": 9.969342337527566,
+       "rmse": 19.82948305701533,
+       "r2": 0.941436717954601,
+       "clean_mae": 9.969349552313394,
+       "rpd_percent": -7.2369674576e-05,
+       "clean_rank": 1.0,
+       "stress_rank": 1.0,
+       "selected_minus_model": {
+        "estimate": 0.5519759544602323,
+        "ci_low": 0.31202816945541173,
+        "ci_high": 0.7501328756368121
+       }
+      },
+      {
+       "model": "mlp",
+       "mae": 11.308920944711893,
+       "rmse": 20.18955418330767,
+       "r2": 0.939004193298125,
+       "clean_mae": 11.303771772608288,
+       "rpd_percent": 0.045552689909072,
+       "clean_rank": 3.0,
+       "stress_rank": 3.0,
+       "selected_minus_model": {
+        "estimate": -0.7876026527240949,
+        "ci_low": -1.0326853320391944,
+        "ci_high": -0.5449097313859437
+       }
+      },
+      {
+       "model": "gru",
+       "mae": 16.081667871615153,
+       "rmse": 37.46060573963238,
+       "r2": 0.687655936214427,
+       "clean_mae": 16.095529550459336,
+       "rpd_percent": -0.086121297225585,
+       "clean_rank": 4.0,
+       "stress_rank": 4.0,
+       "selected_minus_model": {
+        "estimate": -5.560349579627358,
+        "ci_low": -7.403591156665776,
+        "ci_high": -3.894051156111503
+       }
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "outage-NO2-12",
+   "policy": "no_ffill",
+   "group": "outage",
+   "label": "NO₂ outage 12 h",
+   "channel": "NO₂",
+   "severity": "12 h",
+   "seeds": [
+    101,
+    202,
+    303,
+    404,
+    505
+   ],
+   "scopes": {
+    "affected": {
+     "selected_family": "persistence",
+     "selection_regret": 0.5700395634813145,
+     "regret_ci": [
+      0.29485842064234047,
+      0.7925166238278374
+     ],
+     "kendall_tau_b": 1.0,
+     "oracle_families": [
+      "xgboost"
+     ],
+     "status": "within",
+     "metrics": [
+      {
+       "model": "persistence",
+       "mae": 10.82021083410985,
+       "rmse": 20.25130418996707,
+       "r2": 0.924368748920566,
+       "clean_mae": 10.82021083410985,
+       "rpd_percent": 0.0,
+       "clean_rank": 2.0,
+       "stress_rank": 2.0,
+       "selected_minus_model": {
+        "estimate": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0
+       }
+      },
+      {
+       "model": "xgboost",
+       "mae": 10.250171270628536,
+       "rmse": 19.316853350555103,
+       "r2": 0.932898858526228,
+       "clean_mae": 10.226402789643219,
+       "rpd_percent": 0.232422695196294,
+       "clean_rank": 1.0,
+       "stress_rank": 1.0,
+       "selected_minus_model": {
+        "estimate": 0.5700395634813145,
+        "ci_low": 0.29485842064234047,
+        "ci_high": 0.7925166238278374
+       }
+      },
+      {
+       "model": "mlp",
+       "mae": 11.724999312905608,
+       "rmse": 20.01080343446793,
+       "r2": 0.926419324748364,
+       "clean_mae": 11.516647945937407,
+       "rpd_percent": 1.809132031701098,
+       "clean_rank": 3.0,
+       "stress_rank": 3.0,
+       "selected_minus_model": {
+        "estimate": -0.9047884787957567,
+        "ci_low": -1.1639810782329256,
+        "ci_high": -0.6640621892814269
+       }
+      },
+      {
+       "model": "gru",
+       "mae": 15.892872259459997,
+       "rmse": 33.77595910359278,
+       "r2": 0.728423257756144,
+       "clean_mae": 16.506776698438653,
+       "rpd_percent": -3.719105493422735,
+       "clean_rank": 4.0,
+       "stress_rank": 4.0,
+       "selected_minus_model": {
+        "estimate": -5.072661425350146,
+        "ci_low": -6.976974086698461,
+        "ci_high": -3.3475809184098653
+       }
+      }
+     ]
+    },
+    "full": {
+     "selected_family": "persistence",
+     "selection_regret": 0.5508319588070396,
+     "regret_ci": [
+      0.31152184431496016,
+      0.7494950109658792
+     ],
+     "kendall_tau_b": 1.0,
+     "oracle_families": [
+      "xgboost"
+     ],
+     "status": "within",
+     "metrics": [
+      {
+       "model": "persistence",
+       "mae": 10.521318291987798,
+       "rmse": 20.32358035199212,
+       "r2": 0.938281388916673,
+       "clean_mae": 10.521318291987798,
+       "rpd_percent": 0.0,
+       "clean_rank": 2.0,
+       "stress_rank": 2.0,
+       "selected_minus_model": {
+        "estimate": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0
+       }
+      },
+      {
+       "model": "xgboost",
+       "mae": 9.970486333180759,
+       "rmse": 19.82969986174678,
+       "r2": 0.941435088311374,
+       "clean_mae": 9.969349552313394,
+       "rpd_percent": 0.011402758639359,
+       "clean_rank": 1.0,
+       "stress_rank": 1.0,
+       "selected_minus_model": {
+        "estimate": 0.5508319588070378,
+        "ci_low": 0.31152184431496016,
+        "ci_high": 0.7494950109658792
+       }
+      },
+      {
+       "model": "mlp",
+       "mae": 11.313760600672616,
+       "rmse": 20.196442255649398,
+       "r2": 0.938963128460366,
+       "clean_mae": 11.303771772608288,
+       "rpd_percent": 0.088367212867243,
+       "clean_rank": 3.0,
+       "stress_rank": 3.0,
+       "selected_minus_model": {
+        "estimate": -0.7924423086848194,
+        "ci_low": -1.036807851456844,
+        "ci_high": -0.5506327067775592
+       }
+      },
+      {
+       "model": "gru",
+       "mae": 16.066021203776426,
+       "rmse": 37.43568093030656,
+       "r2": 0.688240460064488,
+       "clean_mae": 16.095529550459336,
+       "rpd_percent": -0.183332561941509,
+       "clean_rank": 4.0,
+       "stress_rank": 4.0,
+       "selected_minus_model": {
+        "estimate": -5.544702911788628,
+        "ci_low": -7.381921766561043,
+        "ci_high": -3.883587489582408
+       }
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "outage-CO-6",
+   "policy": "no_ffill",
+   "group": "outage",
+   "label": "CO outage 6 h",
+   "channel": "CO",
+   "severity": "6 h",
+   "seeds": [
+    101,
+    202,
+    303,
+    404,
+    505
+   ],
+   "scopes": {
+    "affected": {
+     "selected_family": "persistence",
+     "selection_regret": 0.5165943827087691,
+     "regret_ci": [
+      0.24873377320128387,
+      0.7334588566520351
+     ],
+     "kendall_tau_b": 1.0,
+     "oracle_families": [
+      "xgboost"
+     ],
+     "status": "within",
+     "metrics": [
+      {
+       "model": "persistence",
+       "mae": 10.878559265139025,
+       "rmse": 20.39625535393022,
+       "r2": 0.921114098486668,
+       "clean_mae": 10.878559265139025,
+       "rpd_percent": 0.0,
+       "clean_rank": 2.0,
+       "stress_rank": 2.0,
+       "selected_minus_model": {
+        "estimate": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0
+       }
+      },
+      {
+       "model": "xgboost",
+       "mae": 10.361964882430255,
+       "rmse": 19.494235157398844,
+       "r2": 0.93034792734025,
+       "clean_mae": 10.32249785139041,
+       "rpd_percent": 0.382339929811935,
+       "clean_rank": 1.0,
+       "stress_rank": 1.0,
+       "selected_minus_model": {
+        "estimate": 0.5165943827087691,
+        "ci_low": 0.24873377320128387,
+        "ci_high": 0.7334588566520351
+       }
+      },
+      {
+       "model": "mlp",
+       "mae": 11.748874005986877,
+       "rmse": 19.987799636710438,
+       "r2": 0.925274344009849,
+       "clean_mae": 11.6275297020473,
+       "rpd_percent": 1.04359487396719,
+       "clean_rank": 3.0,
+       "stress_rank": 3.0,
+       "selected_minus_model": {
+        "estimate": -0.8703147408478529,
+        "ci_low": -1.1387847516032485,
+        "ci_high": -0.6244733072412094
+       }
+      },
+      {
+       "model": "gru",
+       "mae": 15.774071020099514,
+       "rmse": 33.29436289077112,
+       "r2": 0.735199912363871,
+       "clean_mae": 16.562388234968015,
+       "rpd_percent": -4.759683227350837,
+       "clean_rank": 4.0,
+       "stress_rank": 4.0,
+       "selected_minus_model": {
+        "estimate": -4.89551175496049,
+        "ci_low": -6.701777244083024,
+        "ci_high": -3.203147672019563
+       }
+      }
+     ]
+    },
+    "full": {
+     "selected_family": "persistence",
+     "selection_regret": 0.5504066582304077,
+     "regret_ci": [
+      0.3112782489619084,
+      0.7479526160704746
+     ],
+     "kendall_tau_b": 1.0,
+     "oracle_families": [
+      "xgboost"
+     ],
+     "status": "within",
+     "metrics": [
+      {
+       "model": "persistence",
+       "mae": 10.521318291987798,
+       "rmse": 20.32358035199212,
+       "r2": 0.938281388916673,
+       "clean_mae": 10.521318291987798,
+       "rpd_percent": 0.0,
+       "clean_rank": 2.0,
+       "stress_rank": 2.0,
+       "selected_minus_model": {
+        "estimate": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0
+       }
+      },
+      {
+       "model": "xgboost",
+       "mae": 9.97091163375739,
+       "rmse": 19.829945028018454,
+       "r2": 0.941433940016378,
+       "clean_mae": 9.969349552313394,
+       "rpd_percent": 0.015668840136454,
+       "clean_rank": 1.0,
+       "stress_rank": 1.0,
+       "selected_minus_model": {
+        "estimate": 0.5504066582304077,
+        "ci_low": 0.3112782489619084,
+        "ci_high": 0.7479526160704746
+       }
+      },
+      {
+       "model": "mlp",
+       "mae": 11.308591730387148,
+       "rmse": 20.18962223640887,
+       "r2": 0.939005946311756,
+       "clean_mae": 11.303771772608288,
+       "rpd_percent": 0.042640260930781,
+       "clean_rank": 3.0,
+       "stress_rank": 3.0,
+       "selected_minus_model": {
+        "estimate": -0.7872734383993496,
+        "ci_low": -1.0308003529397318,
+        "ci_high": -0.5448867871605088
+       }
+      },
+      {
+       "model": "gru",
+       "mae": 16.064122034512184,
+       "rmse": 37.42483218018638,
+       "r2": 0.688436033056957,
+       "clean_mae": 16.095529550459336,
+       "rpd_percent": -0.195131920628577,
+       "clean_rank": 4.0,
+       "stress_rank": 4.0,
+       "selected_minus_model": {
+        "estimate": -5.542803742524379,
+        "ci_low": -7.382941052919886,
+        "ci_high": -3.8806664147387098
+       }
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "outage-CO-12",
+   "policy": "no_ffill",
+   "group": "outage",
+   "label": "CO outage 12 h",
+   "channel": "CO",
+   "severity": "12 h",
+   "seeds": [
+    101,
+    202,
+    303,
+    404,
+    505
+   ],
+   "scopes": {
+    "affected": {
+     "selected_family": "persistence",
+     "selection_regret": 0.5319857097843137,
+     "regret_ci": [
+      0.28586794702511925,
+      0.7220145415253395
+     ],
+     "kendall_tau_b": 1.0,
+     "oracle_families": [
+      "xgboost"
+     ],
+     "status": "within",
+     "metrics": [
+      {
+       "model": "persistence",
+       "mae": 10.82021083410985,
+       "rmse": 20.25130418996707,
+       "r2": 0.924368748920566,
+       "clean_mae": 10.82021083410985,
+       "rpd_percent": 0.0,
+       "clean_rank": 2.0,
+       "stress_rank": 2.0,
+       "selected_minus_model": {
+        "estimate": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0
+       }
+      },
+      {
+       "model": "xgboost",
+       "mae": 10.288225124325537,
+       "rmse": 19.240471517275136,
+       "r2": 0.933155264533374,
+       "clean_mae": 10.226402789643219,
+       "rpd_percent": 0.60453647244297,
+       "clean_rank": 1.0,
+       "stress_rank": 1.0,
+       "selected_minus_model": {
+        "estimate": 0.5319857097843137,
+        "ci_low": 0.28586794702511925,
+        "ci_high": 0.7220145415253395
+       }
+      },
+      {
+       "model": "mlp",
+       "mae": 11.652464540099325,
+       "rmse": 19.862599375161874,
+       "r2": 0.927185239556204,
+       "clean_mae": 11.516647945937407,
+       "rpd_percent": 1.179306641997583,
+       "clean_rank": 3.0,
+       "stress_rank": 3.0,
+       "selected_minus_model": {
+        "estimate": -0.8322537059894746,
+        "ci_low": -1.093781389813043,
+        "ci_high": -0.5863332443804153
+       }
+      },
+      {
+       "model": "gru",
+       "mae": 15.02888172495737,
+       "rmse": 32.007304728075006,
+       "r2": 0.761542827934808,
+       "clean_mae": 16.506776698438653,
+       "rpd_percent": -8.953262047950728,
+       "clean_rank": 4.0,
+       "stress_rank": 4.0,
+       "selected_minus_model": {
+        "estimate": -4.20867089084752,
+        "ci_low": -5.805682904461493,
+        "ci_high": -2.723188590161918
+       }
+      }
+     ]
+    },
+    "full": {
+     "selected_family": "persistence",
+     "selection_regret": 0.5489966928602907,
+     "regret_ci": [
+      0.30946641791412904,
+      0.7461983746928893
+     ],
+     "kendall_tau_b": 1.0,
+     "oracle_families": [
+      "xgboost"
+     ],
+     "status": "within",
+     "metrics": [
+      {
+       "model": "persistence",
+       "mae": 10.521318291987798,
+       "rmse": 20.32358035199212,
+       "r2": 0.938281388916673,
+       "clean_mae": 10.521318291987798,
+       "rpd_percent": 0.0,
+       "clean_rank": 2.0,
+       "stress_rank": 2.0,
+       "selected_minus_model": {
+        "estimate": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0
+       }
+      },
+      {
+       "model": "xgboost",
+       "mae": 9.972321599127508,
+       "rmse": 19.822004417925182,
+       "r2": 0.941478866928813,
+       "clean_mae": 9.969349552313394,
+       "rpd_percent": 0.02981184277387,
+       "clean_rank": 1.0,
+       "stress_rank": 1.0,
+       "selected_minus_model": {
+        "estimate": 0.5489966928602907,
+        "ci_low": 0.30946641791412904,
+        "ci_high": 0.7461983746928893
+       }
+      },
+      {
+       "model": "mlp",
+       "mae": 11.310281177507768,
+       "rmse": 20.18825699752813,
+       "r2": 0.939011791766237,
+       "clean_mae": 11.303771772608288,
+       "rpd_percent": 0.057586131695036,
+       "clean_rank": 3.0,
+       "stress_rank": 3.0,
+       "selected_minus_model": {
+        "estimate": -0.7889628855199717,
+        "ci_low": -1.0328623805078754,
+        "ci_high": -0.5469114690666299
+       }
+      },
+      {
+       "model": "gru",
+       "mae": 16.02455161005508,
+       "rmse": 37.350118789191335,
+       "r2": 0.690058432403575,
+       "clean_mae": 16.095529550459336,
+       "rpd_percent": -0.440979218370789,
+       "clean_rank": 4.0,
+       "stress_rank": 4.0,
+       "selected_minus_model": {
+        "estimate": -5.503233318067279,
+        "ci_low": -7.333945299035929,
+        "ci_high": -3.854645138359039
+       }
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "outage-TEMP-6",
+   "policy": "no_ffill",
+   "group": "outage",
+   "label": "Temperature outage 6 h",
+   "channel": "Temperature",
+   "severity": "6 h",
+   "seeds": [
+    101,
+    202,
+    303,
+    404,
+    505
+   ],
+   "scopes": {
+    "affected": {
+     "selected_family": "persistence",
+     "selection_regret": 0.1063921922415556,
+     "regret_ci": [
+      0.0,
+      0.3641555932420768
+     ],
+     "kendall_tau_b": 1.0,
+     "oracle_families": [
+      "xgboost"
+     ],
+     "status": "within",
+     "metrics": [
+      {
+       "model": "persistence",
+       "mae": 10.878559265139025,
+       "rmse": 20.39625535393022,
+       "r2": 0.921114098486668,
+       "clean_mae": 10.878559265139025,
+       "rpd_percent": 0.0,
+       "clean_rank": 2.0,
+       "stress_rank": 2.0,
+       "selected_minus_model": {
+        "estimate": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0
+       }
+      },
+      {
+       "model": "xgboost",
+       "mae": 10.772167072897469,
+       "rmse": 19.911418316044692,
+       "r2": 0.927742123574547,
+       "clean_mae": 10.32249785139041,
+       "rpd_percent": 4.356205522934442,
+       "clean_rank": 1.0,
+       "stress_rank": 1.0,
+       "selected_minus_model": {
+        "estimate": 0.1063921922415556,
+        "ci_low": -0.20672279955680595,
+        "ci_high": 0.3641555932420768
+       }
+      },
+      {
+       "model": "mlp",
+       "mae": 12.595169597739606,
+       "rmse": 20.903674343635394,
+       "r2": 0.919841517407903,
+       "clean_mae": 11.6275297020473,
+       "rpd_percent": 8.321973114563882,
+       "clean_rank": 3.0,
+       "stress_rank": 3.0,
+       "selected_minus_model": {
+        "estimate": -1.716610332600581,
+        "ci_low": -2.0600166921343894,
+        "ci_high": -1.4045453234822682
+       }
+      },
+      {
+       "model": "gru",
+       "mae": 17.134554645480492,
+       "rmse": 35.20390789994009,
+       "r2": 0.707261355774773,
+       "clean_mae": 16.562388234968015,
+       "rpd_percent": 3.454612960372871,
+       "clean_rank": 4.0,
+       "stress_rank": 4.0,
+       "selected_minus_model": {
+        "estimate": -6.255995380341464,
+        "ci_low": -8.283099057540783,
+        "ci_high": -4.332621001822014
+       }
+      }
+     ]
+    },
+    "full": {
+     "selected_family": "persistence",
+     "selection_regret": 0.5340903191748119,
+     "regret_ci": [
+      0.29344675587074887,
+      0.7327221748990577
+     ],
+     "kendall_tau_b": 1.0,
+     "oracle_families": [
+      "xgboost"
+     ],
+     "status": "within",
+     "metrics": [
+      {
+       "model": "persistence",
+       "mae": 10.521318291987798,
+       "rmse": 20.32358035199212,
+       "r2": 0.938281388916673,
+       "clean_mae": 10.521318291987798,
+       "rpd_percent": 0.0,
+       "clean_rank": 2.0,
+       "stress_rank": 2.0,
+       "selected_minus_model": {
+        "estimate": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0
+       }
+      },
+      {
+       "model": "xgboost",
+       "mae": 9.987227972812986,
+       "rmse": 19.846257350568987,
+       "r2": 0.941341294419509,
+       "clean_mae": 9.969349552313394,
+       "rpd_percent": 0.179333871340116,
+       "clean_rank": 1.0,
+       "stress_rank": 1.0,
+       "selected_minus_model": {
+        "estimate": 0.5340903191748119,
+        "ci_low": 0.29344675587074887,
+        "ci_high": 0.7327221748990577
+       }
+      },
+      {
+       "model": "mlp",
+       "mae": 11.342253258785304,
+       "rmse": 20.227595616583866,
+       "r2": 0.938781993431344,
+       "clean_mae": 11.303771772608288,
+       "rpd_percent": 0.340430494804095,
+       "clean_rank": 3.0,
+       "stress_rank": 3.0,
+       "selected_minus_model": {
+        "estimate": -0.8209349667975054,
+        "ci_low": -1.0652891817675376,
+        "ci_high": -0.5788085163585217
+       }
+      },
+      {
+       "model": "gru",
+       "mae": 16.118270482990162,
+       "rmse": 37.50234906425411,
+       "r2": 0.687257093268753,
+       "clean_mae": 16.095529550459336,
+       "rpd_percent": 0.141287259046271,
+       "clean_rank": 4.0,
+       "stress_rank": 4.0,
+       "selected_minus_model": {
+        "estimate": -5.5969521910023605,
+        "ci_low": -7.446866238075265,
+        "ci_high": -3.9277153472063695
+       }
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "outage-TEMP-12",
+   "policy": "no_ffill",
+   "group": "outage",
+   "label": "Temperature outage 12 h",
+   "channel": "Temperature",
+   "severity": "12 h",
+   "seeds": [
+    101,
+    202,
+    303,
+    404,
+    505
+   ],
+   "scopes": {
+    "affected": {
+     "selected_family": "persistence",
+     "selection_regret": 0.0,
+     "regret_ci": [
+      0.0,
+      0.0
+     ],
+     "kendall_tau_b": 0.6666666666666666,
+     "oracle_families": [
+      "persistence"
+     ],
+     "status": "within",
+     "metrics": [
+      {
+       "model": "persistence",
+       "mae": 10.82021083410985,
+       "rmse": 20.25130418996707,
+       "r2": 0.924368748920566,
+       "clean_mae": 10.82021083410985,
+       "rpd_percent": 0.0,
+       "clean_rank": 2.0,
+       "stress_rank": 1.0,
+       "selected_minus_model": {
+        "estimate": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0
+       }
+      },
+      {
+       "model": "xgboost",
+       "mae": 11.109006179346238,
+       "rmse": 20.154929079043146,
+       "r2": 0.926767270811481,
+       "clean_mae": 10.226402789643219,
+       "rpd_percent": 8.630633937056299,
+       "clean_rank": 1.0,
+       "stress_rank": 2.0,
+       "selected_minus_model": {
+        "estimate": -0.2887953452363874,
+        "ci_low": -0.5962585896183983,
+        "ci_high": -0.03411570287369325
+       }
+      },
+      {
+       "model": "mlp",
+       "mae": 13.698715677615047,
+       "rmse": 22.186966054727478,
+       "r2": 0.911027986011195,
+       "clean_mae": 11.516647945937407,
+       "rpd_percent": 18.947073331762144,
+       "clean_rank": 3.0,
+       "stress_rank": 3.0,
+       "selected_minus_model": {
+        "estimate": -2.878504843505196,
+        "ci_low": -3.316440196792423,
+        "ci_high": -2.4710092502011753
+       }
+      },
+      {
+       "model": "gru",
+       "mae": 17.229723620225524,
+       "rmse": 35.24803129447593,
+       "r2": 0.714963173374458,
+       "clean_mae": 16.506776698438653,
+       "rpd_percent": 4.379697714425697,
+       "clean_rank": 4.0,
+       "stress_rank": 4.0,
+       "selected_minus_model": {
+        "estimate": -6.409512786115673,
+        "ci_low": -8.38984916954735,
+        "ci_high": -4.584111327668733
+       }
+      }
+     ]
+    },
+    "full": {
+     "selected_family": "persistence",
+     "selection_regret": 0.5096019001024104,
+     "regret_ci": [
+      0.2675521702222591,
+      0.7076089171524277
+     ],
+     "kendall_tau_b": 1.0,
+     "oracle_families": [
+      "xgboost"
+     ],
+     "status": "within",
+     "metrics": [
+      {
+       "model": "persistence",
+       "mae": 10.521318291987798,
+       "rmse": 20.32358035199212,
+       "r2": 0.938281388916673,
+       "clean_mae": 10.521318291987798,
+       "rpd_percent": 0.0,
+       "clean_rank": 2.0,
+       "stress_rank": 2.0,
+       "selected_minus_model": {
+        "estimate": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0
+       }
+      },
+      {
+       "model": "xgboost",
+       "mae": 10.011716391885388,
+       "rmse": 19.869439017950977,
+       "r2": 0.941204332627062,
+       "clean_mae": 9.969349552313394,
+       "rpd_percent": 0.42497095070924,
+       "clean_rank": 1.0,
+       "stress_rank": 1.0,
+       "selected_minus_model": {
+        "estimate": 0.5096019001024104,
+        "ci_low": 0.2675521702222591,
+        "ci_high": 0.7076089171524277
+       }
+      },
+      {
+       "model": "mlp",
+       "mae": 11.408532444999805,
+       "rmse": 20.309967505142026,
+       "r2": 0.938284657490906,
+       "clean_mae": 11.303771772608288,
+       "rpd_percent": 0.926776252200856,
+       "clean_rank": 3.0,
+       "stress_rank": 3.0,
+       "selected_minus_model": {
+        "estimate": -0.8872141530120086,
+        "ci_low": -1.1342731924741267,
+        "ci_high": -0.6459842218148492
+       }
+      },
+      {
+       "model": "gru",
+       "mae": 16.130244205812694,
+       "rmse": 37.51429834127891,
+       "r2": 0.687555590948572,
+       "clean_mae": 16.095529550459336,
+       "rpd_percent": 0.215678864398517,
+       "clean_rank": 4.0,
+       "stress_rank": 4.0,
+       "selected_minus_model": {
+        "estimate": -5.6089259138248995,
+        "ci_low": -7.45618036876204,
+        "ci_high": -3.941572657168065
+       }
+      }
+     ]
+    }
+   }
+  }
+ ],
+ "target_history": [
+  {
+   "id": "pm25-dropout-10",
+   "scope": "full",
+   "group": "pm25_dropout",
+   "label": "PM₂.₅ dropout 10%",
+   "channel": "PM₂.₅",
+   "severity": "10%",
+   "selected_family": "persistence",
+   "selection_regret": 0.0,
+   "regret_ci": [
+    0.0,
+    0.0
+   ],
+   "kendall_tau_b": 0.6666666666666666,
+   "oracle_families": [
+    "persistence"
+   ],
+   "status": "within",
+   "metrics": [
+    {
+     "model": "persistence",
+     "mae": 10.962532307859801,
+     "rmse": 21.23862421619014,
+     "r2": 0.932559146978724,
+     "clean_mae": 10.27964339759353,
+     "rpd_percent": 6.643118674974037,
+     "clean_rank": 2.0,
+     "stress_rank": 1.0,
+     "selected_minus_model": {
+      "estimate": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0
+     }
+    },
+    {
+     "model": "xgboost",
+     "mae": 11.704978580869053,
+     "rmse": 22.194275430238804,
+     "r2": 0.926600493175322,
+     "clean_mae": 9.710861193660564,
+     "rpd_percent": 20.534918041154647,
+     "clean_rank": 1.0,
+     "stress_rank": 2.0,
+     "selected_minus_model": {
+      "estimate": -0.74244627300925,
+      "ci_low": -1.0241091748411848,
+      "ci_high": -0.4909408617666683
+     }
+    },
+    {
+     "model": "mlp",
+     "mae": 13.664130455804878,
+     "rmse": 23.06821983313321,
+     "r2": 0.920336133941269,
+     "clean_mae": 10.810205954093624,
+     "rpd_percent": 26.400278716526458,
+     "clean_rank": 3.0,
+     "stress_rank": 3.0,
+     "selected_minus_model": {
+      "estimate": -2.7015981479450772,
+      "ci_low": -2.9543030320791686,
+      "ci_high": -2.452457624106996
+     }
+    },
+    {
+     "model": "gru",
+     "mae": 18.459244210743524,
+     "rmse": 40.591852766431,
+     "r2": 0.667528649469574,
+     "clean_mae": 15.95741437488415,
+     "rpd_percent": 15.678165504037283,
+     "clean_rank": 4.0,
+     "stress_rank": 4.0,
+     "selected_minus_model": {
+      "estimate": -7.496711902883726,
+      "ci_low": -9.382047133072582,
+      "ci_high": -5.784764189678758
+     }
+    }
+   ]
+  },
+  {
+   "id": "pm25-dropout-30",
+   "scope": "full",
+   "group": "pm25_dropout",
+   "label": "PM₂.₅ dropout 30%",
+   "channel": "PM₂.₅",
+   "severity": "30%",
+   "selected_family": "persistence",
+   "selection_regret": 0.0,
+   "regret_ci": [
+    0.0,
+    0.0
+   ],
+   "kendall_tau_b": 0.6666666666666666,
+   "oracle_families": [
+    "persistence"
+   ],
+   "status": "within",
+   "metrics": [
+    {
+     "model": "persistence",
+     "mae": 12.747163312451498,
+     "rmse": 25.036638574851313,
+     "r2": 0.906496795249917,
+     "clean_mae": 10.27964339759353,
+     "rpd_percent": 24.003944683875087,
+     "clean_rank": 2.0,
+     "stress_rank": 1.0,
+     "selected_minus_model": {
+      "estimate": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0
+     }
+    },
+    {
+     "model": "xgboost",
+     "mae": 15.30367442861442,
+     "rmse": 27.488609639748322,
+     "r2": 0.887571507999016,
+     "clean_mae": 9.710861193660564,
+     "rpd_percent": 57.59338047798428,
+     "clean_rank": 1.0,
+     "stress_rank": 2.0,
+     "selected_minus_model": {
+      "estimate": -2.556511116162918,
+      "ci_low": -3.0160987599250175,
+      "ci_high": -2.114067329055753
+     }
+    },
+    {
+     "model": "mlp",
+     "mae": 18.35829290105367,
+     "rmse": 28.642914175127785,
+     "r2": 0.877355702934752,
+     "clean_mae": 10.810205954093624,
+     "rpd_percent": 69.82371084337876,
+     "clean_rank": 3.0,
+     "stress_rank": 3.0,
+     "selected_minus_model": {
+      "estimate": -5.6111295886021715,
+      "ci_low": -6.015296180799908,
+      "ci_high": -5.217013772786648
+     }
+    },
+    {
+     "model": "gru",
+     "mae": 22.81552776944875,
+     "rmse": 45.0110135558292,
+     "r2": 0.633741109568719,
+     "clean_mae": 15.95741437488415,
+     "rpd_percent": 42.97759795821802,
+     "clean_rank": 4.0,
+     "stress_rank": 4.0,
+     "selected_minus_model": {
+      "estimate": -10.068364456997255,
+      "ci_low": -11.983380248829238,
+      "ci_high": -8.306412156579992
+     }
+    }
+   ]
+  },
+  {
+   "id": "pm25-dropout-50",
+   "scope": "full",
+   "group": "pm25_dropout",
+   "label": "PM₂.₅ dropout 50%",
+   "channel": "PM₂.₅",
+   "severity": "50%",
+   "selected_family": "persistence",
+   "selection_regret": 0.0,
+   "regret_ci": [
+    0.0,
+    0.0
+   ],
+   "kendall_tau_b": 0.6666666666666666,
+   "oracle_families": [
+    "persistence"
+   ],
+   "status": "within",
+   "metrics": [
+    {
+     "model": "persistence",
+     "mae": 15.671019287616732,
+     "rmse": 30.820305768263804,
+     "r2": 0.85859776557235,
+     "clean_mae": 10.27964339759353,
+     "rpd_percent": 52.44711009416266,
+     "clean_rank": 2.0,
+     "stress_rank": 1.0,
+     "selected_minus_model": {
+      "estimate": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0
+     }
+    },
+    {
+     "model": "xgboost",
+     "mae": 18.788658799282953,
+     "rmse": 32.50420500744623,
+     "r2": 0.842984687359907,
+     "clean_mae": 9.710861193660564,
+     "rpd_percent": 93.48087079597582,
+     "clean_rank": 1.0,
+     "stress_rank": 2.0,
+     "selected_minus_model": {
+      "estimate": -3.117639511666221,
+      "ci_low": -3.7698833281751623,
+      "ci_high": -2.4967705538575014
+     }
+    },
+    {
+     "model": "mlp",
+     "mae": 22.014861390080544,
+     "rmse": 32.9102926360757,
+     "r2": 0.838325265441402,
+     "clean_mae": 10.810205954093624,
+     "rpd_percent": 103.64886185858397,
+     "clean_rank": 3.0,
+     "stress_rank": 3.0,
+     "selected_minus_model": {
+      "estimate": -6.343842102463812,
+      "ci_low": -6.8764388719145595,
+      "ci_high": -5.823820572546371
+     }
+    },
+    {
+     "model": "gru",
+     "mae": 26.401145285503492,
+     "rmse": 48.14255723941929,
+     "r2": 0.604711151368322,
+     "clean_mae": 15.95741437488415,
+     "rpd_percent": 65.44751339576067,
+     "clean_rank": 4.0,
+     "stress_rank": 4.0,
+     "selected_minus_model": {
+      "estimate": -10.730125997886761,
+      "ci_low": -12.576520675748538,
+      "ci_high": -9.019426052324633
+     }
+    }
+   ]
+  },
+  {
+   "id": "pm25-outage-6",
+   "scope": "affected",
+   "group": "pm25_outage",
+   "label": "PM₂.₅ outage 6 h",
+   "channel": "PM₂.₅",
+   "severity": "6 h",
+   "selected_family": "persistence",
+   "selection_regret": 0.19752357496568962,
+   "regret_ci": [
+    0.0,
+    0.7808064724037963
+   ],
+   "kendall_tau_b": 1.0,
+   "oracle_families": [
+    "xgboost"
+   ],
+   "status": "within",
+   "metrics": [
+    {
+     "model": "persistence",
+     "mae": 13.93701402521837,
+     "rmse": 26.74882145961105,
+     "r2": 0.857012485621443,
+     "clean_mae": 10.609936379425688,
+     "rpd_percent": 31.358130028417513,
+     "clean_rank": 2.0,
+     "stress_rank": 2.0,
+     "selected_minus_model": {
+      "estimate": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0
+     }
+    },
+    {
+     "model": "xgboost",
+     "mae": 13.73949045025268,
+     "rmse": 25.26690416083025,
+     "r2": 0.885600318928214,
+     "clean_mae": 10.099448823977733,
+     "rpd_percent": 36.04198298062461,
+     "clean_rank": 1.0,
+     "stress_rank": 1.0,
+     "selected_minus_model": {
+      "estimate": 0.19752357496568784,
+      "ci_low": -0.3992770760015867,
+      "ci_high": 0.7808064724037963
+     }
+    },
+    {
+     "model": "mlp",
+     "mae": 15.573098149926567,
+     "rmse": 25.815522353063173,
+     "r2": 0.874445393515439,
+     "clean_mae": 11.09669906847685,
+     "rpd_percent": 40.33991598606228,
+     "clean_rank": 3.0,
+     "stress_rank": 3.0,
+     "selected_minus_model": {
+      "estimate": -1.6360841247081996,
+      "ci_low": -2.121549117919084,
+      "ci_high": -1.1812088533684992
+     }
+    },
+    {
+     "model": "gru",
+     "mae": 20.363138542751113,
+     "rmse": 40.02832486002965,
+     "r2": 0.659400891674939,
+     "clean_mae": 16.445148014115535,
+     "rpd_percent": 23.824598752608416,
+     "clean_rank": 4.0,
+     "stress_rank": 4.0,
+     "selected_minus_model": {
+      "estimate": -6.426124517532745,
+      "ci_low": -8.330952196232387,
+      "ci_high": -4.609846301334141
+     }
+    }
+   ]
+  },
+  {
+   "id": "pm25-outage-6",
+   "scope": "full",
+   "group": "pm25_outage",
+   "label": "PM₂.₅ outage 6 h",
+   "channel": "PM₂.₅",
+   "severity": "6 h",
+   "selected_family": "persistence",
+   "selection_regret": 0.5565262311272985,
+   "regret_ci": [
+    0.32418074689809623,
+    0.7518867047241378
+   ],
+   "kendall_tau_b": 1.0,
+   "oracle_families": [
+    "xgboost"
+   ],
+   "status": "within",
+   "metrics": [
+    {
+     "model": "persistence",
+     "mae": 10.412529021426279,
+     "rmse": 20.033666261783015,
+     "r2": 0.939879930015446,
+     "clean_mae": 10.27964339759353,
+     "rpd_percent": 1.292706553068344,
+     "clean_rank": 2.0,
+     "stress_rank": 2.0,
+     "selected_minus_model": {
+      "estimate": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0
+     }
+    },
+    {
+     "model": "xgboost",
+     "mae": 9.85600279029898,
+     "rmse": 19.245939902799346,
+     "r2": 0.944745213788801,
+     "clean_mae": 9.710861193660564,
+     "rpd_percent": 1.49463156504767,
+     "clean_rank": 1.0,
+     "stress_rank": 1.0,
+     "selected_minus_model": {
+      "estimate": 0.5565262311272967,
+      "ci_low": 0.32418074689809623,
+      "ci_high": 0.7518867047241378
+     }
+    },
+    {
+     "model": "mlp",
+     "mae": 10.988674680226879,
+     "rmse": 19.282448134665987,
+     "r2": 0.944279355636959,
+     "clean_mae": 10.810205954093624,
+     "rpd_percent": 1.650928084914724,
+     "clean_rank": 3.0,
+     "stress_rank": 3.0,
+     "selected_minus_model": {
+      "estimate": -0.5761456588005984,
+      "ci_low": -0.7803353631550434,
+      "ci_high": -0.3731914197758367
+     }
+    },
+    {
+     "model": "gru",
+     "mae": 16.113671218921482,
+     "rmse": 37.42882194854499,
+     "r2": 0.686956727407057,
+     "clean_mae": 15.95741437488415,
+     "rpd_percent": 0.979211546221854,
+     "clean_rank": 4.0,
+     "stress_rank": 4.0,
+     "selected_minus_model": {
+      "estimate": -5.701142197495203,
+      "ci_low": -7.538573912578,
+      "ci_high": -4.038450556599678
+     }
+    }
+   ]
+  },
+  {
+   "id": "pm25-outage-12",
+   "scope": "affected",
+   "group": "pm25_outage",
+   "label": "PM₂.₅ outage 12 h",
+   "channel": "PM₂.₅",
+   "severity": "12 h",
+   "selected_family": "persistence",
+   "selection_regret": 2.282187286654409,
+   "regret_ci": [
+    1.695576769265747,
+    2.909690645757247
+   ],
+   "kendall_tau_b": 0.6666666666666666,
+   "oracle_families": [
+    "xgboost"
+   ],
+   "status": "above",
+   "metrics": [
+    {
+     "model": "persistence",
+     "mae": 21.30574441737983,
+     "rmse": 41.9165003718956,
+     "r2": 0.69902942408812,
+     "clean_mae": 10.56532317135497,
+     "rpd_percent": 101.65729028662957,
+     "clean_rank": 2.0,
+     "stress_rank": 3.0,
+     "selected_minus_model": {
+      "estimate": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0
+     }
+    },
+    {
+     "model": "xgboost",
+     "mae": 19.023557130725422,
+     "rmse": 36.49013199390427,
+     "r2": 0.773366131448875,
+     "clean_mae": 9.990249336414532,
+     "rpd_percent": 90.42124465687174,
+     "clean_rank": 1.0,
+     "stress_rank": 1.0,
+     "selected_minus_model": {
+      "estimate": 2.2821872866544126,
+      "ci_low": 1.695576769265747,
+      "ci_high": 2.909690645757247
+     }
+    },
+    {
+     "model": "mlp",
+     "mae": 19.865593611506622,
+     "rmse": 35.290328813778096,
+     "r2": 0.784036503750564,
+     "clean_mae": 11.019612524993988,
+     "rpd_percent": 80.27488322705302,
+     "clean_rank": 3.0,
+     "stress_rank": 2.0,
+     "selected_minus_model": {
+      "estimate": 1.4401508058732126,
+      "ci_low": 0.8082531283729437,
+      "ci_high": 2.0737118052903485
+     }
+    },
+    {
+     "model": "gru",
+     "mae": 24.204820281371838,
+     "rmse": 47.239076619334554,
+     "r2": 0.583435646781603,
+     "clean_mae": 16.38907037838207,
+     "rpd_percent": 47.688793339365354,
+     "clean_rank": 4.0,
+     "stress_rank": 4.0,
+     "selected_minus_model": {
+      "estimate": -2.899075863992003,
+      "ci_low": -4.423356346148304,
+      "ci_high": -1.4254533889053027
+     }
+    }
+   ]
+  },
+  {
+   "id": "pm25-outage-12",
+   "scope": "full",
+   "group": "pm25_outage",
+   "label": "PM₂.₅ outage 12 h",
+   "channel": "PM₂.₅",
+   "severity": "12 h",
+   "selected_family": "persistence",
+   "selection_regret": 0.6508311848370276,
+   "regret_ci": [
+    0.43002992778893945,
+    0.8410334087962835
+   ],
+   "kendall_tau_b": 1.0,
+   "oracle_families": [
+    "xgboost"
+   ],
+   "status": "within",
+   "metrics": [
+    {
+     "model": "persistence",
+     "mae": 10.795926560500618,
+     "rmse": 21.410602883945085,
+     "r2": 0.93133592786552,
+     "clean_mae": 10.27964339759353,
+     "rpd_percent": 5.022383977132422,
+     "clean_rank": 2.0,
+     "stress_rank": 2.0,
+     "selected_minus_model": {
+      "estimate": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0
+     }
+    },
+    {
+     "model": "xgboost",
+     "mae": 10.14509537566359,
+     "rmse": 20.26900414968993,
+     "r2": 0.938605436539085,
+     "clean_mae": 9.710861193660564,
+     "rpd_percent": 4.471634115072125,
+     "clean_rank": 1.0,
+     "stress_rank": 1.0,
+     "selected_minus_model": {
+      "estimate": 0.6508311848370276,
+      "ci_low": 0.43002992778893945,
+      "ci_high": 0.8410334087962835
+     }
+    },
+    {
+     "model": "mlp",
+     "mae": 11.23543208677347,
+     "rmse": 20.135329902717945,
+     "r2": 0.939246879309765,
+     "clean_mae": 10.810205954093624,
+     "rpd_percent": 3.933561807107115,
+     "clean_rank": 3.0,
+     "stress_rank": 3.0,
+     "selected_minus_model": {
+      "estimate": -0.439505526272848,
+      "ci_low": -0.6471206672226445,
+      "ci_high": -0.23729782856470258
+     }
+    },
+    {
+     "model": "gru",
+     "mae": 16.333277467562212,
+     "rmse": 38.07564186920612,
+     "r2": 0.682826326639605,
+     "clean_mae": 15.95741437488415,
+     "rpd_percent": 2.355413501510894,
+     "clean_rank": 4.0,
+     "stress_rank": 4.0,
+     "selected_minus_model": {
+      "estimate": -5.53735090706159,
+      "ci_low": -7.352589580044936,
+      "ci_high": -3.8850156239368405
+     }
+    }
+   ]
+  }
+ ],
+ "site_shift": {
+  "stations": [
+   {
+    "station": "Aotizhongxin",
+    "selected_family": "persistence",
+    "selection_regret": 0.7953252667571373,
+    "regret_ci": [
+     0.47563510029017586,
+     1.0481688096759059
+    ],
+    "status": "within_ci_crosses",
+    "kendall_tau_b": 0.6666666666666669,
+    "validation_mae": {
+     "gru": 9.860035070729017,
+     "mlp": 10.204580541719158,
+     "persistence": 9.883246547252963,
+     "xgboost": 9.525808370018161
+    },
+    "test_mae": {
+     "gru": 10.46171280068497,
+     "mlp": 10.71134483152043,
+     "persistence": 10.438526978207667,
+     "xgboost": 9.64320171145053
+    },
+    "validation_ranks": {
+     "gru": 2.0,
+     "mlp": 4.0,
+     "persistence": 3.0,
+     "xgboost": 1.0
+    },
+    "test_ranks": {
+     "gru": 3.0,
+     "mlp": 4.0,
+     "persistence": 2.0,
+     "xgboost": 1.0
+    },
+    "selected_minus_model": {
+     "gru": {
+      "estimate": -0.023185822477302054,
+      "ci_low": -0.3674966866723393,
+      "ci_high": 0.3129300110931189
+     },
+     "mlp": {
+      "estimate": -0.27281785331276254,
+      "ci_low": -0.5532565160187215,
+      "ci_high": 0.0030435073156604518
+     },
+     "persistence": {
+      "estimate": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0
+     },
+     "xgboost": {
+      "estimate": 0.7953252667571373,
+      "ci_low": 0.47563510029017586,
+      "ci_high": 1.0481688096759059
+     }
+    }
+   },
+   {
+    "station": "Changping",
+    "selected_family": "persistence",
+    "selection_regret": 0.3057983198562706,
+    "regret_ci": [
+     0.0,
+     0.5461212762564667
+    ],
+    "status": "within",
+    "kendall_tau_b": 1.0,
+    "validation_mae": {
+     "gru": 11.940194191202606,
+     "mlp": 10.385853106978367,
+     "persistence": 9.919433898847352,
+     "xgboost": 9.655740647654406
+    },
+    "test_mae": {
+     "gru": 11.022429200744003,
+     "mlp": 10.404632535927604,
+     "persistence": 9.588364561647005,
+     "xgboost": 9.282566241790734
+    },
+    "validation_ranks": {
+     "gru": 4.0,
+     "mlp": 3.0,
+     "persistence": 2.0,
+     "xgboost": 1.0
+    },
+    "test_ranks": {
+     "gru": 4.0,
+     "mlp": 3.0,
+     "persistence": 2.0,
+     "xgboost": 1.0
+    },
+    "selected_minus_model": {
+     "gru": {
+      "estimate": -1.4340646390969987,
+      "ci_low": -2.2840034462855425,
+      "ci_high": -0.8018082747162766
+     },
+     "mlp": {
+      "estimate": -0.8162679742805992,
+      "ci_low": -1.0651360242447734,
+      "ci_high": -0.5862973330363908
+     },
+     "persistence": {
+      "estimate": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0
+     },
+     "xgboost": {
+      "estimate": 0.3057983198562706,
+      "ci_low": -0.006496721453551523,
+      "ci_high": 0.5461212762564667
+     }
+    }
+   },
+   {
+    "station": "Dingling",
+    "selected_family": "persistence",
+    "selection_regret": 0.236556679198479,
+    "regret_ci": [
+     0.08325372902033194,
+     0.3957478663807906
+    ],
+    "status": "within",
+    "kendall_tau_b": 0.6666666666666669,
+    "validation_mae": {
+     "gru": 9.95843230001619,
+     "mlp": 10.619807049158872,
+     "persistence": 10.065886161821938,
+     "xgboost": 9.69648494786373
+    },
+    "test_mae": {
+     "gru": 9.190087589244078,
+     "mlp": 9.99734951520045,
+     "persistence": 8.767606464551138,
+     "xgboost": 8.531049785352659
+    },
+    "validation_ranks": {
+     "gru": 2.0,
+     "mlp": 4.0,
+     "persistence": 3.0,
+     "xgboost": 1.0
+    },
+    "test_ranks": {
+     "gru": 3.0,
+     "mlp": 4.0,
+     "persistence": 2.0,
+     "xgboost": 1.0
+    },
+    "selected_minus_model": {
+     "gru": {
+      "estimate": -0.42248112469293986,
+      "ci_low": -0.7635405023776192,
+      "ci_high": -0.1511381814398921
+     },
+     "mlp": {
+      "estimate": -1.2297430506493114,
+      "ci_low": -1.4478735217464078,
+      "ci_high": -1.020297315864502
+     },
+     "persistence": {
+      "estimate": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0
+     },
+     "xgboost": {
+      "estimate": 0.236556679198479,
+      "ci_low": 0.08325372902033194,
+      "ci_high": 0.3957478663807906
+     }
+    }
+   },
+   {
+    "station": "Dongsi",
+    "selected_family": "persistence",
+    "selection_regret": 0.39357814241132694,
+    "regret_ci": [
+     0.0,
+     0.8478537913866667
+    ],
+    "status": "within",
+    "kendall_tau_b": 1.0,
+    "validation_mae": {
+     "gru": 9.585114121225523,
+     "mlp": 10.378504236050075,
+     "persistence": 9.862193262110079,
+     "xgboost": 9.543635783250874
+    },
+    "test_mae": {
+     "gru": 11.100685351071919,
+     "mlp": 11.962103439974353,
+     "persistence": 11.250447440639542,
+     "xgboost": 10.856869298228215
+    },
+    "validation_ranks": {
+     "gru": 2.0,
+     "mlp": 4.0,
+     "persistence": 3.0,
+     "xgboost": 1.0
+    },
+    "test_ranks": {
+     "gru": 2.0,
+     "mlp": 4.0,
+     "persistence": 3.0,
+     "xgboost": 1.0
+    },
+    "selected_minus_model": {
+     "gru": {
+      "estimate": 0.1497620895676235,
+      "ci_low": -0.2364009923862557,
+      "ci_high": 0.48307744268697933
+     },
+     "mlp": {
+      "estimate": -0.7116559993348108,
+      "ci_low": -1.039784507521743,
+      "ci_high": -0.38740171519462524
+     },
+     "persistence": {
+      "estimate": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0
+     },
+     "xgboost": {
+      "estimate": 0.39357814241132694,
+      "ci_low": -0.19320148827897132,
+      "ci_high": 0.8478537913866667
+     }
+    }
+   },
+   {
+    "station": "Guanyuan",
+    "selected_family": "persistence",
+    "selection_regret": 0.8003276858091919,
+    "regret_ci": [
+     0.57926532886375,
+     0.9908524587609027
+    ],
+    "status": "within",
+    "kendall_tau_b": 1.0,
+    "validation_mae": {
+     "gru": 9.609965235545815,
+     "mlp": 10.419834385602828,
+     "persistence": 9.930541795777534,
+     "xgboost": 9.57991625175316
+    },
+    "test_mae": {
+     "gru": 10.208711841576111,
+     "mlp": 11.19071962381762,
+     "persistence": 10.840373395565928,
+     "xgboost": 10.040045709756736
+    },
+    "validation_ranks": {
+     "gru": 2.0,
+     "mlp": 4.0,
+     "persistence": 3.0,
+     "xgboost": 1.0
+    },
+    "test_ranks": {
+     "gru": 2.0,
+     "mlp": 4.0,
+     "persistence": 3.0,
+     "xgboost": 1.0
+    },
+    "selected_minus_model": {
+     "gru": {
+      "estimate": 0.6316615539898169,
+      "ci_low": 0.3965455582120257,
+      "ci_high": 0.8720314636976979
+     },
+     "mlp": {
+      "estimate": -0.35034622825169137,
+      "ci_low": -0.6142613282864451,
+      "ci_high": -0.07900054088442765
+     },
+     "persistence": {
+      "estimate": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0
+     },
+     "xgboost": {
+      "estimate": 0.8003276858091919,
+      "ci_low": 0.5705972646804168,
+      "ci_high": 0.9905063200019941
+     }
+    }
+   },
+   {
+    "station": "Gucheng",
+    "selected_family": "persistence",
+    "selection_regret": 0.0,
+    "regret_ci": [
+     0.0,
+     0.5941280710638133
+    ],
+    "status": "within",
+    "kendall_tau_b": 0.6666666666666669,
+    "validation_mae": {
+     "gru": 10.23141618913091,
+     "mlp": 10.273963132190461,
+     "persistence": 9.864765815675288,
+     "xgboost": 9.571216094678906
+    },
+    "test_mae": {
+     "gru": 11.285194678639526,
+     "mlp": 11.638582285314238,
+     "persistence": 10.578036025566531,
+     "xgboost": 10.673375353727973
+    },
+    "validation_ranks": {
+     "gru": 3.0,
+     "mlp": 4.0,
+     "persistence": 2.0,
+     "xgboost": 1.0
+    },
+    "test_ranks": {
+     "gru": 3.0,
+     "mlp": 4.0,
+     "persistence": 1.0,
+     "xgboost": 2.0
+    },
+    "selected_minus_model": {
+     "gru": {
+      "estimate": -0.7071586530729945,
+      "ci_low": -1.110462213606358,
+      "ci_high": -0.33534060109590447
+     },
+     "mlp": {
+      "estimate": -1.0605462597477064,
+      "ci_low": -1.383726408183015,
+      "ci_high": -0.7585390053082259
+     },
+     "persistence": {
+      "estimate": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0
+     },
+     "xgboost": {
+      "estimate": -0.09533932816144208,
+      "ci_low": -1.0142344951192812,
+      "ci_high": 0.5941280710638133
+     }
+    }
+   },
+   {
+    "station": "Huairou",
+    "selected_family": "persistence",
+    "selection_regret": 0.396823754043945,
+    "regret_ci": [
+     0.24489521401363948,
+     0.5518014413886132
+    ],
+    "status": "within",
+    "kendall_tau_b": 0.3333333333333334,
+    "validation_mae": {
+     "gru": 9.57592609226136,
+     "mlp": 10.358790531925209,
+     "persistence": 9.990902351875768,
+     "xgboost": 9.734456308367102
+    },
+    "test_mae": {
+     "gru": 8.615799624852787,
+     "mlp": 9.688177739445667,
+     "persistence": 8.498260264439805,
+     "xgboost": 8.10143651039586
+    },
+    "validation_ranks": {
+     "gru": 1.0,
+     "mlp": 4.0,
+     "persistence": 3.0,
+     "xgboost": 2.0
+    },
+    "test_ranks": {
+     "gru": 3.0,
+     "mlp": 4.0,
+     "persistence": 2.0,
+     "xgboost": 1.0
+    },
+    "selected_minus_model": {
+     "gru": {
+      "estimate": -0.11753936041298196,
+      "ci_low": -0.29986727029783095,
+      "ci_high": 0.07631559288839206
+     },
+     "mlp": {
+      "estimate": -1.1899174750058616,
+      "ci_low": -1.4408463874587902,
+      "ci_high": -0.9407831917414066
+     },
+     "persistence": {
+      "estimate": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0
+     },
+     "xgboost": {
+      "estimate": 0.396823754043945,
+      "ci_low": 0.24489521401363948,
+      "ci_high": 0.5518014413886132
+     }
+    }
+   },
+   {
+    "station": "Nongzhanguan",
+    "selected_family": "persistence",
+    "selection_regret": 0.7459828885595066,
+    "regret_ci": [
+     0.529339637368011,
+     0.9739024414691285
+    ],
+    "status": "within",
+    "kendall_tau_b": 1.0,
+    "validation_mae": {
+     "gru": 9.362496681865249,
+     "mlp": 10.39732425607064,
+     "persistence": 9.879838002149034,
+     "xgboost": 9.564480571664346
+    },
+    "test_mae": {
+     "gru": 9.930392140449545,
+     "mlp": 10.978837442920138,
+     "persistence": 10.676375029009051,
+     "xgboost": 10.045377931992673
+    },
+    "validation_ranks": {
+     "gru": 1.0,
+     "mlp": 4.0,
+     "persistence": 3.0,
+     "xgboost": 2.0
+    },
+    "test_ranks": {
+     "gru": 1.0,
+     "mlp": 4.0,
+     "persistence": 3.0,
+     "xgboost": 2.0
+    },
+    "selected_minus_model": {
+     "gru": {
+      "estimate": 0.7459828885595066,
+      "ci_low": 0.5121461999943194,
+      "ci_high": 0.9724608764707768
+     },
+     "mlp": {
+      "estimate": -0.30246241391108697,
+      "ci_low": -0.5541473478690263,
+      "ci_high": -0.062343742806035725
+     },
+     "persistence": {
+      "estimate": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0
+     },
+     "xgboost": {
+      "estimate": 0.6309970970163779,
+      "ci_low": 0.32079904713440643,
+      "ci_high": 0.8831645552136747
+     }
+    }
+   },
+   {
+    "station": "Shunyi",
+    "selected_family": "persistence",
+    "selection_regret": 1.0503523126756917,
+    "regret_ci": [
+     0.741690783281534,
+     1.3108705020704376
+    ],
+    "status": "above_ci_crosses",
+    "kendall_tau_b": 1.0,
+    "validation_mae": {
+     "gru": 9.69872754420708,
+     "mlp": 10.374476158347132,
+     "persistence": 9.849671059563816,
+     "xgboost": 9.625865830908403
+    },
+    "test_mae": {
+     "gru": 10.081111184590116,
+     "mlp": 11.334770726205054,
+     "persistence": 10.90479013516718,
+     "xgboost": 9.854437822491489
+    },
+    "validation_ranks": {
+     "gru": 2.0,
+     "mlp": 4.0,
+     "persistence": 3.0,
+     "xgboost": 1.0
+    },
+    "test_ranks": {
+     "gru": 2.0,
+     "mlp": 4.0,
+     "persistence": 3.0,
+     "xgboost": 1.0
+    },
+    "selected_minus_model": {
+     "gru": {
+      "estimate": 0.8236789505770652,
+      "ci_low": 0.5127668433198075,
+      "ci_high": 1.1230208148569465
+     },
+     "mlp": {
+      "estimate": -0.42998059103787334,
+      "ci_low": -0.7520618997053304,
+      "ci_high": -0.11747826514424327
+     },
+     "persistence": {
+      "estimate": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0
+     },
+     "xgboost": {
+      "estimate": 1.0503523126756917,
+      "ci_low": 0.7407086815094395,
+      "ci_high": 1.3108705020704376
+     }
+    }
+   },
+   {
+    "station": "Tiantan",
+    "selected_family": "persistence",
+    "selection_regret": 0.6273345727446706,
+    "regret_ci": [
+     0.2821090042348777,
+     0.9234989827668263
+    ],
+    "status": "within",
+    "kendall_tau_b": 1.0,
+    "validation_mae": {
+     "gru": 10.755256800250642,
+     "mlp": 10.362388786888921,
+     "persistence": 9.870692140446879,
+     "xgboost": 9.503089598165825
+    },
+    "test_mae": {
+     "gru": 11.187411738178954,
+     "mlp": 10.939422821959191,
+     "persistence": 10.543145441892833,
+     "xgboost": 9.915810869148162
+    },
+    "validation_ranks": {
+     "gru": 4.0,
+     "mlp": 3.0,
+     "persistence": 2.0,
+     "xgboost": 1.0
+    },
+    "test_ranks": {
+     "gru": 4.0,
+     "mlp": 3.0,
+     "persistence": 2.0,
+     "xgboost": 1.0
+    },
+    "selected_minus_model": {
+     "gru": {
+      "estimate": -0.644266296286121,
+      "ci_low": -1.0239025176978165,
+      "ci_high": -0.30357004778149405
+     },
+     "mlp": {
+      "estimate": -0.3962773800663584,
+      "ci_low": -0.725564235659411,
+      "ci_high": -0.08938781421005361
+     },
+     "persistence": {
+      "estimate": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0
+     },
+     "xgboost": {
+      "estimate": 0.6273345727446706,
+      "ci_low": 0.2821090042348777,
+      "ci_high": 0.9234989827668263
+     }
+    }
+   },
+   {
+    "station": "Wanliu",
+    "selected_family": "persistence",
+    "selection_regret": 0.6391105827175405,
+    "regret_ci": [
+     0.44321195514016487,
+     0.8357149650215149
+    ],
+    "status": "within",
+    "kendall_tau_b": 1.0,
+    "validation_mae": {
+     "gru": 9.504791591440352,
+     "mlp": 10.358547653774567,
+     "persistence": 9.920188981317995,
+     "xgboost": 9.448327898139048
+    },
+    "test_mae": {
+     "gru": 9.741381045466936,
+     "mlp": 10.834449440785287,
+     "persistence": 9.859058850734188,
+     "xgboost": 9.219948268016648
+    },
+    "validation_ranks": {
+     "gru": 2.0,
+     "mlp": 4.0,
+     "persistence": 3.0,
+     "xgboost": 1.0
+    },
+    "test_ranks": {
+     "gru": 2.0,
+     "mlp": 4.0,
+     "persistence": 3.0,
+     "xgboost": 1.0
+    },
+    "selected_minus_model": {
+     "gru": {
+      "estimate": 0.11767780526725247,
+      "ci_low": -0.14679747853663666,
+      "ci_high": 0.3893800105746521
+     },
+     "mlp": {
+      "estimate": -0.9753905900510986,
+      "ci_low": -1.2835925718149985,
+      "ci_high": -0.6566091760624333
+     },
+     "persistence": {
+      "estimate": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0
+     },
+     "xgboost": {
+      "estimate": 0.6391105827175405,
+      "ci_low": 0.44321195514016487,
+      "ci_high": 0.8357149650215149
+     }
+    }
+   },
+   {
+    "station": "Wanshouxigong",
+    "selected_family": "persistence",
+    "selection_regret": 0.6133827681689095,
+    "regret_ci": [
+     0.3797786358321135,
+     0.9222770049940289
+    ],
+    "status": "within",
+    "kendall_tau_b": 1.0,
+    "validation_mae": {
+     "gru": 9.323149684139661,
+     "mlp": 10.232152881833379,
+     "persistence": 9.778206599965426,
+     "xgboost": 9.420208710918127
+    },
+    "test_mae": {
+     "gru": 10.79817549107302,
+     "mlp": 11.683317234836991,
+     "persistence": 11.411558259241929,
+     "xgboost": 10.826114668103374
+    },
+    "validation_ranks": {
+     "gru": 1.0,
+     "mlp": 4.0,
+     "persistence": 3.0,
+     "xgboost": 2.0
+    },
+    "test_ranks": {
+     "gru": 1.0,
+     "mlp": 4.0,
+     "persistence": 3.0,
+     "xgboost": 2.0
+    },
+    "selected_minus_model": {
+     "gru": {
+      "estimate": 0.6133827681689095,
+      "ci_low": 0.351648098527886,
+      "ci_high": 0.8817056330311185
+     },
+     "mlp": {
+      "estimate": -0.2717589755950627,
+      "ci_low": -0.5498007179778247,
+      "ci_high": 0.009309916886317828
+     },
+     "persistence": {
+      "estimate": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0
+     },
+     "xgboost": {
+      "estimate": 0.5854435911385547,
+      "ci_low": 0.17826780680577703,
+      "ci_high": 0.9042529723487992
+     }
+    }
+   }
+  ],
+  "mean_selection_regret": {
+   "estimate": 0.5503810810785558,
+   "ci_low": 0.40041729870083886,
+   "ci_high": 0.7387928892039342
+  },
+  "within_threshold": 11,
+  "fixed_family_metrics": [
+   {
+    "mae": 10.279711903888566,
+    "model": "persistence",
+    "r2": 0.9422164516034349,
+    "rmse": 19.65486295419703
+   },
+   {
+    "mae": 9.749186180871254,
+    "model": "xgboost",
+    "r2": 0.9456180469392997,
+    "rmse": 19.09145509193701
+   },
+   {
+    "mae": 10.946975636492253,
+    "model": "mlp",
+    "r2": 0.9451267470411261,
+    "rmse": 19.128882742847804
+   },
+   {
+    "mae": 10.301924390547663,
+    "model": "gru",
+    "r2": 0.9407795788065593,
+    "rmse": 19.4105672967703
+   }
+  ],
+  "selected_policy_mae": 10.279711903888566,
+  "uncertainty": {
+   "block_hours": 24,
+   "conditional_on": "fitted_seeds_and_observed_stations",
+   "confidence": 0.95,
+   "method": "paired_calendar_moving_block_bootstrap",
+   "replicates": 2000,
+   "seed": 424242
+  }
+ },
+ "failure_analysis": {
+  "boundaries_ug_m3": [
+   50.0,
+   100.0,
+   200.0
+  ],
+  "clean_bands": [
+   {
+    "model": "gru",
+    "concentration_band": "100 to <200",
+    "mae": 20.595320214498468,
+    "bias": -8.641141964143548,
+    "targets": 18840
+   },
+   {
+    "model": "gru",
+    "concentration_band": "50 to <100",
+    "mae": 10.279286129153075,
+    "bias": 1.075604913018727,
+    "targets": 25539
+   },
+   {
+    "model": "gru",
+    "concentration_band": "<50",
+    "mae": 6.389214697541868,
+    "bias": 2.289490232522517,
+    "targets": 49592
+   },
+   {
+    "model": "gru",
+    "concentration_band": ">=200",
+    "mae": 75.28439988715863,
+    "bias": -64.88062968490392,
+    "targets": 8782
+   },
+   {
+    "model": "mlp",
+    "concentration_band": "100 to <200",
+    "mae": 14.824448287878534,
+    "bias": 0.06152940081488802,
+    "targets": 18840
+   },
+   {
+    "model": "mlp",
+    "concentration_band": "50 to <100",
+    "mae": 10.87744547412805,
+    "bias": 1.8133101221414194,
+    "targets": 25539
+   },
+   {
+    "model": "mlp",
+    "concentration_band": "<50",
+    "mae": 6.849993209981847,
+    "bias": 2.7608627181122105,
+    "targets": 49592
+   },
+   {
+    "model": "mlp",
+    "concentration_band": ">=200",
+    "mae": 24.515204805859558,
+    "bias": -8.546241219576542,
+    "targets": 8782
+   },
+   {
+    "model": "persistence",
+    "concentration_band": "100 to <200",
+    "mae": 14.772720568357819,
+    "bias": -2.269820526357422,
+    "targets": 18840
+   },
+   {
+    "model": "persistence",
+    "concentration_band": "50 to <100",
+    "mae": 10.528962566033575,
+    "bias": 0.17687261485416106,
+    "targets": 25539
+   },
+   {
+    "model": "persistence",
+    "concentration_band": "<50",
+    "mae": 6.29075667542437,
+    "bias": 1.6926746290147365,
+    "targets": 49592
+   },
+   {
+    "model": "persistence",
+    "concentration_band": ">=200",
+    "mae": 22.58815378498895,
+    "bias": -5.380940065223624,
+    "targets": 8782
+   },
+   {
+    "model": "xgboost",
+    "concentration_band": "100 to <200",
+    "mae": 13.37057376378503,
+    "bias": -2.2163689650192295,
+    "targets": 18840
+   },
+   {
+    "model": "xgboost",
+    "concentration_band": "50 to <100",
+    "mae": 9.305108841689949,
+    "bias": 1.1905419815049656,
+    "targets": 25539
+   },
+   {
+    "model": "xgboost",
+    "concentration_band": "<50",
+    "mae": 5.780008154615273,
+    "bias": 2.4393600940437197,
+    "targets": 49592
+   },
+   {
+    "model": "xgboost",
+    "concentration_band": ">=200",
+    "mae": 25.1967050670322,
+    "bias": -13.354655517155612,
+    "targets": 8782
+   }
+  ],
+  "clean_seasons": [
+   {
+    "model": "gru",
+    "season": "DJF",
+    "mae": 31.02795713435032,
+    "bias": -19.923938226486506,
+    "targets": 25580
+   },
+   {
+    "model": "gru",
+    "season": "JJA",
+    "mae": 7.915959824161753,
+    "bias": 1.7324780574899397,
+    "targets": 25906
+   },
+   {
+    "model": "gru",
+    "season": "MAM",
+    "mae": 12.698058025045981,
+    "bias": -2.432446970882024,
+    "targets": 25784
+   },
+   {
+    "model": "gru",
+    "season": "SON",
+    "mae": 12.306362494363924,
+    "bias": -2.9106937206756984,
+    "targets": 25483
+   },
+   {
+    "model": "mlp",
+    "season": "DJF",
+    "mae": 14.356935479626339,
+    "bias": 1.3793154378956887,
+    "targets": 25580
+   },
+   {
+    "model": "mlp",
+    "season": "JJA",
+    "mae": 8.471683491965452,
+    "bias": 1.1378905140736733,
+    "targets": 25906
+   },
+   {
+    "model": "mlp",
+    "season": "MAM",
+    "mae": 10.56830151457717,
+    "bias": 0.08638693902766657,
+    "targets": 25784
+   },
+   {
+    "model": "mlp",
+    "season": "SON",
+    "mae": 9.875187352592418,
+    "bias": 1.6982582726096183,
+    "targets": 25483
+   },
+   {
+    "model": "persistence",
+    "season": "DJF",
+    "mae": 13.73542886111032,
+    "bias": -0.023932587955989185,
+    "targets": 25580
+   },
+   {
+    "model": "persistence",
+    "season": "JJA",
+    "mae": 7.994895213323187,
+    "bias": 0.0020201879656110825,
+    "targets": 25906
+   },
+   {
+    "model": "persistence",
+    "season": "MAM",
+    "mae": 9.990214480655853,
+    "bias": -0.026219560410807804,
+    "targets": 25784
+   },
+   {
+    "model": "persistence",
+    "season": "SON",
+    "mae": 9.42729794217097,
+    "bias": -0.0008818848113130904,
+    "targets": 25483
+   },
+   {
+    "model": "xgboost",
+    "season": "DJF",
+    "mae": 13.487597580792949,
+    "bias": -1.2850581513744566,
+    "targets": 25580
+   },
+   {
+    "model": "xgboost",
+    "season": "JJA",
+    "mae": 7.425678867637049,
+    "bias": 1.0597727021817003,
+    "targets": 25906
+   },
+   {
+    "model": "xgboost",
+    "season": "MAM",
+    "mae": 9.382308972180757,
+    "bias": -0.47437491319748243,
+    "targets": 25784
+   },
+   {
+    "model": "xgboost",
+    "season": "SON",
+    "mae": 8.580058162688829,
+    "bias": 0.3211423403408224,
+    "targets": 25483
+   }
+  ],
+  "site_bands": [
+   {
+    "model": "gru",
+    "concentration_band": "100 to <200",
+    "mae": 14.276244097886789,
+    "bias": -1.6897336791678563,
+    "targets": 18840
+   },
+   {
+    "model": "gru",
+    "concentration_band": "50 to <100",
+    "mae": 9.929397186479976,
+    "bias": 1.118248092721124,
+    "targets": 25539
+   },
+   {
+    "model": "gru",
+    "concentration_band": "<50",
+    "mae": 6.319875902264983,
+    "bias": 2.446860660196626,
+    "targets": 49592
+   },
+   {
+    "model": "gru",
+    "concentration_band": ">=200",
+    "mae": 25.814195659819546,
+    "bias": -13.264984421268869,
+    "targets": 8782
+   },
+   {
+    "model": "mlp",
+    "concentration_band": "100 to <200",
+    "mae": 14.932233701555083,
+    "bias": -1.0809874186045032,
+    "targets": 18840
+   },
+   {
+    "model": "mlp",
+    "concentration_band": "50 to <100",
+    "mae": 10.923331903772658,
+    "bias": 1.2745538940884893,
+    "targets": 25539
+   },
+   {
+    "model": "mlp",
+    "concentration_band": "<50",
+    "mae": 6.921640380938254,
+    "bias": 2.6209690665524303,
+    "targets": 49592
+   },
+   {
+    "model": "mlp",
+    "concentration_band": ">=200",
+    "mae": 25.31174242650727,
+    "bias": -10.498763444206345,
+    "targets": 8782
+   },
+   {
+    "model": "persistence",
+    "concentration_band": "100 to <200",
+    "mae": 14.77249014997111,
+    "bias": -2.2695901079707137,
+    "targets": 18840
+   },
+   {
+    "model": "persistence",
+    "concentration_band": "50 to <100",
+    "mae": 10.529003176819801,
+    "bias": 0.17732758259652104,
+    "targets": 25539
+   },
+   {
+    "model": "persistence",
+    "concentration_band": "<50",
+    "mae": 6.290979402755696,
+    "bias": 1.6928973563460614,
+    "targets": 49592
+   },
+   {
+    "model": "persistence",
+    "concentration_band": ">=200",
+    "mae": 22.587918712116362,
+    "bias": -5.380704992351034,
+    "targets": 8782
+   },
+   {
+    "model": "xgboost",
+    "concentration_band": "100 to <200",
+    "mae": 13.398862701405024,
+    "bias": -2.2550553596754543,
+    "targets": 18840
+   },
+   {
+    "model": "xgboost",
+    "concentration_band": "50 to <100",
+    "mae": 9.310730652562217,
+    "bias": 1.2060733480737025,
+    "targets": 25539
+   },
+   {
+    "model": "xgboost",
+    "concentration_band": "<50",
+    "mae": 5.804577675367326,
+    "bias": 2.465861318673535,
+    "targets": 49592
+   },
+   {
+    "model": "xgboost",
+    "concentration_band": ">=200",
+    "mae": 25.42478405030037,
+    "bias": -13.381271656438264,
+    "targets": 8782
+   }
+  ],
+  "site_seasons": [
+   {
+    "model": "gru",
+    "season": "DJF",
+    "mae": 14.159006889267415,
+    "bias": -1.1458017313808602,
+    "targets": 25580
+   },
+   {
+    "model": "gru",
+    "season": "JJA",
+    "mae": 8.066664851055421,
+    "bias": 0.5448614334701197,
+    "targets": 25906
+   },
+   {
+    "model": "gru",
+    "season": "MAM",
+    "mae": 9.719967452540203,
+    "bias": 0.4879200710690365,
+    "targets": 25784
+   },
+   {
+    "model": "gru",
+    "season": "SON",
+    "mae": 9.29271746475001,
+    "bias": 0.39122779331017044,
+    "targets": 25483
+   },
+   {
+    "model": "mlp",
+    "season": "DJF",
+    "mae": 14.495508569427905,
+    "bias": -0.2635798570108426,
+    "targets": 25580
+   },
+   {
+    "model": "mlp",
+    "season": "JJA",
+    "mae": 8.679924026168708,
+    "bias": 1.259407970216411,
+    "targets": 25906
+   },
+   {
+    "model": "mlp",
+    "season": "MAM",
+    "mae": 10.691734533155218,
+    "bias": -0.16831747819994047,
+    "targets": 25784
+   },
+   {
+    "model": "mlp",
+    "season": "SON",
+    "mae": 9.951006379937239,
+    "bias": 1.2158656445846232,
+    "targets": 25483
+   },
+   {
+    "model": "persistence",
+    "season": "DJF",
+    "mae": 13.73542886111032,
+    "bias": -0.023932587955989185,
+    "targets": 25580
+   },
+   {
+    "model": "persistence",
+    "season": "JJA",
+    "mae": 7.9949338293256575,
+    "bias": 0.0020588039680825066,
+    "targets": 25906
+   },
+   {
+    "model": "persistence",
+    "season": "MAM",
+    "mae": 9.990213102399462,
+    "bias": -0.025901728881615137,
+    "targets": 25784
+   },
+   {
+    "model": "persistence",
+    "season": "SON",
+    "mae": 9.427538252295653,
+    "bias": -6.634488498600188e-05,
+    "targets": 25483
+   },
+   {
+    "model": "xgboost",
+    "season": "DJF",
+    "mae": 13.629593442299566,
+    "bias": -1.2380510874273472,
+    "targets": 25580
+   },
+   {
+    "model": "xgboost",
+    "season": "JJA",
+    "mae": 7.427119518441358,
+    "bias": 1.0701656010501104,
+    "targets": 25906
+   },
+   {
+    "model": "xgboost",
+    "season": "MAM",
+    "mae": 9.390159899158414,
+    "bias": -0.4337664999771796,
+    "targets": 25784
+   },
+   {
+    "model": "xgboost",
+    "season": "SON",
+    "mae": 8.581093295978453,
+    "bias": 0.24586267164056183,
+    "targets": 25483
+   }
+  ],
+  "site_worst_cases": [
+   {
+    "station": "Wanshouxigong",
+    "target_timestamp": "2017-01-04 13:00:00",
+    "model": "persistence",
+    "y_true": 3,
+    "y_pred": 621.0,
+    "absolute_error": 618.0,
+    "bias": 618.0,
+    "concentration_band": "<50",
+    "season": "DJF"
+   },
+   {
+    "station": "Wanshouxigong",
+    "target_timestamp": "2017-01-04 13:00:00",
+    "model": "mlp",
+    "y_true": 3,
+    "y_pred": 587.2122599283854,
+    "absolute_error": 584.2122599283854,
+    "bias": 584.2122599283854,
+    "concentration_band": "<50",
+    "season": "DJF"
+   },
+   {
+    "station": "Wanshouxigong",
+    "target_timestamp": "2017-01-04 13:00:00",
+    "model": "gru",
+    "y_true": 3,
+    "y_pred": 529.6228637695312,
+    "absolute_error": 526.6228637695312,
+    "bias": 526.6228637695312,
+    "concentration_band": "<50",
+    "season": "DJF"
+   },
+   {
+    "station": "Wanshouxigong",
+    "target_timestamp": "2016-12-20 15:00:00",
+    "model": "persistence",
+    "y_true": 3,
+    "y_pred": 461.0,
+    "absolute_error": 458.0,
+    "bias": 458.0,
+    "concentration_band": "<50",
+    "season": "DJF"
+   },
+   {
+    "station": "Huairou",
+    "target_timestamp": "2017-01-28 01:00:00",
+    "model": "mlp",
+    "y_true": 556,
+    "y_pred": 99.51163228352864,
+    "absolute_error": 456.4883677164714,
+    "bias": -456.4883677164714,
+    "concentration_band": ">=200",
+    "season": "DJF"
+   },
+   {
+    "station": "Wanshouxigong",
+    "target_timestamp": "2016-12-20 15:00:00",
+    "model": "mlp",
+    "y_true": 3,
+    "y_pred": 451.70826212565106,
+    "absolute_error": 448.70826212565106,
+    "bias": 448.70826212565106,
+    "concentration_band": "<50",
+    "season": "DJF"
+   },
+   {
+    "station": "Huairou",
+    "target_timestamp": "2017-01-28 01:00:00",
+    "model": "gru",
+    "y_true": 556,
+    "y_pred": 109.70150248209636,
+    "absolute_error": 446.2984975179036,
+    "bias": -446.2984975179036,
+    "concentration_band": ">=200",
+    "season": "DJF"
+   },
+   {
+    "station": "Wanshouxigong",
+    "target_timestamp": "2016-12-20 15:00:00",
+    "model": "gru",
+    "y_true": 3,
+    "y_pred": 442.8786926269531,
+    "absolute_error": 439.8786926269531,
+    "bias": 439.8786926269531,
+    "concentration_band": "<50",
+    "season": "DJF"
+   },
+   {
+    "station": "Wanshouxigong",
+    "target_timestamp": "2017-01-28 01:00:00",
+    "model": "mlp",
+    "y_true": 804,
+    "y_pred": 365.96142578125,
+    "absolute_error": 438.03857421875,
+    "bias": -438.03857421875,
+    "concentration_band": ">=200",
+    "season": "DJF"
+   },
+   {
+    "station": "Huairou",
+    "target_timestamp": "2017-01-28 01:00:00",
+    "model": "xgboost",
+    "y_true": 556,
+    "y_pred": 121.41520690917969,
+    "absolute_error": 434.5847930908203,
+    "bias": -434.5847930908203,
+    "concentration_band": ">=200",
+    "season": "DJF"
+   },
+   {
+    "station": "Wanshouxigong",
+    "target_timestamp": "2016-12-20 15:00:00",
+    "model": "xgboost",
+    "y_true": 3,
+    "y_pred": 427.6763916015625,
+    "absolute_error": 424.6763916015625,
+    "bias": 424.6763916015625,
+    "concentration_band": "<50",
+    "season": "DJF"
+   },
+   {
+    "station": "Wanshouxigong",
+    "target_timestamp": "2017-01-04 13:00:00",
+    "model": "xgboost",
+    "y_true": 3,
+    "y_pred": 409.9359436035156,
+    "absolute_error": 406.9359436035156,
+    "bias": 406.9359436035156,
+    "concentration_band": "<50",
+    "season": "DJF"
+   }
+  ]
+ },
+ "loso_tolerance_sensitivity": [
+  {
+   "changed_selections": 1,
+   "mean_selected_mae": 10.227128812470534,
+   "mean_station_regret": 0.4977979896605243,
+   "stations": 12,
+   "stations_within": 6,
+   "tolerance": 0.5
+  },
+  {
+   "changed_selections": 0,
+   "mean_selected_mae": 10.279711903888566,
+   "mean_station_regret": 0.5503810810785558,
+   "stations": 12,
+   "stations_within": 11,
+   "tolerance": 1.0
+  },
+  {
+   "changed_selections": 0,
+   "mean_selected_mae": 10.279711903888566,
+   "mean_station_regret": 0.5503810810785558,
+   "stations": 12,
+   "stations_within": 12,
+   "tolerance": 1.5
+  },
+  {
+   "changed_selections": 0,
+   "mean_selected_mae": 10.279711903888566,
+   "mean_station_regret": 0.5503810810785558,
+   "stations": 12,
+   "stations_within": 12,
+   "tolerance": 2.0
+  }
+ ],
+ "prediction_windows": {
+  "file": "clean-prediction-windows.json",
+  "sha256": "90924c0601f0f9e230efb658a65d97b0ce195ea2d124fc9ee988ea784d26c1b5",
+  "training_seeds": [
+   42,
+   31415,
+   27182
+  ],
+  "windows": [
+   "spring",
+   "summer",
+   "autumn",
+   "winter"
+  ]
+ },
+ "provenance": {
+  "statement": "Presentation of accepted evidence only: no fitting, selection or inference.",
+  "p5": {
+   "result_commit": "118ae94a23517319d1c31b1159f25a9b77f6b230",
+   "receipt_sha256": "8eca2e5900de54c599797fdc6471ba3173cbaa1b3d7a076b8090c0e0bbd8914b",
+   "manifest_sha256": "0ffba65635246114d283c954ae65256662344e1c1513d434e9cb58c2e91f5cf4",
+   "prediction_files_recomputed": 60,
+   "recomputed_mae": {
+    "gru": 15.957414375293565,
+    "mlp": 10.810205954093624,
+    "persistence": 10.27964339759353,
+    "xgboost": 9.710861193660564
+   }
+  },
+  "p8": {
+   "result_commit": "296999a0df73363f2922a34fd15cf520f1d75e2d",
+   "receipt_sha256": "8c6789bf313dd68f3ba2578d3ccb71e43629891aafe0efe4e588ea6c5df0bca6",
+   "manifest_sha256": "532036f0776f740e92562a9590ccc63b7d2a28c3cbcf8145c9bb3b4440a81a14",
+   "artifacts": {
+    "analysis-config.json": "67ed3974283d5fcabbda95988edbb41445ffb2b60be6da0858b705d66bfd7365",
+    "p6-primary-clean-concentration_band.csv": "21319d224cbbc1fd41c42bacbd3086431a646dcc095b3fae4eec7fbde86efdb8",
+    "p6-primary-clean-season.csv": "d816187075973423d2096388cd60fa3152a6d044c8d4d2dbdb67a8fcb0cd51a3",
+    "p7-independent-report.json": "3147ab8a9f3602f2202da8074160c1adc9cc063e032746d8ea72fe9484cb288f",
+    "p7-site-shift-concentration_band.csv": "68b423d6cc8f8c35758fe550b7b79e2888b88f9b671c542a26d7e6630e9f72c4",
+    "p7-site-shift-season.csv": "3046c1054da61ee63b942fbff7b269e4dfa11d4214149a7eda5e615e83c06367",
+    "p7-site-shift-worst-cases.csv": "292f6f95e12dd4e0fd6aa3a18215a77c924fe509aac8afcc3c2173db62d7983f",
+    "sensor-accepted-uncertainty.json": "a6fa5f3c878e1b93bc28992de036e97a0bef5eae9636ea26e826c948ce2a828e",
+    "site-selection-regret.csv": "efb92dabe1d2fb3b5db0f85406e400068b9dd043826ff5c7296cdb49cbffdb6e"
+   }
+  },
+  "p9_target_history": {
+   "result_commit": "a816353692920e56915316b98b6481313e72a461",
+   "review_commit": "1b07632a12a5019faade81aa96f539f83ea55252",
+   "receipt_sha256": "6ba190e0da4fbaba01f4aba29f0db40ac297a22396b60c106f7a3e8c20d71310"
+  },
+  "tolerance_sensitivity_sha256": "6351e878351b5856b82d477491c97cf6c3bf96be9c8bb089107d86253ec22bb3"
+ }
+}

@@ -5,3 +5,5 @@ notebooks/*_runcomplete.ipynb -text
 notebooks/executed/*.ipynb -text
 # Recovery adapters are downloaded by byte checksum from their pinned commits.
 scripts/recovery/*.py text eol=lf
+# Explorer data is checksum-recorded; keep exported bytes identical across platforms.
+docs/data/*.json -text

@@ -31,7 +31,7 @@ The project follows a pre-specified workflow. Before final model evaluation, fre
 | P7 | Leave-one-station-out evaluation | Complete; independent verification accepted; [review](research/P8_COMPLETION_REPORT.md) |
 | P8 | Statistical and failure analysis | Complete; descriptive diagnostics and verification reviewed; [report](research/P8_COMPLETION_REPORT.md) |
 | P9 | Manuscript | First complete [draft](paper/manuscript.md); author review and submission preparation pending |
-| P10 | Reliability explorer | Planned |
+| P10 | Reliability explorer | Built from accepted evidence; live Pages deployment pending |
 | P11 | Reproducibility release | Planned |
 
 ## Temporal splits and unseen sites
@@ -97,7 +97,17 @@ The raw dataset is remote-only by default: acquisition uses temporary storage an
 
 ## GitHub Pages
 
-The static dashboard lives in `docs/`. Configure GitHub Pages to deploy from the `main` branch `/docs` folder. The dashboard initially displays placeholder content and will later load exported JSON/CSV artifacts from `docs/data/`.
+The AirSense-R Reliability Explorer lives in `docs/`. It is a dependency-free static site and presents accepted research evidence only. It has no live sensor data, real-time forecasting or model switching. Configure GitHub Pages to deploy from the `main` branch `/docs` folder.
+
+Regenerate its data from the accepted result commits (fetch the result branches first):
+
+```bash
+git fetch origin 'refs/heads/results/*:refs/remotes/origin/results/*'
+python scripts/build_explorer_data.py
+python -m http.server -d docs 8000   # preview at http://localhost:8000
+```
+
+The exporter verifies acceptance receipts and manifest checksums, and recomputes the clean-test MAEs from every saved prediction file before it writes `docs/data/explorer.json` and `docs/data/clean-prediction-windows.json`.
 
 ## Research integrity
 

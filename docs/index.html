@@ -3,50 +3,71 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>AirSense-R: Do Air-Quality Forecasters Keep Their Rank Under Sensor Degradation and Site Shift?</title>
+  <title>AirSense-R Reliability Explorer</title>
+  <meta name="description" content="Interactive decision-support interface for exploring how a validation-selected PM2.5 forecaster behaves under clean conditions, sensor degradation, target-history outages and unseen-station shift. Built from accepted AirSense-R research evidence; not a live deployment." />
   <link rel="stylesheet" href="assets/css/styles.css" />
-  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+  <script>
+    try { const t = localStorage.getItem("airsense-theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
 </head>
 <body>
-  <header>
-    <p class="eyebrow">AirSense-R</p>
-    <h1>AirSense-R: Do Air-Quality Forecasters Keep Their Rank Under Sensor Degradation and Site Shift?</h1>
-    <p>Environmental ML Reliability Explorer</p>
-    <p>Explore how PM2.5 forecasting models behave under clean data, degraded sensor observations, and monitoring-site shift.</p>
-  </header>
+  <a class="skip" href="#content">Skip to content</a>
+  <div class="shell">
+    <aside class="sidebar" id="sidebar" aria-label="Primary">
+      <a class="brand" href="#/overview">
+        <span class="brand-mark" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M3 8h11a3 3 0 1 0-3-3"/><path d="M3 12h15a3 3 0 1 1-3 3"/><path d="M3 16h7"/></svg>
+        </span>
+        <span><span class="brand-name">AirSense-R</span><br /><span class="brand-sub">Reliability Explorer</span></span>
+      </a>
+      <nav class="nav" id="nav">
+        <span class="nav-label">Decision</span>
+        <a href="#/overview" data-route="overview">Overview</a>
+        <a href="#/clean" data-route="clean">Clean benchmark</a>
+        <span class="nav-label">Stress evidence</span>
+        <a href="#/sensors" data-route="sensors">Sensor stress</a>
+        <a href="#/target" data-route="target">Target-history stress</a>
+        <a href="#/stations" data-route="stations">Unseen stations</a>
+        <a href="#/failure" data-route="failure">Failure analysis</a>
+        <span class="nav-label">Context</span>
+        <a href="#/method" data-route="method">Methodology</a>
+        <a href="#/deployment" data-route="deployment">Deployment concept</a>
+        <a href="#/about" data-route="about">About &amp; reproducibility</a>
+      </nav>
+      <div class="sidebar-foot">
+        <strong>Evidence explorer, not a live system.</strong><br />
+        Every number comes from accepted, checksum-verified AirSense-R v1 artifacts. No live sensor data.
+      </div>
+    </aside>
 
-  <main>
-    <section class="panel controls">
-      <label>Model<select id="model"><option>Persistence</option><option>XGBoost</option><option>MLP</option><option>GRU</option></select></label>
-      <label>Condition<select id="condition"><option>Clean</option><option>Random dropout</option><option>Whole-variable dropout</option><option>Measurement noise</option><option>Unseen site</option></select></label>
-      <label>Severity<select id="severity"><option>Baseline</option></select></label>
-      <label>Station<select id="station"><option>All / protocol default</option></select></label>
-    </section>
-
-    <section class="metrics">
-      <article><span>MAE</span><strong id="mae">—</strong></article>
-      <article><span>RMSE</span><strong id="rmse">—</strong></article>
-      <article><span>R²</span><strong id="r2">—</strong></article>
-      <article><span>RPD</span><strong id="rpd">—</strong></article>
-    </section>
-
-    <section class="panel">
-      <h2>Actual vs predicted PM2.5</h2>
-      <div id="prediction-chart" class="chart"></div>
-    </section>
-
-    <section class="panel">
-      <h2>Model comparison</h2>
-      <div id="comparison-chart" class="chart"></div>
-    </section>
-
-    <section class="panel prose">
-      <h2>Study purpose</h2>
-      <p>The v1 study tests whether models selected using clean historical data remain dependable when observations are missing/noisy or the deployment site differs from training sites. Edge deployment is future work and is not claimed in this release.</p>
-    </section>
-  </main>
-
-  <footer>AirSense-R research prototype</footer>
+    <div class="main">
+      <header class="topbar">
+        <button class="icon-btn menu-btn" id="menu" aria-label="Open navigation" aria-controls="sidebar" aria-expanded="false">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+        <span class="evidence-pill"><span class="dot" aria-hidden="true"></span><span id="snapshot">Loading evidence…</span></span>
+        <span class="topbar-spacer"></span>
+        <label class="control-inline" for="threshold">Practical threshold
+          <select id="threshold" aria-describedby="threshold-help"></select>
+        </label>
+        <span id="threshold-help" class="skip">1.0 µg/m³ is the frozen protocol threshold; other values are post-results sensitivity views.</span>
+        <button class="icon-btn" id="theme" aria-label="Toggle dark mode" title="Toggle dark mode">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        </button>
+      </header>
+      <main class="content" id="content" tabindex="-1">
+        <div class="loading">Loading accepted evidence…</div>
+      </main>
+      <footer class="footer">
+        AirSense-R v1 · Forecasting reliability under sensor degradation and site shift ·
+        Beijing Multi-Site Air Quality data (UCI) · Within-Beijing evidence only ·
+        <a href="https://github.com/Engr-Daniel/airsense-r">Repository</a>
+      </footer>
+    </div>
+  </div>
+  <div class="tooltip" id="tooltip" role="status" aria-live="polite"></div>
+  <noscript><p style="padding:24px">This explorer needs JavaScript to render the accepted evidence. The underlying data is in <a href="data/explorer.json">data/explorer.json</a>.</p></noscript>
+  <script src="assets/js/charts.js"></script>
   <script src="assets/js/app.js"></script>
 </body>
 </html>

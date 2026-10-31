@@ -213,16 +213,23 @@ audit distinguishes inspected abstract/minimal code from unavailable full text.
 
 ## P10 — GitHub Pages explorer
 
-- [ ] Export dashboard-ready result JSON/CSV
-- [ ] Model selector
-- [ ] Condition selector
-- [ ] Severity selector
-- [ ] Station/site selector
-- [ ] Actual vs predicted plot
-- [ ] Metrics + RPD cards
-- [ ] Model comparison chart
-- [ ] Methodology/about panel
-- [ ] Validate static deployment from `/docs`
+Scope (2026-10-31): a deployment-styled reliability decision-support explorer built
+only from accepted evidence. It is not a live deployment. A separate Deployment concept
+page is explicitly labelled as not evaluated. A real deployment dashboard needs live data
+and remains out of v1 scope.
+
+- [x] Export dashboard-ready result JSON (`scripts/build_explorer_data.py`; checksum-verified, clean MAE recomputed from 60 prediction files)
+- [x] Overview decision dashboard (selected family, clean/sensor/station/target-history status tiles, all-scope regret strip)
+- [x] Clean benchmark with step-through selection rule
+- [x] Model selector / training-seed selector for prediction windows
+- [x] Condition, severity, policy and scope selectors (sensor and PM2.5-history stress)
+- [x] Station/site selector with per-station evidence
+- [x] Actual vs predicted plot (fixed calendar weeks, seeds never averaged)
+- [x] Metrics + RPD cards and model comparison charts/tables
+- [x] Practical-threshold sensitivity control (1.0 frozen; others labelled post-results)
+- [x] Failure analysis, methodology, deployment concept and about/provenance pages
+- [x] Local static rendering check (headless Chrome, light/dark) and export tests
+- [ ] Validate live GitHub Pages deployment from `/docs` after push
 
 ## P11 — Release
 

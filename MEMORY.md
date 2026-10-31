@@ -1,5 +1,15 @@
 # MEMORY.md — AirSense-R Project Memory
 
+P10 explorer (2026-10-31): the user chose a deployment-styled reliability decision-support
+explorer, not a live deployment dashboard. Use no fake live values, alerts or model switching.
+The Deployment concept page is labelled "not evaluated". src/airsense_r/explorer.py reads accepted
+result commits from Git objects, verifies receipts and manifests, recomputes clean MAE from the 60
+corrected-02 test prediction CSVs (matches to 1e-9) and cross-checks threshold statuses
+against p9-threshold-sensitivity. GRU seed 42 genuinely collapses to about 4 ug/m3 in winter
+high-pollution weeks, so prediction windows keep seeds separate and never average them.
+Static site: docs/index.html with assets/js/{charts,app}.js and no CDN. Rendering was checked
+locally in headless Chrome; the live Pages deployment has not been checked yet.
+
 Local PDF review (2026-10-31): portable Tectonic 0.17.0 now compiles both
 manuscripts via python paper/build_pdf.py. Main: eight pages; supplement: one
 page. Rendered pages inspected for author details, tables, figures and references.
