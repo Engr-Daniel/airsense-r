@@ -4,20 +4,25 @@
 \usepackage[utf8]{inputenc}
 \usepackage{cite}
 \usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{multirow}
 \usepackage{booktabs}
 \usepackage{siunitx}
 \usepackage{hyperref}
 \usepackage{enumitem}
 \usepackage{balance}
 \usepackage{tikz}
-\usetikzlibrary{arrows.meta,positioning,shapes.geometric,fit}
+\usepackage{pgfplots}
+\usetikzlibrary{arrows.meta,positioning,shapes.geometric,fit,calc}
+\pgfplotsset{compat=1.18}
 \hypersetup{hidelinks}
 \sisetup{detect-all=true}
 \newcommand{\AirSense}{\textsc{AirSense-R}}
 
 \begin{document}
 
-\title{AirSense-R: Selection Reliability of PM$_{2.5}$ Forecasters Under Sensor Degradation and Site Shift}
+\title{AirSense-R: Evaluating PM$_{2.5}$ Forecaster Selection Under Sensor Degradation and Unseen-Station Shift}
 
 \author{Daniel~Oyewale%
 \thanks{Daniel Oyewale is affiliated with Ormedian Research Group. Corresponding email, funding, author-contribution, competing-interest, and data-availability statements will be finalized before submission.}}
@@ -71,14 +76,23 @@ arr/.style={-{Latex[length=2mm]}, thick}
 \label{fig:story}
 \end{figure*}
 
-\section{Related Work}
-Air-quality forecasting under incomplete observations and spatial transfer is established research territory. Alvarado-Alcon \emph{et al.} study sparse sensor networks, cross-location generalization, and missing-data reliability~\cite{alvaradoalcon2026citywide}. Chowdhury \emph{et al.} show that imputation strategy can materially affect PM$_{2.5}$ prediction under incomplete sensor data~\cite{chowdhury2026imputation}. Liu \emph{et al.} examine PM$_{2.5}$ forecasting under temporal distribution shift and show that model behavior can depend on the evaluation regime~\cite{liu2024distshift}.
+\section{Related Work and Research Gap}
 
-The closest methodological overlap is Semper \emph{et al.}~\cite{semper2026dss}, who study robust post-training model selection by reevaluating fixed prediction bundles against perturbed evaluation references. \AirSense{} instead perturbs the chronological \emph{input observation stream}, recomputes predictions, and separately evaluates station exclusion. This distinction supports cautious empirical positioning, not a claim to introduce selection regret or to be the first air-quality robustness study.
+\subsection{Forecasting With Incomplete Air-Quality Observations}
+Missing observations and operational gaps are established problems in air-quality sensing. Chowdhury \emph{et al.} show that imputation strategy can materially affect PM$_{2.5}$ forecasting under incomplete sensor data~\cite{chowdhury2026imputation}. Alvarado-Alcon \emph{et al.} study sparse sensor networks, cross-location generalization, and missing streams, including the greater difficulty of structured outages compared with randomly distributed missingness~\cite{alvaradoalcon2026citywide}. Yagnik \emph{et al.} likewise emphasize leakage-safe, mask-aware short-horizon PM$_{2.5}$ forecasting and benchmark persistence, tree, recurrent, and graph-based models on held-out periods~\cite{yagnik2026leakage}.
 
-The candidate families intentionally span a simple persistence baseline, gradient-boosted trees~\cite{chen2016xgboost}, a feed-forward neural network, and a recurrent GRU model~\cite{cho2014gru}. The study is about selection reliability, not exhaustive architecture search.
+These studies establish that missing-data handling and cross-location forecasting are already active research areas; neither is claimed as novel here.
 
-\section{Data and Forecasting Task}
+\subsection{Model Assessment Under Distribution Shift}
+Model assessment itself becomes difficult when deployment conditions differ from development conditions. Liu \emph{et al.} show that PM$_{2.5}$ forecasting architectures can respond differently to temporal distribution shift~\cite{liu2024distshift}. Han \emph{et al.} formalize model assessment and selection under temporal shift and explicitly treat model comparison as a problem in a changing environment~\cite{han2024selection}.
+
+The closest methodological overlap is Semper \emph{et al.}~\cite{semper2026dss}, who reevaluate fixed prediction bundles under perturbed evaluation references and quantify post-training selection regret. \AirSense{} instead perturbs the chronological \emph{input observation stream}, regenerates forecasts, and separately excludes monitoring stations from model development.
+
+\subsection{Research Gap and Positioning}
+The gap addressed here is narrower than robust air-quality forecasting. We ask whether a family selected under clean validation remains practically defensible after the observation stream degrades or the deployment site changes. The contribution is therefore an empirical decision-reliability study that combines prespecified validation selection, controlled input interventions, station exclusion, selection regret, and dependence-aware uncertainty. We introduce no new forecasting architecture and make no claim to the first use of selection regret.
+
+\section{Materials and Methods}
+\subsection{Dataset and Forecasting Task}
 We use the UCI Beijing Multi-Site Air Quality dataset~\cite{uci_beijing}. The repository audit records 420,768 hourly rows across 12 monitoring stations, with 35,064 rows per station. The timestamp grid is complete, but measurements are not: accepted audit evidence records 8,739 missing PM$_{2.5}$ values (2.08\%) and 20,701 missing CO values (4.92\%).
 
 The target is PM$_{2.5}$ concentration one hour ahead using the preceding 24 chronological hours. Numeric inputs are PM$_{2.5}$, PM$_{10}$, SO$_2$, NO$_2$, CO, O$_3$, temperature, pressure, dew point, rainfall, and wind speed; wind direction is categorical. Deterministic cyclical features encode hour-of-day and day-of-year. Station identity is used for grouping and exclusion, not as a predictor.
@@ -91,16 +105,66 @@ The chronological target splits are:
 \end{itemize}
 Missing targets are not imputed or scored, and synthetic interventions never alter the evaluation labels.
 
-\section{Methods}
+\subsection{Leakage-Controlled Temporal Evaluation}
+Forecast evaluation follows chronological rather than randomly shuffled partitions. Out-of-sample design is central to time-series studies because temporal dependence and non-stationarity complicate the interpretation of conventional random splits~\cite{tashman2000oos,bergmeir2018cv}. Hyperparameters are tuned only inside the training period using three expanding-window folds. Clean validation data then determine the model family, while the final test period remains unavailable to feature design, hyperparameter tuning, model-family selection, corruption severity selection, and uncertainty settings.
+
+For a target at time $t+1$, the forecasting pipeline uses only observations available through time $t$. Missing target PM$_{2.5}$ values are never imputed or scored. The 24-hour lookback is a prespecified modeling choice intended to retain one daily cycle while keeping the experiment bounded; it is not claimed to be globally optimal.
 \subsection{Causal Preprocessing}
 Each raw sensor channel receives a missingness indicator before imputation. Within each station, causal forward fill is limited to six consecutive hours. Remaining numeric gaps use medians estimated on fitting data only. Wind direction uses training-derived categories with explicit missing and unseen representations. MLP and GRU numeric inputs are standardized from training statistics after imputation; XGBoost receives unscaled numeric inputs.
 
 A sensitivity policy removes forward fill while retaining training-only fallback and missingness indicators. The purpose is to test whether conclusions are primarily an artifact of causal carry-forward~\cite{chowdhury2026imputation}.
 
-\subsection{Candidate Families}
-Persistence predicts the next PM$_{2.5}$ value from the most recent causally preprocessed PM$_{2.5}$ observation. XGBoost operates on the 24-hour context as a tabular representation~\cite{chen2016xgboost}. The MLP provides a generic nonlinear neural baseline, while the compact GRU models the history sequentially~\cite{cho2014gru}. Learned families are tuned only within the training period; persistence has no tuning stage.
+\subsection{Candidate Model Architectures}
+The candidate set intentionally spans four levels of modeling complexity. Persistence predicts the next PM$_{2.5}$ value from the latest causally preprocessed PM$_{2.5}$ observation. XGBoost uses the flattened 24-hour feature history plus four calendar features~\cite{chen2016xgboost}. The MLP uses the same flattened history and calendar features with two ReLU dense layers. The GRU preserves the 24-hour sequence, encodes it with a recurrent unit, concatenates the four calendar features at the output head, and produces a linear scalar forecast~\cite{cho2014gru}.
 
-\subsection{Validation Selection}
+\begin{figure*}[t]
+\centering
+\begin{tikzpicture}[font=\scriptsize,box/.style={draw,rounded corners,align=center,minimum height=7mm,minimum width=15mm},arr/.style={-{Latex[length=1.7mm]},thick}]
+\node[font=\footnotesize\bfseries] at (1.5,3.4) {(a) Persistence};
+\node[box] (p1) at (1.5,2.5) {Latest causal\\PM$_{2.5}$};
+\node[box] (p2) at (1.5,1.1) {$\hat{y}_{t+1}=PM_{2.5,t}$};
+\draw[arr] (p1)--(p2);
+\node[font=\footnotesize\bfseries] at (5.0,3.4) {(b) XGBoost};
+\node[box] (x1) at (5.0,2.7) {24 h $\times$ features};
+\node[box] (x2) at (5.0,1.7) {Flatten + 4\\calendar features};
+\node[box] (x3) at (5.0,0.7) {200 boosted trees\\depth 3 or 6};
+\draw[arr] (x1)--(x2); \draw[arr] (x2)--(x3);
+\node[font=\footnotesize\bfseries] at (8.7,3.4) {(c) MLP};
+\node[box] (m1) at (8.7,2.8) {24 h $\times$ features};
+\node[box] (m2) at (8.7,2.0) {Flatten + calendar};
+\node[box] (m3) at (8.7,1.2) {Dense ReLU\\64--32 or 128--64};
+\node[box] (m4) at (8.7,0.4) {Linear output};
+\draw[arr] (m1)--(m2); \draw[arr] (m2)--(m3); \draw[arr] (m3)--(m4);
+\node[font=\footnotesize\bfseries] at (12.5,3.4) {(d) GRU};
+\node[box] (g1) at (12.5,2.8) {24 h sequential\\feature vectors};
+\node[box] (g2) at (12.5,2.0) {GRU\\32 or 64 units};
+\node[box] (g3) at (12.5,1.2) {Calendar concat +\\Dense 16 ReLU};
+\node[box] (g4) at (12.5,0.4) {Linear output};
+\draw[arr] (g1)--(g2); \draw[arr] (g2)--(g3); \draw[arr] (g3)--(g4);
+\end{tikzpicture}
+\caption{Implemented candidate-model architectures and declared bounded search space. The diagram reflects the repository implementation rather than generic model icons.}
+\label{fig:architectures}
+\end{figure*}
+
+\begin{table}[t]
+\centering
+\caption{Declared model configurations and training budget.}
+\label{tab:models}
+\begin{tabular}{p{1.2cm}p{5.0cm}}
+\toprule
+\textbf{Family} & \textbf{Declared configurations} \\
+\midrule
+Persistence & No tuning; latest causally preprocessed PM$_{2.5}$ \\
+XGBoost & max depth $\in\{3,6\}$; learning rate 0.05; 200 rounds; histogram trees \\
+MLP & hidden layers $\{64,32\}$ or $\{128,64\}$; ReLU; Adam; learning rate $10^{-3}$; 20 epochs \\
+GRU & 32 or 64 GRU units; 16-unit ReLU head; Adam; learning rate $10^{-3}$; 20 epochs \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Learned models use three fixed training seeds (42, 31415, and 27182). Persistence is deterministic. The bounded search is part of the experimental scope and is not presented as evidence that the chosen hyperparameters are globally optimal.
+
+\subsection{Hyperparameter Tuning and Validation Selection}
 Candidate families are evaluated on the same clean validation rows. The lowest aggregate validation MAE is identified. If another family lies within 1~$\mu$g/m$^3$ of the best, the difference is treated as a practical near-tie and the simpler family is preferred according to the fixed order
 \[
 \text{Persistence} \succ \text{XGBoost} \succ \text{MLP} \succ \text{GRU}.
@@ -137,12 +201,17 @@ R_s = \mathrm{MAE}_s(m_{\mathrm{sel}})-\min_m\mathrm{MAE}_s(m),
 \end{equation}
 where $m_{\mathrm{sel}}$ is the validation-selected family. Regret measures model-choice cost relative to the available alternatives; it does not establish absolute operational adequacy.
 
-\subsection{Primary Experiments}
-The primary study has three components. First, all four candidates are evaluated on the untouched chronological final test. Second, frozen models are subjected to non-target input degradation: 10/30/50\% random feature dropout, whole-channel loss for NO$_2$, CO, and temperature, 5/10/20\% normalized measurement noise, and 6/12-hour outages for NO$_2$, CO, and temperature. Corruption is applied to the chronological stream before overlapping windows are constructed. Historical PM$_{2.5}$ is intentionally protected in this primary experiment.
+\subsection{Sensor-Degradation Protocol}
+After the clean-validation decision is frozen, no candidate is retrained for stress evaluation. Corruption is applied to the chronological observation stream before overlapping windows are constructed, so a physical observation is corrupted consistently wherever it appears.
 
-Third, within-city site shift is evaluated through 12 leave-one-station-out folds. In each fold, the held-out station is excluded from preprocessing fitting, tuning, model fitting, and clean-validation selection. Recent local observations remain available at inference, so the task is unseen-station forecasting rather than uninstrumented spatial interpolation.
+The primary intervention families are 10/30/50\% random non-target feature dropout; complete loss of NO$_2$, CO, or temperature; 5/10/20\% normalized Gaussian measurement noise; and 6-hour or 12-hour contiguous outages of NO$_2$, CO, or temperature. Historical PM$_{2.5}$ is intentionally protected in this primary experiment. Structured outages are summarized both over the full test period and over forecast windows whose histories intersect the outage because full-period averages can dilute short operational failures~\cite{alvaradoalcon2026citywide}.
 
-\subsection{Post-Results Target-History Checkpoint}
+\subsection{Unseen-Station Evaluation}
+Cross-site generalization is evaluated with 12 leave-one-station-out folds. In each fold, the held-out station is excluded from preprocessing-statistic estimation, hyperparameter tuning, model fitting, and clean-validation selection. The selected family is then evaluated only on final-test targets from the excluded station.
+
+Recent local observations from the held-out station remain available at inference, so the experiment measures within-Beijing unseen-station forecasting rather than prediction at a completely uninstrumented location. This distinction is important when comparing cross-location studies because available local information can materially change the task definition~\cite{alvaradoalcon2026citywide}.
+
+\subsection{Post-Results Sensitivity Analyses}
 After the primary P5--P8 evidence had been inspected and preserved, a bounded extension was declared to probe the protected target-history assumption. The accepted models and preprocessing remain fixed. Exactly five conditions are tested: PM$_{2.5}$ dropout at 10, 30, and 50\%, and PM$_{2.5}$ contiguous outages of 6 and 12 hours. All candidates receive the same corrupted chronological stream before window construction; evaluation labels remain untouched. The extension is explicitly post-results and is reported separately from the original confirmatory evidence.
 
 \subsection{Uncertainty and Reproducibility}
@@ -171,16 +240,59 @@ arr/.style={-{Latex[length=1.8mm]}, thick}
 
 \section{Results}
 \subsection{Clean Benchmark}
-XGBoost achieves the lowest clean-test MAE at 9.7109~$\mu$g/m$^3$, followed by persistence at 10.2796, MLP at 10.8102, and GRU at 15.9574. The validation rule nevertheless selects persistence. The resulting clean-test regret is 0.5688~$\mu$g/m$^3$ with a 95\% paired CI of 0.3400--0.7632. Thus XGBoost is the numerical clean-test winner, but the cost of retaining the prespecified persistence choice remains below the primary 1~$\mu$g/m$^3$ tolerance.
+Table~\ref{tab:clean} reports final-test performance. XGBoost achieves the lowest MAE at 9.7109~$\mu$g/m$^3$, followed by persistence at 10.2796, MLP at 10.8102, and GRU at 15.9574. The validation rule had already selected persistence. The resulting clean-test regret is 0.5688~$\mu$g/m$^3$ with a 95\% paired CI of 0.3400--0.7632.
+
+\begin{table}[t]
+\centering
+\caption{Clean final-test performance.}
+\label{tab:clean}
+\begin{tabular}{lrrr}
+\toprule
+\textbf{Family} & \textbf{MAE} & \textbf{RMSE} & \textbf{$R^2$} \\
+\midrule
+XGBoost & \textbf{9.711} & 18.921 & 0.947 \\
+Persistence & 10.280 & 19.655 & 0.942 \\
+MLP & 10.810 & \textbf{18.938} & 0.946 \\
+GRU & 15.957 & 37.166 & 0.688 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}
+\begin{axis}[ybar,width=\columnwidth,height=4.6cm,ylabel={MAE ($\mu$g/m$^3$)},symbolic x coords={XGBoost,Persistence,MLP,GRU},xtick=data,x tick label style={rotate=25,anchor=east,font=\scriptsize},ymin=0,ymax=18,bar width=8pt,nodes near coords,nodes near coords style={font=\scriptsize},grid=major]
+\addplot coordinates {(XGBoost,9.7109) (Persistence,10.2796) (MLP,10.8102) (GRU,15.9574)};
+\end{axis}
+\end{tikzpicture}
+\caption{Clean-test MAE for the four candidate families. XGBoost is the numerical test winner; persistence is the frozen validation-selected family.}
+\label{fig:clean}
+\end{figure}
+
+The paired interval excludes zero, so XGBoost's numerical advantage over persistence is resolved under the study's bootstrap. However, the entire interval remains below the prespecified 1~$\mu$g/m$^3$ practical tolerance. The clean benchmark therefore illustrates the central distinction between exact rank and the cost of retaining the original selection.
 
 \subsection{Non-Target Sensor Degradation}
 Across all 15 full-period degradation conditions, persistence remains within the practical regret threshold under both the primary and no-forward-fill sensitivity policies. The maximum full-period regret is approximately 0.569~$\mu$g/m$^3$ under the primary policy and 0.552~$\mu$g/m$^3$ under the sensitivity policy. Numerical rankings can change without making the original selection materially poor.
 
 This conclusion is deliberately conditional: historical PM$_{2.5}$ is protected in the primary stress experiment, so the result does not demonstrate robustness to failure of the target-history channel.
 
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.94\textwidth]{figures/sensor_regret.pdf}
+\caption{Selection-regret summary for the accepted primary sensor-degradation experiment. Historical PM$_{2.5}$ is protected in this experiment.}
+\label{fig:sensorregret}
+\end{figure*}
 \subsection{Unseen-Station Evaluation}
 Across 12 LOSO folds, persistence is selected in every fold by the frozen rule. Mean station-specific regret is 0.5504~$\mu$g/m$^3$ (95\% CI: 0.4004--0.7388), and 11 of 12 station point estimates lie within the practical threshold. Shunyi has the largest point regret at 1.0504~$\mu$g/m$^3$ with a 95\% CI of 0.7417--1.3109. The evidence therefore supports generally small within-Beijing selection cost, while also showing that cross-site reliability is not uniform.
 
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.90\textwidth]{figures/site_regret.pdf}
+\caption{Station-specific selection regret under leave-one-station-out evaluation. The figure uses the accepted repository publication asset.}
+\label{fig:siteregret}
+\end{figure*}
 \subsection{Target-History Checkpoint}
 The post-results extension sharpens the deployment interpretation. Under PM$_{2.5}$ dropout at 10, 30, and 50\%, persistence is the lowest-error candidate among the four and therefore has zero selection regret. Yet low regret does not imply strong absolute accuracy: persistence MAE reaches 15.671~$\mu$g/m$^3$ at 50\% dropout.
 
@@ -203,18 +315,50 @@ PM$_{2.5}$ outage 12 h & 0.651 & 2.282 \\
 \end{tabular}
 \end{table}
 
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}
+\begin{axis}[ybar,width=\columnwidth,height=4.9cm,ylabel={Selection regret ($\mu$g/m$^3$)},symbolic x coords={6h,12h},xtick=data,legend style={font=\scriptsize,at={(0.5,1.02)},anchor=south,legend columns=2},ymin=0,ymax=2.6,bar width=10pt,grid=major]
+\addplot coordinates {(6h,0.557) (12h,0.651)};
+\addplot coordinates {(6h,0.198) (12h,2.282)};
+\addplot[sharp plot,dashed,mark=none] coordinates {(6h,1.0) (12h,1.0)};
+\legend{Full period,Affected windows,1.0 threshold}
+\end{axis}
+\end{tikzpicture}
+\caption{Full-period versus outage-affected selection regret in the post-results PM$_{2.5}$ target-history checkpoint. The 12-hour affected-window result exceeds the prespecified practical threshold despite a much smaller full-period average.}
+\label{fig:targethistory}
+\end{figure}
 \subsection{Tolerance Sensitivity}
 Interpretation is sensitive to the practical tolerance. At 0.5~$\mu$g/m$^3$, the clean point regret exceeds the tolerance, only 8 of 15 full-period sensor conditions lie within it under each policy, and 5 of 12 LOSO point regrets lie within it. At the primary 1.0 threshold, these counts are 15/15 and 11/12, respectively. In contrast, counterfactual clean selection changes little: persistence remains the pooled clean choice across tolerances of 0.5, 1.0, 1.5, and 2.0~$\mu$g/m$^3$ because its validation gap to XGBoost is approximately 0.3688. The practical judgment is therefore more threshold-sensitive than the pooled selection itself.
 
 \section{Discussion}
-The central result is not that persistence is universally best. XGBoost is the numerical clean-test winner, and the exact winner changes across some conditions. The stronger interpretation is that a validation-selected simple model can remain practically competitive even when its rank changes, so long as the excess error remains small relative to the available alternatives.
 
-The post-results checkpoint identifies the most important qualification. The original non-target stress experiment protected historical PM$_{2.5}$. When target history itself is degraded, persistence remains competitive under random dropout but becomes materially inferior during 12-hour contiguous outages when evaluation is restricted to affected histories. This does not invalidate the primary experiment; it defines its boundary.
+\subsection{Rank Stability Versus Decision Stability}
+The central result is not that persistence is universally best. XGBoost is the numerical clean-test winner, and the exact winner changes across some conditions. The stronger interpretation is that a validation-selected simple model can remain practically competitive even when its rank changes, provided the excess error relative to the available alternatives remains small.
 
-The results also expose a broader evaluation problem: global averages can conceal the operational regime one actually cares about. If the concern is behavior during a sensor outage, affected-window analysis can be more informative than an annual full-period summary.
+This interpretation is consistent with the broader argument that model assessment under changing distributions should be treated explicitly rather than inferred from a single static validation ranking~\cite{han2024selection,semper2026dss}. \AirSense{} contributes an input-perturbation and station-exclusion perspective to that decision problem.
 
-\section{Limitations}
-The evidence comes from one historical Beijing dataset, one forecast horizon, and four candidate families. The synthetic interventions are controlled stress tests rather than validated physical fault models. LOSO provides within-Beijing unseen-station evidence, not inter-city transfer. The 1~$\mu$g/m$^3$ tolerance is a prespecified modeling decision threshold rather than a health or regulatory standard. The target-history checkpoint is a bounded post-results extension and must remain clearly separated from the original confirmatory protocol. Finally, selection regret is relative to the tested alternatives: low regret can coexist with unacceptable absolute forecasting error, while high regret does not itself validate a switching or fallback policy.
+\subsection{Why the Target-History Checkpoint Matters}
+The primary sensor-degradation result could be misread as evidence that persistence is generally robust to sensor failure. That would be too broad because persistence depends directly on recent PM$_{2.5}$, which was protected in the primary intervention set. The post-results checkpoint clarifies the boundary: random PM$_{2.5}$ dropout does not create regret relative to the tested alternatives, but a 12-hour contiguous outage produces a materially larger affected-window penalty. This pattern also reinforces the distinction between random missingness and structured outages emphasized in recent air-quality forecasting work~\cite{alvaradoalcon2026citywide}.
+
+\subsection{Deployment-Oriented Interpretation}
+The results do not provide a universal instruction to deploy persistence. Instead, they support a decision framework: determine whether the selected family remains close to the best available alternative under plausible observation failures and at new sites, and evaluate the periods directly exposed to the failure rather than relying only on a global average.
+
+Low selection regret also does not establish acceptable absolute forecasting accuracy. A model can have low regret because all candidates perform poorly. Conversely, high regret identifies a costly selection under a condition but does not validate an adaptive switching or fallback policy.
+
+\subsection{Relationship to Prior Work}
+Compared with studies that primarily optimize architecture or imputation strategy~\cite{chowdhury2026imputation,yagnik2026leakage}, \AirSense{} treats the predeployment family choice as the object of evaluation. Compared with Semper \emph{et al.}~\cite{semper2026dss}, perturbations occur in the model inputs and produce new forecasts rather than only changing evaluation references. Compared with cross-location forecasting work~\cite{alvaradoalcon2026citywide}, the LOSO task here is intentionally narrower because recent local history from the held-out station remains available at inference.
+
+\section{Limitations and Future Work}
+The evidence comes from one historical Beijing dataset, one forecast horizon, and four candidate families. The synthetic interventions are controlled stress tests rather than validated physical fault models. The within-city LOSO design does not establish inter-city or cross-climate transfer. The 1~$\mu$g/m$^3$ tolerance is a prespecified modeling decision threshold rather than a health or regulatory standard, and the sensitivity analysis shows that conclusions become less favorable under a stricter 0.5~$\mu$g/m$^3$ interpretation.
+
+The target-history checkpoint is explicitly post-results and therefore should not be assigned the same confirmatory status as the original protocol. Uncertainty intervals are also conditional on this dataset, these fitted seeds, and the chosen 24-hour block bootstrap. Finally, selection regret is relative to the tested alternatives: low regret can coexist with poor absolute accuracy, while high regret does not itself validate a switching policy.
+
+Future work should test the framework on additional cities and climates, longer forecasting horizons, broader candidate sets, and real low-cost-sensor fault logs. A separate prospective study could evaluate adaptive fallback or model-switching policies, but such policies should be tested directly rather than inferred from retrospective regret.
+
+\section{Reproducibility and Availability}
+The repository preserves the frozen protocol, declared search spaces, preprocessing logic, prediction artifacts, uncertainty settings, executed notebooks, and independent verification receipts. Primary evidence and post-results sensitivity analyses are stored separately so later analyses do not overwrite the original experiment. A final public archival plan for large native model and prediction artifacts remains a submission task.
 
 \section{Conclusion}
 \AirSense{} evaluates the reliability of a model-selection decision rather than only the stability of a leaderboard. Within the declared candidate set and study boundary, the frozen clean-validation choice remains practically competitive under many non-target observation degradations and across most unseen Beijing stations. The target-history checkpoint then identifies a clear boundary: sustained PM$_{2.5}$ outages can produce a meaningful affected-window selection penalty even when the full-period average remains reassuring. The resulting contribution is therefore a bounded empirical argument about when a simple clean-selected model remains defensible, and when that conclusion begins to fail.
