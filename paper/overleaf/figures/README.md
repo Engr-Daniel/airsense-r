@@ -1,13 +1,23 @@
-# IEEE Overleaf workspace
+# IEEE Overleaf figure assets
 
-This folder contains the LaTeX manuscript workspace for AirSense-R.
+This folder contains reader-facing figure assets for the AirSense-R manuscript.
 
-- `main.tex`: IEEE-style manuscript.
-- `references.bib`: bibliography.
-- `figures/`: publication figures and the supplied Ormedian logo.
+## Included assets
 
-The Ormedian logo is retained as a project asset but is not inserted into the IEEE manuscript body because institutional logos are normally not part of the standard paper layout.
+- `ormedian_logo.png` — supplied Ormedian Research Group logo. Retained as a project asset but not inserted into the IEEE paper body.
+- `sensor_regret.pdf` — accepted publication figure copied from `figures/paper/02_sensor_regret.pdf`.
+- `site_regret.pdf` — accepted publication figure copied from `figures/paper/01_site_regret.pdf`.
 
-Prefer vector PDF figures for diagrams and plots. Raster figures should be exported at no less than 300 dpi at final print size.
+## Figures drawn directly in `main.tex`
 
-The experimental evidence remains in the repository's existing research/results folders. This workspace should cite those accepted results rather than duplicate or overwrite them.
+The following figures are native TikZ/PGFPlots vector graphics, so they remain sharp at any scale:
+
+- AirSense-R study/deployment flow;
+- exact four-family model architecture diagram (Persistence, XGBoost, MLP, GRU);
+- frozen validation-selection flowchart;
+- clean-test MAE comparison;
+- target-history full-period vs affected-window regret.
+
+All diagrams are deliberately labeled to distinguish conceptual deployment context from experimentally validated hardware. The study uses archived reference-station data and does not claim validation of a physical AirSense-R device.
+
+Prefer PDF/vector output for any additional publication figures. Raster figures should be at least 300 dpi at final print size.
