@@ -174,7 +174,7 @@ Subgroup diagnostics remain exploratory; final figure layout/captions belong to 
 
 First complete manuscript draft prepared from accepted results; see [paper/manuscript.md](paper/manuscript.md).
 The checks below indicate drafted sections, not journal submission readiness.
-Two figures and six supplementary tables are generated from checksum-verified evidence.
+Publication figures and seven supplementary tables are generated from accepted evidence.
 
 Post-results checkpoint authorized 2026-10-29; primary P5–P8 remains accepted
 and unchanged. See [checkpoint plan](research/P9_CHECKPOINT_PLAN.md).
@@ -203,6 +203,7 @@ audit distinguishes inspected abstract/minimal code from unavailable full text.
 - [x] Conclusion
 
 - [x] Technical edit of Overleaf draft: chronology, aggregation, uncertainty, selection diagram, outage intervals and correction disclosure
+- [x] Build and verify rank/regret, absolute-error stress and descriptive subgroup figures from accepted evidence; integrate main-paper and supplementary assets
 - [ ] Compile and inspect revised Overleaf PDF for layout, overflow and references
 - [ ] Resolve title and author-name differences between Overleaf and repository citation metadata
 - [ ] Author review and confirmation of affiliation, correspondence, contributions and declarations

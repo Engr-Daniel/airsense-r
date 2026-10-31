@@ -1,5 +1,14 @@
 # MEMORY.md — AirSense-R Project Memory
 
+Additional figures (2026-10-31): three vector PDFs now expose rank versus regret,
+absolute MAE under all five target-history conditions, and descriptive LOSO
+concentration/season variation. Builder paper/build_diagnostic_figures.py verifies
+accepted P8 artifacts and records plotted values and hashes. Main paper replaces
+the sensor-only regret figure with rank/regret and adds absolute MAE; supplement.tex
+holds subgroup diagnostics. No new fitting/inference or uncertainty estimates.
+All 60 ranks, 30 intervals, 32 target-history MAEs and 32 subgroup rows checked;
+standalone previews inspected. Updated document layout still requires Overleaf.
+
 Manuscript technical edit (2026-10-31): Overleaf main.tex is the active
 submission draft; Markdown remains the accepted-evidence narrative. Corrected
 Liu bibliography authors, clean RMSE emphasis, selection-flow logic and

@@ -1,0 +1,686 @@
+{
+  "p8_result_commit": "296999a0df73363f2922a34fd15cf520f1d75e2d",
+  "p8_manifest_sha256": "532036f0776f740e92562a9590ccc63b7d2a28c3cbcf8145c9bb3b4440a81a14",
+  "target_history_result_commit": "a816353692920e56915316b98b6481313e72a461",
+  "target_history_review_commit": "1b07632a12a5019faade81aa96f539f83ea55252",
+  "input_receipts": {
+    "results/p8/final_acceptance.json": "8c6789bf313dd68f3ba2578d3ccb71e43629891aafe0efe4e588ea6c5df0bca6",
+    "results/p9-target-history/final_acceptance.json": "6ba190e0da4fbaba01f4aba29f0db40ac297a22396b60c106f7a3e8c20d71310",
+    "results/p5/corrected_acceptance.json": "8eca2e5900de54c599797fdc6471ba3173cbaa1b3d7a076b8090c0e0bbd8914b"
+  },
+  "builder_sha256": "40806d82b9c9863963aa7336a4909d4be7eb31127ef2d3172f075e4732383a5a",
+  "figures": {
+    "rank_and_regret": {
+      "pdf_sha256": "49b36c3752f3ae30693122ab0e200f6dde5e4f7038a27d9a7093b0fa55a42fa4",
+      "plotted_data": {
+        "conditions": [
+          "random_dropout-10",
+          "random_dropout-30",
+          "random_dropout-50",
+          "noise-05",
+          "noise-10",
+          "noise-20",
+          "whole-NO2",
+          "whole-CO",
+          "whole-TEMP",
+          "outage-NO2-6",
+          "outage-NO2-12",
+          "outage-CO-6",
+          "outage-CO-12",
+          "outage-TEMP-6",
+          "outage-TEMP-12"
+        ],
+        "models": [
+          "persistence",
+          "xgboost",
+          "mlp",
+          "gru"
+        ],
+        "primary_ranks": [
+          [
+            1.0,
+            2.0,
+            3.0,
+            4.0
+          ],
+          [
+            1.0,
+            2.0,
+            3.0,
+            4.0
+          ],
+          [
+            1.0,
+            2.0,
+            3.0,
+            4.0
+          ],
+          [
+            2.0,
+            1.0,
+            3.0,
+            4.0
+          ],
+          [
+            2.0,
+            1.0,
+            3.0,
+            4.0
+          ],
+          [
+            1.0,
+            2.0,
+            3.0,
+            4.0
+          ],
+          [
+            2.0,
+            1.0,
+            3.0,
+            4.0
+          ],
+          [
+            2.0,
+            1.0,
+            3.0,
+            4.0
+          ],
+          [
+            1.0,
+            2.0,
+            4.0,
+            3.0
+          ],
+          [
+            2.0,
+            1.0,
+            3.0,
+            4.0
+          ],
+          [
+            2.0,
+            1.0,
+            3.0,
+            4.0
+          ],
+          [
+            2.0,
+            1.0,
+            3.0,
+            4.0
+          ],
+          [
+            2.0,
+            1.0,
+            3.0,
+            4.0
+          ],
+          [
+            2.0,
+            1.0,
+            3.0,
+            4.0
+          ],
+          [
+            2.0,
+            1.0,
+            3.0,
+            4.0
+          ]
+        ],
+        "regret": [
+          {
+            "policy": "primary",
+            "values_estimate_low_high": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.4965432411839039,
+                0.2704904212567689,
+                0.6911779042742121
+              ],
+              [
+                0.19170710859505746,
+                0.0,
+                0.4134845153404273
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.5404978090469736,
+                0.3404603139966633,
+                0.7153286438258614
+              ],
+              [
+                0.4379203832538181,
+                0.2634094592142299,
+                0.594484826859145
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.5686064490739415,
+                0.3398066560006987,
+                0.7631286991972484
+              ],
+              [
+                0.567317185711314,
+                0.33868058745224133,
+                0.7618878327123082
+              ],
+              [
+                0.5680994119349059,
+                0.3396251240399406,
+                0.7619944287452964
+              ],
+              [
+                0.5669990343453666,
+                0.339048371521745,
+                0.7595881768421222
+              ],
+              [
+                0.5516041839730583,
+                0.3231609173084063,
+                0.7459662501446074
+              ],
+              [
+                0.5276946659010289,
+                0.30007969063607215,
+                0.7212084917390933
+              ]
+            ]
+          },
+          {
+            "policy": "no_ffill",
+            "values_estimate_low_high": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.4812671747276305,
+                0.23944253241781963,
+                0.6784480498737582
+              ],
+              [
+                0.18009395649467486,
+                0.0,
+                0.40698037760807554
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.5260169064669604,
+                0.313010349435525,
+                0.7037666342407966
+              ],
+              [
+                0.42662060766018506,
+                0.24167608335897317,
+                0.5848405662750971
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.5519759544602323,
+                0.31202816945541173,
+                0.7501328756368121
+              ],
+              [
+                0.5508319588070378,
+                0.31152184431496016,
+                0.7494950109658792
+              ],
+              [
+                0.5504066582304077,
+                0.3112782489619084,
+                0.7479526160704746
+              ],
+              [
+                0.5489966928602907,
+                0.30946641791412904,
+                0.7461983746928893
+              ],
+              [
+                0.5340903191748119,
+                0.29344675587074887,
+                0.7327221748990577
+              ],
+              [
+                0.5096019001024104,
+                0.2675521702222591,
+                0.7076089171524277
+              ]
+            ]
+          }
+        ],
+        "note": "All 15 primary conditions; full period only. Rank 1 is lowest MAE; rank is not equivalence."
+      }
+    },
+    "target_history_accuracy": {
+      "pdf_sha256": "32ff1098229313525379cc7a61cb765ede00c1ab94524ec6ea5706c32bde0430",
+      "plotted_data": {
+        "panels": [
+          {
+            "kind": "dropout",
+            "scope": "full",
+            "levels": [
+              0,
+              10,
+              30,
+              50
+            ],
+            "models": [
+              "persistence",
+              "xgboost",
+              "mlp",
+              "gru"
+            ],
+            "mae": [
+              [
+                10.27964339759353,
+                10.962532307859801,
+                12.747163312451498,
+                15.671019287616732
+              ],
+              [
+                9.710861193660564,
+                11.704978580869053,
+                15.30367442861442,
+                18.788658799282953
+              ],
+              [
+                10.810205954093624,
+                13.664130455804878,
+                18.35829290105367,
+                22.014861390080544
+              ],
+              [
+                15.957414375293565,
+                18.459244210743524,
+                22.81552776944875,
+                26.401145285503492
+              ]
+            ]
+          },
+          {
+            "kind": "outage",
+            "scope": "full",
+            "levels": [
+              6,
+              12
+            ],
+            "models": [
+              "persistence",
+              "xgboost",
+              "mlp",
+              "gru"
+            ],
+            "mae": [
+              [
+                10.412529021426279,
+                10.795926560500618
+              ],
+              [
+                9.85600279029898,
+                10.14509537566359
+              ],
+              [
+                10.988674680226879,
+                11.23543208677347
+              ],
+              [
+                16.113671218921482,
+                16.333277467562212
+              ]
+            ]
+          },
+          {
+            "kind": "outage",
+            "scope": "affected",
+            "levels": [
+              6,
+              12
+            ],
+            "models": [
+              "persistence",
+              "xgboost",
+              "mlp",
+              "gru"
+            ],
+            "mae": [
+              [
+                13.93701402521837,
+                21.30574441737983
+              ],
+              [
+                13.73949045025268,
+                19.023557130725422
+              ],
+              [
+                15.573098149926567,
+                19.865593611506622
+              ],
+              [
+                20.363138542751113,
+                24.204820281371838
+              ]
+            ]
+          }
+        ],
+        "note": "Post-results extension; primary imputation. Point estimates only; lines connect tested levels, not fitted response curves. Affected masks differ between outage conditions."
+      }
+    },
+    "descriptive_error_regimes": {
+      "pdf_sha256": "5c431f3266832495b39d04244f95892086112392be8c0cc56d900f3e4b1cef02",
+      "plotted_data": {
+        "groups": [
+          {
+            "group": "concentration_band",
+            "records": [
+              {
+                "model": "gru",
+                "concentration_band": "100 to <200",
+                "mae": 14.276244097886789,
+                "bias": -1.6897336791678563,
+                "stations": 12,
+                "targets": 18840
+              },
+              {
+                "model": "gru",
+                "concentration_band": "50 to <100",
+                "mae": 9.929397186479976,
+                "bias": 1.118248092721124,
+                "stations": 12,
+                "targets": 25539
+              },
+              {
+                "model": "gru",
+                "concentration_band": "<50",
+                "mae": 6.319875902264983,
+                "bias": 2.446860660196626,
+                "stations": 12,
+                "targets": 49592
+              },
+              {
+                "model": "gru",
+                "concentration_band": ">=200",
+                "mae": 25.814195659819546,
+                "bias": -13.264984421268869,
+                "stations": 12,
+                "targets": 8782
+              },
+              {
+                "model": "mlp",
+                "concentration_band": "100 to <200",
+                "mae": 14.932233701555083,
+                "bias": -1.0809874186045032,
+                "stations": 12,
+                "targets": 18840
+              },
+              {
+                "model": "mlp",
+                "concentration_band": "50 to <100",
+                "mae": 10.923331903772658,
+                "bias": 1.2745538940884893,
+                "stations": 12,
+                "targets": 25539
+              },
+              {
+                "model": "mlp",
+                "concentration_band": "<50",
+                "mae": 6.921640380938254,
+                "bias": 2.6209690665524303,
+                "stations": 12,
+                "targets": 49592
+              },
+              {
+                "model": "mlp",
+                "concentration_band": ">=200",
+                "mae": 25.31174242650727,
+                "bias": -10.498763444206345,
+                "stations": 12,
+                "targets": 8782
+              },
+              {
+                "model": "persistence",
+                "concentration_band": "100 to <200",
+                "mae": 14.77249014997111,
+                "bias": -2.2695901079707137,
+                "stations": 12,
+                "targets": 18840
+              },
+              {
+                "model": "persistence",
+                "concentration_band": "50 to <100",
+                "mae": 10.529003176819801,
+                "bias": 0.17732758259652104,
+                "stations": 12,
+                "targets": 25539
+              },
+              {
+                "model": "persistence",
+                "concentration_band": "<50",
+                "mae": 6.290979402755696,
+                "bias": 1.6928973563460614,
+                "stations": 12,
+                "targets": 49592
+              },
+              {
+                "model": "persistence",
+                "concentration_band": ">=200",
+                "mae": 22.587918712116362,
+                "bias": -5.380704992351034,
+                "stations": 12,
+                "targets": 8782
+              },
+              {
+                "model": "xgboost",
+                "concentration_band": "100 to <200",
+                "mae": 13.398862701405024,
+                "bias": -2.2550553596754543,
+                "stations": 12,
+                "targets": 18840
+              },
+              {
+                "model": "xgboost",
+                "concentration_band": "50 to <100",
+                "mae": 9.310730652562217,
+                "bias": 1.2060733480737025,
+                "stations": 12,
+                "targets": 25539
+              },
+              {
+                "model": "xgboost",
+                "concentration_band": "<50",
+                "mae": 5.804577675367326,
+                "bias": 2.465861318673535,
+                "stations": 12,
+                "targets": 49592
+              },
+              {
+                "model": "xgboost",
+                "concentration_band": ">=200",
+                "mae": 25.42478405030037,
+                "bias": -13.381271656438264,
+                "stations": 12,
+                "targets": 8782
+              }
+            ]
+          },
+          {
+            "group": "season",
+            "records": [
+              {
+                "model": "gru",
+                "season": "DJF",
+                "mae": 14.159006889267415,
+                "bias": -1.1458017313808602,
+                "stations": 12,
+                "targets": 25580
+              },
+              {
+                "model": "gru",
+                "season": "JJA",
+                "mae": 8.066664851055421,
+                "bias": 0.5448614334701197,
+                "stations": 12,
+                "targets": 25906
+              },
+              {
+                "model": "gru",
+                "season": "MAM",
+                "mae": 9.719967452540203,
+                "bias": 0.4879200710690365,
+                "stations": 12,
+                "targets": 25784
+              },
+              {
+                "model": "gru",
+                "season": "SON",
+                "mae": 9.29271746475001,
+                "bias": 0.39122779331017044,
+                "stations": 12,
+                "targets": 25483
+              },
+              {
+                "model": "mlp",
+                "season": "DJF",
+                "mae": 14.495508569427905,
+                "bias": -0.2635798570108426,
+                "stations": 12,
+                "targets": 25580
+              },
+              {
+                "model": "mlp",
+                "season": "JJA",
+                "mae": 8.679924026168708,
+                "bias": 1.259407970216411,
+                "stations": 12,
+                "targets": 25906
+              },
+              {
+                "model": "mlp",
+                "season": "MAM",
+                "mae": 10.691734533155218,
+                "bias": -0.16831747819994047,
+                "stations": 12,
+                "targets": 25784
+              },
+              {
+                "model": "mlp",
+                "season": "SON",
+                "mae": 9.951006379937239,
+                "bias": 1.2158656445846232,
+                "stations": 12,
+                "targets": 25483
+              },
+              {
+                "model": "persistence",
+                "season": "DJF",
+                "mae": 13.73542886111032,
+                "bias": -0.023932587955989185,
+                "stations": 12,
+                "targets": 25580
+              },
+              {
+                "model": "persistence",
+                "season": "JJA",
+                "mae": 7.9949338293256575,
+                "bias": 0.0020588039680825066,
+                "stations": 12,
+                "targets": 25906
+              },
+              {
+                "model": "persistence",
+                "season": "MAM",
+                "mae": 9.990213102399462,
+                "bias": -0.025901728881615137,
+                "stations": 12,
+                "targets": 25784
+              },
+              {
+                "model": "persistence",
+                "season": "SON",
+                "mae": 9.427538252295653,
+                "bias": -6.634488498600188e-05,
+                "stations": 12,
+                "targets": 25483
+              },
+              {
+                "model": "xgboost",
+                "season": "DJF",
+                "mae": 13.629593442299566,
+                "bias": -1.2380510874273472,
+                "stations": 12,
+                "targets": 25580
+              },
+              {
+                "model": "xgboost",
+                "season": "JJA",
+                "mae": 7.427119518441358,
+                "bias": 1.0701656010501104,
+                "stations": 12,
+                "targets": 25906
+              },
+              {
+                "model": "xgboost",
+                "season": "MAM",
+                "mae": 9.390159899158414,
+                "bias": -0.4337664999771796,
+                "stations": 12,
+                "targets": 25784
+              },
+              {
+                "model": "xgboost",
+                "season": "SON",
+                "mae": 8.581093295978453,
+                "bias": 0.24586267164056183,
+                "stations": 12,
+                "targets": 25483
+              }
+            ]
+          }
+        ],
+        "note": "Post-results descriptive diagnostics; equal-station summaries, no subgroup confidence intervals. Counts are distinct station-target observations, not independent replications or per-model totals. Bands are not AQI categories."
+      }
+    }
+  },
+  "scope": "Presentation of accepted summaries; no fitting or new inference."
+}

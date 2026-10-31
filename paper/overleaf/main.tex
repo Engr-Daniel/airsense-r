@@ -253,15 +253,15 @@ GRU & 15.957 & 37.166 & 0.688 \\
 The paired interval excludes zero, so XGBoost's numerical advantage over persistence is resolved under the study's bootstrap. However, the entire interval remains below the prespecified 1~$\mu$g/m$^3$ practical tolerance. The clean benchmark therefore illustrates the central distinction between exact rank and the cost of retaining the original selection.
 
 \subsection{Non-Target Sensor Degradation}
-Across all 15 full-period degradation conditions, persistence remains within the practical regret threshold under both the primary and no-forward-fill sensitivity policies. The maximum full-period regret is approximately 0.569~$\mu$g/m$^3$ under the primary policy and 0.552~$\mu$g/m$^3$ under the sensitivity policy. Numerical rankings can change without making the original selection materially poor.
+Across all 15 full-period degradation conditions, persistence remains within the practical regret threshold under both the primary and no-forward-fill sensitivity policies. The maximum full-period regret is approximately 0.569~$\mu$g/m$^3$ under the primary policy and 0.552~$\mu$g/m$^3$ under the sensitivity policy. Figure~\ref{fig:sensorregret} shows where numerical rankings change while the original selection remains within the practical threshold.
 
 This conclusion is deliberately conditional: historical PM$_{2.5}$ is protected in the primary stress experiment, so the result does not demonstrate robustness to failure of the target-history channel.
 
 
 \begin{figure*}[t]
 \centering
-\includegraphics[width=0.94\textwidth]{figures/sensor_regret.pdf}
-\caption{Selection-regret summary for the accepted primary sensor-degradation experiment. Historical PM$_{2.5}$ is protected in this experiment. Points and horizontal intervals show full-period regret and pointwise 95\% paired block-bootstrap intervals.}
+\includegraphics[width=\textwidth]{figures/rank_and_regret.pdf}
+\caption{Numerical rank and decision cost across all 15 non-target stress conditions. Left: primary-imputation rank (1 is lowest MAE). Right: persistence selection regret under both imputation policies, with pointwise 95\% paired block-bootstrap intervals. Historical PM$_{2.5}$ is protected. Full-period results only; numerical ranks do not establish practical equivalence.}
 \label{fig:sensorregret}
 \end{figure*}
 \subsection{Unseen-Station Evaluation}
@@ -275,7 +275,7 @@ Across 12 LOSO folds, persistence is selected in every fold by the frozen rule. 
 \label{fig:siteregret}
 \end{figure*}
 \subsection{Target-History Checkpoint}
-The post-results extension sharpens the deployment interpretation. Under PM$_{2.5}$ dropout at 10, 30, and 50\%, persistence is the lowest-error candidate among the four and therefore has zero selection regret. Yet low regret does not imply strong absolute accuracy: persistence MAE reaches 15.671~$\mu$g/m$^3$ at 50\% dropout.
+The post-results extension sharpens the deployment interpretation. Under PM$_{2.5}$ dropout at 10, 30, and 50\%, persistence is the lowest-error candidate among the four and therefore has zero selection regret. Yet low regret does not imply strong absolute accuracy: persistence MAE reaches 15.671~$\mu$g/m$^3$ at 50\% dropout. Figure~\ref{fig:targetaccuracy} compares absolute MAE across all four families; Figure~\ref{fig:targethistory} isolates the corresponding outage selection cost and its uncertainty.
 
 Contiguous outages reveal a different boundary. Under a 6-hour PM$_{2.5}$ outage, full-period persistence regret is 0.557~$\mu$g/m$^3$ and affected-window regret is 0.198. Under a 12-hour outage, full-period regret is 0.651, but affected-window regret rises to 2.282~$\mu$g/m$^3$ with a 95\% CI of 1.696--2.910, entirely above the primary practical threshold. The key result is therefore not simply that target-history degradation matters, but that full-period averaging can hide a localized selection failure in forecasts whose 24-hour input histories intersect the outage. This scope can extend beyond the outage itself, after observations resume.
 
@@ -310,6 +310,13 @@ PM$_{2.5}$ outage 12 h & 0.651 & 2.282 \\
 \caption{Full-period versus outage-affected selection regret in the post-results PM$_{2.5}$ target-history checkpoint. Points show regret and error bars show pointwise 95\% paired block-bootstrap intervals. The 12-hour affected-window result exceeds the prespecified practical threshold despite a much smaller full-period average.}
 \label{fig:targethistory}
 \end{figure}
+\begin{figure*}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/target_history_accuracy.pdf}
+\caption{Absolute forecasting error in the post-results PM$_{2.5}$ degradation extension under primary imputation. The zero-dropout point is the accepted clean benchmark. Lines connect tested levels and are not fitted response curves. All panels share the same MAE axis; plotted values are point estimates without model-specific confidence intervals. Outage-affected target masks differ across durations and realizations, so the right panel describes condition-specific performance, not a paired causal duration effect.}
+\label{fig:targetaccuracy}
+\end{figure*}
+
 \subsection{Tolerance Sensitivity}
 Interpretation is sensitive to the practical tolerance. At 0.5~$\mu$g/m$^3$, the clean point regret exceeds the tolerance, only 8 of 15 full-period sensor conditions lie within it under each policy, and 5 of 12 LOSO point regrets lie within it. At the primary 1.0 threshold, these counts are 15/15 and 11/12, respectively. In contrast, counterfactual clean selection changes little: persistence remains the pooled clean choice across tolerances of 0.5, 1.0, 1.5, and 2.0~$\mu$g/m$^3$ because its validation gap to XGBoost is approximately 0.3688. At 0.5, the Nongzhanguan LOSO fold instead selects XGBoost from saved validation scores; mean station-specific regret under that counterfactual policy is 0.4978 rather than 0.5504. Original-policy confidence intervals are not reused for this changed selection. The practical judgment is therefore more threshold-sensitive than the pooled selection itself.
 
@@ -332,7 +339,7 @@ Low selection regret also does not establish acceptable absolute forecasting acc
 Compared with studies that primarily optimize architecture or imputation strategy~\cite{chowdhury2026imputation,yagnik2026leakage}, \AirSense{} treats the predeployment family choice as the object of evaluation. Compared with Semper \emph{et al.}~\cite{semper2026dss}, perturbations occur in the model inputs and produce new forecasts rather than only changing evaluation references. Compared with cross-location forecasting work~\cite{alvaradoalcon2026citywide}, the LOSO task here is intentionally narrower because recent local history from the held-out station remains available at inference.
 
 \section{Limitations and Future Work}
-The evidence comes from one historical Beijing dataset, one forecast horizon, and four candidate families. A linear or ridge model with lag features is absent, and the two-configuration search per learned family does not establish architecture-level optimality. The fixed simplicity order is not a measured cost--accuracy frontier. The synthetic interventions are controlled stress tests rather than validated physical fault models. The within-city LOSO design does not establish inter-city or cross-climate transfer. The 1~$\mu$g/m$^3$ tolerance is a prespecified modeling decision threshold rather than a health or regulatory standard, and the sensitivity analysis shows that conclusions become less favorable under a stricter 0.5~$\mu$g/m$^3$ interpretation.
+The evidence comes from one historical Beijing dataset, one forecast horizon, and four candidate families. A linear or ridge model with lag features is absent, and the two-configuration search per learned family does not establish architecture-level optimality. The fixed simplicity order is not a measured cost--accuracy frontier. The synthetic interventions are controlled stress tests rather than validated physical fault models. Supplementary error-regime plots describe concentration and seasonal variation without subgroup confidence intervals; their bands were defined post-results. The within-city LOSO design does not establish inter-city or cross-climate transfer. The 1~$\mu$g/m$^3$ tolerance is a prespecified modeling decision threshold rather than a health or regulatory standard, and the sensitivity analysis shows that conclusions become less favorable under a stricter 0.5~$\mu$g/m$^3$ interpretation.
 
 The target-history checkpoint is explicitly post-results and therefore should not be assigned the same confirmatory status as the original protocol. Uncertainty intervals are also conditional on this dataset, these fitted seeds, and the chosen 24-hour block bootstrap. Finally, selection regret is relative to the tested alternatives: low regret can coexist with poor absolute accuracy, while high regret does not itself validate a switching policy.
 
