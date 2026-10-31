@@ -2,12 +2,15 @@
 
 Oyewale Daniel Oyewola
 
+Ormedian Research Group  
+Correspondence: oyewaledanieloyewola@gmail.com
+
 **Editorial status:** the actively edited submission draft is `paper/overleaf/main.tex`.
 This Markdown manuscript is retained as the accepted-evidence narrative; it is
 not a second submission draft. Title and publication-name differences remain
 subject to author confirmation before repository metadata is synchronized.
 
-**First complete manuscript draft — 22 October 2026.** Based on accepted P5–P8 results. Author affiliation, correspondence, funding, competing-interest and contribution statements require author confirmation before submission. This draft has not been submitted or peer reviewed.
+**First complete manuscript draft — 22 October 2026.** Based on accepted P5–P8 results. Affiliation and correspondence are confirmed above; funding, competing-interest and contribution statements require author confirmation before submission. This draft has not been submitted or peer reviewed.
 
 **Checkpoint update — 30 October 2026:** the bounded post-results target-history extension is independently verified and accepted. Its findings are reported separately from the original confirmatory results, alongside tolerance sensitivity and focused prior-work positioning.
 

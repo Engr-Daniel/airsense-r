@@ -5,6 +5,8 @@ type: software
 authors:
   - family-names: Oyewola
     given-names: Oyewale Daniel
+    affiliation: Ormedian Research Group
+    email: oyewaledanieloyewola@gmail.com
 date-released: 2026-10-06
 license: MIT
 repository-code: "https://github.com/Engr-Daniel/airsense-r"

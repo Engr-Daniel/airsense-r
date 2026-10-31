@@ -1,5 +1,9 @@
 # MEMORY.md — AirSense-R Project Memory
 
+Confirmed author details: Ormedian Research Group; correspondence
+oyewaledanieloyewola@gmail.com. Display name, affiliation and email on separate
+lines in both Overleaf author blocks. Do not ask again for affiliation/email.
+
 Additional figures (2026-10-31): three vector PDFs now expose rank versus regret,
 absolute MAE under all five target-history conditions, and descriptive LOSO
 concentration/season variation. Builder paper/build_diagnostic_figures.py verifies

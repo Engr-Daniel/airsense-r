@@ -206,7 +206,8 @@ audit distinguishes inspected abstract/minimal code from unavailable full text.
 - [x] Build and verify rank/regret, absolute-error stress and descriptive subgroup figures from accepted evidence; integrate main-paper and supplementary assets
 - [ ] Compile and inspect revised Overleaf PDF for layout, overflow and references
 - [ ] Resolve title and author-name differences between Overleaf and repository citation metadata
-- [ ] Author review and confirmation of affiliation, correspondence, contributions and declarations
+- [x] Record confirmed affiliation (Ormedian Research Group) and correspondence (oyewaledanieloyewola@gmail.com)
+- [ ] Author review of contributions and remaining declarations
 - [ ] Target-journal formatting and final citation/novelty review
 - [ ] Public release plan for large prediction/model artifacts before submission
 
