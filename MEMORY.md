@@ -1,5 +1,15 @@
 # MEMORY.md — AirSense-R Project Memory
 
+Local PDF review (2026-10-31): portable Tectonic 0.17.0 now compiles both
+manuscripts via python paper/build_pdf.py. Main: eight pages; supplement: one
+page. Rendered pages inspected for author details, tables, figures and references.
+Fixed configuration-table overflow, reduced site-plot size, kept floats before
+references and used a one-column supplement. No overfull boxes or unresolved
+references remain. Nonfatal font substitutions, float-page and underfull spacing
+warnings remain; rendered content is legible and unclipped. Build outputs, logs,
+previews and input/output checksum receipt stay in .tmp/paper-build/. Compile and
+inspect locally after paper edits; do not require a user-supplied PDF.
+
 Confirmed author details: Ormedian Research Group; correspondence
 oyewaledanieloyewola@gmail.com. Display name, affiliation and email on separate
 lines in both Overleaf author blocks. Do not ask again for affiliation/email.
@@ -11,7 +21,7 @@ accepted P8 artifacts and records plotted values and hashes. Main paper replaces
 the sensor-only regret figure with rank/regret and adds absolute MAE; supplement.tex
 holds subgroup diagnostics. No new fitting/inference or uncertainty estimates.
 All 60 ranks, 30 intervals, 32 target-history MAEs and 32 subgroup rows checked;
-standalone previews inspected. Updated document layout still requires Overleaf.
+standalone previews inspected. Full document layout was subsequently reviewed locally.
 
 Manuscript technical edit (2026-10-31): Overleaf main.tex is the active
 submission draft; Markdown remains the accepted-evidence narrative. Corrected
@@ -22,8 +32,7 @@ LOSO and correction disclosure. Target-history plot now uses exact asymmetric
 and conceptual device sketch. Current Overleaf title/name preserved pending
 author confirmation against CITATION.cff. No scientific source or accepted
 artifacts changed. Static TeX/reference checks and all 12 clean-table values passed; all four
-outage intervals match the acceptance receipt. Compiled PDF/layout review
-remains pending because no local LaTeX compiler is installed.
+outage intervals match the acceptance receipt. Compiled PDF/layout review completed locally on 2026-10-31 (see above).
 
 Current status (2026-10-30, P9 extension accepted): notebook 08b completed
 with unchanged code and no errors. Review commit

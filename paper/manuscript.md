@@ -2,7 +2,8 @@
 
 Oyewale Daniel Oyewola
 
-Ormedian Research Group  
+Ormedian Research Group
+
 Correspondence: oyewaledanieloyewola@gmail.com
 
 **Editorial status:** the actively edited submission draft is `paper/overleaf/main.tex`.

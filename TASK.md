@@ -204,7 +204,7 @@ audit distinguishes inspected abstract/minimal code from unavailable full text.
 
 - [x] Technical edit of Overleaf draft: chronology, aggregation, uncertainty, selection diagram, outage intervals and correction disclosure
 - [x] Build and verify rank/regret, absolute-error stress and descriptive subgroup figures from accepted evidence; integrate main-paper and supplementary assets
-- [ ] Compile and inspect revised Overleaf PDF for layout, overflow and references
+- [x] Compile and inspect revised Overleaf PDF for layout, overflow and references (local Tectonic; main 8 pages, supplement 1 page)
 - [ ] Resolve title and author-name differences between Overleaf and repository citation metadata
 - [x] Record confirmed affiliation (Ormedian Research Group) and correspondence (oyewaledanieloyewola@gmail.com)
 - [ ] Author review of contributions and remaining declarations

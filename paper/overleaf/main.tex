@@ -12,6 +12,7 @@
 \usepackage{hyperref}
 \usepackage{enumitem}
 \usepackage{balance}
+\usepackage{placeins}
 \usepackage{tikz}
 \usepackage{pgfplots}
 \usetikzlibrary{arrows.meta,positioning,shapes.geometric,fit,calc}
@@ -56,7 +57,7 @@ The study makes four contributions:
 
 The claims are deliberately bounded. We do not claim universal persistence superiority, a validated model-switching policy, robustness to physical sensor failure, or inter-city transfer.
 
-\begin{figure*}[t]
+\begin{figure*}[!t]
 \centering
 \begin{tikzpicture}[
 node distance=5mm and 6mm,
@@ -118,7 +119,7 @@ A sensitivity policy removes forward fill while retaining training-only fallback
 \subsection{Candidate Model Architectures}
 The candidate set intentionally spans four levels of modeling complexity. Persistence predicts the next PM$_{2.5}$ value from the latest causally preprocessed PM$_{2.5}$ observation. XGBoost uses the flattened 24-hour feature history plus four calendar features~\cite{chen2016xgboost}. The MLP uses the same flattened history and calendar features with two ReLU dense layers. The GRU preserves the 24-hour sequence, encodes it with a recurrent unit, concatenates the four calendar features at the output head, and produces a linear scalar forecast~\cite{cho2014gru}.
 
-\begin{figure*}[t]
+\begin{figure*}[!t]
 \centering
 \begin{tikzpicture}[font=\scriptsize,box/.style={draw,rounded corners,align=center,minimum height=7mm,minimum width=15mm},arr/.style={-{Latex[length=1.7mm]},thick}]
 \node[font=\footnotesize\bfseries] at (1.5,3.4) {(a) Persistence};
@@ -151,7 +152,7 @@ The candidate set intentionally spans four levels of modeling complexity. Persis
 \centering
 \caption{Declared model configurations and training budget.}
 \label{tab:models}
-\begin{tabular}{p{1.2cm}p{5.0cm}}
+\begin{tabular}{>{\raggedright\arraybackslash}p{1.4cm}>{\raggedright\arraybackslash}p{4.8cm}}
 \toprule
 \textbf{Family} & \textbf{Declared configurations} \\
 \midrule
@@ -174,7 +175,7 @@ Candidate families are evaluated on the same clean validation rows. The lowest a
 \]
 The selected family is frozen before final-test and stress outcomes are interpreted. The near-tie set includes the minimum-MAE family; when it has only one member, that family is selected. The ordering is a declared simplicity preference, not an experimentally measured ranking of inference cost.
 
-\begin{figure}[t]
+\begin{figure}[!t]
 \centering
 \begin{tikzpicture}[
 node distance=4mm,
@@ -259,7 +260,7 @@ Across all 15 full-period degradation conditions, persistence remains within the
 This conclusion is deliberately conditional: historical PM$_{2.5}$ is protected in the primary stress experiment, so the result does not demonstrate robustness to failure of the target-history channel.
 
 
-\begin{figure*}[t]
+\begin{figure*}[!t]
 \centering
 \includegraphics[width=\textwidth]{figures/rank_and_regret.pdf}
 \caption{Numerical rank and decision cost across all 15 non-target stress conditions. Left: primary-imputation rank (1 is lowest MAE). Right: persistence selection regret under both imputation policies, with pointwise 95\% paired block-bootstrap intervals. Historical PM$_{2.5}$ is protected. Full-period results only; numerical ranks do not establish practical equivalence.}
@@ -269,9 +270,9 @@ This conclusion is deliberately conditional: historical PM$_{2.5}$ is protected 
 Across 12 LOSO folds, persistence is selected in every fold by the frozen rule. Mean station-specific regret is 0.5504~$\mu$g/m$^3$ (95\% CI: 0.4004--0.7388), and 11 of 12 station point estimates lie within the practical threshold. Shunyi has the largest point regret at 1.0504~$\mu$g/m$^3$ with a 95\% CI of 0.7417--1.3109. The evidence therefore supports generally small within-Beijing selection cost, while also showing that cross-site reliability is not uniform.
 
 
-\begin{figure*}[t]
+\begin{figure*}[!t]
 \centering
-\includegraphics[width=0.90\textwidth]{figures/site_regret.pdf}
+\includegraphics[width=0.84\textwidth]{figures/site_regret.pdf}
 \caption{Station-specific selection regret under leave-one-station-out evaluation. Points show station-specific regret; horizontal intervals are pointwise 95\% paired block-bootstrap intervals. The dashed line marks the practical threshold.}
 \label{fig:siteregret}
 \end{figure*}
@@ -298,7 +299,7 @@ PM$_{2.5}$ outage 12 h & 0.651 & 2.282 \\
 \end{table}
 
 
-\begin{figure}[t]
+\begin{figure}[!t]
 \centering
 \begin{tikzpicture}
 \begin{axis}[width=\columnwidth,height=5.6cm,ylabel={Selection regret ($\mu$g/m$^3$)},xtick={1,2},xticklabels={6 h,12 h},xlabel={PM$_{2.5}$ outage duration},xmin=0.6,xmax=2.4,ymin=0,ymax=3.2,legend style={font=\scriptsize,at={(0.5,1.02)},anchor=south,legend columns=1},grid=major]
@@ -311,7 +312,7 @@ PM$_{2.5}$ outage 12 h & 0.651 & 2.282 \\
 \caption{Full-period versus outage-affected selection regret in the post-results PM$_{2.5}$ target-history checkpoint. Points show regret and error bars show pointwise 95\% paired block-bootstrap intervals. The 12-hour affected-window result exceeds the prespecified practical threshold despite a much smaller full-period average.}
 \label{fig:targethistory}
 \end{figure}
-\begin{figure*}[t]
+\begin{figure*}[!t]
 \centering
 \includegraphics[width=\textwidth]{figures/target_history_accuracy.pdf}
 \caption{Absolute forecasting error in the post-results PM$_{2.5}$ degradation extension under primary imputation. The zero-dropout point is the accepted clean benchmark. Lines connect tested levels and are not fitted response curves. All panels share the same MAE axis; plotted values are point estimates without model-specific confidence intervals. Outage-affected target masks differ across durations and realizations, so the right panel describes condition-specific performance, not a paired causal duration effect.}
@@ -354,6 +355,7 @@ The repository preserves the frozen protocol, declared search spaces, preprocess
 \section{Conclusion}
 \AirSense{} evaluates the reliability of a model-selection decision rather than only the stability of a leaderboard. Within the declared candidate set and study boundary, the frozen clean-validation choice remains practically competitive under many non-target observation degradations and across most unseen Beijing stations. The target-history checkpoint then identifies a clear boundary: sustained PM$_{2.5}$ outages can produce a meaningful affected-window selection penalty even when the full-period average remains reassuring. The resulting contribution is therefore a bounded empirical argument about when a simple clean-selected model remains defensible, and when that conclusion begins to fail.
 
+\FloatBarrier
 \balance
 \bibliographystyle{IEEEtran}
 \bibliography{references}

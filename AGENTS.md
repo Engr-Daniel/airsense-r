@@ -63,6 +63,13 @@ Every experiment should save structured outputs that can be reused by the manusc
 
 ## Scope discipline
 
+For manuscript edits, compile the main paper and supplement with
+`python paper/build_pdf.py`, inspect the compiler logs, and visually review the
+rendered PDF pages before handoff. Use the portable local compiler and cached
+packages under `.tmp/`; do not rely on the user to upload a compiled PDF.
+Report a genuine build/access failure if compilation is blocked, and distinguish
+static source checks from an actual rendered review.
+
 V1 is forecasting reliability under sensor degradation and site shift. Do not add anomaly detection, source apportionment, AQI classification, transformer architectures, or Edge deployment unless all core tasks are complete and `TASK.md` is updated.
 
 ## Definition of done for v1
