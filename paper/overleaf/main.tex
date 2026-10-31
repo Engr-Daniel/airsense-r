@@ -4,12 +4,13 @@
 \usepackage[utf8]{inputenc}
 \usepackage{cite}
 \usepackage{amsmath,amssymb}
-\usepackage{graphicx}
 \usepackage{booktabs}
 \usepackage{siunitx}
 \usepackage{hyperref}
 \usepackage{enumitem}
 \usepackage{balance}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,shapes.geometric,fit}
 \hypersetup{hidelinks}
 \sisetup{detect-all=true}
 \newcommand{\AirSense}{\textsc{AirSense-R}}
@@ -51,7 +52,21 @@ The claims are deliberately bounded. We do not claim universal persistence super
 
 \begin{figure*}[t]
 \centering
-\includegraphics[width=0.92\textwidth]{figures/airsense_story_flow.pdf}
+\begin{tikzpicture}[
+node distance=5mm and 6mm,
+box/.style={draw, rounded corners, align=center, minimum height=8mm, text width=2.7cm, font=\footnotesize},
+arr/.style={-{Latex[length=2mm]}, thick}
+]
+\node[box] (data) {Beijing multi-site\\hourly observations};
+\node[box, right=of data] (prep) {Causal preprocessing\\and missingness indicators};
+\node[box, right=of prep] (models) {Persistence, XGBoost,\\MLP, GRU};
+\node[box, right=of models] (select) {Clean-validation\\selection rule};
+\node[box, right=of select] (stress) {Clean test, sensor stress,\\LOSO, target-history checkpoint};
+\draw[arr] (data) -- (prep);
+\draw[arr] (prep) -- (models);
+\draw[arr] (models) -- (select);
+\draw[arr] (select) -- (stress);
+\end{tikzpicture}
 \caption{AirSense-R study flow. The model-selection decision is frozen before downstream stress and site-shift evaluation.}
 \label{fig:story}
 \end{figure*}
@@ -90,11 +105,28 @@ Candidate families are evaluated on the same clean validation rows. The lowest a
 \[
 \text{Persistence} \succ \text{XGBoost} \succ \text{MLP} \succ \text{GRU}.
 \]
-The selected family is then frozen before final-test and stress outcomes are interpreted.
+The selected family is frozen before final-test and stress outcomes are interpreted.
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=0.98\columnwidth]{figures/selection_rule_flow.pdf}
+\begin{tikzpicture}[
+node distance=4mm,
+box/.style={draw, rounded corners, align=center, text width=3.4cm, minimum height=7mm, font=\scriptsize},
+arr/.style={-{Latex[length=1.8mm]}, thick}
+]
+\node[box] (a) {Compute clean validation MAE for all families};
+\node[box, below=of a] (b) {Identify the lowest validation MAE};
+\node[box, below=of b] (c) {Any candidate within 1~$\mu$g/m$^3$ of the best?};
+\node[box, below left=5mm and -2mm of c] (d) {Yes: use fixed simplicity order};
+\node[box, below right=5mm and -2mm of c] (e) {No: choose lowest-MAE family};
+\node[box, below=12mm of c] (f) {Freeze selection before final-test/stress interpretation};
+\draw[arr] (a)--(b);
+\draw[arr] (b)--(c);
+\draw[arr] (c)--node[left,font=\scriptsize]{yes}(d);
+\draw[arr] (c)--node[right,font=\scriptsize]{no}(e);
+\draw[arr] (d)--(f);
+\draw[arr] (e)--(f);
+\end{tikzpicture}
 \caption{Frozen validation-based selection rule.}
 \label{fig:rule}
 \end{figure}
@@ -116,6 +148,27 @@ After the primary P5--P8 evidence had been inspected and preserved, a bounded ex
 \subsection{Uncertainty and Reproducibility}
 Paired uncertainty uses a 24-hour moving-block bootstrap with 2,000 replicates and shared temporal blocks across compared candidates, preserving short-range dependence better than treating hourly targets as independent~\cite{kuensch1989bootstrap}. The repository also preserves checksum-verified result manifests, executed notebooks, and read-only verification notebooks for accepted stages.
 
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[
+font=\scriptsize,
+sensor/.style={draw, rounded corners, minimum width=12mm, minimum height=5mm},
+arr/.style={-{Latex[length=1.8mm]}, thick}
+]
+\node[draw, rounded corners, minimum width=2.2cm, minimum height=3.2cm] (node) {};
+\node[font=\footnotesize\bfseries] at ([yshift=11mm]node.center) {Example station node};
+\node[sensor] at ([yshift=4mm]node.center) {PM$_{2.5}$};
+\node[sensor] at ([yshift=-2mm]node.center) {PM$_{10}$/gases};
+\node[sensor] at ([yshift=-8mm]node.center) {Weather};
+\node[draw, rounded corners, right=14mm of node, minimum width=2.2cm, minimum height=1.2cm, align=center] (pipe) {chronological stream\\+ causal preprocessing};
+\node[draw, rounded corners, right=14mm of pipe, minimum width=2.1cm, minimum height=1.2cm, align=center] (forecast) {forecasting\\pipeline};
+\draw[arr] (node)--(pipe);
+\draw[arr] (pipe)--(forecast);
+\end{tikzpicture}
+\caption{Conceptual deployment context. The study evaluates forecasting behavior under degraded observation streams; it does not validate a specific physical sensor device.}
+\label{fig:device}
+\end{figure}
+
 \section{Results}
 \subsection{Clean Benchmark}
 XGBoost achieves the lowest clean-test MAE at 9.7109~$\mu$g/m$^3$, followed by persistence at 10.2796, MLP at 10.8102, and GRU at 15.9574. The validation rule nevertheless selects persistence. The resulting clean-test regret is 0.5688~$\mu$g/m$^3$ with a 95\% paired CI of 0.3400--0.7632. Thus XGBoost is the numerical clean-test winner, but the cost of retaining the prespecified persistence choice remains below the primary 1~$\mu$g/m$^3$ tolerance.
@@ -129,7 +182,7 @@ This conclusion is deliberately conditional: historical PM$_{2.5}$ is protected 
 Across 12 LOSO folds, persistence is selected in every fold by the frozen rule. Mean station-specific regret is 0.5504~$\mu$g/m$^3$ (95\% CI: 0.4004--0.7388), and 11 of 12 station point estimates lie within the practical threshold. Shunyi has the largest point regret at 1.0504~$\mu$g/m$^3$ with a 95\% CI of 0.7417--1.3109. The evidence therefore supports generally small within-Beijing selection cost, while also showing that cross-site reliability is not uniform.
 
 \subsection{Target-History Checkpoint}
-The post-results extension materially sharpens the deployment interpretation. Under PM$_{2.5}$ dropout at 10, 30, and 50\%, persistence is the lowest-error candidate among the four and therefore has zero selection regret. Yet low regret does not imply strong absolute accuracy: persistence MAE reaches 15.671~$\mu$g/m$^3$ at 50\% dropout.
+The post-results extension sharpens the deployment interpretation. Under PM$_{2.5}$ dropout at 10, 30, and 50\%, persistence is the lowest-error candidate among the four and therefore has zero selection regret. Yet low regret does not imply strong absolute accuracy: persistence MAE reaches 15.671~$\mu$g/m$^3$ at 50\% dropout.
 
 Contiguous outages reveal a different boundary. Under a 6-hour PM$_{2.5}$ outage, full-period persistence regret is 0.557~$\mu$g/m$^3$ and affected-window regret is 0.198. Under a 12-hour outage, full-period regret is 0.651, but affected-window regret rises to 2.282~$\mu$g/m$^3$ with a 95\% CI of 1.696--2.910, entirely above the primary practical threshold. The key result is therefore not simply that target-history degradation matters, but that full-period averaging can hide a localized selection failure during the actual failure episode.
 
