@@ -1,5 +1,17 @@
 # MEMORY.md — AirSense-R Project Memory
 
+Manuscript technical edit (2026-10-31): Overleaf main.tex is the active
+submission draft; Markdown remains the accepted-evidence narrative. Corrected
+Liu bibliography authors, clean RMSE emphasis, selection-flow logic and
+post-results chronology; expanded tuning, corruption, aggregation, bootstrap,
+LOSO and correction disclosure. Target-history plot now uses exact asymmetric
+95% intervals from the acceptance receipt. Removed redundant clean bar chart
+and conceptual device sketch. Current Overleaf title/name preserved pending
+author confirmation against CITATION.cff. No scientific source or accepted
+artifacts changed. Static TeX/reference checks and all 12 clean-table values passed; all four
+outage intervals match the acceptance receipt. Compiled PDF/layout review
+remains pending because no local LaTeX compiler is installed.
+
 Current status (2026-10-30, P9 extension accepted): notebook 08b completed
 with unchanged code and no errors. Review commit
 1b07632a12a5019faade81aa96f539f83ea55252 verifies all 261 saved Drive bundles,

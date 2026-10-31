@@ -202,6 +202,9 @@ audit distinguishes inspected abstract/minimal code from unavailable full text.
 - [x] Future work / Edge-ML path
 - [x] Conclusion
 
+- [x] Technical edit of Overleaf draft: chronology, aggregation, uncertainty, selection diagram, outage intervals and correction disclosure
+- [ ] Compile and inspect revised Overleaf PDF for layout, overflow and references
+- [ ] Resolve title and author-name differences between Overleaf and repository citation metadata
 - [ ] Author review and confirmation of affiliation, correspondence, contributions and declarations
 - [ ] Target-journal formatting and final citation/novelty review
 - [ ] Public release plan for large prediction/model artifacts before submission

@@ -103,10 +103,10 @@ The chronological target splits are:
 \item validation: 1 March 2015--29 February 2016; and
 \item final test: 1 March 2016--28 February 2017.
 \end{itemize}
-Missing targets are not imputed or scored, and synthetic interventions never alter the evaluation labels.
+Missing targets are not imputed or scored, and synthetic interventions never alter the evaluation labels. The clean final-test comparison contains 102,753 distinct station--target observations shared by every family and training seed. Missing inputs do not remove otherwise eligible targets. A target may use preceding observations from the previous split because they occur strictly before its forecast time; learned preprocessing remains fitted only on training data.
 
 \subsection{Leakage-Controlled Temporal Evaluation}
-Forecast evaluation follows chronological rather than randomly shuffled partitions. Out-of-sample design is central to time-series studies because temporal dependence and non-stationarity complicate the interpretation of conventional random splits~\cite{tashman2000oos,bergmeir2018cv}. Hyperparameters are tuned only inside the training period using three expanding-window folds. Clean validation data then determine the model family, while the final test period remains unavailable to feature design, hyperparameter tuning, model-family selection, corruption severity selection, and uncertainty settings.
+Forecast evaluation follows chronological rather than randomly shuffled partitions. Out-of-sample design is central to time-series studies because temporal dependence and non-stationarity complicate the interpretation of conventional random splits~\cite{tashman2000oos,bergmeir2018cv}. Hyperparameters are tuned only inside the training period using three expanding-window folds. Clean validation data then determine the model family, while the final test period was reserved from feature design, hyperparameter tuning, model-family selection, primary corruption-severity selection, and uncertainty-setting choices. This chronology describes the primary protocol; the target-history and tolerance analyses were declared after primary results and are labeled post-results.
 
 For a target at time $t+1$, the forecasting pipeline uses only observations available through time $t$. Missing target PM$_{2.5}$ values are never imputed or scored. The 24-hour lookback is a prespecified modeling choice intended to retain one daily cycle while keeping the experiment bounded; it is not claimed to be globally optimal.
 \subsection{Causal Preprocessing}
@@ -165,11 +165,13 @@ GRU & 32 or 64 GRU units; 16-unit ReLU head; Adam; learning rate $10^{-3}$; 20 e
 Learned models use three fixed training seeds (42, 31415, and 27182). Persistence is deterministic. The bounded search is part of the experimental scope and is not presented as evidence that the chosen hyperparameters are globally optimal.
 
 \subsection{Hyperparameter Tuning and Validation Selection}
+The three internal folds fit through 28 February, 30 June, and 31 October 2014, respectively, and validate on March--June 2014, July--October 2014, and November 2014--February 2015. Fit cutoffs end at 23:00; validation starts at 00:00 on the next day. Training-target eligibility begins at the fixed training boundary; preceding observations supply the initial lookback. Candidate configurations minimize MAE averaged over training seeds, stations and folds with equal weights; exact ties use the declared candidate order. Each chosen configuration is refitted on the full training period before clean validation. Neural models use mean-squared-error loss, batch size 512, and a fixed 20-epoch budget without early stopping. Validation observations are not added to the final fitting period.
+
 Candidate families are evaluated on the same clean validation rows. The lowest aggregate validation MAE is identified. If another family lies within 1~$\mu$g/m$^3$ of the best, the difference is treated as a practical near-tie and the simpler family is preferred according to the fixed order
 \[
 \text{Persistence} \succ \text{XGBoost} \succ \text{MLP} \succ \text{GRU}.
 \]
-The selected family is frozen before final-test and stress outcomes are interpreted.
+The selected family is frozen before final-test and stress outcomes are interpreted. The near-tie set includes the minimum-MAE family; when it has only one member, that family is selected. The ordering is a declared simplicity preference, not an experimentally measured ranking of inference cost.
 
 \begin{figure}[t]
 \centering
@@ -180,16 +182,13 @@ arr/.style={-{Latex[length=1.8mm]}, thick}
 ]
 \node[box] (a) {Compute clean validation MAE for all families};
 \node[box, below=of a] (b) {Identify the lowest validation MAE};
-\node[box, below=of b] (c) {Any candidate within 1~$\mu$g/m$^3$ of the best?};
-\node[box, below left=5mm and -2mm of c] (d) {Yes: use fixed simplicity order};
-\node[box, below right=5mm and -2mm of c] (e) {No: choose lowest-MAE family};
-\node[box, below=12mm of c] (f) {Freeze selection before final-test/stress interpretation};
+\node[box, below=of b] (c) {Form the set of families within 1~$\mu$g/m$^3$ of the minimum};
+\node[box, below=of c] (d) {Choose the simplest member using the fixed order};
+\node[box, below=of d] (f) {Freeze selection before final-test/stress interpretation};
 \draw[arr] (a)--(b);
 \draw[arr] (b)--(c);
-\draw[arr] (c)--node[left,font=\scriptsize]{yes}(d);
-\draw[arr] (c)--node[right,font=\scriptsize]{no}(e);
+\draw[arr] (c)--(d);
 \draw[arr] (d)--(f);
-\draw[arr] (e)--(f);
 \end{tikzpicture}
 \caption{Frozen validation-based selection rule.}
 \label{fig:rule}
@@ -206,37 +205,28 @@ After the clean-validation decision is frozen, no candidate is retrained for str
 
 The primary intervention families are 10/30/50\% random non-target feature dropout; complete loss of NO$_2$, CO, or temperature; 5/10/20\% normalized Gaussian measurement noise; and 6-hour or 12-hour contiguous outages of NO$_2$, CO, or temperature. Historical PM$_{2.5}$ is intentionally protected in this primary experiment. Structured outages are summarized both over the full test period and over forecast windows whose histories intersect the outage because full-period averages can dilute short operational failures~\cite{alvaradoalcon2026citywide}.
 
+The five corruption seeds are 101, 202, 303, 404, and 505. Random dropout is independent Bernoulli masking of station--timestamp--channel entries across the non-target channels, including wind direction. Noise excludes categorical wind direction and has channel-specific standard deviation equal to severity times the training interquartile range divided by 1.349; a zero interquartile range uses the training standard deviation. Naturally nonnegative pollutant and weather channels are clipped at zero after injection (PM$_{10}$, SO$_2$, NO$_2$, CO, O$_3$, rainfall and wind speed). Each outage condition samples one seeded start per station per test calendar month, with its full duration inside that month. All model families and training seeds share the same realization and eligible targets.
+
 \subsection{Unseen-Station Evaluation}
-Cross-site generalization is evaluated with 12 leave-one-station-out (LOSO) folds. In each fold, the held-out station is excluded from preprocessing-statistic estimation, hyperparameter tuning, model fitting, and clean-validation selection. The selected family is then evaluated only on final-test targets from the excluded station.
+Cross-site generalization is evaluated with 12 leave-one-station-out (LOSO) folds. In each fold, the held-out station is excluded from preprocessing-statistic estimation, hyperparameter tuning, model fitting, and clean-validation selection. The selected family is then evaluated only on final-test targets from the excluded station. Every fold retains the same chronological training, validation and test boundaries; future observations from the other 11 stations are never admitted into fitting. Fold-specific configuration selection and fitting are repeated, so differences from the pooled benchmark are not a causal estimate of site shift alone.
 
 Recent local observations from the held-out station remain available at inference, so the experiment measures within-Beijing unseen-station forecasting rather than prediction at a completely uninstrumented location. This distinction is important when comparing cross-location studies because available local information can materially change the task definition~\cite{alvaradoalcon2026citywide}.
 
 \subsection{Post-Results Sensitivity Analyses}
-After the primary confirmatory evidence had been inspected and preserved, a bounded extension was declared to probe the protected target-history assumption. The accepted models and preprocessing remain fixed. Exactly five conditions are tested: PM$_{2.5}$ dropout at 10, 30, and 50\%, and PM$_{2.5}$ contiguous outages of 6 and 12 hours. All candidates receive the same corrupted chronological stream before window construction; evaluation labels remain untouched. The extension is explicitly post-results and is reported separately from the original confirmatory evidence.
+After the primary confirmatory evidence had been inspected and preserved, a bounded extension was declared to probe the protected target-history assumption. The accepted models and preprocessing remain fixed. Exactly five conditions are tested: PM$_{2.5}$ dropout at 10, 30, and 50\%, and PM$_{2.5}$ contiguous outages of 6 and 12 hours. All candidates receive the same corrupted chronological stream before window construction; evaluation labels remain untouched. The extension uses primary imputation only and the same five corruption seeds and outage schedule. Persistence uses the resulting imputed PM$_{2.5}$ history, without access to an uncorrupted copy. The extension is explicitly post-results and is reported separately from the original confirmatory evidence.
+
+A separate post-results tolerance analysis considers 0.5, 1.0, 1.5 and 2.0~$\mu$g/m$^3$. It separates reinterpretation of the original selection's regret from counterfactual choices made using saved validation scores alone. The original 1.0 rule remains primary; no threshold is selected from test performance. Alternative-policy outcomes are descriptive point estimates, without newly computed intervals.
 
 \subsection{Metrics, Statistical Uncertainty, and Reproducibility}
-Paired uncertainty uses a 24-hour moving-block bootstrap with 2,000 replicates and shared temporal blocks across compared candidates, preserving short-range dependence better than treating hourly targets as independent~\cite{kuensch1989bootstrap}. The repository also preserves checksum-verified result manifests, executed notebooks, and read-only verification notebooks for accepted stages.
+MAE is the primary metric; RMSE and $R^2$ are secondary. Metrics are calculated within each station and training seed, averaged across training seeds, then across corruption realizations when applicable, and finally across stations with equal weight. These are averages of model-specific metrics, not scores of an ensemble prediction. Thus the reported aggregate RMSE is not obtained by pooling all squared errors. Relative performance degradation is $100(M_s-M_{\mathrm{clean}})/M_{\mathrm{clean}}$; the clean comparator uses the same target mask as the stressed scope. Kendall's tau-b summarizes numerical rank agreement, not practical equivalence.
 
-\begin{figure}[t]
-\centering
-\begin{tikzpicture}[
-font=\scriptsize,
-sensor/.style={draw, rounded corners, minimum width=12mm, minimum height=5mm},
-arr/.style={-{Latex[length=1.8mm]}, thick}
-]
-\node[draw, rounded corners, minimum width=2.2cm, minimum height=3.2cm] (node) {};
-\node[font=\footnotesize\bfseries] at ([yshift=11mm]node.center) {Example station node};
-\node[sensor] at ([yshift=4mm]node.center) {PM$_{2.5}$};
-\node[sensor] at ([yshift=-2mm]node.center) {PM$_{10}$/gases};
-\node[sensor] at ([yshift=-8mm]node.center) {Weather};
-\node[draw, rounded corners, right=14mm of node, minimum width=2.2cm, minimum height=1.2cm, align=center] (pipe) {chronological stream\\+ causal preprocessing};
-\node[draw, rounded corners, right=14mm of pipe, minimum width=2.1cm, minimum height=1.2cm, align=center] (forecast) {forecasting\\pipeline};
-\draw[arr] (node)--(pipe);
-\draw[arr] (pipe)--(forecast);
-\end{tikzpicture}
-\caption{Conceptual deployment context. The study evaluates forecasting behavior under degraded observation streams; it does not validate a specific physical sensor device.}
-\label{fig:device}
-\end{figure}
+For pooled conditions, selection regret subtracts the lowest aggregate candidate MAE. For LOSO, regret is calculated separately within each held-out station and then averaged equally across the 12 stations; it is not a difference against one globally best family.
+
+Paired uncertainty uses a calendar-aligned, 24-hour moving-block bootstrap with 2,000 replicates, seed 424242, and percentile 95\% intervals~\cite{kuensch1989bootstrap}. Block starts are sampled with replacement from valid calendar-hour starts; concatenated blocks span the test duration, truncating the final block if necessary. Identical sampled hours are used across candidates, stations and corruption realizations, retaining observed-label and affected-window masks. Each replicate recomputes station metrics and the retrospective minimum; the validation-selected family remains fixed. LOSO replicates average station-specific regrets. Sparse affected-window replicates with an empty station/realization yield an unavailable interval rather than an unreported redraw.
+
+Intervals are conditional on the observed period, stations, fitted training seeds and corruption-seed set; neither fitting nor corruption generation is repeated inside the bootstrap. They are pointwise, not simultaneous across conditions, and the fixed block length does not guarantee coverage of longer dependence scales. Near-tie membership is a practical interpretation, not a statistical equivalence test.
+
+
 
 \section{Results}
 \subsection{Clean Benchmark}
@@ -244,30 +234,21 @@ Table~\ref{tab:clean} reports final-test performance. XGBoost achieves the lowes
 
 \begin{table}[t]
 \centering
-\caption{Clean final-test performance.}
+\caption{Clean final-test performance. MAE and RMSE are in $\mu$g/m$^3$; bold indicates the best value in each column.}
 \label{tab:clean}
 \begin{tabular}{lrrr}
 \toprule
 \textbf{Family} & \textbf{MAE} & \textbf{RMSE} & \textbf{$R^2$} \\
 \midrule
-XGBoost & \textbf{9.711} & 18.921 & 0.947 \\
+XGBoost & \textbf{9.711} & \textbf{18.921} & \textbf{0.947} \\
 Persistence & 10.280 & 19.655 & 0.942 \\
-MLP & 10.810 & \textbf{18.938} & 0.946 \\
+MLP & 10.810 & 18.938 & 0.946 \\
 GRU & 15.957 & 37.166 & 0.688 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-\begin{figure}[t]
-\centering
-\begin{tikzpicture}
-\begin{axis}[ybar,width=\columnwidth,height=4.6cm,ylabel={MAE ($\mu$g/m$^3$)},symbolic x coords={XGBoost,Persistence,MLP,GRU},xtick=data,x tick label style={rotate=25,anchor=east,font=\scriptsize},ymin=0,ymax=18,bar width=8pt,nodes near coords,nodes near coords style={font=\scriptsize},grid=major]
-\addplot coordinates {(XGBoost,9.7109) (Persistence,10.2796) (MLP,10.8102) (GRU,15.9574)};
-\end{axis}
-\end{tikzpicture}
-\caption{Clean-test MAE for the four candidate families. XGBoost is the numerical test winner; persistence is the frozen validation-selected family.}
-\label{fig:clean}
-\end{figure}
+
 
 The paired interval excludes zero, so XGBoost's numerical advantage over persistence is resolved under the study's bootstrap. However, the entire interval remains below the prespecified 1~$\mu$g/m$^3$ practical tolerance. The clean benchmark therefore illustrates the central distinction between exact rank and the cost of retaining the original selection.
 
@@ -280,7 +261,7 @@ This conclusion is deliberately conditional: historical PM$_{2.5}$ is protected 
 \begin{figure*}[t]
 \centering
 \includegraphics[width=0.94\textwidth]{figures/sensor_regret.pdf}
-\caption{Selection-regret summary for the accepted primary sensor-degradation experiment. Historical PM$_{2.5}$ is protected in this experiment.}
+\caption{Selection-regret summary for the accepted primary sensor-degradation experiment. Historical PM$_{2.5}$ is protected in this experiment. Points and horizontal intervals show full-period regret and pointwise 95\% paired block-bootstrap intervals.}
 \label{fig:sensorregret}
 \end{figure*}
 \subsection{Unseen-Station Evaluation}
@@ -290,17 +271,17 @@ Across 12 LOSO folds, persistence is selected in every fold by the frozen rule. 
 \begin{figure*}[t]
 \centering
 \includegraphics[width=0.90\textwidth]{figures/site_regret.pdf}
-\caption{Station-specific selection regret under leave-one-station-out evaluation. The figure uses the accepted repository publication asset.}
+\caption{Station-specific selection regret under leave-one-station-out evaluation. Points show station-specific regret; horizontal intervals are pointwise 95\% paired block-bootstrap intervals. The dashed line marks the practical threshold.}
 \label{fig:siteregret}
 \end{figure*}
 \subsection{Target-History Checkpoint}
 The post-results extension sharpens the deployment interpretation. Under PM$_{2.5}$ dropout at 10, 30, and 50\%, persistence is the lowest-error candidate among the four and therefore has zero selection regret. Yet low regret does not imply strong absolute accuracy: persistence MAE reaches 15.671~$\mu$g/m$^3$ at 50\% dropout.
 
-Contiguous outages reveal a different boundary. Under a 6-hour PM$_{2.5}$ outage, full-period persistence regret is 0.557~$\mu$g/m$^3$ and affected-window regret is 0.198. Under a 12-hour outage, full-period regret is 0.651, but affected-window regret rises to 2.282~$\mu$g/m$^3$ with a 95\% CI of 1.696--2.910, entirely above the primary practical threshold. The key result is therefore not simply that target-history degradation matters, but that full-period averaging can hide a localized selection failure during the actual failure episode.
+Contiguous outages reveal a different boundary. Under a 6-hour PM$_{2.5}$ outage, full-period persistence regret is 0.557~$\mu$g/m$^3$ and affected-window regret is 0.198. Under a 12-hour outage, full-period regret is 0.651, but affected-window regret rises to 2.282~$\mu$g/m$^3$ with a 95\% CI of 1.696--2.910, entirely above the primary practical threshold. The key result is therefore not simply that target-history degradation matters, but that full-period averaging can hide a localized selection failure in forecasts whose 24-hour input histories intersect the outage. This scope can extend beyond the outage itself, after observations resume.
 
 \begin{table}[t]
 \centering
-\caption{Target-history checkpoint summary for the selected persistence family.}
+\caption{Post-results target-history checkpoint for the selected persistence family. Regret is in $\mu$g/m$^3$; affected histories are defined only for contiguous outages.}
 \label{tab:target}
 \begin{tabular}{lcc}
 \toprule
@@ -319,18 +300,18 @@ PM$_{2.5}$ outage 12 h & 0.651 & 2.282 \\
 \begin{figure}[t]
 \centering
 \begin{tikzpicture}
-\begin{axis}[ybar,width=\columnwidth,height=4.9cm,ylabel={Selection regret ($\mu$g/m$^3$)},symbolic x coords={6h,12h},xtick=data,legend style={font=\scriptsize,at={(0.5,1.02)},anchor=south,legend columns=2},ymin=0,ymax=2.6,bar width=10pt,grid=major]
-\addplot coordinates {(6h,0.557) (12h,0.651)};
-\addplot coordinates {(6h,0.198) (12h,2.282)};
-\addplot[sharp plot,dashed,mark=none] coordinates {(6h,1.0) (12h,1.0)};
-\legend{Full period,Affected windows,1.0 threshold}
+\begin{axis}[width=\columnwidth,height=5.6cm,ylabel={Selection regret ($\mu$g/m$^3$)},xtick={1,2},xticklabels={6 h,12 h},xlabel={PM$_{2.5}$ outage duration},xmin=0.6,xmax=2.4,ymin=0,ymax=3.2,legend style={font=\scriptsize,at={(0.5,1.02)},anchor=south,legend columns=1},grid=major]
+\addplot+[only marks,mark=square*,error bars/.cd,y dir=both,y explicit] coordinates {(0.90,0.556526231127) += (0,0.195360473597) -= (0,0.232345484229) (1.90,0.650831184837) += (0,0.190202223959) -= (0,0.220801257048)};
+\addplot+[only marks,mark=*,error bars/.cd,y dir=both,y explicit] coordinates {(1.10,0.197523574966) += (0,0.583282897438) -= (0,0.197523574966) (2.10,2.282187286654) += (0,0.627503359103) -= (0,0.586610517389)};
+\addplot[dashed,black,mark=none] coordinates {(0.6,1) (2.4,1)};
+\legend{Full period,Affected histories,Practical threshold}
 \end{axis}
 \end{tikzpicture}
-\caption{Full-period versus outage-affected selection regret in the post-results PM$_{2.5}$ target-history checkpoint. The 12-hour affected-window result exceeds the prespecified practical threshold despite a much smaller full-period average.}
+\caption{Full-period versus outage-affected selection regret in the post-results PM$_{2.5}$ target-history checkpoint. Points show regret and error bars show pointwise 95\% paired block-bootstrap intervals. The 12-hour affected-window result exceeds the prespecified practical threshold despite a much smaller full-period average.}
 \label{fig:targethistory}
 \end{figure}
 \subsection{Tolerance Sensitivity}
-Interpretation is sensitive to the practical tolerance. At 0.5~$\mu$g/m$^3$, the clean point regret exceeds the tolerance, only 8 of 15 full-period sensor conditions lie within it under each policy, and 5 of 12 LOSO point regrets lie within it. At the primary 1.0 threshold, these counts are 15/15 and 11/12, respectively. In contrast, counterfactual clean selection changes little: persistence remains the pooled clean choice across tolerances of 0.5, 1.0, 1.5, and 2.0~$\mu$g/m$^3$ because its validation gap to XGBoost is approximately 0.3688. The practical judgment is therefore more threshold-sensitive than the pooled selection itself.
+Interpretation is sensitive to the practical tolerance. At 0.5~$\mu$g/m$^3$, the clean point regret exceeds the tolerance, only 8 of 15 full-period sensor conditions lie within it under each policy, and 5 of 12 LOSO point regrets lie within it. At the primary 1.0 threshold, these counts are 15/15 and 11/12, respectively. In contrast, counterfactual clean selection changes little: persistence remains the pooled clean choice across tolerances of 0.5, 1.0, 1.5, and 2.0~$\mu$g/m$^3$ because its validation gap to XGBoost is approximately 0.3688. At 0.5, the Nongzhanguan LOSO fold instead selects XGBoost from saved validation scores; mean station-specific regret under that counterfactual policy is 0.4978 rather than 0.5504. Original-policy confidence intervals are not reused for this changed selection. The practical judgment is therefore more threshold-sensitive than the pooled selection itself.
 
 \section{Discussion}
 
@@ -351,14 +332,16 @@ Low selection regret also does not establish acceptable absolute forecasting acc
 Compared with studies that primarily optimize architecture or imputation strategy~\cite{chowdhury2026imputation,yagnik2026leakage}, \AirSense{} treats the predeployment family choice as the object of evaluation. Compared with Semper \emph{et al.}~\cite{semper2026dss}, perturbations occur in the model inputs and produce new forecasts rather than only changing evaluation references. Compared with cross-location forecasting work~\cite{alvaradoalcon2026citywide}, the LOSO task here is intentionally narrower because recent local history from the held-out station remains available at inference.
 
 \section{Limitations and Future Work}
-The evidence comes from one historical Beijing dataset, one forecast horizon, and four candidate families. The synthetic interventions are controlled stress tests rather than validated physical fault models. The within-city LOSO design does not establish inter-city or cross-climate transfer. The 1~$\mu$g/m$^3$ tolerance is a prespecified modeling decision threshold rather than a health or regulatory standard, and the sensitivity analysis shows that conclusions become less favorable under a stricter 0.5~$\mu$g/m$^3$ interpretation.
+The evidence comes from one historical Beijing dataset, one forecast horizon, and four candidate families. A linear or ridge model with lag features is absent, and the two-configuration search per learned family does not establish architecture-level optimality. The fixed simplicity order is not a measured cost--accuracy frontier. The synthetic interventions are controlled stress tests rather than validated physical fault models. The within-city LOSO design does not establish inter-city or cross-climate transfer. The 1~$\mu$g/m$^3$ tolerance is a prespecified modeling decision threshold rather than a health or regulatory standard, and the sensitivity analysis shows that conclusions become less favorable under a stricter 0.5~$\mu$g/m$^3$ interpretation.
 
 The target-history checkpoint is explicitly post-results and therefore should not be assigned the same confirmatory status as the original protocol. Uncertainty intervals are also conditional on this dataset, these fitted seeds, and the chosen 24-hour block bootstrap. Finally, selection regret is relative to the tested alternatives: low regret can coexist with poor absolute accuracy, while high regret does not itself validate a switching policy.
 
 Future work should test the framework on additional cities and climates, longer forecasting horizons, broader candidate sets, and real low-cost-sensor fault logs. A separate prospective study could evaluate adaptive fallback or model-switching policies, but such policies should be tested directly rather than inferred from retrospective regret.
 
 \section{Reproducibility and Availability}
-The repository preserves the frozen protocol, declared search spaces, preprocessing logic, prediction artifacts, uncertainty settings, executed notebooks, and independent verification receipts. Primary evidence and post-results sensitivity analyses are stored separately so later analyses do not overwrite the original experiment. A final public archival plan for large native model and prediction artifacts remains a submission task.
+A preprocessing serialization defect was identified after initial clean-test inspection: sorted statistic mappings changed scaled feature order on reload. The corrected evaluation reused the original trained models, hyperparameters and validation selection, with development-prediction replay before corrected test scoring. An additional CSV round-trip correction preserved decimal target values. Original invalidated outputs and the correction chronology are retained; only independently accepted corrected results are reported. No retuning, refitting or relaxation of replay tolerances was used. These safeguards do not erase the post-results timing of the corrections.
+
+The repository preserves the frozen protocol, declared search spaces, preprocessing logic, prediction artifacts, uncertainty settings, executed notebooks, and independent verification receipts. Primary evidence and post-results sensitivity analyses are stored separately so later analyses do not overwrite the original experiment. Code and compact evidence are available at \url{https://github.com/Engr-Daniel/airsense-r}. The dataset is available from UCI~\cite{uci_beijing}. Large native models and prediction arrays currently reside in project Drive storage with public checksum references; public archival access to those large files remains a submission task.
 
 \section{Conclusion}
 \AirSense{} evaluates the reliability of a model-selection decision rather than only the stability of a leaderboard. Within the declared candidate set and study boundary, the frozen clean-validation choice remains practically competitive under many non-target observation degradations and across most unseen Beijing stations. The target-history checkpoint then identifies a clear boundary: sustained PM$_{2.5}$ outages can produce a meaningful affected-window selection penalty even when the full-period average remains reassuring. The resulting contribution is therefore a bounded empirical argument about when a simple clean-selected model remains defensible, and when that conclusion begins to fail.

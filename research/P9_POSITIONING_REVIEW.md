@@ -1,8 +1,9 @@
 # Focused positioning review — 29 October 2026
 
 This audit supports cautious positioning, not a claim of exhaustive novelty.
-The accepted primary study is unchanged. The target-history checkpoint is
-post-results and has no accepted real-data outcomes yet.
+The accepted primary study is unchanged. Update, 30 October 2026: the separate
+post-results target-history checkpoint is now accepted; see
+`P9_TARGET_HISTORY_REVIEW.md`. The literature-access limitations below remain.
 
 ## Closest decision-support study
 
