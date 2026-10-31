@@ -370,8 +370,10 @@
   function viewTarget() {
     const t = state.target;
     const ids = [...new Set(D().target_history.map(x => x.id))];
-    let scope = targetScope(t.id, t.scope);
-    if (!scope) { t.scope = "full"; scope = targetScope(t.id, "full"); }
+    // Unknown condition or scope (e.g. a hand-edited link) falls back to an accepted scope.
+    if (!ids.includes(t.id)) Object.assign(t, { id: "pm25-outage-12", scope: "affected" });
+    if (!targetScope(t.id, t.scope)) t.scope = "full";
+    const scope = targetScope(t.id, t.scope);
     const hasAffected = !!targetScope(t.id, "affected");
     const set = patch => { Object.assign(t, patch); if (!targetScope(t.id, t.scope)) t.scope = "full"; syncHash({ c: t.id, s: t.scope }); render(); };
     const rows = D().target_history.map(x => {
@@ -479,7 +481,7 @@
         chartBox(div => C.columns(div, { categories: cats.map(c => catLabel[c]), series: MODELS.map(m => ({ label: MODEL_NAME[m], color: modelColor(m), values: cats.map(c => value(m, c)) })), unit: "µg/m³", label: "Error by group" }), "Grouped column chart of error by group"),
         tableView(head, rows)),
       h("section", { class: "card" }, h("h2", {}, "Largest unseen-station errors"),
-        h("p", { class: "sub" }, "Top rows by absolute error from the accepted LOSO worst-case table (sanity-checked, not re-selected from every prediction). Several of the largest cases involve abrupt one-hour changes in observed PM₂.₅ (for example, persistence predicting 621 when 3 µg/m³ was observed), which history-based forecasters cannot anticipate."),
+        h("p", { class: "sub" }, "Top rows by absolute error from the accepted LOSO worst-case table (sanity-checked, not re-selected from every prediction). Several of the largest cases involve abrupt one-hour changes in observed PM₂.₅ (for example, persistence predicting 621 when 3 µg/m³ was observed); the evaluated models failed to anticipate these cases."),
         table([{ label: "Station" }, { label: "Target time" }, { label: "Model" }, { label: "Observed", r: 1 }, { label: "Predicted", r: 1 }, { label: "Abs. error", r: 1 }, { label: "Season" }],
           fa.site_worst_cases.map(r => ({ cells: [r.station, r.target_timestamp, modelCell(r.model), C.fmt(r.y_true, 0), C.fmt(r.y_pred, 1), C.fmt(r.absolute_error, 1), r.season] })))),
     ];
@@ -624,7 +626,10 @@
       const r = D().sensors.find(s => s.id === params.get("c") && s.policy === (params.get("p") || state.sensors.policy));
       if (r) Object.assign(state.sensors, { id: r.id, group: r.group, policy: r.policy, scope: params.get("s") || "full" });
     }
-    if (route === "target" && params.get("c")) Object.assign(state.target, { id: params.get("c"), scope: params.get("s") || "full" });
+    if (route === "target" && params.get("c")) {
+      const id = params.get("c"), scope = params.get("s") || "full";
+      if (D().target_history.some(x => x.id === id)) Object.assign(state.target, { id, scope: targetScope(id, scope) ? scope : "full" });
+    }
     if (route === "stations" && params.get("st")) state.stations.selected = params.get("st");
     if (route === "clean" && params.get("flow")) state.clean.step = 8;
   }
