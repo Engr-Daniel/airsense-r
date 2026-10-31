@@ -7,8 +7,9 @@ result commits from Git objects, verifies receipts and manifests, recomputes cle
 corrected-02 test prediction CSVs (matches to 1e-9) and cross-checks threshold statuses
 against p9-threshold-sensitivity. GRU seed 42 genuinely collapses to about 4 ug/m3 in winter
 high-pollution weeks, so prediction windows keep seeds separate and never average them.
-Static site: docs/index.html with assets/js/{charts,app}.js and no CDN. Rendering was checked
-locally in headless Chrome; the live Pages deployment has not been checked yet.
+Static site: docs/index.html with assets/js/{charts,app}.js and no CDN. Live at
+https://engr-daniel.github.io/airsense-r/ (Pages: main /docs). Verified 2026-10-31 at 927ee2f:
+served bytes match the commit, all nine routes render, and CI passed. Next: P11 release.
 
 Local PDF review (2026-10-31): portable Tectonic 0.17.0 now compiles both
 manuscripts via python paper/build_pdf.py. Main: eight pages; supplement: one

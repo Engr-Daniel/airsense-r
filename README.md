@@ -31,7 +31,7 @@ The project follows a pre-specified workflow. Before final model evaluation, fre
 | P7 | Leave-one-station-out evaluation | Complete; independent verification accepted; [review](research/P8_COMPLETION_REPORT.md) |
 | P8 | Statistical and failure analysis | Complete; descriptive diagnostics and verification reviewed; [report](research/P8_COMPLETION_REPORT.md) |
 | P9 | Manuscript | First complete [draft](paper/manuscript.md); author review and submission preparation pending |
-| P10 | Reliability explorer | Built from accepted evidence; live Pages deployment pending |
+| P10 | Reliability explorer | Complete — live at https://engr-daniel.github.io/airsense-r/ |
 | P11 | Reproducibility release | Planned |
 
 ## Temporal splits and unseen sites

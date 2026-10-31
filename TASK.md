@@ -229,7 +229,7 @@ and remains out of v1 scope.
 - [x] Practical-threshold sensitivity control (1.0 frozen; others labelled post-results)
 - [x] Failure analysis, methodology, deployment concept and about/provenance pages
 - [x] Local static rendering check (headless Chrome, light/dark) and export tests
-- [ ] Validate live GitHub Pages deployment from `/docs` after push
+- [x] Validate live GitHub Pages deployment from `/docs` (2026-10-31, commit 927ee2f: served bytes match commit; all nine routes render without errors)
 
 ## P11 — Release
 
