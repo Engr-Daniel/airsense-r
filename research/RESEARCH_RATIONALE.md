@@ -1,6 +1,9 @@
-# AirSense-R: Do Air-Quality Forecasters Keep Their Rank Under Sensor Degradation and Site Shift?
+# AirSense-R: Evaluating PM2.5 Forecaster Selection Under Sensor Degradation and Unseen-Station Shift
 
 ## Pre-results research rationale
+
+Title metadata aligned to the confirmed publication title on 2026-11-02; the
+pre-results scientific rationale below is preserved.
 
 **Prepared:** 2026-10-09, before P5 model results. **Verdict:** worth executing as a bounded model-selection reliability study; publication merit remains conditional on evidence and differentiation. This is an independent targeted review, not proof of novelty or a systematic literature review. The user's problem-and-significance document and subsequent reviewer comments have been assessed and incorporated into this canonical pre-results record.
 

@@ -1,0 +1,47 @@
+{
+  "accepted_files_verified": {
+    "pred-test-persistence--1-000.csv": "784df6a0b2fa38f3f1328809cd23d4b5c6b1a9de9f8b50e1415b4051e62a29a3",
+    "pred-test-persistence--1-001.csv": "3c97ffc52b3d67ac1a6cfa66277ff13e099218c04f671e14a1ef7e65a25a6290",
+    "pred-test-persistence--1-002.csv": "77cbaf2ce08416e100fe13b6165d8392a13a241f94ee0d9995a8839e7a8c5467",
+    "pred-test-persistence--1-003.csv": "31a29e1803b98166f54673522ddfa684585f87b4fa857b509944de9524afcb66",
+    "pred-test-persistence--1-004.csv": "ae4416b36537c1d3f0669903b925954c36ef23e9b52ea3a184638306f410fb17",
+    "pred-test-persistence--1-005.csv": "2eb89d0d1fad6c61f31686791f6480fd7e192bed6c4b4a29f19f4ced4276a765",
+    "preprocessing.json": "474bb1ecbf6a06069032162d4c4d22d37d51d7ca0ce2629cd8a76657a7472270"
+  },
+  "accepted_result_commit": "118ae94a23517319d1c31b1159f25a9b77f6b230",
+  "acquisition_matches_frozen_receipt": true,
+  "all_predictions_finite": true,
+  "check": "clean_environment_core_rerun",
+  "config_sha256": "98dfed88515f5a180db23e8ee8e5a8276bafec30eeb5c17f3c7fc1056cfec649",
+  "environment": {
+    "numpy": "2.1.3",
+    "pandas": "2.2.3",
+    "platform": "Windows-10-10.0.19044-SP0",
+    "python": "3.11.17"
+  },
+  "identical_target_rows": true,
+  "max_abs_difference": {
+    "y_pred": 0.0,
+    "y_true": 0.0
+  },
+  "passed": true,
+  "persistence_mae_accepted": 10.27964339759353,
+  "persistence_mae_rerun": 10.27964339759353,
+  "phase": "P11",
+  "preprocessing": {
+    "bitwise_identical": false,
+    "exact_fields_identical": true,
+    "moment_max_relative_difference": {
+      "means": 0.0,
+      "stds": 2.195379881861135e-12
+    },
+    "moment_rtol": 1e-10,
+    "passed": true
+  },
+  "saved_targets": 102753,
+  "scope": "Fresh UCI download, training-only preprocessing refit, test window construction and deterministic persistence predictions. Learned models were not refitted.",
+  "source_commit": "59800c16c30553bb05489df6a4a507c8167ad575",
+  "source_hash": "7566d591dfef666340507b4175c85a5e0b24c1335b52b4b8b477e5f658250993",
+  "test_targets": 102753,
+  "verifier_sha256": "04e159de9d65848f14c76842eb6d896659c7df297647995fbbbcb82567d3369e"
+}

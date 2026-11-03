@@ -2,7 +2,7 @@
 
 **Accepted: 2026-10-13. P7 may now begin under the frozen protocol.**
 
-AirSense-R: Do Air-Quality Forecasters Keep Their Rank Under Sensor Degradation and Site Shift?
+AirSense-R: Evaluating PM2.5 Forecaster Selection Under Sensor Degradation and Unseen-Station Shift
 
 ## Evidence and verification
 

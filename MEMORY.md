@@ -1,5 +1,23 @@
 # MEMORY.md — AirSense-R Project Memory
 
+P11 verification closed (2026-11-03): 143 regression tests passed, no failures
+or skips. The completed fresh-data structural audit matches the frozen JSON
+exactly (420,768 rows, 12 stations). Technical checks are complete; final release
+version/date, tagging and manuscript/public-archive decisions remain pending.
+
+P11 release preparation (2026-11-02): publication name confirmed by the user as
+Daniel Oyewale; active Markdown manuscript, CITATION.cff and package author now
+agree with Overleaf. Affiliation/email remain unchanged. Canonical title also confirmed: AirSense-R: Evaluating PM2.5 Forecaster Selection Under Sensor Degradation and Unseen-Station Shift. Active document/notebook titles are aligned; executed evidence remains immutable.
+Fresh Python 3.11.17 core environment installed successfully. Core rerun verifies
+the fresh UCI archive and reproduces all 102,753 persistence predictions/targets
+exactly, MAE 10.27964339759353. Moment-only preprocessing comparison uses the
+predeclared 1e-10 relative tolerance; observed standard-deviation difference is
+2.195379881861135e-12. No learned-model retraining or accepted-output replacement.
+Explorer regeneration is byte-identical; all 11 archived notebooks and three
+diagnostic figure hashes match. Historical notebook fingerprints remain pinned;
+new release source fingerprint is recorded in results/p11/core_rerun.json.
+See research/P11_RELEASE_REVIEW.md for remaining verification/release gates.
+
 P10 explorer (2026-10-31): the user chose a deployment-styled reliability decision-support
 explorer, not a live deployment dashboard. Use no fake live values, alerts or model switching.
 The Deployment concept page is labelled "not evaluated". src/airsense_r/explorer.py reads accepted
@@ -166,7 +184,7 @@ P6 implementation checkpoint (2026-10-12): notebook 05 has explicit preflight/ev
 P6 local verification (2026-10-12): 75 regression tests and the separate fresh-process P6 notebook lifecycle test passed. The latter verified preflight, interruption/resume, completed-unit reuse, original-model/evidence preservation and bare-Git synchronization. All six current templates have matching source fingerprints. See research/P6_IMPLEMENTATION_REPORT.md. Next user action is notebook 05, new run `p6-sensors-01`, stage `preflight`; review its live evidence before `evaluate`. P5 needs no rerun.
 
 - Name: **AirSense-R**
-- Working paper title: **AirSense-R: Do Air-Quality Forecasters Keep Their Rank Under Sensor Degradation and Site Shift?**
+- Working paper title: **AirSense-R: Evaluating PM2.5 Forecaster Selection Under Sensor Degradation and Unseen-Station Shift**
 - Domain: environmental intelligence / air-quality forecasting / reliable ML
 - Primary target: PM2.5 one-hour-ahead forecasting
 - Intended public artifact: research repository + technical paper + GitHub Pages reliability explorer

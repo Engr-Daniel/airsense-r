@@ -1,4 +1,4 @@
-# AirSense-R: Do Air-Quality Forecasters Keep Their Rank Under Sensor Degradation and Site Shift?
+# AirSense-R: Evaluating PM2.5 Forecaster Selection Under Sensor Degradation and Unseen-Station Shift
 
 AirSense-R is a research-grade machine-learning study of **model-selection reliability under deployment stress**. Rather than asking only which model is most accurate on clean historical data, the project tests whether that clean-data winner remains the preferred model when the same frozen candidates face sensor dropout, complete channel loss, controlled measurement noise, or monitoring-site shift. The initial task is short-horizon PM2.5 forecasting using the UCI Beijing Multi-Site Air Quality dataset.
 
@@ -32,7 +32,7 @@ The project follows a pre-specified workflow. Before final model evaluation, fre
 | P8 | Statistical and failure analysis | Complete; descriptive diagnostics and verification reviewed; [report](research/P8_COMPLETION_REPORT.md) |
 | P9 | Manuscript | First complete [draft](paper/manuscript.md); author review and submission preparation pending |
 | P10 | Reliability explorer | Complete — live at https://engr-daniel.github.io/airsense-r/ |
-| P11 | Reproducibility release | Planned |
+| P11 | Reproducibility release | Technical checks complete; release tagging pending; see [release review](research/P11_RELEASE_REVIEW.md) |
 
 ## Temporal splits and unseen sites
 
@@ -83,17 +83,21 @@ storage, with checksum references in result branches.
 
 ```bash
 python -m venv .venv
-# Windows
-.venv\Scripts\activate
-# macOS/Linux
-source .venv/bin/activate
+```
 
-pip install -r requirements.txt
+Activate with `.venv\Scripts\Activate.ps1` in Windows PowerShell, or
+`source .venv/bin/activate` on macOS/Linux. Then install and verify:
+
+```bash
+python -m pip install -r requirements.txt
 python scripts/download_data.py   # verify/hash remote UCI archive; retain no raw data
 python scripts/run_data_audit.py  # full structural audit via temporary storage
 ```
 
 The raw dataset is remote-only by default: acquisition uses temporary storage and retains only compact audit evidence. Do not run final experiments until `research/PROTOCOL.md` is frozen.
+
+The full structural audit checks historical windows across all 12 stations and
+can take tens of minutes on a laptop. It does not train forecasting models.
 
 ## GitHub Pages
 
@@ -118,6 +122,18 @@ The exporter verifies acceptance receipts and manifest checksums, and recomputes
 - Record deviations from the frozen protocol in `research/PROTOCOL_DEVIATIONS.md`.
 
 ## Current next step
+
+The P10 explorer is implemented. P11 release verification includes a separate
+fresh-environment data-pipeline and persistence rerun:
+
+```bash
+python scripts/verify_core_rerun.py
+python -m pytest -q
+```
+
+The rerun saves `results/p11/core_rerun.json`; it does not retrain learned models
+or overwrite accepted experimental results. See the
+[release review](research/P11_RELEASE_REVIEW.md) for checks and outstanding gates.
 
 P7 and P8 are complete and reviewed. The **[manuscript draft](paper/manuscript.md)**
 now includes a separate [post-results tolerance audit](research/P9_THRESHOLD_REVIEW.md).

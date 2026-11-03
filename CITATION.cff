@@ -1,10 +1,10 @@
 cff-version: 1.2.0
-title: "AirSense-R: Do Air-Quality Forecasters Keep Their Rank Under Sensor Degradation and Site Shift?"
+title: "AirSense-R: Evaluating PM2.5 Forecaster Selection Under Sensor Degradation and Unseen-Station Shift"
 message: "If you use this software or research artifact, please cite it."
 type: software
 authors:
-  - family-names: Oyewola
-    given-names: Oyewale Daniel
+  - family-names: Oyewale
+    given-names: Daniel
     affiliation: Ormedian Research Group
     email: oyewaledanieloyewola@gmail.com
 date-released: 2026-10-06

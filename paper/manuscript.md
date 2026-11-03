@@ -1,6 +1,6 @@
-# AirSense-R: Do Air-Quality Forecasters Keep Their Rank Under Sensor Degradation and Site Shift?
+# AirSense-R: Evaluating PM2.5 Forecaster Selection Under Sensor Degradation and Unseen-Station Shift
 
-Oyewale Daniel Oyewola
+Daniel Oyewale
 
 Ormedian Research Group
 

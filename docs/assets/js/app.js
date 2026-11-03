@@ -579,7 +579,7 @@
     return [
       h("div", { class: "page-head" }, h("p", { class: "eyebrow" }, "About the research"),
         h("h1", {}, "AirSense-R"),
-        h("p", { class: "lede" }, "Do air-quality forecasters keep their rank under sensor degradation and site shift? AirSense-R evaluates a frozen model-selection decision rather than proposing a new forecasting architecture.")),
+        h("p", { class: "lede" }, "AirSense-R: Evaluating PM2.5 Forecaster Selection Under Sensor Degradation and Unseen-Station Shift. AirSense-R evaluates a frozen model-selection decision rather than proposing a new forecasting architecture.")),
       h("div", { class: "grid g3" },
         h("a", { class: "card", href: `${REPO}/blob/main/paper/manuscript.md`, style: "text-decoration:none;color:inherit" }, h("h3", {}, "Paper draft →"), h("p", { class: "sub" }, "Manuscript narrative and supplementary tables generated from accepted evidence.")),
         h("a", { class: "card", href: REPO, style: "text-decoration:none;color:inherit" }, h("h3", {}, "Repository →"), h("p", { class: "sub" }, "Code, frozen protocol, tests, notebooks and acceptance receipts.")),

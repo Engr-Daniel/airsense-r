@@ -205,7 +205,8 @@ audit distinguishes inspected abstract/minimal code from unavailable full text.
 - [x] Technical edit of Overleaf draft: chronology, aggregation, uncertainty, selection diagram, outage intervals and correction disclosure
 - [x] Build and verify rank/regret, absolute-error stress and descriptive subgroup figures from accepted evidence; integrate main-paper and supplementary assets
 - [x] Compile and inspect revised Overleaf PDF for layout, overflow and references (local Tectonic; main 8 pages, supplement 1 page)
-- [ ] Resolve title and author-name differences between Overleaf and repository citation metadata
+- [x] Align active author metadata to confirmed publication name Daniel Oyewale (2026-11-02)
+- [x] Align active titles to the confirmed descriptive Overleaf title (2026-11-02)
 - [x] Record confirmed affiliation (Ormedian Research Group) and correspondence (oyewaledanieloyewola@gmail.com)
 - [ ] Author review of contributions and remaining declarations
 - [ ] Target-journal formatting and final citation/novelty review
@@ -233,10 +234,10 @@ and remains out of v1 scope.
 
 ## P11 — Release
 
-- [ ] Run tests
-- [ ] Re-run core experiment from clean environment
-- [ ] Check README commands
-- [ ] Add final figures
+- [x] Run complete regression suite (143 passed; 2026-11-02)
+- [x] Fresh-environment core pipeline and persistence rerun (102,753 exact target/prediction matches; learned models not retrained)
+- [x] Check README installation, acquisition/audit, explorer export and test workflow; structural audit matches frozen JSON (reviewed 2026-11-03)
+- [x] Verify final diagnostic figure hashes and compile main paper/supplement
 - [ ] Complete citation metadata
 - [ ] Tag `v1.0.0`
 

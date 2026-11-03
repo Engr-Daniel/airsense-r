@@ -1,0 +1,25 @@
+{
+  "review_date": "2026-11-02",
+  "tests": 143,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "seconds": 1789.787,
+  "junit_sha256": "db2c42f9cd53a4c6683034cb3b91312c248438881a97f87c0654c5deee271417",
+  "warnings": {
+    "count": 247,
+    "description": "Keras/NumPy __array__ copy-keyword deprecation"
+  },
+  "explorer_regeneration_byte_identical": true,
+  "archived_notebooks_verified": 11,
+  "diagnostic_figures_verified": 3,
+  "notebook_title_updates_executable_cells_unchanged": 12,
+  "structural_audit": {
+    "review_date": "2026-11-03",
+    "matches_frozen_json": true,
+    "rows": 420768,
+    "stations": 12,
+    "rerun_sha256": "ddadc54f16ea188cc221cec67d21596b50a985845a4430203883d60b761158fc",
+    "frozen_sha256": "ddadc54f16ea188cc221cec67d21596b50a985845a4430203883d60b761158fc"
+  }
+}
