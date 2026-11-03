@@ -169,6 +169,8 @@ h3 { font-size: .98rem; margin: 0 0 6px; }
 
 /* Tables */
 .table-wrap { overflow-x: auto; }
+.table-scroll-hint { color: var(--text-secondary); font-size: .8rem; margin: 8px 0; }
+.table-wrap:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 table { width: 100%; border-collapse: collapse; font-size: .87rem; }
 th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--grid); vertical-align: top; }
 th { font-size: .76rem; color: var(--text-secondary); font-weight: 650; }
@@ -268,6 +270,10 @@ pre { background: var(--surface-2); border: 1px solid var(--border); border-radi
   .timeline { grid-template-columns: 1fr; }
 }
 @media (max-width: 520px) {
+  .field { min-width: 0; max-width: 100%; }
+  .seg { flex-wrap: wrap; gap: 1px; background: var(--border); }
+  .seg button { flex: 1 1 auto; min-height: 44px; background: var(--surface-2); }
+  .seg button + button { border-left: 0; }
   .g4 { grid-template-columns: 1fr; }
   .pipeline { grid-template-columns: 1fr; }
 }
@@ -278,4 +284,4 @@ pre { background: var(--surface-2); border: 1px solid var(--border); border-radi
 @media (forced-colors: active) {
   .status, .chip { border: 1px solid CanvasText; }
 }
-.grid > .card + .card, .grid > * { margin-top: 0; }
+.grid > .card + .card, .grid > * { margin-top: 0; min-width: 0; }

@@ -639,6 +639,25 @@
     pendingDraws = [];
     main.replaceChildren(...VIEWS[state.route]().flat(Infinity).filter(Boolean));
     pendingDraws.forEach(fn => fn());
+    main.querySelectorAll(".table-wrap").forEach((wrap, i) => {
+      const hint = h("p", { class: "table-scroll-hint", id: `table-scroll-${i}`, hidden: true },
+        "Swipe or scroll horizontally to see all columns. Keyboard: focus the table and use arrow keys.");
+      wrap.before(hint);
+      const update = () => {
+        const overflow = wrap.clientWidth > 0 && wrap.scrollWidth > wrap.clientWidth + 1;
+        hint.hidden = !overflow;
+        if (overflow) {
+          wrap.setAttribute("tabindex", "0");
+          wrap.setAttribute("role", "region");
+          wrap.setAttribute("aria-label", "Scrollable data table");
+          wrap.setAttribute("aria-describedby", hint.id);
+        } else {
+          ["tabindex", "role", "aria-label", "aria-describedby"].forEach(a => wrap.removeAttribute(a));
+        }
+      };
+      wrap.closest("details")?.addEventListener("toggle", update);
+      update();
+    });
     document.querySelectorAll("#nav a").forEach(a => { if (a.dataset.route === state.route) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current"); });
     if (scrollTop) {
       window.scrollTo(0, 0);

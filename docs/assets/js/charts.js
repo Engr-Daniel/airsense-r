@@ -88,12 +88,30 @@
 
   function thresholdLine(g, x, top, bottom, label) {
     svgEl("line", { x1: x, x2: x, y1: top, y2: bottom, class: "thr" }, g);
-    if (label) text(g, x + 4, top + 10, label, { class: "thr-label" });
+    if (label) {
+      const node = text(g, x + 4, top + 10, label, { class: "thr-label" });
+      const box = node.getBBox(), edge = g.viewBox.baseVal.width - 4;
+      if (box.x + box.width > edge) node.setAttribute("x", Math.max(4, edge - box.width));
+    }
+  }
+
+  function wrappedLabel(svg, x, y, label, width, bold) {
+    const node = text(svg, x, y, "", { class: "lbl", "font-weight": bold ? 700 : 400 });
+    let line = svgEl("tspan", { x, dy: 0 }, node);
+    for (const word of label.split(" ")) {
+      const previous = line.textContent;
+      line.textContent = previous ? `${previous} ${word}` : word;
+      if (previous && line.getComputedTextLength() > width) {
+        line.textContent = previous;
+        line = svgEl("tspan", { x, dy: 15 }, node);
+        line.textContent = word;
+      }
+    }
   }
 
   /* ---------- horizontal bars ---------- */
   function hbar(container, o) {
-    const rowH = 38, top = 8, labelW = Math.min(150, (container.clientWidth || 600) * 0.32);
+    const rowH = 38, top = 8, labelW = Math.max(100, Math.min(150, (container.clientWidth || 600) * 0.32));
     const h = top + o.rows.length * rowH + 26;
     const { svg, width } = frame(container, h, o.label);
     const right = width - 58, left = labelW;
@@ -120,10 +138,21 @@
 
   /* ---------- dot + interval (forest) ---------- */
   function forest(container, o) {
-    const rowH = o.rowH || 30, top = 22, labelW = o.labelW || Math.min(190, (container.clientWidth || 600) * 0.34);
+    const stacked = container.clientWidth < 480;
+    const rowH = stacked ? 74 : (o.rowH || 30), top = stacked ? 32 : 22;
+    const labelW = stacked ? 20 : (o.labelW || Math.min(190, (container.clientWidth || 600) * 0.34));
     const h = top + o.rows.length * rowH + 28;
     const { svg, width } = frame(container, h, o.label);
-    const left = labelW, right = width - 20;
+    let left = labelW;
+    if (!stacked) {
+      // Measure the actual labels: a fixed margin clips longer condition names.
+      for (const r of o.rows) {
+        const probe = text(svg, 0, 0, r.label, { class: "lbl", "font-weight": r.highlight ? 700 : 400 });
+        left = Math.max(left, probe.getComputedTextLength() + 14);
+        probe.remove();
+      }
+    }
+    const right = width - 20;
     const maxV = Math.max(o.threshold * 1.15, ...o.rows.map(r => Math.max(r.hi ?? r.est, r.est)));
     const max = o.max || axisMax(maxV);
     const min = o.min ?? 0;
@@ -136,15 +165,17 @@
     thresholdLine(svg, x(o.threshold), top - 18, h - 24, `${fmt(o.threshold, 1)} µg/m³ threshold`);
     let lastGroup = null;
     o.rows.forEach((r, i) => {
-      const y = top + i * rowH + rowH / 2;
-      if (o.groups && r.group !== lastGroup && i > 0) svgEl("line", { x1: 0, x2: width, y1: y - rowH / 2, y2: y - rowH / 2, class: "base", opacity: .5 }, svg);
+      const rowTop = top + i * rowH;
+      const y = rowTop + (stacked ? 56 : rowH / 2);
+      if (o.groups && r.group !== lastGroup && i > 0) svgEl("line", { x1: 0, x2: width, y1: rowTop, y2: rowTop, class: "base", opacity: .5 }, svg);
       lastGroup = r.group;
-      text(svg, left - 10, y + 4, r.label, { "text-anchor": "end", class: "lbl", "font-weight": r.highlight ? 700 : 400 });
+      if (stacked) wrappedLabel(svg, 4, rowTop + 16, r.label, width - 8, r.highlight);
+      else text(svg, left - 10, y + 4, r.label, { "text-anchor": "end", class: "lbl", "font-weight": r.highlight ? 700 : 400 });
       if (r.lo !== null && r.lo !== undefined) {
         svgEl("line", { x1: x(r.lo), x2: x(r.hi), y1: y, y2: y, stroke: "var(--text-secondary)", "stroke-width": 2, "stroke-linecap": "round" }, svg);
       }
       svgEl("circle", { cx: x(r.est), cy: y, r: 5.5, fill: r.color, stroke: "var(--surface-1)", "stroke-width": 2 }, svg);
-      const hit = svgEl("rect", { x: 0, y: y - rowH / 2, width, height: rowH, class: "hit" }, svg);
+      const hit = svgEl("rect", { x: 0, y: rowTop, width, height: rowH, class: "hit" }, svg);
       if (o.onSelect) hit.addEventListener("click", () => o.onSelect(r));
       bindTip(hit, r.label, [
         { label: "Selection regret", value: fmt(r.est, 3) + " µg/m³", color: r.color },
@@ -156,7 +187,8 @@
 
   /* ---------- strip: many scopes per evidence row ---------- */
   function strip(container, o) {
-    const rowH = 46, top = 26, labelW = Math.min(200, (container.clientWidth || 600) * 0.3);
+    const stacked = container.clientWidth < 480;
+    const rowH = stacked ? 80 : 46, top = 26, labelW = stacked ? 20 : Math.min(200, (container.clientWidth || 600) * 0.3);
     const h = top + o.groups.length * rowH + 28;
     const { svg, width } = frame(container, h, o.label);
     const left = labelW, right = width - 24;
@@ -169,10 +201,10 @@
     }
     thresholdLine(svg, x(o.threshold), top - 22, h - 24, `${fmt(o.threshold, 1)} µg/m³ threshold`);
     o.groups.forEach((g, i) => {
-      const y = top + i * rowH + rowH / 2;
+      const y = top + i * rowH + (stacked ? 58 : rowH / 2);
       svgEl("line", { x1: left, x2: right, y1: y, y2: y, stroke: "var(--grid)" }, svg);
-      text(svg, left - 12, y - 2, g.label, { "text-anchor": "end", class: "lbl", "font-weight": 600 });
-      text(svg, left - 12, y + 13, g.sub, { "text-anchor": "end" });
+      text(svg, stacked ? 4 : left - 12, y - (stacked ? 40 : 2), g.label, { "text-anchor": stacked ? "start" : "end", class: "lbl", "font-weight": 600 });
+      text(svg, stacked ? 4 : left - 12, y + (stacked ? -25 : 13), g.sub, { "text-anchor": stacked ? "start" : "end" });
       // Deterministic vertical jitter so coincident points stay visible.
       g.points.forEach((p, j) => {
         const jy = y + ((j % 5) - 2) * 4;
@@ -192,7 +224,7 @@
 
   /* ---------- dumbbell: reference -> stressed ---------- */
   function dumbbell(container, o) {
-    const rowH = 38, top = 10, labelW = Math.min(150, (container.clientWidth || 600) * 0.3);
+    const rowH = 38, top = 10, labelW = Math.max(100, Math.min(150, (container.clientWidth || 600) * 0.3));
     const h = top + o.rows.length * rowH + 28;
     const { svg, width } = frame(container, h, o.label);
     const left = labelW, right = width - 70;
